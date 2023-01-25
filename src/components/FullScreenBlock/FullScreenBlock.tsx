@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function FullScreenBlock() {
   return (
     <div className="full-screen-block">
