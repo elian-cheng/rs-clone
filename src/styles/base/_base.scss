@@ -20,7 +20,7 @@ body {
 body {
   color: $colorFont;
   background: $colorBg;
-  font-family: "Nunito", sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: $fontSemibold;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
@@ -35,15 +35,15 @@ body {
     height: 5px;
   }
   &::-webkit-scrollbar-track {
-    background: $colorYellow;
+    background: $colorBlueDark;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: $colorBlack;
+    background: $colorYellow;
     transition: background 0.3s ease;
   }
   &::-webkit-scrollbar-thumb:hover {
-    background: $colorBlack;
+    background: $colorYellow;
   }
 }
 
@@ -61,7 +61,7 @@ body {
 input,
 button,
 textarea {
-  font-family: "Nunito";
+  font-family: 'Nunito';
   font-size: inherit;
 }
 
@@ -145,7 +145,7 @@ h2 {
   min-width: 0;
 }
 
-[class*="__container"] {
+[class*='__container'] {
   max-width: 75rem;
   margin: 0 auto;
   padding-left: 15px;
