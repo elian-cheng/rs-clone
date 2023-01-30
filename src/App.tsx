@@ -5,7 +5,6 @@ import Definition from './components/Definition/Definition';
 import './styles.scss';
 import Features from './components/Features/Features';
 import { featuresData } from './utils/featuresData';
-import CodeEditor from './components/CodeEditor/CodeEditor';
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
         <FullScreenBlock />
         <Definition />
         <Features features={featuresData} />
-        <CodeEditor />
       </main>
       <Footer />
     </>

@@ -14,7 +14,7 @@ export default function HtmlEditor() {
       mode="html"
       theme="monokai"
       name="editor_html"
-      defaultValue="<h1>Hello world</h1>"
+      defaultValue={html}
       value={html}
       onChange={(value) => setHtml(value)}
       fontSize={20}

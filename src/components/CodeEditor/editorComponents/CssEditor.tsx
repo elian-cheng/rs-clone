@@ -14,6 +14,7 @@ export default function CssEditor() {
       mode="css"
       theme="monokai"
       name="editor_css"
+      defaultValue={css}
       value={css}
       onChange={(value) => setCss(value)}
       fontSize={20}

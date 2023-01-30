@@ -1,6 +1,6 @@
 import { createContext, useState } from 'react';
 import React from 'react';
-
+import { ITask } from '../../CodeEditor';
 interface IEditor {
   html: string;
   css: string;
@@ -19,10 +19,10 @@ export const EditorContext = createContext<IEditor>({
   setTs: () => {},
 });
 
-export const EditorProvider = ({ children }: { children: React.ReactNode }) => {
-  const [html, setHtml] = useState('');
-  const [css, setCss] = useState('');
-  const [ts, setTs] = useState('');
+export const EditorProvider = ({ children, task }: { children: React.ReactNode; task: ITask }) => {
+  const [html, setHtml] = useState(task.html);
+  const [css, setCss] = useState(task.css);
+  const [ts, setTs] = useState(task.ts);
 
   const values = {
     html,

@@ -15,7 +15,7 @@ export default function TsEditor() {
       mode="javascript"
       theme="monokai"
       name="editor_js"
-      defaultValue="document.querySelector('h1').style.color = 'green';"
+      defaultValue={ts}
       value={ts}
       onChange={(value) => setTs(value)}
       fontSize={20}
