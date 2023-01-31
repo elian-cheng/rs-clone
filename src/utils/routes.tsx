@@ -20,19 +20,19 @@ export const routes: IRoute[] = [
     element: <HomePage />,
   },
   {
-    path: 'lessons',
+    path: '/lessons',
     element: <LessonsPage />,
   },
   {
-    path: 'practice',
+    path: '/practice',
     element: <PracticePage />,
   },
   {
-    path: 'games',
+    path: '/games',
     element: <GamesPage />,
   },
   {
-    path: 'statistics',
+    path: '/statistics',
     element: <StatisticsPage />,
   },
   {
