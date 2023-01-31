@@ -1,12 +1,13 @@
-@import "./styles/abstract/constants";
-@import "./styles/abstract/mixins";
+@import './styles/abstract/constants';
+@import './styles/abstract/mixins';
 
-@import "./styles/base/base";
-@import "./styles/base/fonts";
+@import './styles/base/base';
+@import './styles/base/fonts';
 
-@import "./components/Header/Header";
-@import "./components/FullScreenBlock/FullScreenBlock";
-@import "./components/Definition/Definiton";
-@import "./components/Footer/Footer";
-@import "./components/Features/Features";
-@import "./components/CodeEditor/CodeEditor";
+@import './components/Header/Header';
+@import './components/FullScreenBlock/FullScreenBlock';
+@import './components/Definition/Definiton';
+@import './components/Footer/Footer';
+@import './components/Features/Features';
+@import './components/CodeEditor/CodeEditor';
+@import './components/Error/Error';

@@ -1,23 +1,33 @@
+import { useEffect } from 'react';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
-import FullScreenBlock from './components/FullScreenBlock/FullScreenBlock';
-import Definition from './components/Definition/Definition';
 import './styles.scss';
-import Features from './components/Features/Features';
-import { featuresData } from './utils/featuresData';
+import { IRoute } from './types/interfaces';
+import { routes, titles } from './utils/routes';
 
-function App() {
+export default function App() {
+  const location = useLocation();
+
+  useEffect(() => {
+    document.title = titles[location.pathname] ?? 'TS Academy';
+  }, [location]);
+
   return (
     <>
       <Header />
       <main className="main">
-        <FullScreenBlock />
-        <Definition />
-        <Features features={featuresData} />
+        <Routes>{routes.map(createRoutes)}</Routes>
       </main>
       <Footer />
     </>
   );
 }
 
-export default App;
+function createRoutes(props: IRoute) {
+  const {
+    path, //
+    element,
+  } = props;
+  return <Route path={path} element={element} />;
+}
