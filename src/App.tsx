@@ -5,12 +5,14 @@ import Definition from "./components/Definition/Definition";
 import "./styles.scss";
 import Features from "./components/Features/Features";
 import { featuresData } from "./utils/featuresData";
+import Sidebar from "./components/Sidebar/Sidebar";
 
 function App() {
   return (
     <>
       <Header />
       <main className="main">
+        <Sidebar />
         <FullScreenBlock />
         <Definition />
         <Features features={featuresData} />

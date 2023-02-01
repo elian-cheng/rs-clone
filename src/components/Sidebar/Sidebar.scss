@@ -1,0 +1,78 @@
+.sidebar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  background: rgba($color: $colorBlack, $alpha: 0.6);
+  height: 100%;
+  width: 100px;
+  box-shadow: 0 8px 32px rgb(2, 4, 24);
+  border-left: 2px solid rgba($color: $colorWhite, $alpha: 0.09);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  &__toggle {
+    position: absolute;
+    width: 38px;
+    height: 38px;
+    fill: $colorWhite;
+    cursor: pointer;
+    top: 180px;
+    left: -20px;
+    border-radius: 50%;
+    padding: 7px;
+    background: linear-gradient(
+      -90deg,
+      transparent 30%,
+       rgba(10, 10, 10, .65) 50%
+    );
+  }
+  &__logo {
+    width: 100%;
+    height: 120px;
+    padding: 40px 0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+  &__user-icon {
+    width: 46px;
+    height: 46px;
+    fill: $colorGrayDark;
+  }
+  &__user-name {
+    color: $colorWhite;
+    text-align: center;
+    display: none;
+  }
+  &__nav {
+    padding: 0 10px;
+    .nav-item {
+      border-radius: 4px;
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: 56px;
+      padding: 0 16px;
+      margin: 8px 0;
+      transition: .3s;
+      .nav-icon {
+        width: 26px;
+        height: 26px;
+        fill: $colorWhite;
+      }
+      .nav-title {
+        color: $colorWhite;
+        margin-left: 8px;
+        display: none;
+      }
+    }
+    .nav-item_active {
+      background: $colorBlueDark !important;
+    }
+    .nav-item:hover {
+      background: rgba($color: $colorWhite, $alpha: 0.1);
+    }
+  }
+}
