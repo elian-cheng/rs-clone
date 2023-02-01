@@ -12,8 +12,9 @@ export default function Router() {
 
 function createRoutes(props: IRoute) {
   const {
+    title,
     path, //
     element,
   } = props;
-  return <Route path={path} element={element} />;
+  return <Route key={title} path={path} element={element} />;
 }
