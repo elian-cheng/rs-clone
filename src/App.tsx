@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import './styles.scss';
-import { IRoute } from './types/interfaces';
-import { routes, titles } from './utils/routes';
+import { titles } from './routing/routes';
+import Router from './routing/Router/Router';
 
 export default function App() {
   const location = useLocation();
@@ -17,17 +17,9 @@ export default function App() {
     <>
       <Header />
       <main className="main">
-        <Routes>{routes.map(createRoutes)}</Routes>
+        <Router />
       </main>
       <Footer />
     </>
   );
-}
-
-function createRoutes(props: IRoute) {
-  const {
-    path, //
-    element,
-  } = props;
-  return <Route path={path} element={element} />;
 }

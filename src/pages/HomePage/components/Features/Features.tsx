@@ -1,6 +1,12 @@
 import React from 'react';
-import { IFeature } from '../../types/interfaces';
 import FeatureCard from './FeatureCard';
+
+export interface IFeature {
+  id: number;
+  src: string;
+  title: string;
+  description: string;
+}
 
 interface FeaturesProps {
   features: IFeature[];

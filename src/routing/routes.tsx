@@ -1,10 +1,18 @@
-import ErrorPage from '../pages/ErrorPage';
-import GamesPage from '../pages/GamesPage';
-import HomePage from '../pages/HomePage';
-import LessonsPage from '../pages/LessonsPage';
-import PracticePage from '../pages/PracticePage';
-import StatisticsPage from '../pages/StatisticsPage';
-import { IRoute, ITitle } from '../types/interfaces';
+import ErrorPage from '../pages/ErrorPage/ErrorPage';
+import GamesPage from '../pages/GamesPage/GamesPage';
+import HomePage from '../pages/HomePage/HomePage';
+import LessonsPage from '../pages/LessonsPage/LessonsPage';
+import PracticePage from '../pages/PracticePage/PracticePage';
+import StatisticsPage from '../pages/StatisticsPage/StatisticsPage';
+
+export interface IRoute {
+  path: string;
+  element: React.ReactNode;
+}
+
+interface ITitle {
+  [key: string]: string;
+}
 
 export const titles: ITitle = {
   '/': 'TS Academy',
