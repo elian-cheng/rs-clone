@@ -2,7 +2,7 @@ import book from '../assets/images/features/book.png';
 import practice from '../assets/images/features/practice.png';
 import games from '../assets/images/features/games.png';
 import statistics from '../assets/images/features/statistics.png';
-import { IFeature } from '../types/interfaces';
+import { IFeature } from '../pages/HomePage/components/Features/Features';
 
 export const featuresData: IFeature[] = [
   {

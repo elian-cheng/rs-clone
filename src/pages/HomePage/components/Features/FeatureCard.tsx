@@ -1,5 +1,5 @@
 import React from 'react';
-import { IFeature } from '../../types/interfaces';
+import { IFeature } from './Features';
 
 export default function FeatureCard(props: IFeature) {
   const {
