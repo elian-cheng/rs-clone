@@ -20,7 +20,7 @@ export default function Footer() {
           </a>
           <a href="https://github.com/ordinaraviro" target="blanket" className="footer__gh-link">
             <GhIcon className="footer__gh-icon" />
-            <span className="footer__gh-desc">Oleksandr Yulin</span>
+            <span className="footer__gh-desc">Oleksandr Mazghin</span>
           </a>
         </div>
         <div className="footer__copy-year">© 2023</div>
