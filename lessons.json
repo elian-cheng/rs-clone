@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Introduction",
+    "description": [
+      "TypeScript is a superset of JavaScript that adds optional static typing and other features such as classes and interfaces.",
+      "It is designed to make large-scale JavaScript applications more manageable and scalable. TypeScript code can be transpiled (converted) into plain JavaScript, allowing it to run in any JavaScript environment.",
+      "This can make development easier by catching type-related errors at compile-time, rather than runtime. TypeScript is widely used in Angular, Ionic and other big projects.",
+      "It provides three main benefits: \n1.Finding some kinds of errors before running the code. \n2.Easier code refactoring. \n3.Full support for editor features: auto-completion, code navigation, etc."
+    ],
+    "examples": [
+      "console.log('Hello, World!')",
+      "Benefits of type cheking: \nfunction sum(a: number, b: number) {\nreturn a + b;\n} \n sum(10n, 5) // Argument of type 'bigint' is not assignable to parameter of type 'number'."
+    ],
+    "theme": "Typescript Basics"
+  },
+  {
+    "id": 2,
+    "title": "Variables",
+    "description": [
+      "In TypeScript, variables can be declared using the 'let' or 'const' keywords.",
+      "'Let' is used to declare a variable that can be reassigned a new value. 'Const' is used to declare a variable that cannot be reassigned a new value, once it is declared.",
+      "In addition to let and const, TypeScript also supports the var keyword for variable declarations. However, the let and const are preferred over var because they have better scoping behavior.",
+      "TypeScript also allows you to specify the type of a variable when declaring it, using a colon ':' followed by the type.",
+      "TypeScript supports many built-in types like number, string, boolean, etc and also allows to create custom types using interfaces and classes."
+    ],
+    "examples": [
+      "Let: \nx = 10; // x is now 10",
+      "Const: \ny = 10; // error: y is read-only",
+      "Type declaration: \nlet x: number = 5"
+    ],
+    "theme": "Typescript Basics"
+  }
+]
