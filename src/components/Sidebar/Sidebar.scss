@@ -99,6 +99,9 @@
 .sidebar_open {
   width: 320px;
   height: 100vh;
+  @media (max-width: 350px){
+    width: 290px;
+  }
   .sidebar__toggle {
     transform: translateY(45px);
     transform: rotateY(180deg);
