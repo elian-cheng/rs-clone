@@ -99,10 +99,11 @@
 .sidebar_open {
   width: 320px;
   height: 100vh;
-  @media (max-width: 350px){
-    width: 290px;
-  }
   .sidebar__toggle {
+    @media (max-width: 345px){
+      left: 0;
+      right: auto;
+    }
     transform: translateY(45px);
     transform: rotateY(180deg);
     background: linear-gradient(
