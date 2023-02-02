@@ -1,0 +1,20 @@
+.practice__codewars-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.practice__codewars-kyu {
+  cursor: pointer;
+  width: 10%;
+  height: 50px;
+  background-color: $colorBlueDark;
+  color: $colorWhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.active-btn {
+  transition: all 0.5s;
+  background-color: rgb(54, 235, 8);
+}
