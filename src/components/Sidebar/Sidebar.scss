@@ -103,6 +103,7 @@
     @media (max-width: 345px){
       left: 0;
       right: auto;
+      background: rgba($color: $colorWhite, $alpha: 0.2);
     }
     transform: translateY(45px);
     transform: rotateY(180deg);
@@ -111,6 +112,9 @@
       transparent 0%,
       rgba($color: $colorBlack, $alpha: 0.6)
     );
+  }
+  .sidebar__toggle:hover {
+    background: rgba($color: $colorWhite, $alpha: 0.4);
   }
   .sidebar__logo {
     padding: 40px 0 80px 0;
