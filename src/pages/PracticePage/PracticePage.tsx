@@ -12,7 +12,6 @@ export default function PracticePage() {
   // }, [status]);
   return (
     <div className="main__container">
-      <div style={{ marginTop: 100 }}>PracticePage</div>
       <CodeWarsChallenges></CodeWarsChallenges>
     </div>
   );
