@@ -5,7 +5,19 @@ interface ITask {
   id: string;
   name: string;
   url: string;
+  done: boolean;
 }
+interface IUser {
+  data: Array<ICompletedTask>;
+}
+interface ICompletedTask {
+  id: string;
+  name: string;
+  completedLanguages: Array<string>;
+}
+
+type codeWarsTasksType = { [status: string]: string[] };
+
 export default function CodeWarsChallenges() {
   const [status, setStatus] = useState('8 kyu');
   const [data, setData] = useState(Array<ITask>);
@@ -17,9 +29,37 @@ export default function CodeWarsChallenges() {
         .then((res) => res);
       return res;
     }
-    type codeWarsTasksType = { [status: string]: string[] };
-    const obj: codeWarsTasksType = codeWarsTasks;
-    Promise.all(obj[status].map((item: string) => getSingleTask(item))).then((res) => setData(res));
+    async function getUser() {
+      const res: IUser = await fetch(
+        // elian-cheng
+        // rsschool_d64fb9cd409b7f9b
+        `https://www.codewars.com/api/v1/users/rsschool_d64fb9cd409b7f9b/code-challenges/completed`
+      )
+        .then((res) => res.json())
+        .then((res) => res);
+      return res;
+    }
+    async function getAllTasks() {
+      const obj: codeWarsTasksType = codeWarsTasks;
+      const tasksArr: ITask[] = await Promise.all(
+        obj[status].map((item: string) => getSingleTask(item))
+      ).then((res) => res);
+      const userCompletedTasks = await getUser();
+
+      tasksArr.forEach((item) => {
+        if (
+          userCompletedTasks.data.find(
+            (task) => task.completedLanguages.includes('typescript') && task.id === item.id
+          )
+        ) {
+          item.done = true;
+        } else {
+          item.done = false;
+        }
+      });
+      setData(tasksArr);
+    }
+    getAllTasks();
   }
 
   useEffect(() => {
@@ -29,62 +69,35 @@ export default function CodeWarsChallenges() {
   return (
     <section className="practice__codewars">
       <ul className="practice__codewars-navigation">
-        <li
-          className={`${'practice__codewars-kyu'} ${status === '8 kyu' && 'active-btn'}`}
-          onClick={() => setStatus('8 kyu')}
-        >
-          8 kyu
-        </li>
-        <li
-          className={`${'practice__codewars-kyu'} ${status === '7 kyu' && 'active-btn'}`}
-          onClick={() => setStatus('7 kyu')}
-        >
-          7 kyu
-        </li>
-        <li
-          className={`${'practice__codewars-kyu'} ${status === '6 kyu' && 'active-btn'}`}
-          onClick={() => setStatus('6 kyu')}
-        >
-          6 kyu
-        </li>
-        <li
-          className={`${'practice__codewars-kyu'} ${status === '5 kyu' && 'active-btn'}`}
-          onClick={() => setStatus('5 kyu')}
-        >
-          5 kyu
-        </li>
-        <li
-          className={`${'practice__codewars-kyu'} ${status === '4 kyu' && 'active-btn'}`}
-          onClick={() => setStatus('4 kyu')}
-        >
-          4 kyu
-        </li>
-        <li
-          className={`${'practice__codewars-kyu'} ${status === '3 kyu' && 'active-btn'}`}
-          onClick={() => setStatus('3 kyu')}
-        >
-          3 kyu
-        </li>
-        <li
-          className={`${'practice__codewars-kyu'} ${status === '2 kyu' && 'active-btn'}`}
-          onClick={() => setStatus('2 kyu')}
-        >
-          2 kyu
-        </li>
-        <li
-          className={`${'practice__codewars-kyu'} ${status === '1 kyu' && 'active-btn'}`}
-          onClick={() => setStatus('1 kyu')}
-        >
-          1 kyu
-        </li>
+        {Object.keys(codeWarsTasks)
+          .reverse()
+          .map((item, i) => {
+            return (
+              <li
+                key={i}
+                className={`${'practice__codewars-kyu'} ${status === item && 'active-btn'}`}
+                onClick={() => setStatus(item)}
+              >
+                {item}
+              </li>
+            );
+          })}
       </ul>
       <ul className="practice__codewars-list">
         {data.map((item, i) => (
           <li className="practice__codewars-list-item" key={i}>
-            <a href={item.url + '/typescript'}>{item.name}</a>
+            <a href={item.url + '/typescript'}>{item.done ? item.name + '+' : item.name + '-'}</a>
           </li>
         ))}
       </ul>
+      <div className="practice__codewars-check">
+        <input
+          type="text"
+          placeholder="CodeWars login"
+          className="practice__codewars-check-input"
+        />
+        <button className="practice__codewars-check-submit">Submit solutions</button>
+      </div>
     </section>
   );
 }
