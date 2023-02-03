@@ -7,20 +7,25 @@
 
   &__content {
     display: flex;
+    justify-content: center;
     gap: 1.5rem;
+    @media (max-width: $pc) {
+      flex-wrap: wrap;
+    }
   }
 }
 
 .member {
   border-radius: 25px;
   background-color: $colorWhite;
+  min-width: 300px;
   flex: 0 1 33.33%;
   &__image,
   &__info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px 14px;
+    padding: 0.8rem 1.5rem;
   }
   &__image {
     position: relative;
@@ -29,9 +34,11 @@
   }
 
   &__title {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: $fontSemibold;
     margin-bottom: 0.5rem;
+    padding: 0 1rem;
+    text-align: center;
   }
 
   &__description {
