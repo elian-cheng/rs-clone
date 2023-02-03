@@ -5,26 +5,29 @@ import { ReactComponent as GameIcon } from "../../assets/images/sidebar/games.sv
 import { ReactComponent as StatIcon } from "../../assets/images/sidebar/statistics.svg";
 import { ReactComponent as UserIcon } from "../../assets/images/sidebar/user.svg";
 import { ReactComponent as Arrow } from "../../assets/images/sidebar/arrowleft.svg";
-import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
-  const toggleNav = (event: MouseEvent) => {
-    if ((event.target as HTMLDivElement).classList.contains('sidebar__toggle')) {
+  const sidebarAction = (event: MouseEvent) => {
+    const openBtn = (event.target as HTMLElement).closest('.sidebar__toggle');
+    const navBtn = (event.target as HTMLElement).closest('.nav-item');
+    if (openBtn) {
       document.querySelector('.sidebar')?.classList.toggle('sidebar_open');
     }
-    if ((event.target as HTMLDivElement).classList.contains('nav__item')) {
-      document.querySelectorAll('.nav__item').forEach((e) => {
-        e.classList.remove('nav__item_active');
+    if (navBtn) {
+      document.querySelectorAll('.nav-item').forEach((e) => {
+        e.classList.remove('nav-item_active');
       })
+      navBtn.classList.add('nav-item_active');
     }
   }
 
-  const path = useLocation().pathname;
-
   React.useEffect(() => {
-    addEventListener('click', toggleNav);
-    document.getElementById(`${path}`)?.classList.add('nav-item_active');
-  })
+    addEventListener('click', sidebarAction);
+    return () => {
+      removeEventListener('click', sidebarAction)
+    }
+  }, [])
 
   return (
     <div className="sidebar">
@@ -34,22 +37,22 @@ export default function Sidebar() {
         <div className="sidebar__user-name">Guest</div>
       </div>
       <nav className="sidebar__nav">
-        <a href="/lessons" className="nav-item" id="/lessons">
+        <Link to="/lessons" className="nav-item">
           <LessonsIcon className="nav-icon" />
           <span className="nav-title">Lessons</span>
-        </a>
-        <a href="/practice" className="nav-item" id="/practice">
+        </Link>
+        <Link to="/practice" className="nav-item">
           <PracticeIcon className="nav-icon" />
           <span className="nav-title">Practice</span>
-        </a>
-        <a href="/games" className="nav-item" id="/games">
+        </Link>
+        <Link to="/games" className="nav-item">
           <GameIcon className="nav-icon" />
           <span className="nav-title">Games</span>
-        </a>
-        <a href="/statistics" className="nav-item" id="/statistics">
+        </Link>
+        <Link to="/statistics" className="nav-item">
           <StatIcon className="nav-icon" />
           <span className="nav-title">Statistics</span>
-        </a>
+        </Link>
       </nav>
     </div>
   );
