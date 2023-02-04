@@ -1,5 +1,12 @@
 .features {
   margin-top: 3rem;
+  &__title {
+    color: $colorBlueDark;
+    margin-bottom: 1rem;
+  }
+  &__subtitle {
+    margin-bottom: 3rem;
+  }
 }
 
 .features__container {

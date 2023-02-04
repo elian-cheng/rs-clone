@@ -21,7 +21,7 @@
     display: block;
   }
   &__rss-icon:hover {
-    fill: $colorGreen;
+    fill: $colorBlueMiddle;
   }
   &__gh-links {
     display: flex;
@@ -45,10 +45,9 @@
     transition: 300ms;
   }
   &__gh-link:hover {
-    color: $colorGreen;
+    color: $colorBlueMiddle;
   }
   &__gh-link:hover &__gh-icon {
-    fill: $colorGreen;
+    fill: $colorBlueMiddle;
   }
 }
-
