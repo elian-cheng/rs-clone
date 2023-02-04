@@ -1,9 +1,3 @@
-@mixin btnHover {
-  &:hover {
-    transition: 0.5s all;
-    background-color: $colorGreen;
-  }
-}
 @mixin taskHover {
   &:hover {
     transition: 0.5s all;
@@ -17,7 +11,6 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 100px;
   row-gap: 40px;
   font-size: 1.3rem;
   color: $colorWhite;
@@ -25,13 +18,16 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    column-gap: 20px;
+    row-gap: 20px;
+    flex-wrap: wrap;
     font-size: 1.3rem;
   }
   &-kyu {
     cursor: pointer;
-    width: 10%;
+    width: 120px;
     height: 50px;
-    background-color: $colorBlueDark;
+    background-color: $colorBlueMiddle;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,7 +37,14 @@
   &-tasks {
     width: 100%;
     display: flex;
-    column-gap: 80px;
+    column-gap: 60px;
+    align-items: flex-start;
+    &-loading {
+      color: $colorBlack;
+      font-size: 3rem;
+      width: 100%;
+      text-align: center;
+    }
   }
   &-list {
     width: 100%;
@@ -51,30 +54,38 @@
     align-items: center;
     row-gap: 15px;
     &-item {
+      text-align: center;
       background-color: $colorOrangeDark;
       width: 100%;
       height: 60px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       border-radius: 10px;
       cursor: pointer;
       @include taskHover;
+      a {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
     }
   }
   &-check {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     row-gap: 20px;
+    background-color: $colorOrangeDark;
+    border-radius: 10px;
+    height: 200px;
+    padding: 10px;
     &-input {
       border: 1px solid black;
       border-radius: 5px;
       padding: 5px;
     }
     &-submit {
-      background-color: $colorBlueDark;
+      background-color: $colorBlueMiddle;
       width: 200px;
       height: 50px;
       border-radius: 10px;
@@ -83,7 +94,13 @@
   }
 }
 
-.active-btn {
-  transition: all 0.5s;
-  background-color: $colorGreen;
+@media (max-width: 768px) {
+  .practice__codewars-tasks {
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: center;
+  }
+  .practice__codewars-navigation {
+    justify-content: center;
+  }
 }

@@ -1,8 +1,8 @@
 @import "./theme/abstract/constants";
 @import "./theme/abstract/mixins";
 
-<<<<<<< HEAD
 @import "./theme/base/base";
+@import "./theme/base/common";
 @import "./theme/base/fonts";
 
 @import "./components/Header/Header";
@@ -10,22 +10,8 @@
 @import "./pages/HomePage/components/FullScreenBlock/FullScreenBlock";
 @import "./pages/HomePage/components/Definition/Definiton";
 @import "./pages/HomePage/components/Features/Features";
+@import "./pages/HomePage/components/TeamMembers/TeamMembers";
 @import "./components/CodeEditor/CodeEditor";
 @import "./pages/ErrorPage/components/Error/Error";
 @import "./components/Sidebar/Sidebar.scss";
-@import "./pages/PracticePage/components/CodeWarsChallenge";
-=======
-@import './theme/base/base';
-@import './theme/base/common';
-@import './theme/base/fonts';
-
-@import './components/Header/Header';
-@import './components/Footer/Footer';
-@import './pages/HomePage/components/FullScreenBlock/FullScreenBlock';
-@import './pages/HomePage/components/Definition/Definiton';
-@import './pages/HomePage/components/Features/Features';
-@import './pages/HomePage/components/TeamMembers/TeamMembers';
-@import './components/CodeEditor/CodeEditor';
-@import './pages/ErrorPage/components/Error/Error';
-@import './components/Sidebar/Sidebar.scss';
->>>>>>> 68e2f94f4bf0549ac98bbdee696a6322491a66b9
+@import "./pages/PracticePage/PracticePage";

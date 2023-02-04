@@ -1,17 +1,23 @@
 import { useEffect, useState } from 'react';
-import { CodeWarsAPI, ITask } from '../api/codeWarsApi';
-import { codeWarsTasks } from '../api/tasksId';
+import { CodeWarsAPI, ITask } from '../../api/codeWarsApi';
+import { codeWarsTasks } from '../../api/tasksId';
 import CodeWarsForm from './CodeWarsForm';
+import CodeWarsTaskList from './CodeWarsTaskList';
 
 export default function CodeWarsChallenges() {
   const [status, setStatus] = useState('8 kyu');
   const [data, setData] = useState(Array<ITask>);
   const [login, setLogin] = useState('user');
+  const [loading, setLoading] = useState(false);
 
   const api = new CodeWarsAPI();
 
   useEffect(() => {
-    api.renderTasks(login, status).then((res) => setData(res));
+    setLoading(false);
+    api.renderTasks(login, status).then((res) => {
+      setData(res);
+      setLoading(true);
+    });
   }, [login, status]);
 
   return (
@@ -32,14 +38,12 @@ export default function CodeWarsChallenges() {
           })}
       </ul>
       <div className="practice__codewars-tasks">
-        <ul className="practice__codewars-list">
-          {data.map((item, i) => (
-            <li className="practice__codewars-list-item" key={i}>
-              <a href={item.url + '/typescript'}>{item.done ? item.name + ' ✓' : item.name}</a>
-            </li>
-          ))}
-        </ul>
-        <CodeWarsForm setLogin={setLogin} />
+        {loading ? (
+          <CodeWarsTaskList data={data} />
+        ) : (
+          <div className="practice__codewars-tasks-loading">Loading...</div>
+        )}
+        <CodeWarsForm setLogin={setLogin} lvl={status} />
       </div>
     </section>
   );

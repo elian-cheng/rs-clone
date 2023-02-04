@@ -63,6 +63,8 @@ export class CodeWarsAPI {
   }
 
   async renderTasks(name: string, status: string) {
+    const storageName = localStorage.getItem('CodeWarsLogin');
+    storageName ? (name = storageName) : name;
     const user = await this.getUser(name);
     const tasks = await this.getAllTasks(status);
     if (user.data) {
