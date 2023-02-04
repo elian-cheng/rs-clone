@@ -16,7 +16,7 @@ const settingRouter = require("./routes/settings/setting.router");
 const lessonsRouter = require("./routes/lessons/lessons");
 const quizRouter = require("./routes/quiz/quiz");
 const errorHandler = require("./errors/errorHandler");
-// const checkAuthentication = require("./routes/authentication/checkAuthentication");
+const checkAuthentication = require("./routes/authentication/checkAuthentication");
 const { userIdValidator } = require("./utils/validation/validator");
 
 const app = express();
@@ -25,7 +25,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
-// app.use(checkAuthentication);
+app.use(checkAuthentication);
 
 app.use("/", (req, res, next) => {
   if (req.originalUrl === "/") {
