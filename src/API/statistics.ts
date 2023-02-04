@@ -1,7 +1,7 @@
 import { BASE_URL } from './URL';
 import { getToken } from './authorization';
 
-export async function setUserStatistic(
+export async function setUserStatistics(
   id: string,
   learnedLessons: number,
   finishedKatas: number,
@@ -28,7 +28,7 @@ export async function setUserStatistic(
   }
 }
 
-export async function getUserStatistic(id: string) {
+export async function getUserStatistics(id: string) {
   const response = await fetch(`${BASE_URL}users/${id}/statistics`, {
     headers: {
       Authorization: `Bearer ${getToken()}`,
