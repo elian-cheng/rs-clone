@@ -18,10 +18,6 @@ export interface ICompletedTask {
 export type codeWarsTasksType = { [status: string]: string[] };
 
 export class CodeWarsAPI {
-  codeWarsLogin: string;
-  constructor() {
-    this.codeWarsLogin = '';
-  }
   async getSingleTask(task: string) {
     const res = await fetch(`https://www.codewars.com/api/v1/code-challenges/${task}`)
       .then((res) => res.json())
@@ -29,18 +25,17 @@ export class CodeWarsAPI {
     return res;
   }
 
-  async getUser() {
+  async getUser(name: string) {
     const res: IUser = await fetch(
       // elian-cheng
       // rsschool_d64fb9cd409b7f9b
-      `https://www.codewars.com/api/v1/users/${this.codeWarsLogin}/code-challenges/completed`,
-      {
-        method: 'GET',
-      }
+      `https://www.codewars.com/api/v1/users/${name}/code-challenges/completed`
     )
       .then((res) => res.json())
       .then((res) => res)
-      .catch(() => console.log('incorrect name of user'));
+      .catch(() => {
+        throw Error;
+      });
     return res;
   }
 
@@ -53,11 +48,11 @@ export class CodeWarsAPI {
     return tasksArr;
   }
 
-  async checkTasks(tasks: ITask[]) {
-    const userCompletedTasks = await this.getUser();
+  async checkTasks(tasks: ITask[], user: IUser) {
+    const userCompletedTasks = user.data;
     tasks.forEach((item) => {
       if (
-        userCompletedTasks.data.find(
+        userCompletedTasks.find(
           (task) => task.completedLanguages.includes('typescript') && task.id === item.id
         )
       ) {
@@ -65,5 +60,16 @@ export class CodeWarsAPI {
       }
     });
     return tasks;
+  }
+
+  async renderTasks(name: string, status: string) {
+    const user = await this.getUser(name);
+    const tasks = await this.getAllTasks(status);
+    if (user.data) {
+      const checkedTasks = await this.checkTasks(tasks, user);
+      return checkedTasks;
+    } else {
+      return tasks;
+    }
   }
 }

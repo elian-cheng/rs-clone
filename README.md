@@ -12,7 +12,7 @@ https://elian-team-rsclone.netlify.app/
 
 - [Olga Chernega](https://github.com/elian-cheng)
 - [Eugene Burkovskiy](https://github.com/eugeneburkovskiy)
-- [Oleksandr Yulin](https://github.com/ordinaraviro)
+- [Oleksandr Mazghin](https://github.com/ordinaraviro)
 
 ### Install instructions:
 
@@ -29,5 +29,7 @@ https://elian-team-rsclone.netlify.app/
 - React
 - React Router
 - TypeScript
-- SASS
-- Node JS
+- SCSS
+- Node Express
+- Mongoose
+- JWT Authentication

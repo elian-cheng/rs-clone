@@ -15,12 +15,14 @@ interface FeaturesProps {
 export default function Features(props: FeaturesProps) {
   const { features } = props;
   return (
-    <div className="features">
+    <section className="features">
       <div className="features__container">
+        <h2 className="features__title title">What's in the course?</h2>
+        <h5 className="features__subtitle subtitle">Please log in to get access to all features</h5>
         {features.map((feature) => {
           return <FeatureCard key={feature.id} {...feature} />;
         })}
       </div>
-    </div>
+    </section>
   );
 }

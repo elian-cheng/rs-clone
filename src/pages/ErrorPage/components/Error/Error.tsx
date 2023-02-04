@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Error() {
   return (
@@ -12,7 +13,7 @@ export default function Error() {
         </h4>
         <p className="error__text">Sorry, the page you're looking for doesn't exist.</p>
         <div className="error__btns">
-          <a href="/">Return home</a>
+          <Link to="/">Return home</Link>
         </div>
       </div>
     </div>

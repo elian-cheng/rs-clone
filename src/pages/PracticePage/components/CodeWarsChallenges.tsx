@@ -6,22 +6,12 @@ import CodeWarsForm from './CodeWarsForm';
 export default function CodeWarsChallenges() {
   const [status, setStatus] = useState('8 kyu');
   const [data, setData] = useState(Array<ITask>);
-  const [login, setLogin] = useState('');
+  const [login, setLogin] = useState('user');
 
   const api = new CodeWarsAPI();
 
-  // useEffect(() => {
-  //   api.getAllTasks(status).then((res) => setData(res));
-  // }, [status]);
-
   useEffect(() => {
-    api.codeWarsLogin = login;
-    api
-      .getAllTasks(status)
-      .then((res) => api.checkTasks(res))
-      .then((res) => {
-        setData(res);
-      });
+    api.renderTasks(login, status).then((res) => setData(res));
   }, [login, status]);
 
   return (

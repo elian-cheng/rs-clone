@@ -30,6 +30,6 @@ export const featuresData: IFeature[] = [
     src: `${statistics}`,
     title: 'Statistics',
     description:
-      '"Statistics" is designed to help you track your progress and understanding of the language. \nIt includes detailed performance metrics for every tutorial, exercise, and game.',
+      '"Statistics" is designed to help you track your progress and understanding of the language. \nIt includes detailed performance metrics for every tutorial, exercise and game.',
   },
 ];
