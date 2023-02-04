@@ -5,6 +5,8 @@ import Header from './components/Header/Header';
 import './styles.scss';
 import { titles } from './routing/routes';
 import Router from './routing/Router/Router';
+import Sidebar from './components/Sidebar/Sidebar';
+import { sidebarItems } from './utils/sidebarItems';
 
 export default function App() {
   const location = useLocation();
@@ -15,11 +17,16 @@ export default function App() {
 
   return (
     <>
-      <Header />
-      <main className="main">
-        <Router />
-      </main>
-      <Footer />
+      <div className="page-wrapper">
+        <div className="page-content">
+          <Header />
+          <main className="main">
+            <Router />
+          </main>
+          <Footer />
+        </div>
+        <Sidebar items={sidebarItems} />
+      </div>
     </>
   );
 }
