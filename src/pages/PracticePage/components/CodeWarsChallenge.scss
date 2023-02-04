@@ -38,6 +38,11 @@
     border-radius: 10px;
     @include btnHover;
   }
+  &-tasks {
+    width: 100%;
+    display: flex;
+    column-gap: 80px;
+  }
   &-list {
     width: 100%;
     display: flex;
