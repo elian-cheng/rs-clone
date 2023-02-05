@@ -93,9 +93,9 @@ export default function Sidebar(props: ISidebar) {
         </nav>
         <div className="sidebar__login">
           {user ? (
-            <button className="sidebar__login-btn" onClick={logOut}>
-              <LoginIcon className="login-icon" />
-              <span className="login-title">Log out</span>
+            <button className="sidebar__login-btn nav-item" onClick={logOut}>
+              <LoginIcon className=" nav-icon login-icon" />
+              <span className="nav-title">Log out</span>
             </button>
           ) : (
             <button className="sidebar__login-btn nav-item" onClick={() => onSignInOpen(true)}>

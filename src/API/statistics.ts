@@ -1,31 +1,8 @@
 import { BASE_URL } from './URL';
 import { getToken } from './authorization';
+import { UserStatistics } from '../pages/StatisticsPage/StatisticsPage';
 
-export type UserStatistics = {
-  id: string;
-  learnedLessons?: number;
-  finishedKatas?: number;
-  optional?: {
-    [key: string]: GameStats;
-  };
-};
-
-export type GameStats = {
-  quiz?: {
-    totalQuestions: number;
-    correctAnswers: number;
-    wrongAnswers: number;
-    longestSeries: number;
-  };
-  missingType?: {
-    totalQuestions: number;
-    correctAnswers: number;
-    wrongAnswers: number;
-    longestSeries: number;
-  };
-};
-
-export async function setUserStatistics(id: string, statistics: Omit<UserStatistics, 'id'>) {
+export async function setUserStatistics(id: string, statistics: Omit<UserStatistics, 'userId'>) {
   const response = await fetch(`${BASE_URL}users/${id}/statistics`, {
     method: 'PUT',
     headers: {
