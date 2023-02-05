@@ -3,7 +3,7 @@
   width: 80px;
   background: rgba($color: $colorBlack, $alpha: 1);
   flex-shrink: 0;
-  transition: .4s;
+  transition: 0.4s;
   overflow: hidden;
 }
 
@@ -18,8 +18,6 @@
   width: 80px;
   box-shadow: 0 8px 32px rgb(2, 4, 24);
   border-left: 2px solid rgba($color: $colorWhite, $alpha: 0.09);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
   transition: 0.4s;
 
   &__toggle {
@@ -46,7 +44,6 @@
     display: grid;
     align-items: center;
     justify-content: center;
-    margin-bottom: 2rem;
   }
   &__user-icon {
     width: 46px;
@@ -64,7 +61,6 @@
     margin-left: 5px;
     &:hover {
       .tooltip-text {
-        right: -120px;
         opacity: 1;
       }
     }
@@ -79,8 +75,6 @@
     position: absolute;
     bottom: 2rem;
     min-height: 48px;
-    width: 58px;
-    // padding-left: 2rem;
   }
 
   &__login-btn {
@@ -118,11 +112,12 @@
         height: 26px;
         fill: $colorWhite;
       }
-      .nav-icon.login-icon {
+      .login-icon {
         width: 32px;
         height: 32px;
       }
-      .nav-title {
+      .nav-title,
+      .login-title {
         color: $colorWhite;
         margin-left: 8px;
         display: none;
@@ -165,7 +160,11 @@
     .sidebar__user-name {
       display: inline;
     }
-    .sidebar__nav {
+    .sidebar__info-icon {
+      display: block;
+    }
+    .sidebar__nav,
+    .sidebar__login {
       .nav-item {
         display: flex;
         .nav-title {
@@ -184,7 +183,7 @@
     width: 100%;
     height: 100vh;
     opacity: 0;
-    background: rgba($color: $colorBlack, $alpha: .7);
+    background: rgba($color: $colorBlack, $alpha: 0.7);
     .sidebar {
       position: fixed;
       right: -100%;
@@ -203,4 +202,17 @@
       right: 0;
     }
   }
+}
+
+.sidebar__info-icon .tooltip-text {
+  position: absolute;
+  top: 2rem;
+  right: -65px;
+  color: $colorGray;
+  width: 210px;
+  opacity: 0;
+  transition: 0.3s ease-in;
+  pointer-events: none;
+  z-index: 10;
+  font-size: 0.9rem;
 }

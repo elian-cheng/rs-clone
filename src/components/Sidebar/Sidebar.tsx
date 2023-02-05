@@ -8,12 +8,14 @@ import SidebarItem from './SidebarItem';
 import { sidebarItems } from '../../utils/sidebarItems';
 
 export interface ISidebarItem {
-  id: number,
-  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement> & {
-    title?: string | undefined;
-}>,
-  title: string,
-  path: string,
+  id: number;
+  Icon: React.FunctionComponent<
+    React.SVGProps<SVGSVGElement> & {
+      title?: string | undefined;
+    }
+  >;
+  title: string;
+  path: string;
 }
 
 interface ISidebar {
@@ -25,8 +27,8 @@ interface Itest {
 }
 
 const x: Itest = {
-  items: sidebarItems
-}
+  items: sidebarItems,
+};
 
 export default function Sidebar(props: ISidebar) {
   const { items } = x;
@@ -70,38 +72,38 @@ export default function Sidebar(props: ISidebar) {
         <Arrow className="sidebar__toggle" />
         <div className="sidebar__logo">
           <UserIcon className="sidebar__user-icon" />
-        {user ? (
-          <div className="sidebar__user-name">{user.name}</div>
-        ) : (
-          <div className="sidebar__login-wrapper">
+          {user ? (
+            <div className="sidebar__user-name">{user.name}</div>
+          ) : (
+            <div className="sidebar__login-wrapper">
               <div className="sidebar__user-name">Guest</div>
-            <button className="sidebar__info-icon">
-              <InfoIcon></InfoIcon>
-              <span className="tooltip-text">
-                Without authorization you don't have access to all functionality.
-              </span>
-            </button>
-          </div>
-        )}
+              <button className="sidebar__info-icon">
+                <InfoIcon></InfoIcon>
+                <span className="tooltip-text">
+                  Without authorization you don't have access to all functionality.
+                </span>
+              </button>
+            </div>
+          )}
         </div>
         <nav className="sidebar__nav">
           {items.map((item) => {
-            return <SidebarItem key={item.id} {...item} />
+            return <SidebarItem key={item.id} {...item} />;
           })}
         </nav>
-      <div className="sidebar__login">
-        {user ? (
-          <button className="sidebar__login-btn nav-item" onClick={logOut}>
-            <LoginIcon className="nav-icon login-icon" />
-            <span className="nav-title">Log out</span>
-          </button>
-        ) : (
-          <button className="sidebar__login-btn nav-item" onClick={() => onSignInOpen(true)}>
-            <LoginIcon className="nav-icon login-icon" />
-            <span className="nav-title">Log in</span>
-          </button>
-        )}
-      </div>
+        <div className="sidebar__login">
+          {user ? (
+            <button className="sidebar__login-btn" onClick={logOut}>
+              <LoginIcon className="login-icon" />
+              <span className="login-title">Log out</span>
+            </button>
+          ) : (
+            <button className="sidebar__login-btn nav-item" onClick={() => onSignInOpen(true)}>
+              <LoginIcon className="nav-icon login-icon" />
+              <span className="nav-title">Log in</span>
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

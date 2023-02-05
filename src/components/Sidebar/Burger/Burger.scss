@@ -14,14 +14,14 @@
 .sidebar-burger .sidebar-burger__dash {
   width: 50px;
   height: 5px;
-  background: $colorBlueMiddle;
+  background: $colorBlue;
   border-radius: 20px;
   transition: 0.25s;
 }
 .activebrgr {
   position: fixed;
   .sidebar-burger__dash {
-  	background: $colorBlue;
+    background: $colorBlue;
   }
 }
 .sidebar-burger .sidebar-burger__dash:nth-of-type(3) {
@@ -43,6 +43,6 @@
 
 @media (max-width: 1000px) {
   .sidebar-burger {
-	display: flex;
+    display: flex;
   }
 }
