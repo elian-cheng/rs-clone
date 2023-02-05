@@ -1,0 +1,19 @@
+.practice__navigation {
+  margin-top: 100px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 20px;
+  &-code-wars,
+  &-code-editor {
+    font-size: 1.5rem;
+    font-weight: 600;
+    width: 200px;
+    height: 50px;
+    background-color: $colorBlueMiddle;
+    color: $colorWhite;
+    border-radius: 10px;
+    @include btnHover;
+  }
+}
