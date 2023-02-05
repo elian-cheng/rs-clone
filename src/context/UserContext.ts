@@ -1,5 +1,5 @@
 import React, { createContext } from 'react';
-import { IUser } from '../../API/authorization';
+import { IUser } from '../API/authorization';
 
 interface IUserContext {
   user: IUser | null;

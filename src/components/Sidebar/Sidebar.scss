@@ -44,6 +44,7 @@
     display: grid;
     align-items: center;
     justify-content: center;
+    margin-bottom: 2rem;
   }
   &__user-icon {
     width: 46px;
@@ -152,6 +153,7 @@
     }
     .sidebar__logo {
       padding: 40px 0;
+      margin-bottom: 0;
     }
     .sidebar__user-icon {
       width: 76px;
