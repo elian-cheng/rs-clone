@@ -25,7 +25,7 @@ export type GameStats = {
   };
 };
 
-export async function setUserStatistics(id: string, body: Omit<UserStatistics, 'id'>) {
+export async function setUserStatistics(id: string, statistics: Omit<UserStatistics, 'id'>) {
   const response = await fetch(`${BASE_URL}users/${id}/statistics`, {
     method: 'PUT',
     headers: {
@@ -33,7 +33,7 @@ export async function setUserStatistics(id: string, body: Omit<UserStatistics, '
       Accept: 'application/json',
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(`${statistics}`),
   });
 
   if (response.status === 401) {
