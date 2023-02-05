@@ -73,27 +73,39 @@
   &-check {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    row-gap: 20px;
-    background-color: $colorOrangeDark;
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    &-input {
-      border: 1px solid black;
-      border-radius: 5px;
-      padding: 5px;
-    }
-    &-submit {
-      background-color: $colorBlueMiddle;
-      width: 200px;
-      height: 50px;
+    row-gap: 30px;
+    &-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 20px;
+      background-color: $colorOrangeDark;
       border-radius: 10px;
-      @include btnHover;
+      padding: 20px;
+      width: 300px;
+      &-input {
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 5px;
+      }
+      &-submit {
+        background-color: $colorBlueMiddle;
+        width: 200px;
+        height: 50px;
+        border-radius: 10px;
+        @include btnHover;
+      }
     }
-  }
-  &-insturction {
-    text-align: justify;
+    &-insturction {
+      text-align: justify;
+      width: 300px;
+      background-color: $colorOrangeDark;
+      border-radius: 10px;
+      padding: 20px;
+      &-link {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
