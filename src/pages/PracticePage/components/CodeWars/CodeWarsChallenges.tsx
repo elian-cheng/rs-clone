@@ -7,7 +7,7 @@ import CodeWarsTaskList from './CodeWarsTaskList';
 export default function CodeWarsChallenges() {
   const [status, setStatus] = useState('8 kyu');
   const [data, setData] = useState(Array<ITask>);
-  const [login, setLogin] = useState('user');
+  const [login, setLogin] = useState('some_user');
   const [loading, setLoading] = useState(false);
 
   const api = new CodeWarsAPI();

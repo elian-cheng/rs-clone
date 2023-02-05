@@ -26,6 +26,10 @@ export default function CodeWarsForm(props: {
       />
       <button className="practice__codewars-check-submit">Submit solutions</button>
       <div>{props.lvl}</div>
+      <p className="practice__codewars-insturction">
+        For using this section you need to register on CodeWars website and submit your username in
+        the field above.
+      </p>
     </form>
   );
 }

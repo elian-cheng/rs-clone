@@ -77,8 +77,8 @@
     row-gap: 20px;
     background-color: $colorOrangeDark;
     border-radius: 10px;
-    height: 200px;
-    padding: 10px;
+    padding: 20px;
+    width: 300px;
     &-input {
       border: 1px solid black;
       border-radius: 5px;
@@ -91,6 +91,9 @@
       border-radius: 10px;
       @include btnHover;
     }
+  }
+  &-insturction {
+    text-align: justify;
   }
 }
 
