@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Sidebar from '../Sidebar/Sidebar';
 
 export default function Header() {
   return (
@@ -8,7 +7,6 @@ export default function Header() {
       <div className="header__container">
         <Link to="/" className="header__logo" />
       </div>
-      <Sidebar />
     </div>
   );
 }
