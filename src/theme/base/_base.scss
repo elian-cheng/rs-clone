@@ -125,7 +125,7 @@ h2 {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column;
+  flex-direction: row;
   overflow: hidden;
 }
 
@@ -150,4 +150,21 @@ h2 {
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
+}
+
+.page-wrapper {
+  min-height: 100%;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.page-content {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  justify-content: space-between;
+  flex-shrink: 1;
 }

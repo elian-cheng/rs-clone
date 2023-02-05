@@ -24,11 +24,15 @@ export default function App() {
   return (
     <UserContext.Provider value={userValue}>
       <>
-        <Header />
-        <main className="main">
-          <Router />
-        </main>
-        <Footer />
+        <div className="page-wrapper">
+          <div className="page-content">
+              <Header />
+              <main className="main">
+                <Router />
+              </main>
+              <Footer />
+          </div>
+        </div>
         <Sidebar onSignInOpen={setPopupActive} />
         <Popup
           active={popupActive}
