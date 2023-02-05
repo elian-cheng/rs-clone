@@ -1,20 +1,35 @@
 import React, { useContext } from 'react';
-import { ReactComponent as LessonsIcon } from '../../assets/icons/sidebar/lessons.svg';
-import { ReactComponent as PracticeIcon } from '../../assets/icons/sidebar/window.svg';
-import { ReactComponent as GameIcon } from '../../assets/icons/sidebar/games.svg';
-import { ReactComponent as StatIcon } from '../../assets/icons/sidebar/statistics.svg';
 import { ReactComponent as UserIcon } from '../../assets/icons/sidebar/profile.svg';
 import { ReactComponent as InfoIcon } from '../../assets/icons/sidebar/info.svg';
 import { ReactComponent as LoginIcon } from '../../assets/icons/sidebar/login-arrow.svg';
 import { ReactComponent as Arrow } from '../../assets/icons/sidebar/arrowleft.svg';
-import { Link } from 'react-router-dom';
 import { UserContext } from '../Popup/UserContext';
+import SidebarItem from './SidebarItem';
+import { sidebarItems } from '../../utils/sidebarItems';
+
+export interface ISidebarItem {
+  id: number,
+  Icon: React.FunctionComponent<React.SVGProps<SVGSVGElement> & {
+    title?: string | undefined;
+}>,
+  title: string,
+  path: string,
+}
 
 interface ISidebar {
   onSignInOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+interface Itest {
+  items: ISidebarItem[];
+}
+
+const x: Itest = {
+  items: sidebarItems
+}
+
 export default function Sidebar(props: ISidebar) {
+  const { items } = x;
   const { onSignInOpen } = props;
   const { user, setUser } = useContext(UserContext);
 
@@ -37,7 +52,7 @@ export default function Sidebar(props: ISidebar) {
     const curLocation = location.pathname.split('/')[1];
     document.querySelectorAll('.nav-item').forEach((e) => {
       e.classList.remove('nav-item_active');
-    });;
+    });
     const curNav = document.getElementById(`${curLocation}Sidebar`);
     curNav?.classList.add('nav-item_active');
   };

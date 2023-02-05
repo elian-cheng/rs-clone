@@ -125,7 +125,7 @@ h2 {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column;
+  flex-direction: row;
   overflow: hidden;
 }
 
@@ -156,6 +156,7 @@ h2 {
   min-height: 100%;
   display: flex;
   overflow: hidden;
+  width: 100%;
 }
 
 .page-content {
