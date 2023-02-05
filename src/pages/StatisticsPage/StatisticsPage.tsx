@@ -1,6 +1,7 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { getUserStatistics } from '../../API/statistics';
 import { UserContext } from '../../context/UserContext';
+import ChartsBlock from './components/ChartsBlock';
 
 export type UserStatistics = {
   userId: string;
@@ -47,6 +48,7 @@ export default function StatisticsPage() {
       <div>Learned words {stats?.learnedLessons || 0}</div>
       <div>FinishedKatas {stats?.finishedKatas || 0}</div>
       {/* <div>LearnedWords {stats?.learnedWords || 0}</div> */}
+      <ChartsBlock />
     </div>
   );
 }
