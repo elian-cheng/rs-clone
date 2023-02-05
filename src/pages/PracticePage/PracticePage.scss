@@ -1,0 +1,14 @@
+@mixin btnHover {
+  &:hover {
+    transition: 0.5s all;
+    background-color: $colorBlueDark;
+  }
+}
+
+@import "./components/CodeWars/CodeWarsChallenge";
+@import "./components/navigation/PracticeNavigation";
+
+.active-btn {
+  transition: all 0.5s;
+  background-color: $colorBlueDark;
+}

@@ -6,7 +6,7 @@ import HtmlEditor from '../HtmlEditor';
 export function LangBar() {
   const [activeTab, setActiveTab] = useState('html');
   return (
-    <>
+    <div className="code-editor__configure">
       <nav className="code-editor__bar">
         <button
           className={`${'code-editor__btn'} ${activeTab === 'html' && 'active-btn'}`}
@@ -32,6 +32,6 @@ export function LangBar() {
         {activeTab === 'css' && <CssEditor />}
         {activeTab === 'ts' && <TsEditor />}
       </div>
-    </>
+    </div>
   );
 }

@@ -2,9 +2,8 @@
   &__bar {
     padding: 20px;
     display: flex;
+    justify-content: center;
     gap: 20px;
-    width: 50vw;
-    height: 15vh;
     background-color: $colorMonkai;
   }
   &__btn {
@@ -17,13 +16,12 @@
     color: $colorWhite;
   }
   &__area {
-    height: 45vh;
-    width: 50vw;
+    height: 400px;
   }
   &__preview {
+    width: 100%;
     border: 2px solid black;
-    width: 50vw;
-    height: 40vh;
+    height: 400px;
   }
 }
 
