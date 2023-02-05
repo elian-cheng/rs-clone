@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { checkUserAuthorization, ILoginUser, userLoginAPI } from '../../API/authorization';
-import { UserContext } from './UserContext';
+import { UserContext } from '../../context/UserContext';
 
 export interface ILogin {
   setWhatPopup: React.Dispatch<React.SetStateAction<string>>;

@@ -34,6 +34,11 @@ export const codeWarsTasks = {
     '59a8570b570190d313000037',
     '54c27a33fb7da0db0100040e',
     '5a03b3f6a1c9040084001765',
+    '5648b12ce68d9daa6b000099',
+    '57c7231c484cf9e6ac000090',
+    '55f2b110f61eb01779000053',
+    '54fb963d3fe32351f2000102',
+    '51f2d1cafc9c0f745c00037d',
   ],
   '8 kyu': [
     '5a805d8cafa10f8b930005ba',
@@ -41,5 +46,10 @@ export const codeWarsTasks = {
     '53da3dbb4a5168369a0000fe',
     '57a77726bb9944d000000b06',
     '5a023c426975981341000014',
+    '583710ccaa6717322c000105',
+    '51c8991dee245d7ddf00000e',
+    '582cb0224e56e068d800003c',
+    '57ee4a67108d3fd9eb0000e7',
+    '55f9bca8ecaa9eac7100004a',
   ],
 };

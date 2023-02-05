@@ -8,7 +8,7 @@ import Router from './routing/Router/Router';
 import Sidebar from './components/Sidebar/Sidebar';
 import { IUser } from './API/authorization';
 import Popup from './components/Popup/Popup';
-import { UserContext } from './components/Popup/UserContext';
+import { UserContext } from './context/UserContext';
 
 export default function App() {
   const [popupActive, setPopupActive] = useState(false);

@@ -21,7 +21,7 @@
 .activebrgr {
   position: fixed;
   .sidebar-burger__dash {
-  	background: $colorBlue;
+    background: $colorWhite;
   }
 }
 .sidebar-burger .sidebar-burger__dash:nth-of-type(3) {
@@ -43,6 +43,6 @@
 
 @media (max-width: 1000px) {
   .sidebar-burger {
-	display: flex;
+    display: flex;
   }
 }
