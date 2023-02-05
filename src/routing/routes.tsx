@@ -2,8 +2,8 @@ import React from 'react';
 import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import GamesPage from '../pages/GamesPage/GamesPage';
 import HomePage from '../pages/HomePage/HomePage';
-import LessonsPage from '../pages/LessonsPage/LessonsPage';
 import PracticePage from '../pages/PracticePage/PracticePage';
+import SettingsPage from '../pages/SettingsPage/SettingsPage';
 import StatisticsPage from '../pages/StatisticsPage/StatisticsPage';
 
 export interface IRoute {
@@ -22,6 +22,7 @@ export const titles: ITitle = {
   '/practice': 'Practice',
   '/games': 'Games',
   '/statistics': 'Statistics',
+  '/settings': 'Settings',
 };
 
 export const routes: IRoute[] = [
@@ -29,11 +30,6 @@ export const routes: IRoute[] = [
     title: 'Home',
     path: '/',
     element: <HomePage />,
-  },
-  {
-    title: 'Lessons',
-    path: '/lessons',
-    element: <LessonsPage />,
   },
   {
     title: 'Practice',
@@ -46,9 +42,24 @@ export const routes: IRoute[] = [
     element: <GamesPage />,
   },
   {
+    title: 'Missing Type',
+    path: '/games/missing-type',
+    element: <GamesPage />,
+  },
+  {
+    title: 'Quiz',
+    path: '/games/quiz',
+    element: <GamesPage />,
+  },
+  {
     title: 'Statistics',
     path: '/statistics',
     element: <StatisticsPage />,
+  },
+  {
+    title: 'Settings',
+    path: '/settings',
+    element: <SettingsPage />,
   },
   {
     title: 'Other',

@@ -8,11 +8,11 @@ export interface IFeature {
   description: string;
 }
 
-interface FeaturesProps {
+interface IFeaturesProps {
   features: IFeature[];
 }
 
-export default function Features(props: FeaturesProps) {
+export default function Features(props: IFeaturesProps) {
   const { features } = props;
   return (
     <section className="features">
