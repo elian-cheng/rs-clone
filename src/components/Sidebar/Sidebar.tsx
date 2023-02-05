@@ -3,7 +3,7 @@ import { ReactComponent as UserIcon } from '../../assets/icons/sidebar/profile.s
 import { ReactComponent as InfoIcon } from '../../assets/icons/sidebar/info.svg';
 import { ReactComponent as LoginIcon } from '../../assets/icons/sidebar/login-arrow.svg';
 import { ReactComponent as Arrow } from '../../assets/icons/sidebar/arrowleft.svg';
-import { UserContext } from '../Popup/UserContext';
+import { UserContext } from '../../context/UserContext';
 import SidebarItem from './SidebarItem';
 import { sidebarItems } from '../../utils/sidebarItems';
 
