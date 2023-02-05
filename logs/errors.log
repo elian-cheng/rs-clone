@@ -1,0 +1,46 @@
+{
+  message: "Error: Cannot find module './../document'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schema\\objectid.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schema\\index.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schema.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\document.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\index.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\index.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\server.js\n' +
+    '    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)\n' +
+    '    at Function.Module._load (node:internal/modules/cjs/loader:778:27)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1005:19)\n' +
+    '    at require (node:internal/modules/cjs/helpers:102:18)\n' +
+    '    at model.Query.resetId (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schema\\objectid.js:279:27)\n' +
+    '    at ObjectId.SchemaType._applySetters (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schematype.js:1170:20)\n' +
+    '    at ObjectId.SchemaType.applySetters (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schematype.js:1195:16)\n' +
+    '    at ObjectId.SchemaType._castForQuery (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schematype.js:1648:15)\n' +
+    '    at ObjectId.SchemaType.castForQuery (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schematype.js:1636:15)\n' +
+    '    at ObjectId.SchemaType.castForQueryWrapper (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schematype.js:1612:20)',
+  level: 'error',
+  timestamp: '2023-02-05T11:49:03.294Z'
+}
+{
+  message: "Error: Cannot find module './../document'\n" +
+    'Require stack:\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schema\\objectid.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schema\\index.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schema.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\document.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\index.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\index.js\n' +
+    '- C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\server.js\n' +
+    '    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)\n' +
+    '    at Function.Module._load (node:internal/modules/cjs/loader:778:27)\n' +
+    '    at Module.require (node:internal/modules/cjs/loader:1005:19)\n' +
+    '    at require (node:internal/modules/cjs/helpers:102:18)\n' +
+    '    at model.Query.resetId (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schema\\objectid.js:279:27)\n' +
+    '    at ObjectId.SchemaType._applySetters (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schematype.js:1170:20)\n' +
+    '    at ObjectId.SchemaType.applySetters (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schematype.js:1195:16)\n' +
+    '    at ObjectId.SchemaType._castForQuery (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schematype.js:1648:15)\n' +
+    '    at ObjectId.SchemaType.castForQuery (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schematype.js:1636:15)\n' +
+    '    at ObjectId.SchemaType.castForQueryWrapper (C:\\Users\\grada\\Desktop\\VS projects\\rsSchool\\rs-clone\\node_modules\\mongoose\\lib\\schematype.js:1612:20)',
+  level: 'error',
+  timestamp: '2023-02-05T11:51:31.654Z'
+}

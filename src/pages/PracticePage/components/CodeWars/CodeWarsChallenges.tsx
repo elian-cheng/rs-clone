@@ -8,6 +8,7 @@ export default function CodeWarsChallenges() {
   const [status, setStatus] = useState('8 kyu');
   const [data, setData] = useState(Array<ITask>);
   const [login, setLogin] = useState('some_user');
+  const [submit, setSubmit] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const api = new CodeWarsAPI();
@@ -18,7 +19,7 @@ export default function CodeWarsChallenges() {
       setData(res);
       setLoading(true);
     });
-  }, [login, status]);
+  }, [login, status, submit]);
 
   return (
     <section className="practice__codewars">
@@ -43,7 +44,7 @@ export default function CodeWarsChallenges() {
         ) : (
           <div className="practice__codewars-tasks-loading">Loading...</div>
         )}
-        <CodeWarsForm setLogin={setLogin} lvl={status} />
+        <CodeWarsForm setLogin={setLogin} setSubmit={setSubmit} submit={submit} lvl={status} />
       </div>
     </section>
   );
