@@ -28,6 +28,19 @@ const schemas = {
       name: Joi.string().max(200),
       email: Joi.string().email({ tlds: { allow: false } }),
       password: Joi.string().min(MIN_PASSWORD_LENGTH)
+    }),
+  statistics: Joi.object()
+    .options({ abortEarly: false, allowUnknown: false })
+    .keys({
+      learnedLessons: Joi.number().integer().min(0).max(100000),
+      finishedKatas: Joi.number().integer().min(0).max(100000),
+      optional: optionalScheme
+    }),
+  settings: Joi.object()
+    .options({ abortEarly: false, allowUnknown: false })
+    .keys({
+      wordsPerDay: Joi.number().integer().min(1).max(1000),
+      optional: optionalScheme
     })
 };
 
