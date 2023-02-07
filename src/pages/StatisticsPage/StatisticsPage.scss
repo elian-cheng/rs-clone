@@ -1,0 +1,59 @@
+.general-section {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.stats-title {
+  padding-bottom: 0.5em;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.stats-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  flex-grow: 1;
+  gap: 5rem;
+}
+
+.stats-titles {
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-align: center;
+  b {
+    display: block;
+    font-size: 5em;
+    line-height: 1em;
+  }
+}
+
+.game-section {
+  margin: 3rem;
+  align-items: center;
+  gap: 1em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.game-card {
+  padding: 2em;
+  box-shadow: 0px 8px 40px 20px rgb(34 60 80 / 47%);
+}
+
+.game-title {
+  padding-bottom: 0.5em;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.game-row {
+  padding: 0.5em 0;
+}
