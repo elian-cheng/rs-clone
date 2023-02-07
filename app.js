@@ -1,11 +1,10 @@
 require("express-async-errors");
 const express = require("express");
 const createError = require("http-errors");
-const path = require("path");
 const morgan = require("morgan");
 const cors = require("cors");
 const helmet = require("helmet");
-const { NOT_FOUND } = require("http-status-codes");
+const { StatusCodes } = require("http-status-codes");
 
 const winston = require("./common/logging");
 const signinRouter = require("./routes/authentication/signin.router");
@@ -58,7 +57,7 @@ userRouter.use("/:id/statistics", userIdValidator, statisticRouter);
 
 userRouter.use("/:id/settings", userIdValidator, settingRouter);
 
-app.use((req, res, next) => next(createError(NOT_FOUND)));
+app.use((req, res, next) => next(createError(StatusCodes.NOT_FOUND)));
 
 app.use(errorHandler);
 
