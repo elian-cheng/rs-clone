@@ -1,33 +1,32 @@
 import axios from 'axios';
-import storage from '../utils/storage';
 import { BASE_URL } from './URL';
 export const USERS = `${BASE_URL}users`;
 export const USER = `${USERS}/${getUserId()}`;
 export const USER_TOKEN = `${USER}/tokens`;
 
-export enum Errors {
-  ALL_RIGHT = '',
-  NO_EMAIL = 'Incorrect Email',
-  PASS_REPEAT = 'Provided passwords are not identical',
-  PASS_STRONG = 'Password should contain upper and lower register symbols and numbers. Password length should not be shorter than 8 symbols.',
-  ERROR_403 = 'Incorrect Email or password',
-  ERROR_404 = 'User with these credentials not found. Try to register again.',
-  ERROR_417 = 'User with these credentials already exists',
-  ERROR_SOME = 'Unexpected error, try again',
-}
+// export enum Errors {
+//   ALL_RIGHT = '',
+//   NO_EMAIL = 'Incorrect Email',
+//   PASS_REPEAT = 'Provided passwords are not identical',
+//   PASS_STRONG = 'Password should contain upper and lower register symbols and numbers. Password length should not be shorter than 8 symbols.',
+//   ERROR_403 = 'Incorrect Email or password',
+//   ERROR_404 = 'User with these credentials not found. Try to register again.',
+//   ERROR_417 = 'User with these credentials already exists',
+//   ERROR_SOME = 'Unexpected error, try again',
+// }
 
-export const catchError = (status: number) => {
-  switch (status) {
-    case 404:
-      return Errors.ERROR_404;
-    case 403:
-      return Errors.ERROR_403;
-    case 417:
-      return Errors.ERROR_417;
-    default:
-      return Errors.ERROR_SOME;
-  }
-};
+// export const catchError = (status: number) => {
+//   switch (status) {
+//     case 404:
+//       return Errors.ERROR_404;
+//     case 403:
+//       return Errors.ERROR_403;
+//     case 417:
+//       return Errors.ERROR_417;
+//     default:
+//       return Errors.ERROR_SOME;
+//   }
+// };
 
 export interface ILoginUser {
   email: string;
@@ -114,8 +113,8 @@ export const getNewToken = async () =>
       localStorage.setItem('userData', data.refreshToken);
     })
     .catch(() => {
-      localStorage.clear();
-      // window.location.href = '/';
+      localStorage.deleteItem('userData');
+      window.location.href = '/';
     });
 
 export function getRefreshToken(): string {
@@ -150,19 +149,19 @@ export async function checkUserAuthorization(): Promise<IUser | null> {
   return user;
 }
 
-export type SignInDTO = {
-  message: string;
-  token: string;
-  refreshToken: string;
-  userId: string;
-  name: string;
-};
+// export type SignInDTO = {
+//   message: string;
+//   token: string;
+//   refreshToken: string;
+//   userId: string;
+//   name: string;
+// };
 
-export type SignInBody = {
-  email: string;
-  password: string;
-};
+// export type SignInBody = {
+//   email: string;
+//   password: string;
+// };
 
-export const signIn = (body: SignInBody) => {
-  return axios.post<SignInDTO>(`${BASE_URL}/signin`, body);
-};
+// export const signIn = (body: SignInBody) => {
+//   return axios.post<SignInDTO>(`${BASE_URL}/signin`, body);
+// };
