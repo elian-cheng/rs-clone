@@ -30,5 +30,33 @@
       "Type declaration: \nlet x: number = 5"
     ],
     "theme": "Typescript Basics"
+  },
+  {
+    "id": 3,
+    "title": "Types",
+    "description": [
+      "In TypeScript when we declare a variable with an initial value, the variable can never be reassigned a value of a different data type. This is an example of type inference: everywhere in our program, TypeScript expects the data type of the variable to match the type of the value initially assigned to it at declaration.",
+      "TypeScript recognizes JavaScript’s built-in “primitive” data types: \nboolean \nnumber \nnull \nstring \nundefined \nIf we try to reassign a variable to a value of a different type, TypeScript will surface an error.",
+      "Because TypeScript knows what types our objects are, it also knows what shapes our objects adhere to. An object’s shape describes, among other things, what properties and methods it does or doesn’t contain.",
+      "Through this knowledge of type shapes, TypeScript helps us quickly locate bugs in our code."
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Typescript Basics"
+  },
+  {
+    "id": 4,
+    "title": "Any",
+    "description": [
+      "There are some places where TypeScript will not try to infer what type something is—generally when a variable is declared without being assigned an initial value. In situations where it isn’t able to infer a type, TypeScript will consider a variable to be of type any.",
+      "Variables of type any can be assigned to any value and TypeScript won’t give an error if they’re reassigned to a different type later on."
+    ],
+    "examples": [
+      "let myLet; \nmyLet = 1; \nmyLet = false; // TypeScript doesn’t produce an error"
+    ],
+    "theme": "Typescript Basics"
   }
 ]
