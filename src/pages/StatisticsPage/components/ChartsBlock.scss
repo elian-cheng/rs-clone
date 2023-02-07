@@ -1,4 +1,18 @@
 .statistic__charts {
-  display: flex;
-  justify-content: space-between;
+  margin-top: 100px;
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &-item {
+      position: relative;
+    }
+  }
+  &-inner {
+    font-size: 2rem;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
