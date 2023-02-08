@@ -1,8 +1,14 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { checkUserAuthorization, ILoginUser, userLoginAPI } from '../../API/authorization';
+import {
+  checkUserAuthorization,
+  getUserId,
+  ILoginUser,
+  userLoginAPI,
+} from '../../API/authorization';
+import { getInitialStatistics, setUserStatistics } from '../../API/statistics';
 import { UserContext } from '../../context/UserContext';
-
+import { UserStatistics } from '../../pages/StatisticsPage/StatisticsPage';
 export interface ILogin {
   setWhatPopup: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -42,6 +48,8 @@ const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
       reset();
       localStorage.setItem('userData', JSON.stringify(res));
       updateUser();
+      await getInitialStatistics(getUserId());
+      location.reload();
     } else {
       setSignInIsDisabled(false);
       setLoginIsCorrect(false);

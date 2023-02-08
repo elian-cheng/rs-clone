@@ -13,17 +13,17 @@ export enum GameTotalQuestions {
 
 export interface IGameStatsProps {
   games: {
-    quiz: IGameStats;
-    missingType: IGameStats;
+    quiz?: IGameStats;
+    missingType?: IGameStats;
   };
 }
 
 export const GameSection = ({ games }: IGameStatsProps) => {
   return (
     <section className="game-section">
-      <GameCard game={games.quiz} type={GameType.QUIZ} total={GameTotalQuestions.QUIZ_TOTAL} />
+      <GameCard game={games!.quiz} type={GameType.QUIZ} total={GameTotalQuestions.QUIZ_TOTAL} />
       <GameCard
-        game={games.missingType}
+        game={games!.missingType}
         type={GameType.MISSING_TYPE}
         total={GameTotalQuestions.MISSING_TYPE_TOTAL}
       />

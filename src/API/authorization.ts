@@ -113,8 +113,8 @@ export const getNewToken = async () =>
       localStorage.setItem('userData', data.refreshToken);
     })
     .catch(() => {
-      localStorage.deleteItem('userData');
-      window.location.href = '/';
+      localStorage.removeItem('userData');
+      location.reload();
     });
 
 export function getRefreshToken(): string {

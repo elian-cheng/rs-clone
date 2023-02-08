@@ -37,6 +37,7 @@ export default function Sidebar(props: ISidebar) {
 
   const logOut = () => {
     localStorage.removeItem('userData');
+    location.reload();
     setUser(null);
   };
 
