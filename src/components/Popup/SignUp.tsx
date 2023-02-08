@@ -6,14 +6,20 @@ import { ILogin } from './Login';
 const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
   const [emailIsCorrect, setEmailIsCorrect] = useState(true);
   const [signUpIsDisabled, setSignUpIsDisabled] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
+
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
+    clearErrors,
   } = useForm<ISignUpUser>({
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 
   const onSubmit: SubmitHandler<ISignUpUser> = async (data) => {
@@ -29,8 +35,16 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
   };
 
   return (
-    <>
-      <p className="">SIGN UP</p>
+    <div className="popup__form form signup">
+      <div
+        className="form__header"
+        onClick={() => {
+          setWhatPopup('login');
+          clearErrors();
+        }}
+      >
+        Signup
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="">
         <input
           {...register('name', {
@@ -49,7 +63,9 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
           autoComplete="username"
           placeholder="Name"
         />
-        <div className="">{errors.name && <p className="">{errors.name.message}</p>}</div>
+        <div className="popup__error popup__error_white">
+          {errors.name && <p className="">{errors.name.message}</p>}
+        </div>
         <input
           {...register('email', {
             required: 'Email is a required field',
@@ -68,7 +84,7 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
           autoComplete="username"
           placeholder="Email"
         />
-        <div className="">
+        <div className="popup__error popup__error_white">
           {errors.email && <p className="">{errors.email.message}</p>}
           {!emailIsCorrect && <p className="">This email is already taken</p>}
         </div>
@@ -81,21 +97,25 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
             },
           })}
           className=""
-          type="password"
+          type={passwordShown ? 'text' : 'password'}
           autoComplete="current-password"
           placeholder="Password"
         />
-        <div className="">{errors.password && <p className="">{errors.password.message}</p>}</div>
-        <button className="" type="submit" disabled={signUpIsDisabled}>
-          Sign Up
-        </button>
+        <div className="popup__error popup__error_white">
+          {errors.password && <p className="">{errors.password.message}</p>}
+        </div>
+        <div className="checkbox">
+          <input
+            type="checkbox"
+            name="showPassword"
+            id="showPassword"
+            onChange={togglePasswordVisiblity}
+          />
+          <label htmlFor="showPassword">Show Password</label>
+        </div>
+        <input type="submit" value="Signup" disabled={signUpIsDisabled} />
       </form>
-      <div className="">
-        <button className="" type="button" onClick={() => setWhatPopup('login')}>
-          Do you have an account? Sign in
-        </button>
-      </div>
-    </>
+    </div>
   );
 };
 

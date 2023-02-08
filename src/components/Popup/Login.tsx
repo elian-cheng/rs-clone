@@ -1,8 +1,13 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { checkUserAuthorization, ILoginUser, userLoginAPI } from '../../API/authorization';
+import {
+  checkUserAuthorization,
+  getUserId,
+  ILoginUser,
+  userLoginAPI,
+} from '../../API/authorization';
+import { getInitialStatistics } from '../../API/statistics';
 import { UserContext } from '../../context/UserContext';
-
 export interface ILogin {
   setWhatPopup: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -10,15 +15,21 @@ export interface ILogin {
 const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
   const [loginIsCorrect, setLoginIsCorrect] = useState(true);
   const [signInIsDisabled, setSignInIsDisabled] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
   const { user, setUser } = useContext(UserContext);
+
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
   const {
     register,
     formState: { errors },
     handleSubmit,
     reset,
+    clearErrors,
   } = useForm<ILoginUser>({
-    mode: 'onBlur',
+    mode: 'onChange',
   });
 
   const updateUser = useCallback(() => {
@@ -42,6 +53,8 @@ const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
       reset();
       localStorage.setItem('userData', JSON.stringify(res));
       updateUser();
+      await getInitialStatistics(getUserId());
+      location.reload();
     } else {
       setSignInIsDisabled(false);
       setLoginIsCorrect(false);
@@ -49,8 +62,16 @@ const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
   };
 
   return (
-    <>
-      <p className="">SIGN IN</p>
+    <div className="popup__form form login">
+      <div
+        className="form__header"
+        onClick={() => {
+          setWhatPopup('signUp');
+          clearErrors();
+        }}
+      >
+        Login
+      </div>
       <form onSubmit={handleSubmit(onSubmit)} className="">
         <input
           {...register('email', {
@@ -76,22 +97,26 @@ const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
             },
           })}
           className=""
-          type="password"
+          type={passwordShown ? 'text' : 'password'}
           autoComplete="current-password"
           placeholder="Password"
         />
         <div className="">{errors.password && <p className="">{errors.password.message}</p>}</div>
-        <button className="" type="submit" disabled={signInIsDisabled}>
-          Sign In
-        </button>
+        <div className="checkbox">
+          <input
+            type="checkbox"
+            name="showPassword"
+            id="showPassword_black"
+            onChange={togglePasswordVisiblity}
+          />
+          <label className="form__checkbox-label_black" htmlFor="showPassword_black">
+            Show Password
+          </label>
+        </div>
+        <input type="submit" value="Login" disabled={signInIsDisabled} />
         <div className="">{!loginIsCorrect && <p className="">Wrong email or password</p>}</div>
       </form>
-      <div className="">
-        <button className="" type="button" onClick={() => setWhatPopup('signUp')}>
-          Don't have an account? Sign up
-        </button>
-      </div>
-    </>
+    </div>
   );
 };
 
