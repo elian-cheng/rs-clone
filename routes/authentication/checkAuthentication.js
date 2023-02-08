@@ -7,22 +7,29 @@ const ALLOWED_PATHS = [
   "/signup",
   "/",
   "/practice",
-  `${/^\/(?!lessons($|\/.*))/}`,
+  "/lessons",
+  "/quiz",
   "/settings",
   "/games",
   "/games/quiz",
   "/games/missing-type"
 ];
 const USERS_PATH = "/users";
+const LESSONS_PATH = /^\/lessons.*$/;
+const QUIZ_PATH = /^\/quiz.*$/;
 
 function isOpenPath(path) {
-  return ALLOWED_PATHS.includes(path);
+  return ALLOWED_PATHS.includes(path) || LESSONS_PATH.test(path) || QUIZ_PATH.test(path);
 }
 
 const checkAuthentication = (req, res, next) => {
   if (isOpenPath(req.path)) {
     return next();
   }
+
+  // if (req.path === LESSONS_PATH) {
+  //   return next();
+  // }
 
   if (req.path === USERS_PATH && req.method === "POST") {
     return next();
