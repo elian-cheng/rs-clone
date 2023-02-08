@@ -2,98 +2,153 @@
   {
     "id": "1",
     "title": "What is TypeScript?",
-    "description": ["", ""],
-    "examples": [
-      "console.log('Hello, World!')",
-      "Benefits of type cheking: \nfunction sum(a: number, b: number) {\nreturn a + b;\n} \n sum(10n, 5) // Argument of type 'bigint' is not assignable to parameter of type 'number'."
+    "description": [
+      "TypeScript is an open-source, object-oriented language developed and maintained by Microsoft, licensed under Apache 2 license.",
+      "TypeScript extends JavaScript by adding data types, classes, and other object-oriented features with type-checking. It is a typed superset of JavaScript that compiles to plain JavaScript.",
+      "JavaScript is a dynamic programming language with no type system. JavaScript provides primitive types like string, number, object, etc., but it doesn't check assigned values. JavaScript variables are declared using the var keyword, and it can point to any value. JavaScript doesn't support classes and other object-oriented features (ECMA2015 supports it). So, without the type system, it is not easy to use JavaScript to build complex applications with large teams working on the same code.",
+      "The type system increases the code quality, readability and makes it easy to maintain and refactor codebase. More importantly, errors can be caught at compile time rather than at runtime.",
+      "Hence, the reason to use TypeScript is that it catches errors at compile-time, so that you can fix it before you run code. It supports object-oriented programming features like data types, classes, enums, etc., allowing JavaScript to be used at scale.",
+      "TypeScript compiles into simple JavaScript. The TypeScript compiler is also implemented in TypeScript and can be used with any browser or JavaScript engines like Node.js. TypeScript needs an ECMAScript 3 or higher compatible environment to compile. This is a condition met by all major browsers and JavaScript engines today.",
+      "Some of the most popular JavaScript frameworks like Angular.js and WinJS are written in TypeScript.",
+      "How to use TypeScript?",
+      "TypeScript code is written in a file with .ts extension and then compiled into JavaScript using the TypeScript compiler. A TypeScript file can be written in any code editor. A TypeScript compiler needs to be installed on your platform. Once installed, the command tsc <filename>.ts compiles the TypeScript code into a plain JavaScript file. JavaScript files can then be included in the HTML and run on any browser.",
+      "TypeScript Features",
+      "Cross-Platform: TypeScript runs on any platform that JavaScript runs on. The TypeScript compiler can be installed on any Operating System such as Windows, macOS, and Linux.",
+      "Object-Oriented Language: TypeScript provides powerful features such as Classes, Interfaces, and Modules. You can write pure object-oriented code for client-side as well as server-side development.",
+      "Static type-checking: TypeScript uses static typing. This is done using type annotations. It helps type checking at compile time. Thus, you can find errors while typing the code without running your script each time. Additionally, using the type inference mechanism, if a variable is declared without a type, it will be inferred based on its value.",
+      "Optional Static Typing: TypeScript static typing is optional, if you prefer to use JavaScript's dynamic typing.",
+      "DOM Manipulation: Like JavaScript, TypeScript can be used to manipulate the DOM.",
+      "ES 6 Features: TypeScript includes most features of planned ECMAScript 2015 (ES 6, 7) such as class, interface, Arrow functions etc.",
+      "TypeScript Advantages",
+      "TypeScript is an open-source language with continuous development and maintenance by Microsoft.",
+      "TypeScript runs on any browser or JavaScript engine.",
+      "TypeScript is similar to JavaScript and uses the same syntax and semantics. All of TypeScript's code finally gets converted into JavaScript. This allows a quicker learning curve for front-end developers currently coding in JavaScript.",
+      "TypeScript is also closer in syntax to backend languages like Java and Scala. This helps backend developers write front-end code faster.",
+      "TypeScript code can be called from an existing JavaScript code. TypeScript also works with existing JavaScript frameworks and libraries without any issues.",
+      "The TypeScript Definition file, with .d.ts extension, provides support for existing JavaScript libraries like Jquery, D3.js, etc. So, TypeScript code can add JavaScript libraries using type definitions to avail the benefits of type-checking, code autocompletion, and documentation in existing dynamically-typed JavaScript libraries",
+      "TypeScript has support for the latest JavaScript features from ECMAScript 2015 . It includes features from ES6 and ES7 that can run in ES5-level JavaScript engines like Node.js. This offers a massive advantage of using features from future JavaScript versions in current JavaScript engines.",
+      "TypeScript has easy integration with task runner tools like Grunt and Gulp to automate the workflow."
     ],
+    "examples": [],
     "theme": "Overview"
   },
   {
     "id": "2",
     "title": "Installation",
-    "description": ["", "", ""],
-    "examples": [
-      "Let: \nx = 10; // x is now 10",
-      "Const: \ny = 10; // error: y is read-only",
-      "Type declaration: \nlet x: number = 5"
+    "description": [
+      "There are three ways to install TypeScript:",
+      "1.Install TypeScript as an NPM package on your local machine or in your project.",
+      "2.Install TypeScript NuGet Package in your .NET or .NET Core project.",
+      "3.Install TypeScript as a Plug-in in your IDE (Integrated Development Environment)."
     ],
+    "examples": [],
     "theme": "Overview"
   },
   {
     "id": "3",
     "title": "First Program",
-    "description": ["", "", ""],
-    "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    "description": [
+      "Here, you will learn to write a simple program in TypeScript, compile it and use it in the web page.",
+      "Create a new file in your code editor and name it add.ts and write some code in it.",
+      "Now, open the command prompt on Windows (or a terminal on your platform), navigate to the path where you saved file.ts, and compile the program using the following command:",
+      "tsc file.ts",
+      "The above command will compile the TypeScript file file.ts and create the Javascript file named file.js at the same location. The file.js file contains your code.",
+      "As you can see, the TypeScript compiler compiled file.ts TypeScript file to Javascript file ad.js. You can now include the file.js file in a web page using a script tag and see the result in the browser's developer console."
     ],
+    "examples": [],
     "theme": "Overview"
   },
   {
     "id": "4",
     "title": "Type Annotations",
-    "description": ["", "", ""],
+    "description": [
+      "TypeScript is a typed language, where we can specify the type of the variables, function parameters and object properties. We can specify the type using :Type after the name of the variable, parameter or property. There can be a space after the colon. TypeScript includes all the primitive types of JavaScript- number, string and boolean.",
+      "These are type annotations. You cannot change the value using a different data type other than the declared data type of a variable. If you try to do so, TypeScript compiler will show an error. This helps in catching JavaScript errors. For example, if you assign a string to a variable age or a number to name in the above example, then it will give an error.",
+      "Type annotations are used to enforce type checking. It is not mandatory in TypeScript to use type annotations. However, type annotations help the compiler in checking types and helps avoid errors dealing with data types. It is also a good way of writing code for easier readability and maintenance by future developers working on your code.",
+      "We can still follow the JavaScript way of declaring variables and have the TypeScript compiler infer the data type of the variable."
+    ],
     "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+      "let age: number = 32; // number variable",
+      "let name: string = \"John\";// string variable",
+      "let isUpdated: boolean = true;// Boolean variable"
     ],
     "theme": "Data Types"
   },
   {
     "id": "5",
     "title": "Variable",
-    "description": ["", "", ""],
+    "description": [
+      "TypeScript follows the same rules as JavaScript for variable declarations. Variables can be declared using: var, let, and const.",
+      "Variables in TypeScript can be declared using var keyword, same as in JavaScript. The scoping rules remains the same as in JavaScript.",
+      "To solve problems with var declarations, ES6 introduced two new types of variable declarations in JavaScript, using the keywords let and const. TypeScript, being a superset of JavaScript, also supports these new types of variable declarations.",
+      "The let declarations follow the same syntax as var declarations. Unlike variables declared with var, variables declared with let have a block-scope. This means that the scope of let variables is limited to their containing block, e.g. function, if else block or loop block."
+    ],
     "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+      "let employeeName:string = \"John\";",
+      "const num1:number = 1;",
+      "var flag:boolean = true;"
     ],
     "theme": "Data Types"
   },
   {
     "id": "6",
     "title": "Number",
-    "description": ["", "", ""],
+    "description": [
+      "Just like JavaScript, TypeScript supports number data type. All numbers are stored as floating point numbers. These numbers can be Decimal (base 10), Hexadecimal (base 16) or Octal (base 8)."
+    ],
     "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+      "let first:number = 123; // number ",
+      "let second: number = 0x37CF;  // hexadecimal",
+      "let third:number=0o377 ;      // octal",
+      "let fourth: number = 0b111001;// binary "
     ],
     "theme": "Data Types"
   },
   {
     "id": "7",
     "title": "String",
-    "description": ["", "", ""],
+    "description": [
+      "String is another primitive data type that is used to store text data. String values are surrounded by single quotation marks or double quotation marks.",
+      "Since TypeScript version 1.4, TypeScript has included support for ES6 Template strings. Template strings are used to embed expressions into strings."
+    ],
     "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+      "let employeeName:string = 'John Smith';\n//OR\nlet employeeName:string = \"John Smith\";",
+      "let employeeDesc2: string = `${employeeName} works in the ${employeeDept} department.`;"
     ],
     "theme": "Data Types"
   },
   {
     "id": "8",
     "title": "Boolean",
-    "description": ["", "", ""],
-    "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    "description": [
+      "Boolean values are supported by both JavaScript and TypeScript and stored as true/false values.",
+      "Note that, the boolean Boolean is different from the lower case boolean type. The upper case Boolean is an object type whereas lower case boolean is a primitive type. It is recommended to use the primitive type boolean in your code, because, while JavaScript coerces an object to its primitive type, the TypeScript type system does not. TypeScript treats it like an object type.",
+      "So, instead of using upper case function checkExistence(b: Boolean), use the lower case function checkExistence(b: boolean) boolean type."
     ],
+    "examples": ["let isPresent:boolean = true;"],
     "theme": "Data Types"
   },
   {
     "id": "9",
     "title": "Arrays",
-    "description": ["", "", ""],
+    "description": [
+      "An array is a special type of data type which can store multiple values of different data types sequentially using a special syntax.",
+      "TypeScript supports arrays, similar to JavaScript. There are two ways to declare an array:",
+      "1. Using square brackets. This method is similar to how you would declare arrays in JavaScript.",
+      "let fruits: string[] = ['Apple', 'Orange', 'Banana'];",
+      "2. Using a generic array type, Array<elementType>.",
+      "let fruits: Array<string> = ['Apple', 'Orange', 'Banana'];",
+      "Both methods produce the same output.",
+      "Of course, you can always initialize an array like shown below, but you will not get the advantage of TypeScript's type system.",
+      "let arr = [1, 3, 'Apple', 'Orange', 'Banana', true, false];",
+      "Arrays can contain elements of any data type, numbers, strings, or even objects.",
+      "Arrays can be declared and initialized separately.",
+      "Accessing Array Elements:",
+      "The array elements can be accessed using the index of an element e.g. ArrayName[index]. The array index starts from zero, so the index of the first element is zero, the index of the second element is one and so on."
+    ],
     "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+      "let fruits: string[] = ['Apple', 'Orange', 'Banana'];",
+      "var fruits: Array<string> = ['Apple', 'Orange', 'Banana']; "
     ],
     "theme": "Data Types"
   },
