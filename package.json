@@ -45,9 +45,11 @@
     ]
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.37",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
     "@typescript-eslint/parser": "^5.49.0",
     "ace-builds": "^1.15.0",
+    "chart.js": "^4.2.0",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-import-resolver-typescript": "^3.5.3",
@@ -58,6 +60,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "prettier": "^2.8.3",
     "react-ace": "^10.1.0",
+    "react-chartjs-2": "^5.2.0",
     "sass": "^1.57.1"
   }
 }
