@@ -1,60 +1,297 @@
 [
   {
     "id": "1",
-    "title": "Introduction",
+    "title": "What is TypeScript?",
     "description": [
-      "TypeScript is a superset of JavaScript that adds optional static typing and other features such as classes and interfaces.",
-      "It is designed to make large-scale JavaScript applications more manageable and scalable. TypeScript code can be transpiled (converted) into plain JavaScript, allowing it to run in any JavaScript environment.",
-      "This can make development easier by catching type-related errors at compile-time, rather than runtime. TypeScript is widely used in Angular, Ionic and other big projects.",
-      "It provides three main benefits: \n1.Finding some kinds of errors before running the code. \n2.Easier code refactoring. \n3.Full support for editor features: auto-completion, code navigation, etc."
+      "",
+      ""
     ],
     "examples": [
       "console.log('Hello, World!')",
       "Benefits of type cheking: \nfunction sum(a: number, b: number) {\nreturn a + b;\n} \n sum(10n, 5) // Argument of type 'bigint' is not assignable to parameter of type 'number'."
     ],
-    "theme": "Typescript Basics"
+    "theme": "Overview"
   },
   {
     "id": "2",
-    "title": "Variables",
+    "title": "Installation",
     "description": [
-      "In TypeScript, variables can be declared using the 'let' or 'const' keywords.",
-      "'Let' is used to declare a variable that can be reassigned a new value. 'Const' is used to declare a variable that cannot be reassigned a new value, once it is declared.",
-      "In addition to let and const, TypeScript also supports the var keyword for variable declarations. However, the let and const are preferred over var because they have better scoping behavior.",
-      "TypeScript also allows you to specify the type of a variable when declaring it, using a colon ':' followed by the type.",
-      "TypeScript supports many built-in types like number, string, boolean, etc and also allows to create custom types using interfaces and classes."
+      "",
+      "",
+      ""
     ],
     "examples": [
       "Let: \nx = 10; // x is now 10",
       "Const: \ny = 10; // error: y is read-only",
       "Type declaration: \nlet x: number = 5"
     ],
-    "theme": "Typescript Basics"
+    "theme": "Overview"
   },
   {
     "id": "3",
-    "title": "Types",
+    "title": "First Program",
     "description": [
-      "In TypeScript when we declare a variable with an initial value, the variable can never be reassigned a value of a different data type. This is an example of type inference: everywhere in our program, TypeScript expects the data type of the variable to match the type of the value initially assigned to it at declaration.",
-      "TypeScript recognizes JavaScript’s built-in “primitive” data types: \nboolean \nnumber \nnull \nstring \nundefined \nIf we try to reassign a variable to a value of a different type, TypeScript will surface an error.",
-      "Because TypeScript knows what types our objects are, it also knows what shapes our objects adhere to. An object’s shape describes, among other things, what properties and methods it does or doesn’t contain.",
-      "Through this knowledge of type shapes, TypeScript helps us quickly locate bugs in our code."
+      "",
+      "",
+      ""
     ],
     "examples": [
       "Number: \nx = 10; // x has value of type 'number'",
       "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
       "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
     ],
-    "theme": "Typescript Basics"
+    "theme": "Overview"
   },
   {
     "id": "4",
+    "title": "Type Annotations",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "5",
+    "title": "Variable",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "6",
+    "title": "Number",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "7",
+    "title": "String",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "8",
+    "title": "Boolean",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "9",
+    "title": "Arrays",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "10",
+    "title": "Tuples",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "11",
+    "title": "Enum",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "12",
+    "title": "Union",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "13",
+    "title": "Any",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "14",
+    "title": "Void",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "15",
+    "title": "Never",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "16",
+    "title": "Type Inference",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "17",
+    "title": "Type Assertion",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Data Types"
+  },
+  {
+    "id": "18",
+    "title": "Functions",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Functions"
+  },
+  {
+    "id": "19",
+    "title": "Arrow Functions",
+    "description": [
+      "",
+      "",
+      ""
+    ],
+    "examples": [
+      "Number: \nx = 10; // x has value of type 'number'",
+      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
+      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    ],
+    "theme": "Functions"
+  },
+  {
+    "id": "100",
     "title": "Any",
     "description": [
       "There are some places where TypeScript will not try to infer what type something is—generally when a variable is declared without being assigned an initial value. In situations where it isn’t able to infer a type, TypeScript will consider a variable to be of type any.",
       "Variables of type any can be assigned to any value and TypeScript won’t give an error if they’re reassigned to a different type later on."
     ],
-    "examples": ["let myLet; \nmyLet = 1; \nmyLet = false; // TypeScript doesn’t produce an error"],
-    "theme": "Typescript Basics"
+    "examples": [
+      "let myLet; \nmyLet = 1; \nmyLet = false; // TypeScript doesn’t produce an error"
+    ],
+    "theme": "Object Oriented TypeScript"
   }
 ]
