@@ -8,13 +8,23 @@ const StatisticSchema = new Schema(
       type: String,
       required: true
     },
-    learnedLessons: {
-      type: Number
+    date: {
+      type: String,
+      required: false
     },
-    finishedKatas: {
-      type: Number
+    lessons: {
+      type: Object,
+      required: false
     },
-    optional: {
+    katas: {
+      type: Object,
+      required: false
+    },
+    longStat: {
+      type: Object,
+      required: false
+    },
+    games: {
       type: Object,
       required: false
     }

@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "title": "Introduction",
     "description": [
       "TypeScript is a superset of JavaScript that adds optional static typing and other features such as classes and interfaces.",
@@ -15,7 +15,7 @@
     "theme": "Typescript Basics"
   },
   {
-    "id": 2,
+    "id": "2",
     "title": "Variables",
     "description": [
       "In TypeScript, variables can be declared using the 'let' or 'const' keywords.",
@@ -32,7 +32,7 @@
     "theme": "Typescript Basics"
   },
   {
-    "id": 3,
+    "id": "3",
     "title": "Types",
     "description": [
       "In TypeScript when we declare a variable with an initial value, the variable can never be reassigned a value of a different data type. This is an example of type inference: everywhere in our program, TypeScript expects the data type of the variable to match the type of the value initially assigned to it at declaration.",
@@ -48,15 +48,13 @@
     "theme": "Typescript Basics"
   },
   {
-    "id": 4,
+    "id": "4",
     "title": "Any",
     "description": [
       "There are some places where TypeScript will not try to infer what type something is—generally when a variable is declared without being assigned an initial value. In situations where it isn’t able to infer a type, TypeScript will consider a variable to be of type any.",
       "Variables of type any can be assigned to any value and TypeScript won’t give an error if they’re reassigned to a different type later on."
     ],
-    "examples": [
-      "let myLet; \nmyLet = 1; \nmyLet = false; // TypeScript doesn’t produce an error"
-    ],
+    "examples": ["let myLet; \nmyLet = 1; \nmyLet = false; // TypeScript doesn’t produce an error"],
     "theme": "Typescript Basics"
   }
 ]

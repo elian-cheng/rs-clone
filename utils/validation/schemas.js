@@ -32,14 +32,17 @@ const schemas = {
   statistics: Joi.object()
     .options({ abortEarly: false, allowUnknown: false })
     .keys({
-      learnedLessons: Joi.number().integer().min(0).max(100000),
-      finishedKatas: Joi.number().integer().min(0).max(100000),
-      optional: optionalScheme
+      date: Joi.string().max(200),
+      longStat: optionalScheme,
+      lessons: optionalScheme,
+      katas: optionalScheme,
+      games: optionalScheme
     }),
   settings: Joi.object()
     .options({ abortEarly: false, allowUnknown: false })
     .keys({
-      wordsPerDay: Joi.number().integer().min(1).max(1000),
+      lessonsPerDay: Joi.number().integer().min(1).max(1000),
+      katasPerDay: Joi.number().integer().min(1).max(1000),
       optional: optionalScheme
     })
 };
