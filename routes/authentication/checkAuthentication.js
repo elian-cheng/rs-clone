@@ -27,10 +27,6 @@ const checkAuthentication = (req, res, next) => {
     return next();
   }
 
-  // if (req.path === LESSONS_PATH) {
-  //   return next();
-  // }
-
   if (req.path === USERS_PATH && req.method === "POST") {
     return next();
   }
