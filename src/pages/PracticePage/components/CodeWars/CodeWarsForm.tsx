@@ -28,7 +28,7 @@ export default function CodeWarsForm(props: {
           >
             CodeWars
           </a>{' '}
-          website and write your username in the field above.
+          website and write your username in the field below.
         </p>
       </div>
       <form className="practice__codewars-check-form" onSubmit={submitHandler}>

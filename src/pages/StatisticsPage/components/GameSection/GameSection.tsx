@@ -1,4 +1,4 @@
-import { IGameStats } from '../StatisticsPage';
+import { IGameStats } from '../../StatisticsPage';
 import { GameCard } from './GameCard';
 
 export enum GameType {

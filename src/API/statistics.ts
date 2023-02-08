@@ -63,31 +63,7 @@ export const getStats = async (setStats: Dispatch<React.SetStateAction<UserStati
     });
 };
 
-// const testStatistics: UserStatistics = {
-//   learnedLessons: 0,
-//   finishedKatas: 0,
-//   optional: {
-//     date: '',
-//     lessonsId: [],
-//     katasId: [],
-//     games: {
-//       quiz: {
-//         score: 0,
-//         answered: 0,
-//         correct: 0,
-//         streak: 0,
-//       },
-//       missingType: {
-//         score: 0,
-//         answered: 0,
-//         correct: 0,
-//         streak: 0,
-//       },
-//     },
-//   },
-// };
-
-const testStatistics: UserStatistics = {
+const initialStatistics: UserStatistics = {
   lessons: {
     learnedLessons: 0,
   },
@@ -126,6 +102,6 @@ export async function getInitialStatistics(id: string) {
   });
 
   if (response.status === 404) {
-    setUserStatistics(id, testStatistics);
+    setUserStatistics(id, initialStatistics);
   }
 }

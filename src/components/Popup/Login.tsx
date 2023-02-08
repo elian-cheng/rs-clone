@@ -6,9 +6,8 @@ import {
   ILoginUser,
   userLoginAPI,
 } from '../../API/authorization';
-import { getInitialStatistics, setUserStatistics } from '../../API/statistics';
+import { getInitialStatistics } from '../../API/statistics';
 import { UserContext } from '../../context/UserContext';
-import { UserStatistics } from '../../pages/StatisticsPage/StatisticsPage';
 export interface ILogin {
   setWhatPopup: React.Dispatch<React.SetStateAction<string>>;
 }
