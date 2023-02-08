@@ -51,7 +51,7 @@ function getLessonsList(params = {}) {
 
 function getLessons(itemId) {
   const lessons = JSON.parse(readFileSync(LESSONS_DB) || "[]");
-  const item = lessons.find(({ id }) => id === +itemId);
+  const item = lessons.find(({ id }) => id === itemId);
   if (!item) throw new ApiError(404, { message: "Item Not Found" });
   return item;
 }
