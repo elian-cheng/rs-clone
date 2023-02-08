@@ -1,10 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { getToken, getUserId, IGetUSer } from '../../API/authorization';
 import storage from '../../utils/storage';
-import { GameSection } from './components/GameSection';
+import { GameSection } from './components/GameSection/GameSection';
 import { GeneralStats } from './components/GeneralStats';
 import { BASE_URL } from '../../API/URL';
 import { getStats, setUserStatistics } from '../../API/statistics';
+import AuthNotification from './components/AuthNotification/AuthNotification';
+import ChartsBlock from './components/ChartsBlock/ChartsBlock';
+import { getLessons } from '../../API/tasks';
 
 export type UserStatistics = {
   id?: string;
@@ -55,7 +58,10 @@ export default function Statistics() {
       },
     },
   });
+  const [lessons, setLessons] = useState(Array<string>);
+
   const getStatsCallback = useCallback(() => {
+    getLessons().then((res) => setLessons(res));
     getStats(setStats);
   }, []);
   useEffect(getStatsCallback, [getStatsCallback]);
@@ -81,6 +87,7 @@ export default function Statistics() {
         <button className="button" onClick={() => getTestStats(userId)}>
           GetStats
         </button>
+        <ChartsBlock stats={stats} lessonsTotal={lessons.length} />
       </div>
     </>
   );
@@ -107,18 +114,6 @@ const testStatistics: UserStatistics = {
     },
   },
 };
-
-function AuthNotification() {
-  return (
-    <div style={{ width: '99.5%' }}>
-      <div style={{ width: '100%' }}>
-        <h2>Страница недоступна</h2>
-        Извините данная страница для зарегистрированных пользователей —
-        <strong> Войдите под своей учетной записью!</strong>
-      </div>
-    </div>
-  );
-}
 
 export async function getTestStats(id: string) {
   const response = await fetch(`${BASE_URL}users/${id}/statistics`, {

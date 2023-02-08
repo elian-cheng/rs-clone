@@ -1,4 +1,4 @@
-import { codeWarsTasks } from './tasksId';
+import { codeWarsTasks } from './codeWarsTasks';
 
 export interface ITask {
   id: string;

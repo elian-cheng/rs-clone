@@ -1,5 +1,5 @@
-import { checkIsNaN } from '../../../utils/helpers';
-import { IGameStats } from '../StatisticsPage';
+import { checkIsNaN } from '../../../../utils/helpers';
+import { IGameStats } from '../../StatisticsPage';
 import { GameTotalQuestions, GameType } from './GameSection';
 
 export interface IGameCardProps {
