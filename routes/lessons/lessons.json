@@ -29,7 +29,16 @@
       "TypeScript has support for the latest JavaScript features from ECMAScript 2015 . It includes features from ES6 and ES7 that can run in ES5-level JavaScript engines like Node.js. This offers a massive advantage of using features from future JavaScript versions in current JavaScript engines.",
       "TypeScript has easy integration with task runner tools like Grunt and Gulp to automate the workflow."
     ],
-    "examples": [],
+    "examples": [
+    ],
+    "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Overview"
   },
   {
@@ -41,7 +50,16 @@
       "2.Install TypeScript NuGet Package in your .NET or .NET Core project.",
       "3.Install TypeScript as a Plug-in in your IDE (Integrated Development Environment)."
     ],
-    "examples": [],
+    "examples": [
+    ],
+    "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Overview"
   },
   {
@@ -55,7 +73,16 @@
       "The above command will compile the TypeScript file file.ts and create the Javascript file named file.js at the same location. The file.js file contains your code.",
       "As you can see, the TypeScript compiler compiled file.ts TypeScript file to Javascript file ad.js. You can now include the file.js file in a web page using a script tag and see the result in the browser's developer console."
     ],
-    "examples": [],
+    "examples": [
+    ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Overview"
   },
   {
@@ -72,6 +99,14 @@
       "let name: string = \"John\";// string variable",
       "let isUpdated: boolean = true;// Boolean variable"
     ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
@@ -88,6 +123,14 @@
       "const num1:number = 1;",
       "var flag:boolean = true;"
     ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
@@ -102,6 +145,14 @@
       "let third:number=0o377 ;      // octal",
       "let fourth: number = 0b111001;// binary "
     ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
@@ -115,6 +166,14 @@
       "let employeeName:string = 'John Smith';\n//OR\nlet employeeName:string = \"John Smith\";",
       "let employeeDesc2: string = `${employeeName} works in the ${employeeDept} department.`;"
     ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
@@ -125,7 +184,17 @@
       "Note that, the boolean Boolean is different from the lower case boolean type. The upper case Boolean is an object type whereas lower case boolean is a primitive type. It is recommended to use the primitive type boolean in your code, because, while JavaScript coerces an object to its primitive type, the TypeScript type system does not. TypeScript treats it like an object type.",
       "So, instead of using upper case function checkExistence(b: Boolean), use the lower case function checkExistence(b: boolean) boolean type."
     ],
-    "examples": ["let isPresent:boolean = true;"],
+    "examples": [
+      "let isPresent:boolean = true;"
+    ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
@@ -150,116 +219,253 @@
       "let fruits: string[] = ['Apple', 'Orange', 'Banana'];",
       "var fruits: Array<string> = ['Apple', 'Orange', 'Banana']; "
     ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
     "id": "10",
     "title": "Tuples",
-    "description": ["", "", ""],
-    "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    "description": [
+      "TypeScript introduced a new data type called Tuple. Tuple can contain two values of different data types.",
+      "A tuple type variable can include multiple data types.",
+      "You can declare an array of tuple also.",
+      "TypeScript generates an array in JavaScript for the tuple variable. For example, var employee: [number, string] = [1, 'Steve'] will be compiled as var employee = [1, \"Steve\"] in JavaScript.",
+      "We can access tuple elements using index, the same way as an array. An index starts from zero",
+      "You can add new elements to a tuple using the push() method.",
+      "The tuple is like an array. So, we can use array methods on tuple such as pop(), concat() etc."
     ],
+    "examples": [
+      "let employee: [number, string] = [1, \"Steve\"];",
+      "const employee = [[1, \"Steve\"], [2, \"Bill\"], [3, \"Jeff\"]];",
+      "employee[0]; // returns 1"
+    ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
     "id": "11",
     "title": "Enum",
-    "description": ["", "", ""],
-    "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    "description": [
+      "Enums or enumerations are a new data type supported in TypeScript. Most object-oriented languages like Java and C# use enums. This is now available in TypeScript too.",
+      "In simple words, enums allow us to declare a set of named constants i.e. a collection of related values that can be numeric or string values.",
+      "There are three types of enums:",
+      "1.Numeric enum",
+      "2.String enum",
+      "3.Heterogeneous enum",
+      "Numeric enums are number-based enums i.e. they store string values as numbers.",
+      "Enums can be defined using the keyword enum. Let's say we want to store a set of print media types.",
+      "Enums are always assigned numeric values when they are stored. The first value always takes the numeric value of 0, while the other values in the enum are incremented by 1.",
+      "Numeric enums can include members with computed numeric value. The value of an enum member can be either a constant or computed.",
+      "String enums are similar to numeric enums, except that the enum values are initialized with string values rather than numeric values.",
+      "The benefits of using string enums is that string enums offer better readability. If we were to debug a program, it is easier to read string values rather than numeric values.",
+      "Heterogeneous enums are enums that contain both string and numeric values.",
+      "Enum in TypeScript supports reverse mapping. It means we can access the value of a member and also a member name from its value."
     ],
+    "examples": [
+      "Numeric Enum: enum PrintMedia {\nNewspaper,\nNewsletter,\nMagazine,\nBook\n}",
+      "Heterogeneous Enum: enum Status {\nActive = 'ACTIVE',\nDeactivate = 1,\nPending\n}"
+    ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
     "id": "12",
     "title": "Union",
-    "description": ["", "", ""],
-    "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    "description": [
+      "TypeScript allows us to use more than one data type for a variable or a function parameter. This is called union type.",
+      "Syntax:",
+      "(type1 | type2 | type3 | .. | typeN)"
     ],
+    "examples": [
+      "let code: (string | number);"
+    ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
     "id": "13",
     "title": "Any",
-    "description": ["", "", ""],
-    "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    "description": [
+      "TypeScript has type-checking and compile-time checks. However, we do not always have prior knowledge about the type of some variables, especially when there are user-entered values from third party libraries. In such cases, we need a provision that can deal with dynamic content.",
+      "Similarly, you can create an array of type any[] if you are not sure about the types of values that can contain this array."
     ],
+    "examples": [
+      "let something: any = \"Hello World!\"; ",
+      "let arr: any[] = [\"John\", 212, true];"
+    ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
     "id": "14",
     "title": "Void",
-    "description": ["", "", ""],
-    "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    "description": [
+      "Similar to languages like Java, void is used where there is no data. For example, if a function does not return any value then you can specify void as return type.",
+      "There is no meaning to assign void to a variable, as only null or undefined is assignable to void."
     ],
+    "examples": [
+      "let speech: void = sayHi();",
+      "console.log(speech); //Output: undefined"
+    ],
+        "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
     "id": "15",
     "title": "Never",
-    "description": ["", "", ""],
-    "examples": [
-      "Number: \nx = 10; // x has value of type 'number'",
-      "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
-      "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
+    "description": [
+      "TypeScript introduced a new type never, which indicates the values that will never occur.",
+      "The never type is used when you are sure that something is never going to occur.",
+      "Difference between never and void",
+      "The void type can have undefined or null as a value where as never cannot have any value.",
+      "In TypeScript, a function that does not return a value, actually returns undefined."
     ],
+    "examples": [
+      "let something: void = null;",
+      "let nothing: never = null; // Error: Type 'null' is not assignable to type 'never'"
+    ],
+    "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
     "id": "16",
     "title": "Type Inference",
-    "description": ["", "", ""],
+    "description": [
+      "",
+      "",
+      ""
+    ],
     "examples": [
       "Number: \nx = 10; // x has value of type 'number'",
       "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
       "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
     ],
+    "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
     "id": "17",
     "title": "Type Assertion",
-    "description": ["", "", ""],
+    "description": [
+      "",
+      "",
+      ""
+    ],
     "examples": [
       "Number: \nx = 10; // x has value of type 'number'",
       "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
       "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
     ],
+    "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Data Types"
   },
   {
     "id": "18",
     "title": "Functions",
-    "description": ["", "", ""],
+    "description": [
+      "",
+      "",
+      ""
+    ],
     "examples": [
       "Number: \nx = 10; // x has value of type 'number'",
       "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
       "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
     ],
+    "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Functions"
   },
   {
     "id": "19",
     "title": "Arrow Functions",
-    "description": ["", "", ""],
+    "description": [
+      "",
+      "",
+      ""
+    ],
     "examples": [
       "Number: \nx = 10; // x has value of type 'number'",
       "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
       "console.log(firstName.lenght); // error: Property 'lenght' does not exist on type 'string'. Did you mean 'length'?"
     ],
+    "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Functions"
   },
   {
@@ -269,7 +475,17 @@
       "There are some places where TypeScript will not try to infer what type something is—generally when a variable is declared without being assigned an initial value. In situations where it isn’t able to infer a type, TypeScript will consider a variable to be of type any.",
       "Variables of type any can be assigned to any value and TypeScript won’t give an error if they’re reassigned to a different type later on."
     ],
-    "examples": ["let myLet; \nmyLet = 1; \nmyLet = false; // TypeScript doesn’t produce an error"],
+    "examples": [
+      "let myLet; \nmyLet = 1; \nmyLet = false; // TypeScript doesn’t produce an error"
+    ],
+    "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
     "theme": "Object Oriented TypeScript"
   }
 ]
