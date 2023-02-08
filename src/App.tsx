@@ -12,7 +12,7 @@ import { UserContext } from './context/UserContext';
 
 export default function App() {
   const [popupActive, setPopupActive] = useState(false);
-  const [whatPopup, setWhatPopup] = useState('login');
+  const [whatPopup, setWhatPopup] = useState('signUp');
   const [user, setUser] = useState<IUser | null>(null);
   const userValue = useMemo(() => ({ user, setUser }), [user]);
   const location = useLocation();
@@ -26,11 +26,11 @@ export default function App() {
       <>
         <div className="page-wrapper">
           <div className="page-content">
-              <Header />
-              <main className="main">
-                <Router />
-              </main>
-              <Footer />
+            <Header />
+            <main className="main">
+              <Router />
+            </main>
+            <Footer />
           </div>
         </div>
         <Sidebar onSignInOpen={setPopupActive} />

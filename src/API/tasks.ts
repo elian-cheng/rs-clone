@@ -5,6 +5,7 @@ export async function getLessons() {
   return res;
 }
 export async function getQuiz() {
-  const res = await fetch(`${API_URL}/lessons`).then((data) => data.json());
+  const res = await fetch(`${API_URL}/quiz`).then((data) => data.json());
   return res;
 }
+
