@@ -5,6 +5,8 @@ import HomePage from '../pages/HomePage/HomePage';
 import PracticePage from '../pages/PracticePage/PracticePage';
 import SettingsPage from '../pages/SettingsPage/SettingsPage';
 import StatisticsPage from '../pages/StatisticsPage/StatisticsPage';
+import MissingTypePage from '../pages/MissingTypePage/MissingTypePage';
+import QuizPage from '../pages/QuizPage/QuizPage';
 
 export interface IRoute {
   title: string;
@@ -21,6 +23,8 @@ export const titles: ITitle = {
   '/lessons': 'Lessons',
   '/practice': 'Practice',
   '/games': 'Games',
+  '/games/quiz': 'Quiz',
+  '/games/missing-type': 'Missing Type',
   '/statistics': 'Statistics',
   '/settings': 'Settings',
 };
@@ -44,12 +48,12 @@ export const routes: IRoute[] = [
   {
     title: 'Missing Type',
     path: '/games/missing-type',
-    element: <GamesPage />,
+    element: <MissingTypePage />,
   },
   {
     title: 'Quiz',
     path: '/games/quiz',
-    element: <GamesPage />,
+    element: <QuizPage />,
   },
   {
     title: 'Statistics',

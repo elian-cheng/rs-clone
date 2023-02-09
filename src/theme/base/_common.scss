@@ -24,3 +24,16 @@
     background: $colorBlueDark;
   }
 }
+
+.description {
+  font-size: 1.2rem;
+  color: $colorGrayDark;
+  text-align: center;
+  font-weight: $fontSemibold;
+}
+
+.name-title {
+  font-size: 1.6rem;
+  font-weight: $fontSemibold;
+  text-align: center;
+}
