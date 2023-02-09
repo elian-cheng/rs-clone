@@ -40,6 +40,9 @@
 .activebrgr .sidebar-burger__dash:nth-of-type(2) {
   transform: rotate(-45deg);
 }
+.scroll-lock{
+  overflow: hidden;
+}
 
 @media (max-width: 1000px) {
   .sidebar-burger {

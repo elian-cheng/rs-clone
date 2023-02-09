@@ -1,44 +1,20 @@
+import axios from 'axios';
 import { getToken } from './authorization';
 import { BASE_URL } from './URL';
 
-export async function setUserSettings(id: string, optional: Object) {
-  const response = await fetch(`${BASE_URL}/users/${id}/settings`, {
-    method: 'PUT',
-    headers: {
-      Authorization: `Bearer ${getToken()}`,
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      optional,
-    }),
-  });
+export type UserSettingsBody = {
+  lessonsPerDay: number;
+};
 
-  if (response.status === 401) {
-    throw new Error('Access token is missing or invalid!');
-  } else if (response.status !== 200) {
-    throw new Error(`${response.status}`);
-  }
-}
+export type UserSettings = {
+  id: string;
+  lessonsPerDay: number;
+};
 
-export async function getUserSettings(id: string) {
-  const response = await fetch(`${BASE_URL}/users/${id}/settings`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${getToken()}`,
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-  });
-
-  if (response.status === 401) {
-    throw new Error('Access token is missing or invalid!');
-  } else if (response.status === 404) {
-    throw new Error('Settings not found!');
-  } else if (response.status !== 200) {
-    throw new Error(`${response.status}`);
-  }
-
-  const userSettings = await response.json();
-  return userSettings;
-}
+//user-settings
+export const getUserSettings = (id: string) => {
+  return axios.get<UserSettings>(`${BASE_URL}/users/${id}/settings`);
+};
+export const updateUserSettings = (id: string, body: UserSettingsBody) => {
+  return axios.put<UserSettings>(`${BASE_URL}/users/${id}/settings`, body);
+};

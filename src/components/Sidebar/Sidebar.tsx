@@ -37,6 +37,7 @@ export default function Sidebar(props: ISidebar) {
 
   const logOut = () => {
     localStorage.removeItem('userData');
+    location.reload();
     setUser(null);
   };
 
@@ -49,6 +50,7 @@ export default function Sidebar(props: ISidebar) {
     if (navBtn && document.querySelector('.activebrgr')) {
       document.querySelector('.sidebar-wrapper')?.classList.toggle('sidebar-wrapper_open');
       document.querySelector('.sidebar-burger')?.classList.toggle('activebrgr');
+      document.body.classList.toggle('scroll-lock');
     }
 
     const curLocation = location.pathname.split('/')[1];
@@ -93,9 +95,9 @@ export default function Sidebar(props: ISidebar) {
         </nav>
         <div className="sidebar__login">
           {user ? (
-            <button className="sidebar__login-btn" onClick={logOut}>
-              <LoginIcon className="login-icon" />
-              <span className="login-title">Log out</span>
+            <button className="sidebar__login-btn nav-item" onClick={logOut}>
+              <LoginIcon className=" nav-icon login-icon" />
+              <span className="nav-title">Log out</span>
             </button>
           ) : (
             <button className="sidebar__login-btn nav-item" onClick={() => onSignInOpen(true)}>

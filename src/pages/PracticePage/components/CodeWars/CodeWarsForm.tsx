@@ -2,7 +2,9 @@ import { Dispatch, SetStateAction, useRef } from 'react';
 
 export default function CodeWarsForm(props: {
   setLogin: Dispatch<SetStateAction<string>>;
+  setSubmit: Dispatch<SetStateAction<boolean>>;
   lvl: string;
+  submit: boolean;
 }) {
   const loginInputRef = useRef<HTMLInputElement>(null);
   function submitHandler(event: { preventDefault: () => void }) {
@@ -26,7 +28,7 @@ export default function CodeWarsForm(props: {
           >
             CodeWars
           </a>{' '}
-          website and write your username in the field above.
+          website and write your username in the field below.
         </p>
       </div>
       <form className="practice__codewars-check-form" onSubmit={submitHandler}>
@@ -40,7 +42,12 @@ export default function CodeWarsForm(props: {
           ref={loginInputRef}
           defaultValue={localStorage.getItem('CodeWarsLogin') as string}
         />
-        <button className="practice__codewars-check-form-submit">Submit solutions</button>
+        <button
+          className="practice__codewars-check-form-submit"
+          onClick={() => props.setSubmit((submit) => !submit)}
+        >
+          Submit solutions
+        </button>
         <div>{props.lvl}</div>
       </form>
     </section>

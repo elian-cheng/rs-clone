@@ -6,6 +6,7 @@ export default function Burger() {
     if (burgerBtn || (event.target as HTMLElement).classList.contains('sidebar-wrapper_open')) {
       document.querySelector('.sidebar-wrapper')?.classList.toggle('sidebar-wrapper_open');
       document.querySelector('.sidebar-burger')?.classList.toggle('activebrgr');
+      document.body.classList.toggle('scroll-lock');
     }
   }
 

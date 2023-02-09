@@ -38,16 +38,19 @@ export const Popup: React.FC<IPopup> = ({ active, setActive, popup, setPopup }) 
         role="textbox"
         tabIndex={0}
       >
-        <button
-          className="popup__close-btn"
-          onClick={() => setActive(false)}
-          role="button"
-          onKeyDown={() => handleKeyDown}
-          tabIndex={0}
-        >
-          &times;
-        </button>
-        {popup === 'login' ? <Login setWhatPopup={setPopup} /> : <SignUp setWhatPopup={setPopup} />}
+        <div className={`wrapper ${popup === 'login' ? '' : ' active'}`}>
+          <button
+            className="popup__close-btn"
+            onClick={() => setActive(false)}
+            role="button"
+            onKeyDown={() => handleKeyDown}
+            tabIndex={0}
+          >
+            &times;
+          </button>
+          <SignUp setWhatPopup={setPopup} />
+          <Login setWhatPopup={setPopup} />
+        </div>
       </div>
     </div>
   );

@@ -73,14 +73,8 @@
   }
 
   &__login {
-    position: absolute;
-    bottom: 2rem;
+    margin-top: 50px;
     min-height: 48px;
-  }
-
-  &__login-btn {
-    font-weight: $fontBold;
-    font-size: 1.2rem;
   }
 
   &__login-wrapper {
@@ -131,6 +125,13 @@
       background: rgba($color: $colorWhite, $alpha: 0.1);
     }
   }
+  
+  &__login-btn {
+    font-weight: $fontBold;
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+
 }
 
 .sidebar-wrapper_open {
@@ -202,6 +203,8 @@
     opacity: 1;
     .sidebar {
       right: 0;
+      min-height: 100vh;
+      overflow: scroll;
     }
   }
 }
