@@ -1,6 +1,6 @@
 import AceEditor from 'react-ace';
 
-import 'ace-builds/src-noconflict/mode-javascript';
+import 'ace-builds/src-noconflict/mode-typescript';
 import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import 'ace-builds/webpack-resolver';
@@ -12,13 +12,13 @@ export default function TsEditor() {
   return (
     <AceEditor
       placeholder="Write your TS here"
-      mode="javascript"
+      mode="typescript"
       theme="monokai"
       name="editor_js"
       defaultValue={ts}
       value={ts}
       onChange={(value) => setTs(value)}
-      fontSize={20}
+      fontSize={16}
       height="100%"
       width="100%"
       showPrintMargin={false}

@@ -1,0 +1,32 @@
+.lesson {
+  margin-top: 100px;
+  &__block {
+    display: flex;
+    column-gap: 30px;
+    height: 100%;
+    margin-bottom: 40px;
+  }
+  &__theory {
+    max-width: 40vw;
+  }
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__paragraph {
+    text-indent: 20px;
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    &-btn {
+      color: $colorWhite;
+      height: 50px;
+      width: 150px;
+      background-color: $colorBlueMiddle;
+      border-radius: 10px;
+      @include btnHover;
+    }
+  }
+}

@@ -125,13 +125,12 @@
       background: rgba($color: $colorWhite, $alpha: 0.1);
     }
   }
-  
+
   &__login-btn {
     font-weight: $fontBold;
     font-size: 1.2rem;
     padding: 0 10px;
   }
-
 }
 
 .sidebar-wrapper_open {

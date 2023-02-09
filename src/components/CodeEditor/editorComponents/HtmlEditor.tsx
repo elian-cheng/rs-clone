@@ -17,7 +17,7 @@ export default function HtmlEditor() {
       defaultValue={html}
       value={html}
       onChange={(value) => setHtml(value)}
-      fontSize={20}
+      fontSize={16}
       height="100%"
       width="100%"
       showPrintMargin={false}
