@@ -37,6 +37,7 @@ export default function Sidebar(props: ISidebar) {
 
   const logOut = () => {
     localStorage.removeItem('userData');
+    location.reload();
     setUser(null);
   };
 
@@ -49,6 +50,7 @@ export default function Sidebar(props: ISidebar) {
     if (navBtn && document.querySelector('.activebrgr')) {
       document.querySelector('.sidebar-wrapper')?.classList.toggle('sidebar-wrapper_open');
       document.querySelector('.sidebar-burger')?.classList.toggle('activebrgr');
+      document.body.classList.toggle('scroll-lock');
     }
 
     const curLocation = location.pathname.split('/')[1];

@@ -1,25 +1,28 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { getToken, getUserId, IGetUSer } from '../../API/authorization';
+import { IGetUSer } from '../../API/authorization';
 import storage from '../../utils/storage';
 import { GameSection } from './components/GameSection/GameSection';
 import { GeneralStats } from './components/GeneralStats';
-import { BASE_URL } from '../../API/URL';
-import { getStats, setUserStatistics } from '../../API/statistics';
+import { getStats } from '../../API/statistics';
 import AuthNotification from './components/AuthNotification/AuthNotification';
 import ChartsBlock from './components/ChartsBlock/ChartsBlock';
 import { getLessons } from '../../API/tasks';
 
 export type UserStatistics = {
   id?: string;
-  learnedLessons?: number;
-  finishedKatas?: number;
-  optional: {
-    date: string;
-    games: {
-      quiz: IGameStats;
-      missingType: IGameStats;
-    };
-    longStat?: ILongStat;
+  lessons?: {
+    learnedLessons?: number;
+    lessonsId?: string;
+  };
+  katas?: {
+    finishedKatas?: number;
+    katasId?: string;
+  };
+  date: string;
+  longStat?: ILongStat;
+  games?: {
+    quiz?: IGameStats;
+    missingType?: IGameStats;
   };
 };
 
@@ -37,25 +40,42 @@ export interface IGameStats {
   streak: number; // longest successful series of answers
 }
 
+const gamesInit = {
+  quiz: {
+    score: 0,
+    answered: 0,
+    correct: 0,
+    streak: 0,
+  },
+  missingType: {
+    score: 0,
+    answered: 0,
+    correct: 0,
+    streak: 0,
+  },
+};
+
 export default function Statistics() {
   const user = storage.getItem<IGetUSer>('userData');
   if (!user) return <AuthNotification />;
 
   const [stats, setStats] = useState<UserStatistics>({
-    learnedLessons: 0,
-    finishedKatas: 0,
-    optional: {
+    lessons: {
+      learnedLessons: 0,
+    },
+    katas: {
+      finishedKatas: 0,
+    },
+    date: '',
+    games: {
+      quiz: { score: 0, correct: 0, answered: 0, streak: 0 },
+      missingType: { score: 0, correct: 0, answered: 0, streak: 0 },
+    },
+    longStat: {
       date: '',
-      games: {
-        quiz: { score: 0, correct: 0, answered: 0, streak: 0 },
-        missingType: { score: 0, correct: 0, answered: 0, streak: 0 },
-      },
-      longStat: {
-        date: '',
-        lessons: 0,
-        katas: 0,
-        games: 0,
-      },
+      lessons: 0,
+      katas: 0,
+      games: 0,
     },
   });
   const [lessons, setLessons] = useState(Array<string>);
@@ -66,90 +86,20 @@ export default function Statistics() {
   }, []);
   useEffect(getStatsCallback, [getStatsCallback]);
 
-  console.log(stats);
-  const userId = getUserId();
-
   return (
     <>
       <GeneralStats
-        finishedKatas={stats?.finishedKatas || 0}
-        learnedLessons={stats?.learnedLessons || 0}
+        finishedKatas={stats?.katas?.finishedKatas || 0}
+        learnedLessons={stats?.lessons?.learnedLessons || 0}
         correctAnswers={
-          (stats.optional?.games?.quiz?.correct + stats.optional?.games?.missingType?.correct) /
-          (stats.optional?.games?.quiz?.answered + stats.optional?.games?.missingType?.answered)
+          ((stats?.games?.quiz?.correct || 0) + (stats?.games?.missingType?.correct || 0)) /
+          ((stats?.games?.quiz?.answered || 0) + (stats?.games?.missingType?.answered || 0))
         }
       />
-      <GameSection games={stats.optional?.games} />
-      <div className="buttons__container">
-        <button className="button" onClick={() => setUserStatistics(userId, testStatistics)}>
-          SetStats
-        </button>
-        <button className="button" onClick={() => getTestStats(userId)}>
-          GetStats
-        </button>
+      <GameSection games={stats?.games || gamesInit} />
+      <div className="charts__container">
         <ChartsBlock stats={stats} lessonsTotal={lessons.length} />
       </div>
     </>
   );
 }
-
-const testStatistics: UserStatistics = {
-  learnedLessons: 5,
-  finishedKatas: 7,
-  optional: {
-    date: new Date().toJSON(),
-    games: {
-      quiz: {
-        score: 70,
-        answered: 8,
-        correct: 6,
-        streak: 7,
-      },
-      missingType: {
-        score: 60,
-        answered: 12,
-        correct: 8,
-        streak: 5,
-      },
-    },
-  },
-};
-
-export async function getTestStats(id: string) {
-  const response = await fetch(`${BASE_URL}users/${id}/statistics`, {
-    headers: {
-      Authorization: `Bearer ${getToken()}`,
-      Accept: 'application/json',
-    },
-  });
-
-  if (response.status === 401) {
-    throw new Error('Access token is missing or invalid!');
-  } else if (response.status === 404) {
-    throw new Error('Statistics not found!');
-  } else if (response.status !== 200) {
-    throw new Error(`${response.status}`);
-  }
-
-  const userStatistics = await response.json();
-  console.log(userStatistics);
-  return userStatistics;
-}
-
-// async function setTestStats(id: string, statistics: UserStatistics) {
-//   const response = await fetch(`${BASE_URL}users/${id}/statistics`, {
-//     method: 'PUT',
-//     headers: {
-//       Authorization: `Bearer ${getToken()}`,
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify(`${statistics}`),
-//   });
-
-//   if (response.status === 401) {
-//     throw new Error('Access token is missing or invalid!');
-//   } else if (response.status !== 200) {
-//     throw new Error(`${response.status}`);
-//   }
-// }

@@ -1,12 +1,12 @@
 import { checkIsNaN } from '../../../utils/helpers';
 
-export interface IWordStatProps {
+export interface IGeneralStats {
   finishedKatas: number;
   learnedLessons: number;
   correctAnswers: number;
 }
 
-export const GeneralStats = ({ learnedLessons, finishedKatas, correctAnswers }: IWordStatProps) => {
+export const GeneralStats = ({ learnedLessons, finishedKatas, correctAnswers }: IGeneralStats) => {
   return (
     <section className="general-section">
       <h2 className="stats-title">Daily statistics</h2>

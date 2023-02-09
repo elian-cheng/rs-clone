@@ -1,5 +1,5 @@
-import { API_URL } from './URL';
-import { getNewToken, getUserId, IGetUSer } from './authorization';
+import { API_URL, BASE_URL } from './URL';
+import { getNewToken, getToken, getUserId, IGetUSer } from './authorization';
 import React, { Dispatch } from 'react';
 import axios from 'axios';
 import { sameDay } from '../utils/helpers';
@@ -21,7 +21,7 @@ axios.interceptors.response.use(
   },
   async (error) => {
     if (error.response.status == 401) {
-      localStorage.deleteItem('userData');
+      localStorage.removeItem('userData');
       location.reload();
       return Promise.reject({ message: 'Please login again.' });
     }
@@ -40,10 +40,10 @@ export const getStats = async (setStats: Dispatch<React.SetStateAction<UserStati
   getUserStatistics(getUserId())
     .then(({ data }) => {
       delete data.id;
-      if (sameDay(data.optional.date)) setStats((prev) => ({ ...prev, ...data }));
+      if (sameDay(data.date)) setStats((prev) => ({ ...prev, ...data }));
       else
         setStats((prev) => {
-          prev.optional.longStat = data.optional.longStat;
+          prev.longStat = data.longStat;
           return { ...prev };
         });
     })
@@ -52,13 +52,56 @@ export const getStats = async (setStats: Dispatch<React.SetStateAction<UserStati
         await getNewToken();
         getUserStatistics(getUserId()).then(({ data }) => {
           delete data.id;
-          if (sameDay(data.optional.date)) setStats((prev) => ({ ...prev, ...data }));
+          if (sameDay(data.date)) setStats((prev) => ({ ...prev, ...data }));
           else
             setStats((prev) => {
-              prev.optional.longStat = data.optional.longStat;
+              prev.longStat = data.longStat;
               return { ...prev };
             });
         });
       }
     });
 };
+
+const initialStatistics: UserStatistics = {
+  lessons: {
+    learnedLessons: 0,
+  },
+  katas: {
+    finishedKatas: 0,
+  },
+  date: new Date().toJSON(),
+  games: {
+    quiz: {
+      score: 0,
+      answered: 0,
+      correct: 0,
+      streak: 0,
+    },
+    missingType: {
+      score: 0,
+      answered: 0,
+      correct: 0,
+      streak: 0,
+    },
+  },
+  longStat: {
+    date: new Date().toJSON(),
+    lessons: 0,
+    katas: 0,
+    games: 0,
+  },
+};
+
+export async function getInitialStatistics(id: string) {
+  const response = await fetch(`${BASE_URL}users/${id}/statistics`, {
+    headers: {
+      Authorization: `Bearer ${getToken()}`,
+      Accept: 'application/json',
+    },
+  });
+
+  if (response.status === 404) {
+    setUserStatistics(id, initialStatistics);
+  }
+}
