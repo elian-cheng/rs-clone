@@ -17,8 +17,8 @@ export default function MemberCard(props: ITeam) {
         </div>
       </div>
       <div className="member__info">
-        <h6 className="member__title">{title}</h6>
-        <p className="member__description">{description}</p>
+        <h6 className="member__title name-title">{title}</h6>
+        <p className="member__description description">{description}</p>
         <a href={git} target="_blank" rel="noreferrer" className="member__button button">
           View More
         </a>
