@@ -6,11 +6,10 @@ const { readFileSync } = require("fs");
 router.use(logger);
 
 const QUIZ_DB = process.env.QUIZ_DB || path.resolve(__dirname, "quiz.json");
-const QUIZ_PREFIX = "/quiz";
 
 router.get("/", (req, res) => {
   const queryParams = {};
-  const [uri, query] = req.url.substring(QUIZ_PREFIX.length).split("?");
+  const [uri, query] = req.url.split("?");
 
   if (query) {
     for (const piece of query.split("&")) {

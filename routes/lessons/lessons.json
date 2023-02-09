@@ -29,8 +29,7 @@
       "TypeScript has support for the latest JavaScript features from ECMAScript 2015 . It includes features from ES6 and ES7 that can run in ES5-level JavaScript engines like Node.js. This offers a massive advantage of using features from future JavaScript versions in current JavaScript engines.",
       "TypeScript has easy integration with task runner tools like Grunt and Gulp to automate the workflow."
     ],
-    "examples": [
-    ],
+    "examples": [],
     "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
@@ -50,8 +49,7 @@
       "2.Install TypeScript NuGet Package in your .NET or .NET Core project.",
       "3.Install TypeScript as a Plug-in in your IDE (Integrated Development Environment)."
     ],
-    "examples": [
-    ],
+    "examples": [],
     "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
@@ -73,9 +71,8 @@
       "The above command will compile the TypeScript file file.ts and create the Javascript file named file.js at the same location. The file.js file contains your code.",
       "As you can see, the TypeScript compiler compiled file.ts TypeScript file to Javascript file ad.js. You can now include the file.js file in a web page using a script tag and see the result in the browser's developer console."
     ],
-    "examples": [
-    ],
-        "question": "What is TypeScript?",
+    "examples": [],
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -99,7 +96,7 @@
       "let name: string = \"John\";// string variable",
       "let isUpdated: boolean = true;// Boolean variable"
     ],
-        "question": "What is TypeScript?",
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -123,7 +120,7 @@
       "const num1:number = 1;",
       "var flag:boolean = true;"
     ],
-        "question": "What is TypeScript?",
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -145,7 +142,7 @@
       "let third:number=0o377 ;      // octal",
       "let fourth: number = 0b111001;// binary "
     ],
-        "question": "What is TypeScript?",
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -166,7 +163,7 @@
       "let employeeName:string = 'John Smith';\n//OR\nlet employeeName:string = \"John Smith\";",
       "let employeeDesc2: string = `${employeeName} works in the ${employeeDept} department.`;"
     ],
-        "question": "What is TypeScript?",
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -184,10 +181,8 @@
       "Note that, the boolean Boolean is different from the lower case boolean type. The upper case Boolean is an object type whereas lower case boolean is a primitive type. It is recommended to use the primitive type boolean in your code, because, while JavaScript coerces an object to its primitive type, the TypeScript type system does not. TypeScript treats it like an object type.",
       "So, instead of using upper case function checkExistence(b: Boolean), use the lower case function checkExistence(b: boolean) boolean type."
     ],
-    "examples": [
-      "let isPresent:boolean = true;"
-    ],
-        "question": "What is TypeScript?",
+    "examples": ["let isPresent:boolean = true;"],
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -219,7 +214,7 @@
       "let fruits: string[] = ['Apple', 'Orange', 'Banana'];",
       "var fruits: Array<string> = ['Apple', 'Orange', 'Banana']; "
     ],
-        "question": "What is TypeScript?",
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -246,7 +241,7 @@
       "const employee = [[1, \"Steve\"], [2, \"Bill\"], [3, \"Jeff\"]];",
       "employee[0]; // returns 1"
     ],
-        "question": "What is TypeScript?",
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -279,7 +274,7 @@
       "Numeric Enum: enum PrintMedia {\nNewspaper,\nNewsletter,\nMagazine,\nBook\n}",
       "Heterogeneous Enum: enum Status {\nActive = 'ACTIVE',\nDeactivate = 1,\nPending\n}"
     ],
-        "question": "What is TypeScript?",
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -297,10 +292,8 @@
       "Syntax:",
       "(type1 | type2 | type3 | .. | typeN)"
     ],
-    "examples": [
-      "let code: (string | number);"
-    ],
-        "question": "What is TypeScript?",
+    "examples": ["let code: (string | number);"],
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -321,7 +314,7 @@
       "let something: any = \"Hello World!\"; ",
       "let arr: any[] = [\"John\", 212, true];"
     ],
-        "question": "What is TypeScript?",
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -338,11 +331,8 @@
       "Similar to languages like Java, void is used where there is no data. For example, if a function does not return any value then you can specify void as return type.",
       "There is no meaning to assign void to a variable, as only null or undefined is assignable to void."
     ],
-    "examples": [
-      "let speech: void = sayHi();",
-      "console.log(speech); //Output: undefined"
-    ],
-        "question": "What is TypeScript?",
+    "examples": ["let speech: void = sayHi();", "console.log(speech); //Output: undefined"],
+    "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -379,11 +369,7 @@
   {
     "id": "16",
     "title": "Type Inference",
-    "description": [
-      "",
-      "",
-      ""
-    ],
+    "description": ["", "", ""],
     "examples": [
       "Number: \nx = 10; // x has value of type 'number'",
       "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
@@ -402,11 +388,7 @@
   {
     "id": "17",
     "title": "Type Assertion",
-    "description": [
-      "",
-      "",
-      ""
-    ],
+    "description": ["", "", ""],
     "examples": [
       "Number: \nx = 10; // x has value of type 'number'",
       "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
@@ -425,11 +407,7 @@
   {
     "id": "18",
     "title": "Functions",
-    "description": [
-      "",
-      "",
-      ""
-    ],
+    "description": ["", "", ""],
     "examples": [
       "Number: \nx = 10; // x has value of type 'number'",
       "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
@@ -448,11 +426,7 @@
   {
     "id": "19",
     "title": "Arrow Functions",
-    "description": [
-      "",
-      "",
-      ""
-    ],
+    "description": ["", "", ""],
     "examples": [
       "Number: \nx = 10; // x has value of type 'number'",
       "let order = 'first'; \norder = 1; // error: Type '1' is not assignable to type 'string'",
@@ -475,9 +449,7 @@
       "There are some places where TypeScript will not try to infer what type something is—generally when a variable is declared without being assigned an initial value. In situations where it isn’t able to infer a type, TypeScript will consider a variable to be of type any.",
       "Variables of type any can be assigned to any value and TypeScript won’t give an error if they’re reassigned to a different type later on."
     ],
-    "examples": [
-      "let myLet; \nmyLet = 1; \nmyLet = false; // TypeScript doesn’t produce an error"
-    ],
+    "examples": ["let myLet; \nmyLet = 1; \nmyLet = false; // TypeScript doesn’t produce an error"],
     "question": "What is TypeScript?",
     "options": [
       "a) A statically typed language",

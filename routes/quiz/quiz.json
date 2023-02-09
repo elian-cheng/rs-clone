@@ -58,5 +58,411 @@
     "answer": "a) A blueprint for objects",
     "explanation": "An interface in TypeScript defines a blueprint for objects. It specifies the structure of an object, including the properties it should have and their respective types, making it easier to write and maintain code that works with objects of a certain structure.",
     "difficulty": "easy"
+  },
+  {
+    "id": 6,
+    "question": "What is the file extension for TypeScript files?",
+    "options": ["a) .ts", "b) .js", "c) .typescript", "d) .tsx"],
+    "answer": "a) .ts",
+    "explanation": "TypeScript files have a .ts file extension, while JavaScript files have a .js extension.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 7,
+    "question": "What is the purpose of type annotations in TypeScript?",
+    "options": [
+      "a) To add comments to the code",
+      "b) To provide hints about the expected data type of a variable",
+      "c) To enforce type checking",
+      "d) To define new types"
+    ],
+    "answer": "b) To provide hints about the expected data type of a variable",
+    "explanation": "Type annotations in TypeScript are used to provide hints about the expected data type of a variable, function return value, or function parameter. They help the TypeScript compiler to catch type-related errors before the code is run.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 8,
+    "question": "What is the difference between let and var in TypeScript?",
+    "options": [
+      "a) let is block-scoped while var is function-scoped",
+      "b) let is function-scoped while var is block-scoped",
+      "c) Both let and var are block-scoped",
+      "d) Both let and var are function-scoped"
+    ],
+    "answer": "a) let is block-scoped while var is function-scoped",
+    "explanation": "In TypeScript, the let keyword is used to declare block-scoped variables, while the var keyword is used to declare function-scoped variables. This means that variables declared with let are only accessible within the block in which they are defined, while variables declared with var are accessible throughout the entire function in which they are defined.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 9,
+    "question": "What is the use of decorators in TypeScript?",
+    "options": [
+      "a) To add metadata to classes, methods, and properties",
+      "b) To manipulate the DOM",
+      "c) To handle events",
+      "d) To define new types"
+    ],
+    "answer": "a) To add metadata to classes, methods, and properties",
+    "explanation": "Explanation: Decorators in TypeScript are used to add metadata to classes, methods, and properties. They provide a way to modify the behavior of a class, method, or property at runtime based on the metadata provided. This makes it possible to implement advanced features like dependency injection, aspect-oriented programming, and more.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 10,
+    "question": "What is the purpose of a type assertion in TypeScript?",
+    "options": [
+      "a) To convert a value to a specified type",
+      "b) To check if a value is of a specified type",
+      "c) To create a new instance of a type",
+      "d) To modify the properties of a type"
+    ],
+    "answer": "a) To convert a value to a specified type",
+    "explanation": "A type assertion in TypeScript is used to cast a value to a specified type. It's used when you want to tell the compiler that a value is of a certain type, even if the type inferred by the compiler is different.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 11,
+    "question": "What is the syntax for a class in TypeScript?",
+    "options": [
+      "a) class MyClass {}",
+      "b) function MyClass() {}",
+      "c) var MyClass = {}",
+      "d) interface MyClass {}"
+    ],
+    "answer": "a) class MyClass {}",
+    "explanation": "In TypeScript, you define a class using the \"class\" keyword, followed by the class name, and a set of curly braces to define the class body.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 12,
+    "question": "What is the syntax for a function in TypeScript?",
+    "options": [
+      "a) function myFunction() {}",
+      "b) var myFunction = () => {}",
+      "c) myFunction() {}",
+      "d) class myFunction {}"
+    ],
+    "answer": "a) function myFunction() {}",
+    "explanation": "In TypeScript, you define a function using the \"function\" keyword, followed by the function name, and a set of parentheses to define the parameters, and a set of curly braces to define the function body.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 13,
+    "question": "What is a generics in TypeScript?",
+    "options": [
+      "a) A way to create classes",
+      "b) A way to create functions",
+      "c) A way to create objects",
+      "d) A way to create reusable code"
+    ],
+    "answer": "a) A way to create reusable code",
+    "explanation": "Generics in TypeScript allow you to create reusable code that can work with multiple types, rather than having to write separate code for each type. They allow you to write functions, classes, and interfaces that can work with any type, and to specify the types they should work with when they are called or used.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 14,
+    "question": "How does TypeScript handle null values?",
+    "options": [
+      "a) Null values are automatically converted to undefined",
+      "b) Null values are treated as any type",
+      "c) Null values are treated as a separate type",
+      "d) Null values throw an error"
+    ],
+    "answer": "a) Null values are treated as a separate type",
+    "explanation": "TypeScript has a \"null\" type, which is separate from other types like \"number\", \"string\", etc. By default, TypeScript considers variables that are assigned a \"null\" value to have the type \"null\", which can then be used in type annotations and type checks.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 15,
+    "question": "How can you declare an optional property in an interface?",
+    "options": [
+      "a) By adding a \"?\" after the property name",
+      "b) By wrapping the property in square brackets",
+      "c) By declaring the property as \"undefined\"",
+      "d) By declaring the property with a default value"
+    ],
+    "answer": "a) By adding a \"?\" after the property name",
+    "explanation": "In TypeScript, you can declare an optional property in an interface by adding a \"?\" after the property name. This means that the property is optional and doesn't have to be provided when implementing the interface.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 16,
+    "question": "What is the purpose of \"strictNullChecks\" compiler option in TypeScript?",
+    "options": [
+      "a) To enforce strict typing of null values",
+      "b) To disallow null values",
+      "c) To allow implicit type conversions",
+      "d) To enforce strict typing of undefined values"
+    ],
+    "answer": "a) To enforce strict typing of null values",
+    "explanation": "The \"strictNullChecks\" compiler option in TypeScript enables stricter checking for null and undefined values. When \"strictNullChecks\" is set to true, TypeScript will not allow implicit conversions between null and undefined, making it easier to catch potential bugs in your code.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 17,
+    "question": "What is the difference between \"var\" and \"let\" in TypeScript?",
+    "options": [
+      "a) \"var\" is block-scoped, \"let\" is function-scoped",
+      "b) \"var\" is function-scoped, \"let\" is block-scoped",
+      "c) \"var\" is global-scoped, \"let\" is block-scoped",
+      "d) \"var\" is global-scoped, \"let\" is function-scoped"
+    ],
+    "answer": "b) \"var\" is function-scoped, \"let\" is block-scoped",
+    "explanation": "The difference between \"var\" and \"let\" in TypeScript is the scope in which they are defined. \"var\" variables are function-scoped, meaning that they are only accessible within the function in which they are declared. \"let\" variables, on the other hand, are block-scoped, meaning that they are only accessible within the block in which they are declared.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 18,
+    "question": "What is the syntax for an arrow function in TypeScript?",
+    "options": ["a) function() {}", "b) () => {}", "c) => {}", "d) =>"],
+    "answer": "b) () => {}",
+    "explanation": "An arrow function in TypeScript is a shorthand syntax for defining anonymous functions. The syntax consists of the \"=>\" operator, followed by the function body in curly braces. The parameters can be specified in parentheses before the \"=>\" operator.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 19,
+    "question": "What is the purpose of the \"as\" operator in TypeScript?",
+    "options": [
+      "a) To cast a value to a specified type",
+      "b) To check if a value is of a specified type",
+      "c) To convert a value to a number",
+      "d) To perform a type intersection"
+    ],
+    "answer": "a) To cast a value to a specified type",
+    "explanation": "The \"as\" operator in TypeScript is used for type casting, which allows you to convert a value to a specified type. This is useful when you want to tell the compiler that a value is of a certain type, even if the type inferred by the compiler is different.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 20,
+    "question": "How can you declare an optional property in an interface in TypeScript?",
+    "options": [
+      "a) By using the \"?\" symbol after the property name",
+      "b) By using the \"optional\" keyword before the property name",
+      "c) By using the \"?\" symbol before the property name",
+      "d) By using the \"optional\" symbol after the property name"
+    ],
+    "answer": "a) By using the \"?\" symbol after the property name",
+    "explanation": "To declare an optional property in an interface in TypeScript, you add a \"?\" symbol after the property name. This allows objects that implement the interface to have the property, but it is not required.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 21,
+    "question": "How do you declare a type alias in TypeScript?",
+    "options": [
+      "a) Using the \"alias\" keyword",
+      "b) Using the \"type\" keyword",
+      "c) Using the \"typedef\" keyword",
+      "d) Using the \"declare\" keyword"
+    ],
+    "answer": "b) Using the \"type\" keyword",
+    "explanation": "In TypeScript, you declare a type alias using the \"type\" keyword, followed by the alias name, an equal sign, and the type that the alias represents. Type aliases are used to provide a more descriptive name for a type.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 22,
+    "question": "What is the difference between \"const\" and \"let\" in TypeScript?",
+    "options": [
+      "a) \"const\" is block-scoped, while \"let\" is function-scoped",
+      "b) \"let\" is block-scoped, while \"const\" is function-scoped",
+      "c) \"const\" is used for constants, while \"let\" is used for variables",
+      "d) \"let\" is used for constants, while \"const\" is used for variables"
+    ],
+    "answer": "c) \"const\" is used for constants, while \"let\" is used for variables",
+    "explanation": "In TypeScript, \"const\" is used to declare constants, which are values that cannot be reassigned. \"let\" is used to declare variables, which are values that can be changed during runtime. \"const\" is block-scoped, while \"let\" is block-scoped.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 23,
+    "question": "How do you declare an enumeration in TypeScript?",
+    "options": [
+      "a) Using the \"enum\" keyword",
+      "b) Using the \"type\" keyword",
+      "c) Using the \"typedef\" keyword",
+      "d) Using the \"declare\" keyword"
+    ],
+    "answer": "a) Using the \"enum\" keyword",
+    "explanation": "In TypeScript, you declare an enumeration using the \"enum\" keyword, followed by the enumeration name and a set of curly braces that define the enumerated values. Enumerations are used to define a set of named constants.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 24,
+    "question": "What is a decorator in TypeScript?",
+    "options": [
+      "a) A way to define properties for an object",
+      "b) A way to add metadata to a class, property, or method",
+      "c) A way to extend a class",
+      "d) A way to format code"
+    ],
+    "answer": "b) A way to add metadata to a class, property, or method",
+    "explanation": "Decorators in TypeScript allow you to add metadata to a class, property, or method, which can then be used by other code to perform actions, such as modifying the behavior of the class, property, or method, or validating its input. Decorators are defined using the \"@\" symbol, followed by the name of the decorator and its arguments.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 25,
+    "question": "What is a type guard in TypeScript?",
+    "options": [
+      "a) A way to enforce type safety",
+      "b) A way to validate data",
+      "c) A way to perform type conversions",
+      "d) A way to determine the type of a value"
+    ],
+    "answer": "d) A way to determine the type of a value",
+    "explanation": "Type guards in TypeScript are used to determine the type of a value at runtime, and to narrow the type of the value based on that determination. Type guards can be used to make decisions in code, such as which code to execute based on the type of a value, or to limit the possible values of a variable based on its type.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 26,
+    "question": "What is a tuple in TypeScript?",
+    "options": [
+      "a) A way to group values of different types",
+      "b) A way to store multiple values of the same type",
+      "c) A way to define arrays of objects",
+      "d) A way to define arrays of functions"
+    ],
+    "answer": "a) A way to group values of different types",
+    "explanation": "Tuples in TypeScript are used to group values of different types, and to define arrays that have a specific number of elements, with each element having a specific type. Tuples are useful when you need to store a fixed number of values with specific types, and when you want to ensure that the values are stored in a specific order.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 27,
+    "question": "What is a type alias in TypeScript?",
+    "options": [
+      "a) A way to create custom types",
+      "b) A way to rename existing types",
+      "c) A way to define arrays of values",
+      "d) A way to define objects"
+    ],
+    "answer": "b) A way to rename existing types",
+    "explanation": "Type aliases in TypeScript are used to provide a new name for an existing type, and to make the code more readable and maintainable. Type aliases are defined using the \"type\" keyword, followed by the new name for the type, and an equals sign, followed by the existing type.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 28,
+    "question": "What is the difference between an interface and a type alias in TypeScript?",
+    "options": [
+      "a) Interfaces can only be used with objects, while type aliases can be used with any type",
+      "b) Type aliases can only be used once, while interfaces can be used multiple times",
+      "c) Interfaces can have optional properties, while type aliases can't",
+      "d) Type aliases can extend or implement other types, while interfaces can't"
+    ],
+    "answer": "c) Interfaces can have optional properties, while type aliases can't",
+    "explanation": "Interfaces in TypeScript can have optional properties, which are properties that don't have to be included when an object implements the interface. Type aliases, on the other hand, don't support optional properties. In general, interfaces are used to define the structure of objects, while type aliases are used to provide a new name.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 29,
+    "question": "What is a conditional type in TypeScript?",
+    "options": [
+      "a) A type that is dependent on a condition",
+      "b) A type that can be either a string or a number",
+      "c) A type that is used to check the compatibility of two types",
+      "d) A type that is used to enforce type safety"
+    ],
+    "answer": "a) A type that is dependent on a condition",
+    "explanation": "Conditional types in TypeScript are types that are determined based on a condition, such as the type of a value, or the compatibility of two types. Conditional types are defined using the keyword 'extends', followed by a condition, and then the type that will be used if the condition is true.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 30,
+    "question": "What is a mapped type in TypeScript?",
+    "options": [
+      "a) A type that is used to map values from one type to another",
+      "b) A type that is used to define an array of values",
+      "c) A type that is used to enforce type safety",
+      "d) A type that is used to define a dictionary"
+    ],
+    "answer": "a) A type that is used to map values from one type to another",
+    "explanation": "Mapped types in TypeScript are types that are created by transforming existing types, such as by adding or removing properties, or by changing the type of properties. Mapped types are defined using the keyword 'keyof', followed by the name of the existing type, and then a set of type transformations that will be applied to create the new type.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 31,
+    "question": "What is a type parameter in TypeScript?",
+    "options": [
+      "a) A type that is used to define a type that can be passed as a parameter",
+      "b) A type that is used to enforce type safety",
+      "c) A type that is used to define a type that can be either a string or a number",
+      "d) A type that is used to define a type that can be either a function or an object"
+    ],
+    "answer": "a) A type that is used to define a type that can be passed as a parameter",
+    "explanation": "Type parameters in TypeScript are used to define generic types, which are types that can be parameterized with other types. Type parameters are defined using angle brackets, followed by the name of the type parameter, and are used to specify the type that will be passed as a parameter when the generic type is used.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 32,
+    "question": "What is a type inference in TypeScript?",
+    "options": [
+      "a) A way to automatically determine the type of a value based on its usage",
+      "b) A way to enforce type safety",
+      "c) A way to manually specify the type of a value",
+      "d) A way to automatically convert a value from one type to another"
+    ],
+    "answer": "a) A way to automatically determine the type of a value based on its usage",
+    "explanation": "Type inference in TypeScript is a mechanism that automatically determines the type of a value based on its usage in the code. Type inference is performed by the TypeScript compiler, and allows you to write code that is more concise, since you don't have to manually specify the type of every value.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 33,
+    "question": "What is a type assertion in TypeScript?",
+    "options": [
+      "a) A way to manually specify the type of a value",
+      "b) A way to automatically determine the type of a value based on its usage",
+      "c) A way to enforce type safety",
+      "d) A way to automatically convert a value from one type to another"
+    ],
+    "answer": "a) A way to manually specify the type of a value",
+    "explanation": "Type assertions in TypeScript are used to manually specify the type of a value, and to override the type that is determined by type inference or by other means. Type assertions are performed using angle brackets, followed by the desired type.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 34,
+    "question": "What is an intersection type in TypeScript?",
+    "options": [
+      "a) A type that is the union of two or more types",
+      "b) A type that combines properties from multiple types into a single type",
+      "c) A type that is a subset of multiple types",
+      "d) A type that is the result of a conditional type"
+    ],
+    "answer": "b) A type that combines properties from multiple types into a single type",
+    "explanation": "Intersection types in TypeScript are used to combine properties from multiple types into a single type. This can be useful in situations where you have multiple objects with similar properties, and you want to create a type that represents the properties that are common to all of them. Intersection types are defined using the ampersand symbol ( & ), followed by the types that you want to intersect.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 35,
+    "question": "What is a tuple type in TypeScript?",
+    "options": [
+      "a) A type that represents an array with a fixed number of elements, each with its own specific type",
+      "b) A type that is used to enforce type safety",
+      "c) A type that is used to define a type that can be either a string or a number",
+      "d) A type that is used to define a type that can be either a function or an object"
+    ],
+    "answer": "a) A type that represents an array with a fixed number of elements, each with its own specific type",
+    "explanation": "Tuple types in TypeScript are used to represent arrays with a fixed number of elements, each with its own specific type. Tuple types are defined using square brackets, followed by the types of each element in the tuple, separated by commas. Tuples are useful for representing collections of values where each value has a specific purpose, and where the order of the values is important.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 36,
+    "question": "What is a discriminated union in TypeScript?",
+    "options": [
+      "a) A type that represents a union of object types, where one of the properties is used to distinguish between the different types",
+      "b) A type that represents an array with a fixed number of elements, each with its own specific type",
+      "c) A type that represents the result of a conditional expression",
+      "d) A type that is used to enforce type safety"
+    ],
+    "answer": "a) A type that represents a union of object types, where one of the properties is used to distinguish between the different types",
+    "explanation": "A discriminated union in TypeScript is a type that represents a union of object types, where one of the properties is used to distinguish between the different types. This allows you to create a type that represents a set of objects with different properties, while still allowing you to perform type checks based on the values of specific properties. Discriminated unions are defined using the \"|\" operator, followed by object types that have a common property that is used to distinguish between the different types. You can then use type guards to perform type checks based on the values of the distinguishing property.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 37,
+    "question": "What is an enum in TypeScript?",
+    "options": [
+      "a) A type that is used to enforce type safety",
+      "b) A type that represents the result of a conditional expression",
+      "c) A way to represent a set of named values in TypeScript",
+      "d) A type that represents an array with a fixed number of elements, each with its own specific type"
+    ],
+    "answer": "c) A way to represent a set of named values in TypeScript",
+    "explanation": "An enum in TypeScript is a way to represent a set of named values. Enums allow you to define a set of named values that represent a specific set of values, such as a set of days of the week or a set of colors. Enums are defined using the \"enum\" keyword, followed by the name of the enum and the set of named values. Each named value in an enum is given a specific integer value, starting from 0, unless you specify a different value. Enums are useful for representing a specific set of values that you want to use throughout your code, while still ensuring type safety and making your code more readable.",
+    "difficulty": "hard"
   }
 ]
