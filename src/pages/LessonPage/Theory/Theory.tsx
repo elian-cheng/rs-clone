@@ -4,6 +4,9 @@ export interface ILesson {
   theme: string;
   description: string[];
   examples: string[];
+  question: string;
+  options: string[];
+  answer: string;
 }
 export default function Theory({ lesson }: { lesson: ILesson | null }) {
   return (

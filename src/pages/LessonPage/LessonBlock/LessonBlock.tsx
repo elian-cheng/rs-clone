@@ -1,6 +1,7 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CodeEditor from '../../../components/CodeEditor/CodeEditor';
+import QuestionModal from '../QuestionModal/QuestionModal';
 import Theory, { ILesson } from '../Theory/Theory';
 
 export default function LessonBlock({
@@ -10,6 +11,7 @@ export default function LessonBlock({
   lesson: ILesson;
   setLessonId: Dispatch<SetStateAction<string>>;
 }) {
+  const [showModal, setShowModal] = useState(false);
   const codeEditorTaskObj = {
     html: `<h1>Hello World</h1>`,
     css: `h1{
@@ -25,20 +27,26 @@ export default function LessonBlock({
         <CodeEditor taskObj={codeEditorTaskObj} />
       </section>
       <nav className="lesson__controls">
-        <Link
-          to={`/lessons/${urlId - 1}`}
-          onClick={() => setLessonId(`${+lesson.id - 1}`)}
-          className="lesson__controls-btn"
-        >
-          Previous
-        </Link>
-        <Link
-          to={`/lessons/${urlId + 1}`}
-          onClick={() => setLessonId(`${+lesson.id + 1}`)}
-          className="lesson__controls-btn"
-        >
+        {urlId > 1 ? (
+          <button className="lesson__controls-btn">
+            <Link to={`/lessons/${urlId - 1}`} onClick={() => setLessonId(`${+lesson.id - 1}`)}>
+              Previous
+            </Link>
+          </button>
+        ) : (
+          <div></div>
+        )}
+        <button className="lesson__controls-btn" onClick={() => setShowModal(true)}>
           Next
-        </Link>
+        </button>
+        {showModal ? (
+          <QuestionModal
+            setShowModal={setShowModal}
+            lesson={lesson}
+            setLessonId={setLessonId}
+            urlId={urlId}
+          />
+        ) : null}
       </nav>
     </article>
   );
