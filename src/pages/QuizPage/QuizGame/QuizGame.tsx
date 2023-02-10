@@ -89,6 +89,7 @@ export default function QuizGame({ quiz, answers, setStatus, setAnswers }: IGame
   return (
     <div className="quiz__container">
       <div className="quiz__wrapper" style={{ marginTop: 100 }}>
+        <p>Question {current + 1} / 10</p>
         <div className="">
           <div className="">{quiz[current].question}</div>
         </div>
@@ -107,7 +108,7 @@ export default function QuizGame({ quiz, answers, setStatus, setAnswers }: IGame
           ))}
         </div>
         <button onClick={() => (isAnswered ? nextQuestion() : checkAnswer(''))}>
-          {isAnswered ? 'Next question' : "Don't know"}
+          {!isAnswered ? 'Skip question' : current === 9 ? 'Check Results' : 'Next question'}
         </button>
       </div>
     </div>
