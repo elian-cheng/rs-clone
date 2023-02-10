@@ -40,7 +40,7 @@ export const getStats = async (setStats: Dispatch<React.SetStateAction<UserStati
   getUserStatistics(getUserId())
     .then(({ data }) => {
       delete data.id;
-      if (sameDay(data.date)) setStats((prev) => ({ ...prev, ...data }));
+      if (sameDay(data.date || new Date().toJSON())) setStats((prev) => ({ ...prev, ...data }));
       else
         setStats((prev) => {
           prev.longStat = data.longStat;
@@ -52,7 +52,7 @@ export const getStats = async (setStats: Dispatch<React.SetStateAction<UserStati
         await getNewToken();
         getUserStatistics(getUserId()).then(({ data }) => {
           delete data.id;
-          if (sameDay(data.date)) setStats((prev) => ({ ...prev, ...data }));
+          if (sameDay(data.date || new Date().toJSON())) setStats((prev) => ({ ...prev, ...data }));
           else
             setStats((prev) => {
               prev.longStat = data.longStat;
@@ -66,6 +66,7 @@ export const getStats = async (setStats: Dispatch<React.SetStateAction<UserStati
 const initialStatistics: UserStatistics = {
   lessons: {
     learnedLessons: 0,
+    lessonsId: JSON.stringify(['1', '2']),
   },
   katas: {
     finishedKatas: 0,
@@ -92,6 +93,8 @@ const initialStatistics: UserStatistics = {
     games: 0,
   },
 };
+
+
 
 export async function getInitialStatistics(id: string) {
   const response = await fetch(`${BASE_URL}users/${id}/statistics`, {

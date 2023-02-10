@@ -18,7 +18,7 @@ export type UserStatistics = {
     finishedKatas?: number;
     katasId?: string;
   };
-  date: string;
+  date?: string;
   longStat?: ILongStat;
   games?: {
     quiz?: IGameStats;

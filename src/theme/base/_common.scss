@@ -23,6 +23,10 @@
   &:hover {
     background: $colorBlueDark;
   }
+  &:disabled {
+    background: $colorGrayDark;
+    pointer-events: none;
+  }
 }
 
 .description {
