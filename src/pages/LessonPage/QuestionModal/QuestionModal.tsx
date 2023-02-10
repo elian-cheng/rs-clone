@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getUserStatistics } from '../../../API/statistics';
+import { getUserStatistics, setUserStatistics } from '../../../API/statistics';
 import { ILesson } from '../Theory/Theory';
 
 export default function QuestionModal({
@@ -17,15 +17,36 @@ export default function QuestionModal({
   const [answer, setAnswer] = useState('');
   const [answerStatus, setAnswerStatus] = useState(false);
 
-  async function sendLessonStatistic() {
+  async function updateLessonStatistic() {
     const userId = JSON.parse(localStorage.getItem('userData') as string).userId;
-    getUserStatistics(userId).then(console.log);
+    const statisticObj = await getUserStatistics(userId);
+    const lessonsCompletedArr: string[] = statisticObj.data.lessons?.lessonsId
+      ? JSON.parse(statisticObj.data.lessons?.lessonsId)
+      : [];
+    lessonsCompletedArr.includes(lesson.id.toString())
+      ? null
+      : lessonsCompletedArr.push(lesson.id.toString());
+    if (
+      statisticObj.data.lessons &&
+      (statisticObj.data.lessons.learnedLessons || statisticObj.data.lessons.learnedLessons === 0)
+    ) {
+      statisticObj.data.lessons.lessonsId = JSON.stringify(lessonsCompletedArr);
+      statisticObj.data.lessons.learnedLessons = lessonsCompletedArr.length;
+    }
+    if (statisticObj.data.date) {
+      statisticObj.data.date = new Date().toJSON();
+    }
+    if (statisticObj.data.longStat) {
+      statisticObj.data.longStat.date = new Date().toJSON();
+    }
+    delete statisticObj.data.id;
+    setUserStatistics(userId, statisticObj.data);
   }
 
   useEffect(() => {
     if (answer === lesson.answer) {
       setShowModal(false);
-      sendLessonStatistic();
+      updateLessonStatistic();
     }
   }, [answer]);
 

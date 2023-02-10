@@ -24,7 +24,9 @@ export default function LessonBlock({
     <article className="lesson__content">
       <section className="lesson__block">
         <Theory lesson={lesson ? lesson : null} />
-        <CodeEditor taskObj={codeEditorTaskObj} />
+        <div className="lesson__code">
+          <CodeEditor taskObj={codeEditorTaskObj} />
+        </div>
       </section>
       <nav className="lesson__controls">
         {urlId > 1 ? (
