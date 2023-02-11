@@ -88,28 +88,40 @@ export default function QuizGame({ quiz, answers, setStatus, setAnswers }: IGame
 
   return (
     <div className="quiz__container">
-      <div className="quiz__wrapper" style={{ marginTop: 100 }}>
-        <p>Question {current + 1} / 10</p>
-        <div className="">
-          <div className="">{quiz[current].question}</div>
+      <div className="quiz__wrapper">
+        <div className="quiz__game-top">
+          <p className="quiz__game-subtitle subtitle">Question {current + 1} / 10</p>
+          <p className="quiz__game-question">{quiz[current].question}</p>
         </div>
-        <div className="">
-          {quiz[current].options.map((option) => (
-            <AnswerButton
-              key={option}
-              isRight={option === quiz[current].answer}
-              isAnswered={isAnswered}
-              onClick={() => {
-                if (!isAnswered) checkAnswer(option);
-              }}
-            >
-              {option}
-            </AnswerButton>
-          ))}
+        <div className="quiz__game-content">
+          <div className="quiz__game-answers">
+            {quiz[current].options.map((option) => (
+              <AnswerButton
+                key={option}
+                isRight={option === quiz[current].answer}
+                isAnswered={isAnswered}
+                onClick={() => {
+                  if (!isAnswered) checkAnswer(option);
+                }}
+              >
+                {option}
+              </AnswerButton>
+            ))}
+          </div>
+          <div className="quiz__game-explanation">
+            <p className="quiz__game-info">
+              {isAnswered ? quiz[current].explanation : 'Please choose the answer'}
+            </p>
+          </div>
         </div>
-        <button onClick={() => (isAnswered ? nextQuestion() : checkAnswer(''))}>
-          {!isAnswered ? 'Skip question' : current === 9 ? 'Check Results' : 'Next question'}
-        </button>
+        <div className="quiz__game-action">
+          <button
+            className="quiz__next-button button"
+            onClick={() => (isAnswered ? nextQuestion() : checkAnswer(''))}
+          >
+            {!isAnswered ? 'Skip question' : current === 9 ? 'Check Results' : 'Next question'}
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -131,10 +143,9 @@ export function AnswerButton(props: AnswerButtonProps) {
   } = props;
   return (
     <button
+      className="quiz__game-answer"
       style={{
-        padding: '0.4em 0.8em',
-        backgroundColor: isAnswered ? (isRight ? '#35c77e89' : '#b9393989') : '#fbe8a6',
-        color: 'inherit',
+        backgroundColor: isAnswered ? (isRight ? '#5ffbad89' : '#f17c7c89') : '#fbe8a6',
       }}
       onClick={onClick}
     >

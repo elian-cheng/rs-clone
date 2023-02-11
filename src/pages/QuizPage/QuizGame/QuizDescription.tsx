@@ -33,22 +33,25 @@ export default function QuizDescription({ setStatus, quiz, setQuiz }: IDifficult
 
   return (
     <div className="quiz__container">
-      <article className="quiz__wrapper" style={{ marginTop: 100 }}>
+      <article className="quiz__wrapper">
         <h2 className="quiz__title title">Quiz</h2>
+        <p className="quiz__subtitle subtitle">A test to train theory knowledge</p>
         <ul className="quiz__description">
-          Test to train theory knowledge.
-          <li className="quiz__description-item">Use your mouse to choose the answer</li>
           <li className="quiz__description-item">
-            Or you can use number keys from 1 to 4 to choose the answer.
+            You need to choose 1 correct answer to the question on the top.
+          </li>
+          <li className="quiz__description-item">Use your mouse to choose the answer.</li>
+          <li className="quiz__description-item">
+            You can also use number keys from 1 to 4 to choose the answer.
           </li>
           <li className="quiz__description-item">
-            Use the space for a tip or to move to the next question
+            Use the space for a tip or to move to the next question.
           </li>
         </ul>
       </article>
 
       <div className="quiz__difficulty">
-        Выбери уровень сложности:
+        <p className="quiz__subtitle subtitle">Choose the difficulty level:</p>
         <div className="quiz__difficulty-select">
           {difficulties.map((key) => (
             <DifficultyButton key={key} isActive={key === active} onClick={() => getQuiz(key)}>
@@ -77,9 +80,9 @@ interface DifficultyButtonProps {
 function DifficultyButton(props: DifficultyButtonProps) {
   return (
     <button
+      className="quiz__difficulty-button"
       style={{
-        padding: '0.5rem',
-        backgroundColor: props.isActive ? '#35c77e89' : 'wheat',
+        backgroundColor: props.isActive ? '#f4976c' : '#fbe8a6',
       }}
       onClick={props.onClick}
     >

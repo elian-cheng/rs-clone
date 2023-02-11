@@ -34,7 +34,6 @@ export interface ILongStat {
 }
 
 export interface IGameStats {
-  score: number; // best game score
   correct: number; // how many questions user answered correctly
   answered: number; // total answered questions quantity
   streak: number; // longest successful series of answers
@@ -42,13 +41,11 @@ export interface IGameStats {
 
 const gamesInit = {
   quiz: {
-    score: 0,
     answered: 0,
     correct: 0,
     streak: 0,
   },
   missingType: {
-    score: 0,
     answered: 0,
     correct: 0,
     streak: 0,
@@ -68,8 +65,8 @@ export default function Statistics() {
     },
     date: '',
     games: {
-      quiz: { score: 0, correct: 0, answered: 0, streak: 0 },
-      missingType: { score: 0, correct: 0, answered: 0, streak: 0 },
+      quiz: { correct: 0, answered: 0, streak: 0 },
+      missingType: { correct: 0, answered: 0, streak: 0 },
     },
     longStat: {
       date: '',

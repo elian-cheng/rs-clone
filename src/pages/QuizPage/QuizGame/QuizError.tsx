@@ -14,10 +14,17 @@ export default function QuizError({ setStatus, setQuiz }: IGameErrorProps) {
   }, []);
   return (
     <div className="quiz__container">
-      <h2>Sorry there was an unexpected error. Please restart the game</h2>
-      <div className="quiz__wrapper">
-        <button onClick={newGame}>New Game</button>
-        <Link to="/lessons">To Lessons</Link>
+      <div className="quiz__error">
+        <h2 className="quiz__error-title">Sorry, there was an unexpected error</h2>
+        <p className="quiz__error-description">Please restart the game</p>
+        <div className="quiz__error-ations">
+          <button className="quiz__error-button button" onClick={newGame}>
+            New Game
+          </button>
+          <Link className="button button_orange" to="/lessons">
+            To Lessons
+          </Link>
+        </div>
       </div>
     </div>
   );

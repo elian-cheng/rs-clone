@@ -74,13 +74,11 @@ const initialStatistics: UserStatistics = {
   date: new Date().toJSON(),
   games: {
     quiz: {
-      score: 0,
       answered: 0,
       correct: 0,
       streak: 0,
     },
     missingType: {
-      score: 0,
       answered: 0,
       correct: 0,
       streak: 0,
@@ -93,8 +91,6 @@ const initialStatistics: UserStatistics = {
     games: 0,
   },
 };
-
-
 
 export async function getInitialStatistics(id: string) {
   const response = await fetch(`${BASE_URL}users/${id}/statistics`, {
