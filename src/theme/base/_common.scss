@@ -2,6 +2,7 @@
   text-transform: uppercase;
   font-size: 3rem;
   text-align: center;
+  color: $colorBlueDark;
 }
 
 .subtitle {
@@ -15,13 +16,25 @@
   font-size: 1.4rem;
   font-weight: $fontSemibold;
   color: $colorWhite;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
   background-color: $colorBlueMiddle;
   border-radius: 1em;
   cursor: pointer;
+  letter-spacing: 1px;
   transition: all 0.3s ease;
   &:hover {
     background: $colorBlueDark;
+  }
+  &:disabled {
+    background: $colorGrayLight;
+    pointer-events: none;
+  }
+
+  &_orange {
+    background-color: $colorOrangeDark;
+    &:hover {
+      background-color: $colorOrange;
+    }
   }
 }
 
