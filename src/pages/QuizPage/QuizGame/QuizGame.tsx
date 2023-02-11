@@ -18,11 +18,20 @@ export interface IGameRunProps {
 
 const NUM_KEYS = ['1', '2', '3', '4'];
 
-export default function QuizGame({ quiz, answers, setStatus, setAnswers }: IGameRunProps) {
+export default function QuizGame({
+  quiz,
+  // answers,
+  setStatus,
+  setAnswers,
+}: IGameRunProps) {
   const [current, setCurrent] = useState(0);
+  // eslint-disable-next-line
   const [variables, setVariables] = useState<string[]>([]);
+  // eslint-disable-next-line
   const [isAnswered, setIsAnswered] = useState(false);
+  // eslint-disable-next-line
   const [isRight, setIsRight] = useState(false);
+  // eslint-disable-next-line
   const { user } = useContext(UserContext);
 
   const checkAnswer = useCallback(
