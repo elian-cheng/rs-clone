@@ -17,7 +17,7 @@ export default function CssEditor() {
       defaultValue={css}
       value={css}
       onChange={(value) => setCss(value)}
-      fontSize={20}
+      fontSize={16}
       height="100%"
       width="100%"
       showPrintMargin={false}

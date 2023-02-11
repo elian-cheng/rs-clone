@@ -25,10 +25,8 @@ export class CodeWarsAPI {
     return res;
   }
 
-  async getUser(name: string) {
+  async getUserCompletedTasks(name: string) {
     const res: IUser = await fetch(
-      // elian-cheng
-      // rsschool_d64fb9cd409b7f9b
       `https://www.codewars.com/api/v1/users/${name}/code-challenges/completed`
     )
       .then((res) => res.json())
@@ -65,7 +63,7 @@ export class CodeWarsAPI {
   async renderTasks(name: string, status: string) {
     const storageName = localStorage.getItem('CodeWarsLogin');
     storageName ? (name = storageName) : name;
-    const user = await this.getUser(name);
+    const user = await this.getUserCompletedTasks(name);
     const tasks = await this.getAllTasks(status);
     if (user.data) {
       const checkedTasks = await this.checkTasks(tasks, user);
