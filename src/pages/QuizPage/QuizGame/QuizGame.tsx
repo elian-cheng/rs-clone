@@ -78,7 +78,6 @@ export default function QuizGame({
 
   useEffect(() => {
     const onKeydown = (e: KeyboardEvent) => {
-      e.preventDefault();
       if (e.key === ' ') {
         if (isAnswered) nextQuestion();
         else checkAnswer('');
@@ -122,14 +121,14 @@ export default function QuizGame({
               {isAnswered ? quiz[current].explanation : 'Please choose the answer'}
             </p>
           </div>
-        </div>
-        <div className="quiz__game-action">
-          <button
-            className="quiz__next-button button"
-            onClick={() => (isAnswered ? nextQuestion() : checkAnswer(''))}
-          >
-            {!isAnswered ? 'Skip question' : current === 9 ? 'Check Results' : 'Next question'}
-          </button>
+          <div className="quiz__game-action">
+            <button
+              className="quiz__next-button button"
+              onClick={() => (isAnswered ? nextQuestion() : checkAnswer(''))}
+            >
+              {!isAnswered ? 'Skip question' : current === 9 ? 'Check Results' : 'Next question'}
+            </button>
+          </div>
         </div>
       </div>
     </div>

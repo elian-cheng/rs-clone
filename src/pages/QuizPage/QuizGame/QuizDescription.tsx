@@ -42,7 +42,7 @@ export default function QuizDescription({ setStatus, quiz, setQuiz }: IDifficult
           </li>
           <li className="quiz__description-item">Use your mouse to choose the answer.</li>
           <li className="quiz__description-item">
-            You can also use number keys from 1 to 4 to choose the answer.
+            You can also use Numpad keys from 1 to 4 to choose the answer.
           </li>
           <li className="quiz__description-item">
             Use the space for a tip or to move to the next question.
