@@ -1,27 +1,27 @@
 .code-editor {
+  height: 100%;
+  width: 100%;
   &__bar {
     padding: 20px;
     display: flex;
     justify-content: center;
-    gap: 20px;
     background-color: $colorMonkai;
   }
   &__btn {
     border-radius: 10px;
     height: 50px;
-    width: 200px;
+    width: 100px;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
     color: $colorWhite;
   }
   &__area {
-    height: 400px;
+    height: 500px;
   }
   &__preview {
     width: 100%;
     border: 2px solid black;
-    height: 400px;
   }
 }
 

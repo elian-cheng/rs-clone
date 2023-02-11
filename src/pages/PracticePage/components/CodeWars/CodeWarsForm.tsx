@@ -1,4 +1,7 @@
 import { Dispatch, SetStateAction, useRef } from 'react';
+import { getUserStatistics, setUserStatistics } from '../../../../API/statistics';
+import { CodeWarsAPI, ICompletedTask } from '../../api/codeWarsApi';
+import { codeWarsTasks } from '../../api/codeWarsTasks';
 
 export default function CodeWarsForm(props: {
   setLogin: Dispatch<SetStateAction<string>>;
@@ -7,11 +10,38 @@ export default function CodeWarsForm(props: {
   submit: boolean;
 }) {
   const loginInputRef = useRef<HTMLInputElement>(null);
+
+  async function updatePracticeStatistic() {
+    const userId = JSON.parse(localStorage.getItem('userData') as string).userId;
+    const statisticObj = await getUserStatistics(userId);
+    const userCompletedTasks = await new CodeWarsAPI().getUserCompletedTasks(
+      localStorage.getItem('CodeWarsLogin') as string
+    );
+    const tasks = Object.values(codeWarsTasks).flat();
+    if (statisticObj.data.katas) {
+      const matchKatas = tasks.filter((task) =>
+        userCompletedTasks.data.find(
+          (completedTask: ICompletedTask) =>
+            task === completedTask.id && completedTask.completedLanguages.includes('typescript')
+        )
+      );
+      statisticObj.data.katas.katasId = JSON.stringify(matchKatas);
+      statisticObj.data.katas ? (statisticObj.data.katas.finishedKatas = matchKatas.length) : null;
+      statisticObj.data.date ? (statisticObj.data.date = new Date().toJSON()) : null;
+      statisticObj.data.longStat?.date
+        ? (statisticObj.data.longStat.date = new Date().toJSON())
+        : null;
+      delete statisticObj.data.id;
+      setUserStatistics(userId, statisticObj.data);
+    }
+  }
+
   function submitHandler(event: { preventDefault: () => void }) {
     const login = loginInputRef.current?.value as SetStateAction<string>;
     event.preventDefault();
     localStorage.setItem('CodeWarsLogin', `${login}`);
     props.setLogin(login);
+    updatePracticeStatistic();
   }
 
   return (

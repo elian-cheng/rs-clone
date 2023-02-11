@@ -4,7 +4,7 @@ import CssEditor from '../CssEditor';
 import HtmlEditor from '../HtmlEditor';
 
 export function LangBar() {
-  const [activeTab, setActiveTab] = useState('html');
+  const [activeTab, setActiveTab] = useState('ts');
   return (
     <div className="code-editor__configure">
       <nav className="code-editor__bar">
