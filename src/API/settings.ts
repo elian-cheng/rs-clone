@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { getToken } from './authorization';
 import { BASE_URL } from './URL';
 
 export type UserSettingsBody = {

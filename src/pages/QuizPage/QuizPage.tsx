@@ -23,7 +23,7 @@ export interface IQuiz {
 export interface IAnswers {
   right: number;
   wrong: number;
-  streak: number;
+  strike: number;
   max: number;
 }
 
@@ -34,7 +34,7 @@ export default function QuizPage() {
   const [answers, setAnswers] = useState<IAnswers>({
     right: 0,
     wrong: 0,
-    streak: 0,
+    strike: 0,
     max: 0,
   });
 
