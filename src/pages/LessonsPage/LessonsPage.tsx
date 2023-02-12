@@ -46,7 +46,7 @@ export default function LessonsPage() {
               {themesList.map((item,i) => {
                 return (
                   <div className="lessons__theme-block" key={i}>
-                    <div className="theme-block__title">{item}</div>
+                    <div className="theme-block__title" dangerouslySetInnerHTML={{__html: item}}></div>
                     {allLessonsList.map((el,j) => {
                       if (el.theme !== item) return;
                       return (

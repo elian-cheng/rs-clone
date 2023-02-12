@@ -23,6 +23,9 @@
     text-indent: 20px;
     margin-bottom: 10px;
     text-align: justify;
+    code {
+      color: $colorOrangeDark;
+    }
   }
   &__controls {
     display: flex;
@@ -65,7 +68,7 @@
       flex-direction: column;
       justify-content: center;
       row-gap: 30px;
-      padding: 20px;
+      padding: 38px 10px 10px; 
       &-close {
         position: absolute;
         right: 15px;
@@ -77,12 +80,14 @@
         color: $colorWhite;
         font-weight: 600;
         background-color: $colorOrangeDark;
-        width: 80%;
+        width: 95%;
         height: 90px;
+        padding: 10px;
         border-radius: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
+        text-align: center;
       }
       &-list {
         display: flex;
@@ -93,14 +98,20 @@
         &-item {
           display: flex;
           align-items: center;
-          padding: 10px;
           cursor: pointer;
-          width: 80%;
-          height: 60px;
+          width: 95%;
+          min-height: 60px;
           background-color: $colorBlueMiddle;
           @include btnHover;
           color: $colorWhite;
           border-radius: 10px;
+          a {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            width: 100%;
+            height: 100%;
+          }
         }
       }
       &-answer-status {
