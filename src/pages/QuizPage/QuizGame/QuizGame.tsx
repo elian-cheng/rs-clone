@@ -6,6 +6,7 @@ import React, {
   useEffect,
   useState,
 } from 'react';
+import { updateGameStatistics } from '../../../API/statistics';
 import { UserContext } from '../../../context/UserContext';
 import { GameStatus, IAnswers, IQuiz } from '../QuizPage';
 
@@ -18,20 +19,13 @@ export interface IGameRunProps {
 
 const NUM_KEYS = ['1', '2', '3', '4'];
 
-export default function QuizGame({
-  quiz,
-  // answers,
-  setStatus,
-  setAnswers,
-}: IGameRunProps) {
+export default function QuizGame({ quiz, answers, setStatus, setAnswers }: IGameRunProps) {
   const [current, setCurrent] = useState(0);
   // eslint-disable-next-line
   const [variables, setVariables] = useState<string[]>([]);
-  // eslint-disable-next-line
   const [isAnswered, setIsAnswered] = useState(false);
   // eslint-disable-next-line
   const [isRight, setIsRight] = useState(false);
-  // eslint-disable-next-line
   const { user } = useContext(UserContext);
 
   const checkAnswer = useCallback(
@@ -43,7 +37,7 @@ export default function QuizGame({
           ...prev,
           ...{
             right: prev.right + 1,
-            streak: prev.streak + 1,
+            strike: prev.strike + 1,
           },
         }));
       else {
@@ -51,16 +45,11 @@ export default function QuizGame({
           ...prev,
           ...{
             wrong: prev.wrong + 1,
-            max: prev.max < prev.streak ? prev.streak : prev.max,
-            streak: 0,
+            max: prev.max < prev.strike ? prev.strike : prev.max,
+            strike: 0,
           },
         }));
       }
-      // if (user)
-      //   addStats({
-      //     isRight: currentIsRight,
-      //     id: quiz[current].id,
-      //   });
       setIsAnswered(true);
     },
     [current]
@@ -68,7 +57,8 @@ export default function QuizGame({
 
   const nextQuestion = useCallback(() => {
     if (current === quiz.length - 1) {
-      // if (user) addStatistics ({ answers})
+      console.log(answers);
+      if (user) updateGameStatistics({ answers, gameType: 'quiz' });
       setStatus(GameStatus.RESULT);
     } else {
       setCurrent((prev) => prev + 1);
@@ -126,7 +116,11 @@ export default function QuizGame({
               className="quiz__next-button button"
               onClick={() => (isAnswered ? nextQuestion() : checkAnswer(''))}
             >
-              {!isAnswered ? 'Skip question' : current === 9 ? 'Check Results' : 'Next question'}
+              {!isAnswered
+                ? 'Skip question'
+                : current === quiz.length - 1
+                ? 'Check Results'
+                : 'Next question'}
             </button>
           </div>
         </div>

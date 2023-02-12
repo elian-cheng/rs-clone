@@ -27,10 +27,6 @@ export default function CodeWarsForm(props: {
       );
       statisticObj.data.katas.katasId = JSON.stringify(matchKatas);
       statisticObj.data.katas ? (statisticObj.data.katas.finishedKatas = matchKatas.length) : null;
-      statisticObj.data.date ? (statisticObj.data.date = new Date().toJSON()) : null;
-      statisticObj.data.longStat?.date
-        ? (statisticObj.data.longStat.date = new Date().toJSON())
-        : null;
       delete statisticObj.data.id;
       setUserStatistics(userId, statisticObj.data);
     }

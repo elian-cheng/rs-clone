@@ -18,37 +18,28 @@ export type UserStatistics = {
     finishedKatas?: number;
     katasId?: string;
   };
-  date?: string;
-  longStat?: ILongStat;
   games?: {
     quiz?: IGameStats;
     missingType?: IGameStats;
   };
 };
 
-export interface ILongStat {
-  date: string; // дата долгосрочной статы, т.е. если дата сегоднешняя данные обновлять, нет - добавить с новой датой
-  lessons: number; // количество новых уроков за этот день
-  katas: number; // количество новых кат за этот день
-  games: number; // количество cыгранных игр за этот день
-}
-
 export interface IGameStats {
-  correct: number; // how many questions user answered correctly
-  answered: number; // total answered questions quantity
-  streak: number; // longest successful series of answers
+  correct: number;
+  answered: number;
+  strike: number;
 }
 
 const gamesInit = {
   quiz: {
     answered: 0,
     correct: 0,
-    streak: 0,
+    strike: 0,
   },
   missingType: {
     answered: 0,
     correct: 0,
-    streak: 0,
+    strike: 0,
   },
 };
 
@@ -63,16 +54,9 @@ export default function Statistics() {
     katas: {
       finishedKatas: 0,
     },
-    date: '',
     games: {
-      quiz: { correct: 0, answered: 0, streak: 0 },
-      missingType: { correct: 0, answered: 0, streak: 0 },
-    },
-    longStat: {
-      date: '',
-      lessons: 0,
-      katas: 0,
-      games: 0,
+      quiz: { correct: 0, answered: 0, strike: 0 },
+      missingType: { correct: 0, answered: 0, strike: 0 },
     },
   });
   const [lessons, setLessons] = useState(Array<string>);

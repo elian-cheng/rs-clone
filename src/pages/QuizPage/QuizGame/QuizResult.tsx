@@ -10,7 +10,7 @@ export interface IResultProps extends IGameRunProps {
 
 export default function QuizResult({ answers, setAnswers, setQuiz, setStatus }: IResultProps) {
   const nextGame = useCallback(() => {
-    setAnswers({ right: 0, wrong: 0, streak: 0, max: 0 });
+    setAnswers({ right: 0, wrong: 0, strike: 0, max: 0 });
     setQuiz([]);
     setStatus(GameStatus.SELECT);
   }, []);
@@ -44,8 +44,8 @@ export default function QuizResult({ answers, setAnswers, setQuiz, setStatus }: 
 }
 
 function getResultText(percent: number) {
-  if (percent > 0.5) return 'You can do better! Repeat the lessons and come back! :)';
-  if (percent > 0.75) return 'You played very well! But there is still something to work on.';
-  if (percent > 0.95) return "You're brilliant! I have nothing to teach you...";
+  if (percent > 95) return "You're brilliant! I have nothing to teach you...";
+  if (percent > 75) return 'You played very well! But there is still something to work on.';
+  if (percent > 50) return 'You can do better! Repeat the lessons and come back! :)';
   return 'This time it was not successful, but keep practicing!';
 }

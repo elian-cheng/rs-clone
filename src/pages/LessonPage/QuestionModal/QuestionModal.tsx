@@ -33,12 +33,6 @@ export default function QuestionModal({
       statisticObj.data.lessons.lessonsId = JSON.stringify(lessonsCompletedArr);
       statisticObj.data.lessons.learnedLessons = lessonsCompletedArr.length;
     }
-    if (statisticObj.data.date) {
-      statisticObj.data.date = new Date().toJSON();
-    }
-    if (statisticObj.data.longStat) {
-      statisticObj.data.longStat.date = new Date().toJSON();
-    }
     delete statisticObj.data.id;
     setUserStatistics(userId, statisticObj.data);
   }
