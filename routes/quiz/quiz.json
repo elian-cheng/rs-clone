@@ -103,7 +103,7 @@
       "d) To define new types"
     ],
     "answer": "a) To add metadata to classes, methods, and properties",
-    "explanation": "Explanation: Decorators in TypeScript are used to add metadata to classes, methods, and properties. They provide a way to modify the behavior of a class, method, or property at runtime based on the metadata provided. This makes it possible to implement advanced features like dependency injection, aspect-oriented programming, and more.",
+    "explanation": "Decorators in TypeScript are used to add metadata to classes, methods, and properties. They provide a way to modify the behavior of a class, method, or property at runtime based on the metadata provided. This makes it possible to implement advanced features like dependency injection, aspect-oriented programming, and more.",
     "difficulty": "easy"
   },
   {
@@ -154,7 +154,7 @@
       "c) A way to create objects",
       "d) A way to create reusable code"
     ],
-    "answer": "a) A way to create reusable code",
+    "answer": "d) A way to create reusable code",
     "explanation": "Generics in TypeScript allow you to create reusable code that can work with multiple types, rather than having to write separate code for each type. They allow you to write functions, classes, and interfaces that can work with any type, and to specify the types they should work with when they are called or used.",
     "difficulty": "easy"
   },
@@ -167,7 +167,7 @@
       "c) Null values are treated as a separate type",
       "d) Null values throw an error"
     ],
-    "answer": "a) Null values are treated as a separate type",
+    "answer": "c) Null values are treated as a separate type",
     "explanation": "TypeScript has a \"null\" type, which is separate from other types like \"number\", \"string\", etc. By default, TypeScript considers variables that are assigned a \"null\" value to have the type \"null\", which can then be used in type annotations and type checks.",
     "difficulty": "medium"
   },

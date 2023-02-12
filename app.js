@@ -11,7 +11,6 @@ const signinRouter = require("./routes/authentication/signin.router");
 const userRouter = require("./routes/users/user.router");
 const userTokenRouter = require("./routes/token/token.router");
 const statisticRouter = require("./routes/statistics/statistic.router");
-const settingRouter = require("./routes/settings/setting.router");
 const lessonsRouter = require("./routes/lessons/lessons");
 const quizRouter = require("./routes/quiz/quiz");
 const errorHandler = require("./errors/errorHandler");
@@ -54,8 +53,6 @@ app.use("/quiz", quizRouter);
 userRouter.use("/:id/tokens", userIdValidator, userTokenRouter);
 
 userRouter.use("/:id/statistics", userIdValidator, statisticRouter);
-
-userRouter.use("/:id/settings", userIdValidator, settingRouter);
 
 app.use((req, res, next) => next(createError(StatusCodes.NOT_FOUND)));
 

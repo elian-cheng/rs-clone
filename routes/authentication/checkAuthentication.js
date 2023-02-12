@@ -9,7 +9,6 @@ const ALLOWED_PATHS = [
   "/practice",
   "/lessons",
   "/quiz",
-  "/settings",
   "/games",
   "/games/quiz",
   "/games/missing-type"

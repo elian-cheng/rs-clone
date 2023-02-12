@@ -8,19 +8,11 @@ const StatisticSchema = new Schema(
       type: String,
       required: true
     },
-    date: {
-      type: String,
-      required: false
-    },
     lessons: {
       type: Object,
       required: false
     },
     katas: {
-      type: Object,
-      required: false
-    },
-    longStat: {
       type: Object,
       required: false
     },

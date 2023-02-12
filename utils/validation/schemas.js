@@ -29,22 +29,11 @@ const schemas = {
       email: Joi.string().email({ tlds: { allow: false } }),
       password: Joi.string().min(MIN_PASSWORD_LENGTH)
     }),
-  statistics: Joi.object()
-    .options({ abortEarly: false, allowUnknown: false })
-    .keys({
-      date: Joi.string().max(200),
-      longStat: optionalScheme,
-      lessons: optionalScheme,
-      katas: optionalScheme,
-      games: optionalScheme
-    }),
-  settings: Joi.object()
-    .options({ abortEarly: false, allowUnknown: false })
-    .keys({
-      lessonsPerDay: Joi.number().integer().min(1).max(1000),
-      katasPerDay: Joi.number().integer().min(1).max(1000),
-      optional: optionalScheme
-    })
+  statistics: Joi.object().options({ abortEarly: false, allowUnknown: false }).keys({
+    lessons: optionalScheme,
+    katas: optionalScheme,
+    games: optionalScheme
+  })
 };
 
 function optionalValidator(value, helpers) {
