@@ -1,5 +1,10 @@
 import React from 'react';
+import AnswerOptionsBar from './components/AnswerOptionsBar';
 
 export default function MissingTypePage() {
-  return <div style={{ marginTop: 100 }}>MissingType</div>;
+  return (
+    <article className="missing-type">
+      <AnswerOptionsBar />
+    </article>
+  );
 }

@@ -1,0 +1,66 @@
+.missing-type {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 65vh;
+  color: $colorWhite;
+  &__answers-options-list {
+    height: 100px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $colorOrangeDark;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    &-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 50px;
+      background-color: $colorBlueMiddle;
+      border-radius: 10px;
+      margin: 0 5px;
+      cursor: grab;
+      @include btnHover;
+    }
+  }
+  &__answer {
+    height: 100px;
+    width: 300px;
+    background-color: $colorOrangeDark;
+    margin-bottom: 40px;
+  }
+  &__question {
+    position: relative;
+    width: 500px;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $colorOrangeDark;
+    border-radius: 10px;
+    padding: 20px;
+    &-code {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__point {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: $colorWhite;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    border: 2px dotted $colorWhite;
+  }
+}
