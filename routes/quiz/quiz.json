@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "question": "What is TypeScript?",
+    "question": "What type of language is TypeScript?",
     "options": [
       "a) A statically typed language",
       "b) A dynamically typed language",
@@ -15,8 +15,8 @@
   {
     "id": 2,
     "question": "How do you declare a variable in TypeScript?",
-    "options": ["a) var x;", "b) let x;", "c) const x;", "d) define x;"],
-    "answer": "b) let x;",
+    "options": ["a) var x;", "b) let x;", "c) const x;", "d) both b) and c) are correct"],
+    "answer": "d) both b) and c) are correct",
     "explanation": "TypeScript follows the same syntax as JavaScript in declaring variables. The 'var' keyword is not recommended in TypeScript and should be replaced by 'let' or 'const', depending on whether the value of the variable can change or not.",
     "difficulty": "easy"
   },

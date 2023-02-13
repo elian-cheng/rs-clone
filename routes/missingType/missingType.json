@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "question": "(a:number, b: number): _____? => a < b",
+    "options": ["string", "number", "boolean"],
+    "answer": "boolean"
+  },
+  {
+    "id": 2,
+    "question": "let name: _____? = \"Mike\"",
+    "options": ["number", "boolean", "string"],
+    "answer": "string"
+  },
+  {
+    "id": 3,
+    "question": "const namesArr: _____? = [\"JavaScript\",\"C#\",\"Python\"]",
+    "options": ["string[]", "string", "boolean[]"],
+    "answer": "string[]"
+  },
+  {
+    "id": 4,
+    "question": "let myVar: unknown = \"Hello world!\";\nconsole.log(_____?.length)",
+    "options": ["string", "<boolean>myVar", "<string>myVar"],
+    "answer": "<string>myVar"
+  },
+  {
+    "id": 5,
+    "question": "{myVar = 5}:{myVar: _____?}",
+    "options": ["string[]", "boolean", "number"],
+    "answer": "number"
+  },
+  {
+    "id": 6,
+    "question": "(a: _____?,b: string) => a + b",
+    "options": ["string[]", "boolean", "number"],
+    "answer": "string"
+  },
+  {
+    "id": 7,
+    "question": "(a: _____?,b: number) => a + b",
+    "options": ["string[]", "boolean", "number"],
+    "answer": "number"
+  },
+  {
+    "id": 8,
+    "question": "const namesArr: _____? = ['1','2','3','4','5','6']",
+    "options": ["string[]", "string", "boolean[]"],
+    "answer": "string[]"
+  },
+  {
+    "id": 9,
+    "question": "const namesArr: _____? = [1,2,3,4,5]",
+    "options": ["string[]", "number[]", "number"],
+    "answer": "number[]"
+  },
+  {
+    "id": 10,
+    "question": "(a:number, b: number): _____? => a === b",
+    "options": ["string", "number", "boolean"],
+    "answer": "boolean"
+  }
+]

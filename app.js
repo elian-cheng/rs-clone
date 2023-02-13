@@ -13,6 +13,7 @@ const userTokenRouter = require("./routes/token/token.router");
 const statisticRouter = require("./routes/statistics/statistic.router");
 const lessonsRouter = require("./routes/lessons/lessons");
 const quizRouter = require("./routes/quiz/quiz");
+const missingTypeRouter = require("./routes/missingType/missingType");
 const errorHandler = require("./errors/errorHandler");
 const checkAuthentication = require("./routes/authentication/checkAuthentication");
 const { userIdValidator } = require("./utils/validation/validator");
@@ -49,6 +50,8 @@ app.use("/users", userRouter);
 app.use("/lessons", lessonsRouter);
 
 app.use("/quiz", quizRouter);
+
+app.use("/missing-type", missingTypeRouter);
 
 userRouter.use("/:id/tokens", userIdValidator, userTokenRouter);
 
