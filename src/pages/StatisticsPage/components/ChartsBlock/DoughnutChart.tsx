@@ -9,7 +9,7 @@ export default function DoughnutChart({ done, total }: { done: number; total: nu
     datasets: [
       {
         label: 'Tasks',
-        data: [done, total],
+        data: [done, total - done],
         backgroundColor: ['rgba(251, 232, 166, 1)', 'rgba(58, 87, 168, 1)'],
         borderColor: ['rgba(251, 232, 166, 1)', 'rgba(58, 87, 168, 1)'],
         borderWidth: 1,
