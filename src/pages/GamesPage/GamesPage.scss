@@ -14,6 +14,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    &_statistics {
+      margin-bottom: 2rem;
+    }
   }
 }
 
@@ -54,6 +57,9 @@
     flex-grow: 0;
     max-width: 100%;
     flex-basis: 100%;
+    &_image-statistics {
+      margin-top: 0;
+    }
   }
 
   &__image {
@@ -105,6 +111,9 @@
   &__description {
     line-height: 150%;
     margin-bottom: 1rem;
+    &_description-statistics {
+      margin-bottom: 0.5rem;
+    }
   }
 
   &__start {

@@ -3,7 +3,6 @@ import ErrorPage from '../pages/ErrorPage/ErrorPage';
 import GamesPage from '../pages/GamesPage/GamesPage';
 import HomePage from '../pages/HomePage/HomePage';
 import PracticePage from '../pages/PracticePage/PracticePage';
-import SettingsPage from '../pages/SettingsPage/SettingsPage';
 import StatisticsPage from '../pages/StatisticsPage/StatisticsPage';
 import MissingTypePage from '../pages/MissingTypePage/MissingTypePage';
 import QuizPage from '../pages/QuizPage/QuizPage';
@@ -26,7 +25,6 @@ export const titles: ITitle = {
   '/games/quiz': 'Quiz',
   '/games/missing-type': 'Missing Type',
   '/statistics': 'Statistics',
-  '/settings': 'Settings',
 };
 
 export const routes: IRoute[] = [
@@ -59,11 +57,6 @@ export const routes: IRoute[] = [
     title: 'Statistics',
     path: '/statistics',
     element: <StatisticsPage />,
-  },
-  {
-    title: 'Settings',
-    path: '/settings',
-    element: <SettingsPage />,
   },
   {
     title: 'Other',

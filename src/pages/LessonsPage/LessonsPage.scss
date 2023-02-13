@@ -1,56 +1,61 @@
-.lessons-content {
-    margin-top: 100px;
+.lessons__title {
+  margin-bottom: 2rem;
+}
+
+.lessons__wrapper {
+  margin-top: 100px;
+  margin-bottom: 4rem;
 }
 
 .lessons__theme-block {
-    border-radius: 10px;
-    border: 1px solid $colorBlueMiddle;
-    height: auto;
-    max-height: 50px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.2s ease-out;
-    margin-bottom: 10px;
-    max-width: 500px;
-    margin-right: auto;
-    margin-left: auto;
-    box-shadow: 0 1px 15px rgb(2 4 24);
+  border-radius: 10px;
+  border: 1px solid $colorBlueMiddle;
+  height: auto;
+  max-height: 50px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  margin-bottom: 10px;
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0 1px 15px rgb(2 4 24);
 }
 
 .theme-block__title {
-    font-size: 1.2rem;
-    font-weight: 600;
-    width: 100%;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
-    background-color: $colorBlueMiddle;
-    color: #ffffff;
-    border-radius: 10px;
-    transition: .3s;
+  font-size: 1.2rem;
+  font-weight: 600;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: $colorBlueMiddle;
+  color: #ffffff;
+  border-radius: 10px;
+  transition: 0.3s;
 }
 
 .lessons__theme-block:hover {
-    border: 1px solid $colorBlueDark;
+  border: 1px solid $colorBlueDark;
 }
 .lessons__theme-block:hover .theme-block__title {
-    background-color: $colorBlueDark;
+  background-color: $colorBlueDark;
 }
 
 .theme-block__lesson {
-    display: block;
-    padding: 0 10px;
-    line-height: 24px;
-    height: 24px;
-    border-radius: 4px;
-    transition: .3s;
+  display: block;
+  padding: 0 10px;
+  line-height: 24px;
+  height: 24px;
+  border-radius: 4px;
+  transition: 0.3s;
 }
 
 .theme-block__lesson:hover {
-    background-color: $colorGrayLight;
+  background-color: $colorGrayLight;
 }
 
 .lessons__theme-block_open {
-    max-height: 90vh;
-    transition: all 0.5s ease-in;
+  max-height: 90vh;
+  transition: all 0.5s ease-in;
 }
