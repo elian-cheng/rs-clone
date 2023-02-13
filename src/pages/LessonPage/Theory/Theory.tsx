@@ -14,9 +14,7 @@ export default function Theory({ lesson }: { lesson: ILesson | null }) {
       <h1 className="lesson__theme">{lesson?.theme}</h1>
       <h2 className="lesson__title">{lesson?.title}</h2>
       {lesson?.description.map((item, i) => (
-        <p className="lesson__paragraph" key={i}>
-          {item}
-        </p>
+        <p className="lesson__paragraph" key={i} dangerouslySetInnerHTML={{__html: item}}></p>
       ))}
     </section>
   );

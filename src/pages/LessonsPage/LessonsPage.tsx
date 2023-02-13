@@ -43,13 +43,16 @@ export default function LessonsPage() {
         <h1 className="lessons__title title">Lessons</h1>
         <div className="lessons-content">
           {state === 'loading' ? (
-            <h1>Loading...</h1>
+            <h2>Loading...</h2>
           ) : (
             <div className="lessons__themes">
               {themesList.map((item, i) => {
                 return (
                   <div className="lessons__theme-block" key={i}>
-                    <div className="theme-block__title">{item}</div>
+                    <div
+                      className="theme-block__title"
+                      dangerouslySetInnerHTML={{ __html: item }}
+                    ></div>
                     {allLessonsList.map((el, j) => {
                       if (el.theme !== item) return;
                       return (
