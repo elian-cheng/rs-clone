@@ -168,7 +168,7 @@
       "d) Null values throw an error"
     ],
     "answer": "c) Null values are treated as a separate type",
-    "explanation": "TypeScript has a \"null\" type, which is separate from other types like \"number\", \"string\", etc. By default, TypeScript considers variables that are assigned a \"null\" value to have the type \"null\", which can then be used in type annotations and type checks.",
+    "explanation": "TypeScript has a \"null\" type, which is separate from other types like \"number\", \"string\", etc) By default, TypeScript considers variables that are assigned a \"null\" value to have the type \"null\", which can then be used in type annotations and type checks.",
     "difficulty": "medium"
   },
   {
@@ -464,5 +464,748 @@
     "answer": "c) A way to represent a set of named values in TypeScript",
     "explanation": "An enum in TypeScript is a way to represent a set of named values. Enums allow you to define a set of named values that represent a specific set of values, such as a set of days of the week or a set of colors. Enums are defined using the \"enum\" keyword, followed by the name of the enum and the set of named values. Each named value in an enum is given a specific integer value, starting from 0, unless you specify a different value. Enums are useful for representing a specific set of values that you want to use throughout your code, while still ensuring type safety and making your code more readable.",
     "difficulty": "hard"
+  },
+  {
+    "id": 38,
+    "question": "What is TypeScript?",
+    "options": [
+      "a) A statically typed language",
+      "b) A dynamically typed language",
+      "c) A functional language",
+      "d) An object-oriented language"
+    ],
+    "answer": "a) A statically typed language",
+    "explanation": "TypeScript is a statically typed language, meaning that type information is known at compile time, allowing for better tooling, stronger type safety and making it easier to catch type errors before runtime.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 39,
+    "question": "Can TypeScript be used with other JavaScript libraries?",
+    "options": [
+      "a) Yes",
+      "b) No",
+      "c) Only with certain libraries",
+      "d) It depends on the version of TypeScript"
+    ],
+    "answer": "a) Yes",
+    "explanation": "TypeScript can be used with any JavaScript library, as it compiles to plain JavaScript which can run in any environment.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 40,
+    "question": "Can TypeScript be used with React?",
+    "options": [
+      "a) Yes",
+      "b) No",
+      "c) Only with certain versions of React",
+      "d) It depends on the version of TypeScript"
+    ],
+    "answer": "a) Yes",
+    "explanation": "TypeScript can be used with React to add type information and improved tooling to the development process.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 41,
+    "question": "What does the 'interface' keyword do in TypeScript?",
+    "options": [
+      "a) It defines a type representing an object structure",
+      "b) It creates a new instance of a class",
+      "c) It exports a type or value to be used by other files",
+      "d) It sets the default value of a property"
+    ],
+    "answer": "a) It defines a type representing an object structure",
+    "explanation": "The 'interface' keyword in TypeScript is used to define a type that represents an object structure. This type can then be used to specify the structure of objects in a type-safe manner.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 42,
+    "question": "What is the purpose of TypeScript's 'namespace' keyword?",
+    "options": [
+      "a) To define a module for organizing related code",
+      "b) To define a type that represents an object structure",
+      "c) To define a type that can be used to specify the structure of objects",
+      "d) To define a value that is exported for use by other files"
+    ],
+    "answer": "a) To define a module for organizing related code",
+    "explanation": "The 'namespace' keyword in TypeScript is used to define a module, which is a way of organizing related code into a single unit. Namespaces are useful for encapsulating implementation details and avoiding naming collisions.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 43,
+    "question": "What is the purpose of the 'extends' keyword in TypeScript interfaces?",
+    "options": [
+      "a) To specify that an interface extends another interface",
+      "b) To specify that a class extends another class",
+      "c) To specify that a type is a subtype of another type",
+      "d) To specify that an object is an instance of a class"
+    ],
+    "answer": "a) To specify that an interface extends another interface",
+    "explanation": "The 'extends' keyword in TypeScript is used in the context of interfaces to specify that one interface extends another. This allows for interface inheritance, where one interface can inherit the members of another.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 44,
+    "question": "Who developed Typescript?",
+    "options": ["a) Anders Hejlsberg", "b) Mark Candy", "c) Stanlacke", "d) None"],
+    "answer": "a) Anders Hejlsberg",
+    "explanation": "Anders Hejlsberg is the primary architect of TypeScript and a prominent figure in the software industry.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 45,
+    "question": "TypeScript was introduced in the year of",
+    "options": ["a) 2011", "b) 2012", "c) 2014", "d) 2017"],
+    "answer": "b) 2012",
+    "explanation": "TypeScript was first introduced in 2012 by Microsoft and has since become a popular choice for large-scale JavaScript projects.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 46,
+    "question": "What are the built-in types in Typescript?",
+    "options": ["a) Number type", "b) Boolean type", "c) Null type", "d) All of these"],
+    "answer": "d) All of these",
+    "explanation": "TypeScript supports several built-in types including Number, Boolean, Null, and others.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 47,
+    "question": "Can a typescript be installed or managed through?",
+    "options": ["a) Void", "b) Space", "c) Npm", "d) Tag"],
+    "answer": "c) Npm",
+    "explanation": "TypeScript can be installed and managed through npm, which is the recommended method for installing TypeScript.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 48,
+    "question": "What are different components of TypeScript?",
+    "options": ["a) Language", "b) Compiler", "c) Language Service", "d) All of the above"],
+    "answer": "d) All of the above",
+    "explanation": "TypeScript consists of a language, a compiler, and a language service, which work together to provide a complete development experience.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 49,
+    "question": "Which object-oriented terms are supported by TypeScript?",
+    "options": ["a) Interfaces", "b) Data Types", "c) Member functions", "d) All the above"],
+    "answer": "d) All the above",
+    "explanation": "TypeScript supports various object-oriented concepts like interfaces, data types, and member functions.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 50,
+    "question": "What are the disadvantages of TypeScript?",
+    "options": [
+      "a) TypeScript is just another way to write JavaScript. It doesn’t fix the problems of JavaScript",
+      "b) One more tool to learn",
+      "c) TypeScript has a dependency on type definition files if you wish to use any existing JavaScript libraries",
+      "d) All of the above"
+    ],
+    "answer": "d) All of the above",
+    "explanation": "TypeScript has some drawbacks, like being just another way to write JavaScript that doesn't fix its problems, requiring you to learn another tool, and having a dependency on type definition files for using existing JavaScript libraries.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 51,
+    "question": "Which of the following is the typing principle of TypeScript?",
+    "options": ["a) Gradual", "b) Dynamic", "c) Duck", "d) All of the above"],
+    "answer": "a) Gradual",
+    "explanation": "The typing principle of TypeScript is Gradual, meaning it allows you to incrementally adopt types and provides a way to gradually add type annotations to your codebase.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 52,
+    "question": "Which is not true about TypeScript?",
+    "options": [
+      "a) It is interpreted like javascript",
+      "b) It is a superset of javascript",
+      "c) It does support static data types",
+      "d) TypeScript is case sensitive"
+    ],
+    "answer": "a) It is interpreted like javascript",
+    "explanation": "TypeScript is not interpreted like JavaScript. It is a statically typed language and its code is compiled to JavaScript before being executed.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 53,
+    "question": "..... are the way to organize code in TypeScript.",
+    "options": ["a) Modules", "b) Classes", "c) Method", "d) Arrow"],
+    "answer": "a) Modules",
+    "explanation": "Modules are the way to organize code in TypeScript, allowing you to encapsulate related code into separate and reusable units.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 54,
+    "question": "When was the first time TypeScript was made public?",
+    "options": ["a) December 2012", "b) October 2012", "c) October 2013", "d) November 2013"],
+    "answer": "b) October 2012",
+    "explanation": "TypeScript was first made public in October 2012.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 55,
+    "question": "What are the types of access modifiers supported by TypeScript?",
+    "options": ["a) Public", "b) Private", "c) Protected", "d) All of these"],
+    "answer": "d) All of these",
+    "explanation": "TypeScript supports all three access modifiers - public, private, and protected.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 56,
+    "question": "What are the components of TypeScript?",
+    "options": [
+      "a) TypeScript Language",
+      "b) TypeScript Compiler",
+      "c) TypeScript Language Service",
+      "d) All of these"
+    ],
+    "answer": "d) All of these",
+    "explanation": "TypeScript consists of three components - a language, a compiler, and a language service.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 57,
+    "question": "List some features of Typescript?",
+    "options": [
+      "a) Typescript can be compiled to all major versions of Javascript(ES3,ES5,ES6,ES7)",
+      "b) Typescript can be used for cross-browser development and is an open source project",
+      "c) Typescript is a superset of JavaScript that provides typed nature to your code",
+      "d) All of the above"
+    ],
+    "answer": "d) All of the above",
+    "explanation": "TypeScript provides several features such as being able to be compiled to all major versions of Javascript, supporting cross-browser development, being an open source project, and being a superset of JavaScript that provides a typed nature to code.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 58,
+    "question": "Which object oriented terms are supported by Typescript?",
+    "options": ["a) Modules", "b) Classes", "c) Interfaces", "d) All of these"],
+    "answer": "d) All of these",
+    "explanation": "TypeScript supports all three object-oriented terms - modules, classes, and interfaces.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 59,
+    "question": "Which are the different Data Types supported by Typescript?",
+    "options": [
+      "a) Boolean var b: boolean = false",
+      "b) Number var age: number = 16",
+      "c) String var name: string = \"jon\"",
+      "d) All of the above mentioned"
+    ],
+    "answer": "d) All of the above mentioned",
+    "explanation": "TypeScript supports all the data types as in JavaScript and also has additional data types such as Enum and Tuple.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 60,
+    "question": "What are the benefits of Typescript?",
+    "options": [
+      "a) It helps in code structuring",
+      "b) Use class-based object-oriented programming",
+      "c) Impose coding guidelines",
+      "d) All of the above"
+    ],
+    "answer": "d) All of the above",
+    "explanation": "TypeScript provides several benefits like code structuring, class-based object-oriented programming, and helps to impose coding guidelines to make code maintainable and scalable.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 61,
+    "question": "What are the variable scopes available in TypeScript?",
+    "options": ["a) Global Scope", "b) Class Scope", "c) Local Scope", "d) All of the above"],
+    "answer": "d) All of the above",
+    "explanation": "TypeScript supports three types of variable scopes: Global, Class and Local scopes.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 62,
+    "question": "What are variables in Typescript?",
+    "options": [
+      "a) A variable name should contain alphabets and numeric digits",
+      "b) It cannot contain spaces and special characters except underscore () and dollar ($) sign",
+      "c) A variable name cannot begin with a digit",
+      "d) All"
+    ],
+    "answer": "d) All",
+    "explanation": "In TypeScript, variables follow the same naming conventions as in JavaScript with some additional rules like a variable name should contain only alphabets and numeric digits, it cannot contain spaces and special characters except underscore () and dollar ($) sign and it cannot begin with a digit.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 63,
+    "question": "Which of the following is the typing principle of typescript?",
+    "options": ["a) Gradual", "b) Dynamic", "c) Duck", "d) All of the above"],
+    "answer": "a) Gradual",
+    "explanation": "The typing principle of TypeScript is Gradual Typing which means it supports both statically typed and dynamically typed programming styles.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 64,
+    "question": "Among which of the following computer programming language influenced the creation of typescript?",
+    "options": ["a) Java", "b) JavaScript", "c) C#", "d) All of the above"],
+    "answer": "d) All of the above",
+    "explanation": "TypeScript was influenced by multiple programming languages, including Java and C#, and is built on JavaScript.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 65,
+    "question": "In TypeScript, what is a dot notation?",
+    "options": [
+      "a) A way to delete a property",
+      "b) A way to declare a variable",
+      "c) A way to access object properties or methods",
+      "d) A way to call a constructor"
+    ],
+    "answer": "c) A way to access object properties or methods",
+    "explanation": "The dot notation is used in TypeScript to access the properties and methods of an object.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 66,
+    "question": "What is a method in TypeScript?",
+    "options": [
+      "a) A method is place in a program where a class is defined",
+      "b) A method is a block of functionality that can be executed",
+      "c) A method if a signatue of an author of a program",
+      "d) A method is a mechanism for declaring a variable"
+    ],
+    "answer": "b) A method is a block of functionality that can be executed",
+    "explanation": "A method in TypeScript is a block of code that can be executed, defined within a class.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 67,
+    "question": "In TypeScript, how do you call a method from a method when both methods are defined on the same class?",
+    "options": [
+      "a) DoSomething():",
+      "b) root.doSomething();",
+      "c) that.doSomething();",
+      "d) this.doSomething();"
+    ],
+    "answer": "d) this.doSomething();",
+    "explanation": "When both methods are defined on the same class in TypeScript, you can call one method from the other by using the this keyword, followed by the name of the method, such as this.doSomething();.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 68,
+    "question": "The ..... Service powers the interactive TypeScript experience in Visual Studio, Vs Code, Sublime, the TypeScript playground and other editor.",
+    "options": [
+      "a) TypeScript language",
+      "b) TypeScript compiler",
+      "c) TypeScript main",
+      "d) TypeScript method"
+    ],
+    "answer": "a) TypeScript language",
+    "explanation": "The TypeScript Language Service powers the interactive TypeScript experience in various development environments, including Visual Studio, Vs Code, Sublime, the TypeScript playground and others.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 69,
+    "question": "What part does the method usually consist of in TypeScript?",
+    "options": [
+      "a) Method name, method parameters, method body",
+      "b) Method header, method body, method footer",
+      "c) Method name, method runner, method header",
+      "d) Method comments, method type, method number"
+    ],
+    "answer": "a) Method name, method parameters, method body",
+    "explanation": "A method in TypeScript typically consists of a method name, method parameters, and method body.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 70,
+    "question": "What data type will you use to represent a numeric value in TypeScript?",
+    "options": ["a) Array", "b) Number", "c) Boolean", "d) String"],
+    "answer": "b) Number",
+    "explanation": "In TypeScript, the data type Number is used to represent numeric values.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 71,
+    "question": "What is a constructor in TypeScript?",
+    "options": [
+      "a) A method that is called when the object is being constructed",
+      "b) An object that was recently initialized",
+      "c) A variable that contains a newly constructed object",
+      "d) A method that is constructing different types of objects"
+    ],
+    "answer": "a) A method that is called when the object is being constructed",
+    "explanation": "In TypeScript, a constructor is a special method that is called when an object is being constructed, typically with the purpose of initializing its properties.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 72,
+    "question": "In TypeScript, what keyword do you use to declare a variable?",
+    "options": ["a) Declare", "b) Let", "c) Dim", "d) Define"],
+    "answer": "b) Let",
+    "explanation": "In TypeScript, you use the keyword let to declare a variable.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 73,
+    "question": "What company develops TypeScript?",
+    "options": ["a) Microsoft", "b) Amazon", "c) Facebook", "d) Google"],
+    "answer": "a) Microsoft",
+    "explanation": "TypeScript is developed by Microsoft.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 74,
+    "question": "You can disable implicit variable type assignment by enabling the compiler option:",
+    "options": [
+      "a) noImplicitAny",
+      "b) noAutoType",
+      "c) Implicit = FALSE",
+      "d) autoTypeAssignment = FALSE"
+    ],
+    "answer": "a) noImplicitAny",
+    "explanation": "To disable implicit variable type assignment in TypeScript, you can enable the compiler option noImplicitAny.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 75,
+    "question": "You can enable 'undefined' and 'null' types to be accounted for by enabling the compiler property:",
+    "options": [
+      "a) noAutoType",
+      "b) noFalseyInits",
+      "c) strictChecksRequired",
+      "d) strictNullChecks"
+    ],
+    "answer": "d) strictNullChecks",
+    "explanation": "To enable 'undefined' and 'null' types to be accounted for in TypeScript, you can enable the compiler property strictNullChecks.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 76,
+    "question": "Which of the following are features of typeScript?",
+    "options": [
+      "a) TypeScript is portable",
+      "b) TypeScript is just JavaScript",
+      "c) TypeScript supports other JS libraries",
+      "d) All of the above"
+    ],
+    "answer": "d) All of the above",
+    "explanation": "TypeScript is portable, it is just JavaScript, and it supports other JS libraries, so all of the options are features of TypeScript.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 77,
+    "question": "Extension of typescript is?",
+    "options": ["a) .d.tp", "b) .d.td", "c) .d.ts", "d) .d.ty"],
+    "answer": "c) .d.ts",
+    "explanation": "The extension of TypeScript is .d.ts.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 78,
+    "question": "TypeScript supports Object Oriented Programming concepts like classes, interfaces, inheritance.",
+    "options": ["a) True", "b) False", "c) Can be true or false", "d) None of the above"],
+    "answer": "a) True",
+    "explanation": "TypeScript supports Object Oriented Programming concepts like classes, interfaces, inheritance, which means the answer is True.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 79,
+    "question": "_____ is similar to 'any', but a safer alternative when uncertain about the type.",
+    "options": ["a) never", "b) similar", "c) unknown", "d) <Partial>"],
+    "answer": "c) unknown",
+    "explanation": "The type 'unknown' is similar to 'any', but a safer alternative when uncertain about the type in TypeScript.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 80,
+    "question": "What is the inherited type for the variable example in 'const example = ['Dylan']'?",
+    "options": ["a) any[]", "b) string[]", "c) string", "d) unknown[]"],
+    "answer": "b) string[]",
+    "explanation": "The type of the variable 'example' would be inferred as a string array because it's assigned to an array of strings.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 81,
+    "question": "What does the 'readonly' access modifier do for an array variable assignment like: 'const codeNames: readonly string[] = ['Coding', 'God']'?",
+    "options": [
+      "a) Makes you read it for better clean code",
+      "b) Allows only adding but not deleting elements in the array",
+      "c) Makes it private and can only be used in the file its created",
+      "d) Allows no changes and is there simply to be read from and not modified"
+    ],
+    "answer": "d) Allows no changes and is there simply to be read from and not modified",
+    "explanation": "The readonly modifier prevents any changes to the value of the assigned array, making it read-only.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 82,
+    "question": "TypeScript will always correctly infer the type of an array.",
+    "options": [
+      "a) True",
+      "b) False",
+      "c) only under certain conditions",
+      "d) only in a strict mode"
+    ],
+    "answer": "a) True",
+    "explanation": "TypeScript is able to correctly infer the type of arrays based on the values assigned to them.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 83,
+    "question": "How many components does TypeScript have?",
+    "options": ["a) 3", "b) 4", "c) 5", "d) 6"],
+    "answer": "a) 3",
+    "explanation": "TypeScript has three main components: the language, the compiler, and the language service.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 84,
+    "question": "TypeScript is ?",
+    "options": [
+      "a) Case-sensitive",
+      "b) Case-insensitive",
+      "c) depends on TypeScript version",
+      "d) None of the above"
+    ],
+    "answer": "a) Case-sensitive",
+    "explanation": "TypeScript is case-sensitive and follows the same rules for naming variables and identifiers as JavaScript.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 85,
+    "question": "TypeScript supports how many types of comments?",
+    "options": ["a) 1", "b) 2", "c) 3", "d) 4"],
+    "answer": "b) 2",
+    "explanation": "TypeScript supports two types of comments: single-line (//) and multi-line (/* */).",
+    "difficulty": "hard"
+  },
+  {
+    "id": 86,
+    "question": "True or False: a Tuple and an Array are the same thing when discussing types",
+    "options": ["a) True", "b) False", "c) can be True or False", "d) only in a strict mode"],
+    "answer": "b) False",
+    "explanation": "A tuple is a data structure that holds a fixed number of elements of different data types, while an array holds a collection of elements of the same data type. Therefore, a tuple and an array are not the same thing when discussing types.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 87,
+    "question": "Which is a successful example of this tuple '[number, string]'",
+    "options": [
+      "a) const ourTuple = [101]",
+      "b) const ourTuple = ['Coding God', 101]",
+      "c) const ourTuple = [101, 101, 'Coding God', 'Coding God']",
+      "d) const ourTuple = [101, 'Coding God']"
+    ],
+    "answer": "d) const ourTuple = [101, 'Coding God']",
+    "explanation": "The tuple '[number, string]' holds two elements of different data types, a number and a string. A successful example of this tuple is the assignment 'const ourTuple = [101, 'Coding God']', which holds the values '101' and 'Coding God'",
+    "difficulty": "hard"
+  },
+  {
+    "id": 88,
+    "question": "Type Aliases are mostly used with ______",
+    "options": ["a) Strings", "b) Booleans", "c) Numbers", "d) None of the above"],
+    "answer": "d) None of the above",
+    "explanation": "Type Aliases are used to give a type a different name, they are not limited to a specific type and can be used with any data type like numbers, strings, booleans, arrays, tuples, and object types. Therefore, the correct answer is 'None of the above'",
+    "difficulty": "hard"
+  },
+  {
+    "id": 89,
+    "question": "Interfaces are similar to type aliases, but only for object types",
+    "options": [
+      "a) True",
+      "b) False",
+      "c) only under certain conditions",
+      "d) only in a strict mode"
+    ],
+    "answer": "a) True",
+    "explanation": "Interfaces define the structure of objects and can only be used with object types, whereas type aliases can be used with any data type. This means that interfaces are similar to type aliases, but only for object types, hence the answer is True.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 90,
+    "question": "What is the process of having the same properties as an interface?",
+    "options": ["a) Idolizing", "b) Improving", "c) Extending", "d) Duplicating"],
+    "answer": "c) Extending",
+    "explanation": "An interface can be extended to have the same properties as that interface, meaning the answer is 'Extending'.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 91,
+    "question": "What are the two types of enums in TypeScript?",
+    "options": [
+      "a) String and Boolean",
+      "b) String and Number",
+      "c) Number and Boolean",
+      "d) Number and Number Array"
+    ],
+    "answer": "b) String and Number",
+    "explanation": "In TypeScript, there are two types of enums: string and number. This means the answer is 'String and Number'.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 92,
+    "question": "What is the default first value of numeric enums in TypeScript?",
+    "options": ["a) 0", "b) 1", "c) 5", "d) 10"],
+    "answer": "a) 0",
+    "explanation": "The first value of numeric enums in TypeScript is defaulted to 0, meaning the answer is '0'.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 93,
+    "question": "Can 'keyof' be used with index signatures to extract the index type in TypeScript?",
+    "options": [
+      "a) True",
+      "b) False",
+      "c) only under certain conditions",
+      "d) only in a strict mode"
+    ],
+    "answer": "a) True",
+    "explanation": "'keyof' can indeed be used with index signatures to extract the index type in TypeScript, meaning the answer is 'True'.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 94,
+    "question": "According to Grady Brooch, how many features must every object have?",
+    "options": ["a) 1", "b) 2", "c) 3", "d) 4"],
+    "answer": "d) 4",
+    "explanation": "According to Grady Brooch, every object must have 4 features. This means the answer is '4'.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 95,
+    "question": "A ________ in terms of OOP is a blueprint for creating objects.",
+    "options": ["a) Method", "b) Function", "c) Constructor", "d) Class"],
+    "answer": "d) Class",
+    "explanation": "A class in terms of OOP is a blueprint for creating objects. It is used to define objects and their properties, methods, and behavior. Thus, the answer is Class.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 96,
+    "question": "Definitely Typed is_____",
+    "options": [
+      "a) A superset of TypeScript",
+      "b) The official name of TypeScript",
+      "c) A project whose goal is to make types dynamic",
+      "d) A project that provides a central repository of TypeScript definitions for NPM packages which do not have types"
+    ],
+    "answer": "d) A project that provides a central repository of TypeScript definitions for NPM packages which do not have types",
+    "explanation": "Definitely Typed is a project that provides a central repository of TypeScript definitions for NPM packages which do not have types. It's purpose is to ensure that TypeScript can correctly type check code that depends on those packages, so the answer is A project that provides a central repository of TypeScript definitions for NPM packages which do not have types.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 97,
+    "question": "What is the type of the parameter: 'function ex(param1?: string){}'?",
+    "options": ["a) String", "b) String | undefined", "c) String | null", "d) Unknown"],
+    "answer": "b) String | undefined",
+    "explanation": "The type of the parameter in the function is string with an optional value '?', which means it can be either a string or undefined. So, the answer is String | undefined.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 98,
+    "question": "_____ is a return type for when nothing is returned.",
+    "options": ["a) Void", "b) Any", "c) Any[]", "d) Unknown"],
+    "answer": "a) Void",
+    "explanation": "Void is a return type for when nothing is returned. The function with void return type does not return any value, so the answer is Void.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 99,
+    "question": "Access modifiers control the ______ of properties and methods.",
+    "options": ["a) Type", "b) Mocking", "c) Visibility", "d) Inheritance"],
+    "answer": "c) Visibility",
+    "explanation": "Access modifiers control the visibility of properties and methods. They define whether a property or method can be accessed outside the class or within the class, so the answer is Visibility.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 100,
+    "question": "Is it true that protected modifiers only are allowed in the inherited class?",
+    "options": [
+      "a) True",
+      "b) False",
+      "c) only under certain conditions",
+      "d) only in a strict mode"
+    ],
+    "answer": "a) True",
+    "explanation": "Protected access modifiers restrict access to the members of a class to the class itself and its derived classes.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 101,
+    "question": "Is it true that public modifiers allow access to the class members from anywhere?",
+    "options": [
+      "a) True",
+      "b) False",
+      "c) only under certain conditions",
+      "d) only in a strict mode"
+    ],
+    "answer": "a) True",
+    "explanation": "Public access modifiers allow access to the class members from anywhere, making it the most unrestricted of the access modifiers.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 102,
+    "question": "Are semicolons optional in TypeScript?",
+    "options": ["a) Yes", "b) No", "c) Can be yes or no", "d) None of the above"],
+    "answer": "a) Yes",
+    "explanation": "Semicolons in TypeScript are optional and can be omitted, as long as each statement is written on a separate line.",
+    "difficulty": "medium"
+  },
+  {
+    "id": 103,
+    "question": "What is it called when a class extends another class and replaces the members of its parent?",
+    "options": ["a) Overload", "b) Inheriting", "c) Extending", "d) Override"],
+    "answer": "d) Override",
+    "explanation": "When a class extends another class and replaces the members of its parent, it is called Overriding.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 104,
+    "question": "What are the different Data Types supported by Typescript?",
+    "options": [
+      "a) Boolean var b: boolean = false",
+      "b) Number var age: number = 16",
+      "c) String var name: string = 'jon'",
+      "d) All of the above"
+    ],
+    "answer": "d) All of the above",
+    "explanation": "TypeScript supports the data types Boolean, Number, and String, which means all of the options are correct.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 105,
+    "question": "What are the three main 'simple types' in TypeScript?",
+    "options": [
+      "a) Object, Array, Symbol",
+      "b) Array, Object, Boolean",
+      "c) Boolean, Number, String",
+      "d) Object, String, Number"
+    ],
+    "answer": "c) Boolean, Number, String",
+    "explanation": "The three main 'simple types' in TypeScript are Boolean, Number, and String.",
+    "difficulty": "easy"
+  },
+  {
+    "id": 106,
+    "question": "What type of assignment is this variable, const fullName: string = 'Dylan Israel'?",
+    "options": ["a) Implicit", "b) Explicit", "c) Both (A) and (B)", "d) None of the Above"],
+    "answer": "b) Explicit",
+    "explanation": "The assignment of the variable 'const fullName: string = 'Dylan Israel';' is an explicit assignment, as the data type (string) of the variable is explicitly specified.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 107,
+    "question": "What are variables in Typescript?",
+    "options": [
+      "a) A variable name should contain alphabets and numeric digits",
+      "b) A variable name cannot begin with a digit",
+      "c) It cannot contain spaces and special characters except underscore () and dollar ($) sign",
+      "d) All of the above"
+    ],
+    "answer": "d) All of the above",
+    "explanation": "Variables in TypeScript have a few restrictions for their names, including: a variable name should contain alphabets and numeric digits, a variable name cannot begin with a digit and it cannot contain spaces and special characters except underscore () and dollar ($) sign.",
+    "difficulty": "hard"
+  },
+  {
+    "id": 108,
+    "question": "How can Typescript be installed or managed?",
+    "options": ["a) Void", "b) Space", "c) Npm", "d) Tag"],
+    "answer": "c) Npm",
+    "explanation": "Typescript can be installed or managed through npm.",
+    "difficulty": "medium"
   }
 ]
