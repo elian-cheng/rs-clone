@@ -57,7 +57,6 @@ export default function QuizGame({ quiz, answers, setStatus, setAnswers }: IGame
 
   const nextQuestion = useCallback(() => {
     if (current === quiz.length - 1) {
-      console.log(answers);
       if (user) updateGameStatistics({ answers, gameType: 'quiz' });
       setStatus(GameStatus.RESULT);
     } else {
