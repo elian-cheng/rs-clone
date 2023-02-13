@@ -1,9 +1,8 @@
-import { ReactComponent as Main } from "../assets/icons/sidebar/main.svg";
-import { ReactComponent as Lessons } from "../assets/icons/sidebar/lessons.svg";
-import { ReactComponent as Practice } from "../assets/icons/sidebar/practice.svg";
-import { ReactComponent as Games } from "../assets/icons/sidebar/games.svg";
-import { ReactComponent as Statistics } from "../assets/icons/sidebar/statistics.svg";
-import { ReactComponent as Settings } from "../assets/icons/sidebar/setting.svg";
+import { ReactComponent as Main } from '../assets/icons/sidebar/main.svg';
+import { ReactComponent as Lessons } from '../assets/icons/sidebar/lessons.svg';
+import { ReactComponent as Practice } from '../assets/icons/sidebar/practice.svg';
+import { ReactComponent as Games } from '../assets/icons/sidebar/games.svg';
+import { ReactComponent as Statistics } from '../assets/icons/sidebar/statistics.svg';
 import { ISidebarItem } from '../components/Sidebar/Sidebar';
 
 export const sidebarItems: ISidebarItem[] = [
@@ -36,11 +35,5 @@ export const sidebarItems: ISidebarItem[] = [
     Icon: Statistics,
     title: 'Statistics',
     path: '/statistics',
-  },
-  {
-    id: 6,
-    Icon: Settings,
-    title: 'Settings',
-    path: '/settings',
   },
 ];

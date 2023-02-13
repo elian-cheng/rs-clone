@@ -14,8 +14,11 @@ export default function PracticePage() {
   };
   return (
     <div className="main__container">
-      <PracticeNavigation setPage={setPage} page={page} />
-      {page === 'CodeWars' ? <CodeWarsChallenges /> : <CodeEditor taskObj={codeEditorTaskObj} />}
+      <div className="practice__wrapper">
+        <h1 className="practice__title title">Practice</h1>
+        <PracticeNavigation setPage={setPage} page={page} />
+        {page === 'CodeWars' ? <CodeWarsChallenges /> : <CodeEditor taskObj={codeEditorTaskObj} />}
+      </div>
     </div>
   );
 }

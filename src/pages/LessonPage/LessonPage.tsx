@@ -15,9 +15,11 @@ export default function LessonPage() {
 
   return (
     <div className="main__container">
-      <main className="lesson">
-        {lesson ? <LessonBlock lesson={lesson} setLessonId={setLessonId} /> : <ErrorPage />}
-      </main>
+      <div className="lessons__wrapper">
+        <div className="lesson">
+          {lesson ? <LessonBlock lesson={lesson} setLessonId={setLessonId} /> : <ErrorPage />}
+        </div>
+      </div>
     </div>
   );
 }

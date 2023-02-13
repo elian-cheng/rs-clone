@@ -6,9 +6,13 @@ import ProgressBar from './ProgressBar';
 export default function chartsBlock({
   stats,
   lessonsTotal,
+  correctAnswers,
+  totalAnswered,
 }: {
   stats: UserStatistics;
   lessonsTotal: number;
+  correctAnswers: number;
+  totalAnswered: number;
 }) {
   const totalKatas = Object.values(codeWarsTasks).reduce((sum, item) => (sum += item.length), 0);
   return (
@@ -36,10 +40,10 @@ export default function chartsBlock({
           />
         </li>
         <li className="statistic__charts-list-item">
-          <h2 className="statistic__charts-title">Games</h2>
+          <h2 className="statistic__charts-title">Correct answers</h2>
           <DoughnutChart
-            done={stats?.lessons?.learnedLessons ? stats.lessons.learnedLessons : 0}
-            total={30}
+            done={correctAnswers ? correctAnswers : 0}
+            total={totalAnswered ? totalAnswered : 1}
           />
         </li>
       </ul>

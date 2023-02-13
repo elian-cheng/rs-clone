@@ -5,10 +5,19 @@
   }
 }
 
-@import "./components/CodeWars/CodeWarsChallenge";
-@import "./components/navigation/PracticeNavigation";
+@import './components/CodeWars/CodeWarsChallenge';
+@import './components/navigation/PracticeNavigation';
 
 .active-btn {
   transition: all 0.5s;
   background-color: $colorBlueDark;
+}
+
+.practice__title {
+  margin-bottom: 2rem;
+}
+
+.practice__wrapper {
+  margin-top: 100px;
+  margin-bottom: 4rem;
 }
