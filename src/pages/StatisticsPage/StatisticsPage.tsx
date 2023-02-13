@@ -2,7 +2,6 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { IGetUSer } from '../../API/authorization';
 import storage from '../../utils/storage';
 import { GameSection } from './components/GameSection/GameSection';
-import { GeneralStats } from './components/GeneralStats';
 import { getStats } from '../../API/statistics';
 import AuthNotification from './components/AuthNotification/AuthNotification';
 import ChartsBlock from './components/ChartsBlock/ChartsBlock';
@@ -68,19 +67,17 @@ export default function Statistics() {
   useEffect(getStatsCallback, [getStatsCallback]);
 
   return (
-    <>
-      <GeneralStats
-        finishedKatas={stats?.katas?.finishedKatas || 0}
-        learnedLessons={stats?.lessons?.learnedLessons || 0}
-        correctAnswers={
-          ((stats?.games?.quiz?.correct || 0) + (stats?.games?.missingType?.correct || 0)) /
-          ((stats?.games?.quiz?.answered || 0) + (stats?.games?.missingType?.answered || 0))
-        }
-      />
-      <GameSection games={stats?.games || gamesInit} />
-      <div className="charts__container">
-        <ChartsBlock stats={stats} lessonsTotal={lessons.length} />
+    <div className="statistics__container">
+      <div className="statistics__wrapper">
+        <h1 className="statistics__title title">Statistics</h1>
+        <GameSection games={stats?.games || gamesInit} />
+        <ChartsBlock
+          stats={stats}
+          lessonsTotal={lessons.length}
+          correctAnswers={stats!.games!.quiz!.correct + stats!.games!.missingType!.correct}
+          totalAnswered={stats!.games!.quiz!.answered + stats!.games!.missingType!.answered}
+        />
       </div>
-    </>
+    </div>
   );
 }
