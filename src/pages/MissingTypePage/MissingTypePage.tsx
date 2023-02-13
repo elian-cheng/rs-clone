@@ -1,10 +1,12 @@
-import React from 'react';
-import AnswerOptionsBar from './components/AnswerOptionsBar';
+import React, { useState } from 'react';
+import MissingTypeStartPage from './components/MissingTypeStartPage/MissingTypeStartPage';
+import MissingTypeTask from './components/MissingTypeTask';
 
 export default function MissingTypePage() {
+  const [startStatus, setStartStatus] = useState(false);
   return (
     <article className="missing-type">
-      <AnswerOptionsBar />
+      {startStatus ? <MissingTypeTask /> : <MissingTypeStartPage setStartStatus={setStartStatus} />}
     </article>
   );
 }

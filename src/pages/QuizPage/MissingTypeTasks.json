@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "question": "function printCoord(pt: { x: _____?; y: number }) {\nconsole.log(\"The coordinate's x value is \" + pt.x);\nconsole.log(\"The coordinate's y value is \" + pt.y);\n}",
+    "options": ["number", "boolean", "string"],
+    "answer": "number"
+  },
+  {
+    "id": 2,
+    "question": "let name: _____? = \"Mike\"",
+    "options": ["number", "boolean", "string"],
+    "answer": "string"
+  }
+]
