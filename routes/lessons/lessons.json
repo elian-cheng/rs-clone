@@ -14,12 +14,12 @@
     ],
     "question": "What is TypeScript?",
     "options": [
-      "a) A statically typed language.",
-      "b) A dynamically typed language.",
-      "c) A functional language.",
-      "d) An object-oriented language."
+      "A statically typed language.",
+      "A dynamically typed language.",
+      "A functional language.",
+      "An object-oriented language."
     ],
-    "answer": "a) A statically typed language.",
+    "answer": "A statically typed language.",
     "theme": "Overview"
   },
   {
@@ -36,12 +36,12 @@
     ],
     "question": "What are the benefits of TypeScript?",
     "options": [
-      "a) Finding some kinds of errors before running the code.",
-      "b) Easier code refactoring.",
-      "c) Full support for editor features.",
-      "d) All of the above."
+      "Finding some kinds of errors before running the code.",
+      "Easier code refactoring.",
+      "Full support for editor features.",
+      "All of the above."
     ],
-    "answer": "d) All of the above.",
+    "answer": "All of the above.",
     "theme": "Overview"
   },
   {
@@ -60,12 +60,12 @@
     ],
         "question": "What is the typescript file compiled into?",
     "options": [
-      "a) JavaScript.",
-      "b) VBScript.",
-      "c) TypeScript",
-      "d) None of the above."
+      "JavaScript",
+      "VBScript",
+      "TypeScript",
+      "None of the above"
     ],
-    "answer": "a) JavaScript.",
+    "answer": "JavaScript",
     "theme": "Overview"
   },
   {
@@ -106,12 +106,12 @@
     ],
         "question": "Which of the following statement declares a variable in TypeScript?",
     "options": [
-      "a) var myVar = 123;",
-      "b) var myVar:number = 123;",
-      "c) let myVar:number = 123;",
-      "d) All of the above"
+      "var myVar = 123;",
+      "var myVar:number = 123;",
+      "let myVar:number = 123;",
+      "All of the above"
     ],
-    "answer": "d) All of the above",
+    "answer": "All of the above",
     "theme": "TypeScript Basics"
   },
   {
@@ -126,7 +126,7 @@
       "<code>// Expected 1 arguments, but got 0.</code>",
       "<code>getGreetingPhrase();</code>",
       "<h2>Optional parameter</h2>",
-      "To make a parameter optional, add a <i>?</i> after the variable name:",
+      "To make a parameter optional, add a <code>?</code> after the variable name:",
       "<code>function getGreetingPhrase(name?: string) {</code>",
       "<code>&nbsp;&nbsp;return `Hello, ${name ? name.toUpperCase() : 'Guest'}!`;</code>",
       "<code>}</code>",
@@ -151,162 +151,535 @@
     ],
         "question": "We can't make an optional function parameter in TypeScript.",
     "options": [
-      "a) False",
-      "b) True"
+      "False",
+      "True"
     ],
-    "answer": "a) False",
+    "answer": "False",
     "theme": "TypeScript Basics"
   },
   {
     "id": "6",
     "title": "Anonymous functions",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Unlike named functions, anonymous and arrow functions are almost always used in the same place where they are defined. This allows TypeScript to infer the types of their parameters. To define such functions, the type specification is omitted:",
+      "<code>const fruits = ['banana', 'mango', 'apple'];</code>",
+      "<code>const upperFruits = fruits.map((name) => name.toUpperCase());</code>",
+      "<code>// ['BANANA', 'MANGO', 'APPLE']</code>",
+      "This process is called contextual typing because the context of a function definition allows you to infer the types of the input parameters. As a result, the code looks absolutely identical to the JavaScript code",
+      "If a function is defined out of context, then the same rules apply to it as to named functions, that is, the parameter types must be specified at the time of definition.",
+      "<code>const toUpper = (name: string): string => name.toUpperCase();</code>",
+      "<code>const upperFruits = fruits.map(toUpper);</code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What does Typescript use for anonymous functions?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "\"dot\" syntax",
+      "\"arrow\" syntax",
+      "none of the above"
     ],
-    "answer": "a) A option",
+    "answer": "\"arrow\" syntax",
     "theme": "TypeScript Basics"
   },
   {
     "id": "7",
     "title": "Arrays",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "As with primitive data types, TypeScript can infer the type of an array.",
+      "<code>const fruits = ['banana', 'mango', 'apple'];</code>",
+      "<code>// Everything is working</code>",
+      "<code>const upperFruits = fruits.map((name) => name.toUpperCase());</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>// And it's no longere</code>",
+      "<code>// Property 'key' does not exist on type 'string'.</code>",
+      "<code>const upperFruits = fruits.map((name) => name.key);</code>",
+      "However, an array is a composite data type that is a container for some other type. For example, an array of numbers is not the same as an array of strings. This type is denoted differently - using square brackets: <code>number[], string[]</code>. The array definition above could be written like this:",
+      "<code>const fruits: string[] = ['banana', 'mango', 'apple'];</code>",
+      "Similarly, types are declared in function definitions:",
+      "<code>function toUpperArray(items: string[]): string[] {</code>",
+      "<code>&nbsp;&nbsp;return items.map((s) => s.toUpperCase());</code>",
+      "<code>}</code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "True or False: an array of numbers is the same as an array of strings.",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "True",
+      "False"
     ],
-    "answer": "a) A option",
+    "answer": "False",
     "theme": "TypeScript Basics"
   },
   {
     "id": "8",
     "title": "Object Types",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "The type of an object consists of the types of all its constituent properties. It is output automatically:",
+      "<code>// Type: { firstName: string; pointsCount: number; }</code>",
+      "<code>const user = {</code>",
+      "<code>&nbsp;&nbsp;firstName: 'Mike',</code>",
+      "<code>&nbsp;&nbsp;pointsCount: 1000,</code>",
+      "<code>};</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>// Property type cannot be changed.</code>",
+      "<code>// Type 'number' is not assignable to type 'string'.</code>",
+      "<code>user.firstName = 7;</code>",
+      "Unlike JavaScript, TypeScript does not allow you to access non-existent properties. This means that the structure of any object must be set when it is initialized.",
+      "<code>// Property 'age' does not exist on type '{ firstName: string; pointsCount: number; }'.</code>",
+      "<code>user.age = 100;</code>",
+      "To accept such an object into a function as a parameter, you need to specify its structure in the function description:",
+      "<code>// Properties in the type declaration are separated by a semicolon (;)</code>",
+      "<code>function doSomething(user: { firstName: string; pointsCount: number; }) {</code>",
+      "<code>&nbsp;&nbsp;// ...</code>",
+      "<code>}</code>",
+      "Now you can pass inside any object that matches in properties:",
+      "<code>doSomething({ firstName: 'Alice', pointsCount: 2000 });</code>",
+      "<code>doSomething({ firstName: 'Bob', pointsCount: 1800 });</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>// You can not do it this way</code>",
+      "<code>doSomething({ firstName: 'Bob' });</code>",
+      "<code>// And so too</code>",
+      "<code>doSomething({ firstName: 'Bob', pointsCount: 1800, key: 'another' });</code>",
+      "As with primitive data types, neither null nor undefined are allowed by default. To change this behavior, you need to add an optional:",
+      "<code>// firstName can be undefined</code>",
+      "<code>// pointsCount can be null</code>",
+      "<code>function doSomething(user: { firstName?: string; pointsCount: number | null; }) {</code>",
+      "<code>&nbsp;&nbsp;// ...</code>",
+      "<code>}</code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+    "question": "True or False: TypeScript does not allow you to access non-existent properties.",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "True",
+      "False"
     ],
-    "answer": "a) A option",
+    "answer": "True",
     "theme": "TypeScript Basics"
   },
   {
     "id": "9",
     "title": "Enums",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "TypeScript provides both numeric and string-based enums.",
+      "An enumeration is a language construct that allows you to create a set of names, combined according to some convenient feature, and then refer to them. Enums replace using strings for constant values:",
+      "<code>enum OrderStatus {</code>",
+      "<code>&nbsp;&nbsp;Created,</code>",
+      "<code>&nbsp;&nbsp;Paid,</code>",
+      "<code>&nbsp;&nbsp;Shipped,</code>",
+      "<code>&nbsp;&nbsp;Delivered,</code>",
+      "<code>}</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>const order = {</code>",
+      "<code>&nbsp;&nbsp;items: 3,</code>",
+      "<code>&nbsp;&nbsp;status: OrderStatus.Created,</code>",
+      "<code>};</code>",
+      "Storing different statuses is perhaps one of the most common use cases for enums, but there are others. With their help, it is easy and convenient to store and access various reference data:",
+      "- Driving directions",
+      "- cardinal directions",
+      "- Days of the week",
+      "- Months",
+      "<code>enum CardinalDirection {</code>",
+      "<code>&nbsp;&nbsp;North,</code>",
+      "<code>&nbsp;&nbsp;South,</code>",
+      "<code>&nbsp;&nbsp;East,</code>",
+      "<code>&nbsp;&nbsp;West,</code>",
+      "<code>}</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>const direction = CardinalDirection.North;</code>",
+      "An enumeration itself is both a value and a type. It can be specified as a type in function parameters:",
+      "<code>setStatus(status: OrderStatus)</code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are the two types of enums?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "String and Boolean",
+      "Number and Boolean",
+      "Number and Number Array",
+      "String and Number"
     ],
-    "answer": "a) A option",
+    "answer": "String and Number",
     "theme": "TypeScript Basics"
   },
   {
     "id": "10",
     "title": "Type Aliases",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Imagine a program that has a user object that is used all over the place. In such a situation, the description of the type of this object will be repeated from time to time in each function definition. First, there is a lot of duplication here. Secondly, changing the structure is much more complicated, since you have to manually edit all the places where this definition occurs.",
+      "To avoid situations like this, TypeScript allows you to specify a name (alias or alias) for such composite types to avoid repetition:",
+      "<code>type User = {</code>",
+      "<code>&nbsp;&nbsp;firstName: string;</code>",
+      "<code>&nbsp;&nbsp;pointsCount: number;</code>",
+      "<code>}</code>",
+      "Now you can make a replacement in all functions:",
+      "<code>function doSomething(user: User) {</code>",
+      "<code>&nbsp;&nbsp;// ...</code>",
+      "<code>}</code>",
+      "An alias is not a creation of a new data type, but just a shorthand way to write a type definition. Therefore, the following examples will work without problems:",
+      "<code>const user = {</code>",
+      "<code>&nbsp;&nbsp;firstName: 'Mike',</code>",
+      "<code>&nbsp;&nbsp;pointsCount: 1000,</code>",
+      "<code>}</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>// Both calls work</code>",
+      "<code>doSomething(user);</code>",
+      "<code>doSomething({ firstName: 'Bob', pointsCount: 1800 });</code>",
+      "Notwithstanding the above, TypeScript developers say \"created a type\", not \"created a type alias\" or \"created a type alias\". Therefore, in this course we will adhere to the generally accepted format.",
+      "Types can be set for any data types, from simple ones:",
+      "<code>type SomeType = string;</code>",
+      "to components:",
+      "<code>// union type of three possible values</code>",
+      "<code>type SomeType = string | number | null;</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>// Function</code>",
+      "<code>type Countable = (coll: number[]) => number</code>",
+      "<h2>Objects and functions</h2>",
+      "The description of the function type outside the object and inside is different. When a function is written on its own, the arrow function format is used:",
+      "<code>type Countable = (coll: number[]) => number</code>",
+      "Inside the type that describes the object, the format changes to the same one used for normal properties:",
+      "<code>type User = {</code>",
+      "<code>&nbsp;&nbsp;firstName: string;</code>",
+      "<code>&nbsp;&nbsp;pointsCount: number;</code>",
+      "<code>&nbsp;&nbsp;count(coll: number[]): number;</code>",
+      "<code>}</code>",
+      "But this does not apply to callbacks that can be used internally:",
+      "<code>type User = {</code>",
+      "<code>&nbsp;&nbsp;firstName: string;</code>",
+      "<code>&nbsp;&nbsp;pointsCount: number;</code>",
+      "<code>&nbsp;&nbsp;// Types taken as an example</code>",
+      "<code>&nbsp;&nbsp;count(coll: (v: string) => string): number;</code>",
+      "<code>}</code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "Type Aliases are mostly used with ______.",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "Booleans",
+      "Numbers",
+      "Strings",
+      "None of the above"
     ],
-    "answer": "a) A option",
+    "answer": "Strings",
     "theme": "TypeScript Basics"
   },
   {
     "id": "11",
     "title": "Any type",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "A special type has been added to TypeScript any, which is used where type checking is not needed, or when TypeScript cannot infer the data type automatically.",
+      "<code>// In this case, the type will be any[]</code>",
+      "<code>// since TypeScript can't infer the content type</code>",
+      "<code>// because it doesn't exist yet</code>",
+      "<code>const items = [];</code>",
+      "<code>// You can add anything</code>",
+      "<code>items.push(1);</code>",
+      "<code>items.push('TS Academy');</code>",
+      "Using it <code>any</code> turns TypeScript into JavaScript, as data with this type is no longer validated.",
+      "<code>// The error occurs while the code is running</code>",
+      "<code>const value: any = 5;</code>",
+      "<code>value.toString(); // ok</code>",
+      "<code>value(); // ok</code>",
+      "<code>value.trim(); // ok</code>",
+      "<code>value = 'wow'; // ok</code>",
+      "<code>any</code> useful, for example, when translating a project from JavaScript to TypeScript, when all types are first declared as <code>any</code>, and then gradually rewritten to the required ones.",
+      "In addition, it is needed to work with JavaScript libraries (which do not have declared types) from TypeScript code. In other cases <code>any</code>, it should be avoided, as the whole point of using the TypeScript language is lost.",
+      "<h2>From JavaScript to TypeScript</h2>",
+      "Take for example the code that counts the number of words in a sentence:",
+      "<code>const sentence = 'table cat table dog dog apple table';</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>const words = sentence.split(' ');</code>",
+      "<code>const initial = {};</code>",
+      "<code>const result = words.reduce((acc, word) => {</code>",
+      "<code>&nbsp;&nbsp;acc[word] = Object.hasOwn(acc, word) ? acc[word] + 1 : 1;</code>",
+      "<code>&nbsp;&nbsp;return acc;</code>",
+      "<code>}, initial);</code>",
+      "<code>// { table: 3, cat: 1, dog: 2, apple: 1 }</code>",
+      "The TypeScript compiler will not pass such code, it will indicate that the object in the constant <code>initial</code> does not contain keys with a string type.",
+      "<code>No index signature with a parameter of type 'string' was found on type '{}'.</code>",
+      "<code>4 acc[word] = Object.hasOwn(acc, word) ? acc[word] + 1 : 1;</code>",
+      "Why is this happening? The structure of an object determines its type at the time of definition, and the structure cannot be changed during operation. In the code above, initially the object is generally empty, and as it works, it is dynamically filled with keys. We will learn how to set the correct type in a situation with dynamic keys later, but for now we will make the code work using <code>any</code>. To do this, we need to define an object with an explicit type specification:",
+      "<code>const sentence = 'table cat table dog dog apple table';</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>const words = sentence.split(' ');</code>",
+      "<code>const initial: any = {}; // Specified type as any</code>",
+      "<code>const result = words.reduce((acc, word) => {</code>",
+      "<code>&nbsp;&nbsp;acc[word] = Object.hasOwn(acc, word) ? acc[word] + 1 : 1;</code>",
+      "<code>&nbsp;&nbsp;return acc;</code>",
+      "<code>}, initial);</code>",
+      "TypeScript no longer shows a compilation error, which, on the one hand, is good, on the other hand, the validation of actions on this object itself is disabled. If you later access a non-existent property on that object, TypeScript will not indicate an error."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is the inherited type for the variable example in `const example = ['Dylan']`?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "any[]",
+      "string",
+      "unknown[]",
+      "string[]"
     ],
-    "answer": "a) A option",
+    "answer": "string[]",
     "theme": "TypeScript Basics"
   },
   {
     "id": "12",
     "title": "System of modules",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "The TypeScript module system was created before the standardization of ESM modules. By default, it is compatible with Node.js modules, uses the same algorithm for defining imports and exports, while syntactically very similar to ESM, where we use the <code>import</code> / <code>export</code> keywords to import to and export from the current module, while still using CommonJS modules.",
+      "<code>// @file helloWorld.ts</code>",
+      "<code>export default function helloWorld() {</code>",
+      "<code>&nbsp;&nbsp;console.log(\"Hello, world!\");</code>",
+      "<code>}</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>// @file main.ts</code>",
+      "<code>import helloWorld from './helloWorld';</code>",
+      "As in the ESM standard, named export/import and import of everything exported via <code>import * as smth from './somewhere</code>.",
+      "Some packages provide only types, for such cases there is a special syntax that will allow you to import and export types separately:",
+      "<code>// @file user.types.ts</code>",
+      "<code>export type User = { name: string };</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>// @file main.ts</code>",
+      "<code>import type { User } from './user.types';</code>",
+      "If modules solve the problem of heterogeneous entities and collisions by spreading the code across several files, then the mechanism <code>namespace</code> allows you to stay within the same file:",
+      "<code>namespace Hello {</code>",
+      "<code>&nbsp;&nbsp;export function helloWorld() {</code>",
+      "<code>&nbsp;&nbsp;&nbsp;&nbsp;console.log(\"Hello, world!\");</code>",
+      "<code>&nbsp;&nbsp;}</code>",
+      "<code>}</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>const helloWorld = Hello.helloWorld();</code>",
+      "This mechanism is most useful to authors of libraries and wrappers with types, they wrap all interfaces into one <code>namespace</code>, which makes it easier for users to merge interfaces (the topic of one of the following lessons in the course), and also ensures that there are no name collisions."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "Which of the following keyword is used to declare a module?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "export",
+      "namespace",
+      "type",
+      "declare"
     ],
-    "answer": "a) A option",
+    "answer": "export",
     "theme": "TypeScript Basics"
   },
   {
     "id": "13",
     "title": "Functions as parameters",
+    "description": [
+      "TypeScript uses several ways to type functions that are passed as parameters. The simplest is to use the <code>Function</code>. It describes a JavaScript function with all its features including the <code>bind</code>, <code>call</code> and <code>apply</code>.",
+      "<code>function process(callback: Function) {</code>",
+      "<code>&nbsp;&nbsp;const value = callback();</code>",
+      "<code>&nbsp;&nbsp;// ...</code>",
+      "<code>}</code>",
+      "Although simple and convenient, <code>Function</code> it disables type checking for the called function. The number and type of input arguments are not checked in any way, and the result of such a function will be <code>any</code>. In general, <code>Function</code> it should be avoided.",
+      "<code>// It will work even though it shouldn't.</code>",
+      "<code>// Inside Math.round will be called without arguments</code>",
+      "<code>process(Math.round);</code>",
+      "Another way to describe functions is to use an arrow function with input and output types.",
+      "<code>function process(callback: () => string) {</code>",
+      "<code>&nbsp;&nbsp;// value is of type string</code>",
+      "<code>&nbsp;&nbsp;const value = callback();</code>",
+      "<code>&nbsp;&nbsp;// ...</code>",
+      "<code>}</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>process(Math.round);</code>",
+      "<code>// Argument of type '(x: number) => number' is not</code>",
+      "<code>// assignable to parameter of type '() => string'.</code>",
+      "The definition of an arrow function is similar to the real one, but here it is important not to confuse. Here we see exactly the description of the type, and not the definition of the function. A few more examples to reinforce:",
+      "<code>function process(callback: () => number)</code>",
+      "<code>function process(callback: () => string[])</code>",
+      "<code>function process(callback: () => { firstName: string; })</code>",
+      "Example with parameters:",
+      "<code>function process(callback: (n: number) => string) {</code>",
+      "<code>&nbsp;&nbsp;const value = callback(10);</code>",
+      "<code>&nbsp;&nbsp;// ...</code>",
+      "<code>}</code>",
+      "If a function definition occurs frequently, then you can create an alias for it:",
+      "<code>type myFunction = (n: number) => string;</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>function process(callback: myFunction) {</code>",
+      "<code>&nbsp;&nbsp;const value = callback(10);</code>",
+      "<code>&nbsp;&nbsp;// ...</code>",
+      "<code>}</code>"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "True or False: an arrow function with input and output types is one of the way to describe functions.",
+    "options": [
+      "False",
+      "True"
+    ],
+    "answer": "True",
+    "theme": "Function typing"
+  },
+  {
+    "id": "14",
+    "title": "Optional parameters in functions",
+    "description": [
+      "Optional parameters in functions are specified with a question mark after the variable name, before a colon:",
+      "<code>function split(str: string, separator?: string)</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>split('TS Academy');</code>",
+      "<code>split('TS Academy,TS Academy North', ',');</code>",
+      "In this case, the real type of the variable <code>separator</code> will be <code>string | undefined</code> ( <code>string</code> or <code>undefined</code>).",
+      "Another option to set an optional parameter is to assign a default value:",
+      "<code>// There is no longer a question mark as there is a default value</code>",
+      "<code>function split(str: string, separator: string = ',') {</code>",
+      "<code>&nbsp;&nbsp;// ...</code>",
+      "<code>}</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>split('TS Academy');</code>",
+      "<code>split('TS Academy,TS Academy North', ',');</code>"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "How to set optional parameters?",
+    "options": [
+      "use a question mark after the variable name",
+      "assign a default value",
+      "all of the above",
+      "none of the above"
+    ],
+    "answer": "all of the above",
+    "theme": "Function typing"
+  },
+  {
+    "id": "15",
+    "title": "Void type",
+    "description": [
+      "<code>void</code> specified as a return for functions that return nothing. It is automatically displayed when there is no instruction inside the function <code>return</code> or it is empty:",
+      "<code>function noop() {</code>",
+      "<code>&nbsp;&nbsp;// empty inside</code>",
+      "<code>}</code>",
+      "In JavaScript, similar functions return <code>undefined</code>, but in TypeScript <code>void</code> they <code>undefined</code> are two different things. The difference is manifested in contextual typing and appeared based on the features of the work of JavaScript itself. The most striking example is the <code>forEach()</code>.",
+      "The principle of the method <code>forEach()</code> implies that it does not use the data returned by the passed callback, which is called internally. It seems like it would be logical to define the return as <code>undefined</code>, but look at the example:",
+      "<code>const numbers = [1, 2, 3];</code>",
+      "<code>const result = [];</code>",
+      "<code>numbers.forEach((n) => result.push(n));</code>",
+      "The method <code>push()</code> returns the index of the added element. If we were to <code>forEach()</code> require the callback to return <code>undefined</code>, then such code would lead to a compilation error. It would have to be rewritten, for example, like this:",
+      "<code>// Now the callback doesn't return anything.</code>",
+      "<code>// respectively, the result of the call is undefined</code>",
+      "<code>numbers.forEach((n) => {</code>",
+      "<code>&nbsp;&nbsp;result.push(n);</code>",
+      "<code>});</code>",
+      "In order not to create such a code <code>void</code>, <code>void</code> allows you to return any data, but makes it so that their use is meaningless.",
+      "<code>type VoidFunc = () => void;</code>",
+      "<code>// The type of a function is determined through the context</code>",
+      "<code>// assigning it to a variable of type VoidFunc</code>",
+      "<code>const f: VoidFunc = () => true;</code>",
+      "<code>const v = f();</code>",
+      "The only situation where a declaration <code>void</code> explicitly forbids returning from a function is when defining a function outside the context of use, when its type is explicitly specified:",
+      "<code>function foo(): void {</code>",
+      "<code>&nbsp;&nbsp;return true; // Error!</code>",
+      "<code>}</code>",
+      "<code>const bar = function(): void {</code>",
+      "<code>&nbsp;&nbsp;return true; // Error!</code>",
+      "<code>};</code>",
+      "It's also worth keeping in mind that it's <code>void</code> also a JavaScript operator and don't get confused with it. It evaluates the expression that follows it and returns <code>undefined</code>:",
+      "<code>typescript</code>",
+      "<code>void 10 === undefined // true</code>"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "_____ is a return type for when nothing is returned.",
+    "options": [
+      "any",
+      "void",
+      "unknown",
+      "any[]"
+    ],
+    "answer": "void",
+    "theme": "Function typing"
+  },
+  {
+    "id": "16",
+    "title": "Type never (return from function)",
+    "description": [
+      "The type <code>never</code> is used when the function is guaranteed to return nothing. For example, if there is an infinite loop inside the function:",
+      "<code>function infiniteLoop(): never {</code>",
+      "<code>&nbsp;&nbsp;while (true) {</code>",
+      "<code>&nbsp;&nbsp;&nbsp;&nbsp;// Some logic</code>",
+      "<code>&nbsp;&nbsp;}</code>",
+      "<code>}</code>",
+      "Or if the function throws an exception:",
+      "<code>function stop(message: string): never {</code>",
+      "<code>&nbsp;&nbsp;</code>",
+      "<code>}</code>",
+      "Or, when the function terminates the program:",
+      "<code>// A function returning 'never' cannot have a reachable end point.</code>",
+      "<code>function printSomething(): never {</code>",
+      "<code>&nbsp;&nbsp;console.log('TS Academy');</code>",
+      "<code>}</code>",
+      "The function <code>printSomething()</code> doesn't explicitly return anything, but because it completes in principle, JavaScript substitutes an implicit return <code>undefined</code>.",
+      "<code>never</code> is automatically output even where an explicit return is written, but the compiler \"sees\" that this return is impossible:",
+      "<code>function fail() { // Automatically displayed never</code>",
+      "<code>&nbsp;&nbsp;// the exit function defined above has a return type of never</code>",
+      "<code>&nbsp;&nbsp;return exit(1);</code>",
+      "<code>}</code>"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "What the difference between never and void?",
+    "options": [
+      "The void type can have undefined or null as a value where as never cannot have any value",
+      "No difference",
+      "Void obsolete and never came to replace him",
+      "Never is not a TypeScript type"
+    ],
+    "answer": "The void type can have undefined or null as a value where as never cannot have any value",
+    "theme": "Function typing"
+  },
+  {
+    "id": "17",
+    "title": "Type unknown",
+    "description": [
+      "Using a type <code>any</code> in TypeScript is not desirable. In the most strict mode (it is configurable), use <code>any</code> is not possible, which significantly increases the type safety of the code. On the other hand, there are quite a few situations where the type is unknown, but it must be type-safe to work with. To do this, TypeScript has an addition to <code>any</code> it called <code>unknown</code>.",
+      "The main difference <code>unknown</code> from <code>any</code> has to do with type checking. <code>unknown</code> prohibits any operations:",
+      "<code>let value: unknown = 'ts-academy';</code>",
+      "<code>value.toUpperCase(); // Error!</code>",
+      "<code>value.trim(); // Error!</code>",
+      "<i>It may seem strange that we have a string in front of us, but string operations cannot be performed on it. You have to get used to it. The type in statically typed languages ​​is determined not by what we see with our own eyes, but by how the type is inferred (automatically or through an explicit indication)</i>",
+      "The example above does not make sense in practice, but everything changes when we have to create a function that can work with any input type. In JavaScript, this practice is quite common:",
+      "<code>// Example from lodash</code>",
+      "<code>_.isError(new Error); // true</code>",
+      "<code>_.isError(Error); // false</code>",
+      "<code>_.isError('code-basics'); // false</code>",
+      "A similar function can be implemented using <code>any</code>, but then you have to be very careful inside and rely only on yourself.",
+      "<code>function isError(value: any)</code>",
+      "It's better to use <code>unknown</code>, then TypeScript will protect against potential type errors:",
+      "<code>function isError(value: unknown)</code>",
+      "Then, already inside the body, you can perform the necessary check to find out what we are dealing with:",
+      "<code>function isError(value: unknown): boolean {</code>",
+      "<code>&nbsp;&nbsp;return value instanceof Error;</code>",
+      "<code>}</code>"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "______ is similar to 'any', but a safer alternative when uncertain about the type.",
+    "options": [
+      "never",
+      "unknown",
+      "similar",
+      "every"
+    ],
+    "answer": "unknown",
+    "theme": "Function typing"
+  },
+  {
+    "id": "18",
+    "title": "Destructuring",
     "description": [
       "<h2>Header</h2>",
       "<code>//code example</code>",
@@ -326,8 +699,8 @@
     "theme": "Function typing"
   },
   {
-    "id": "14",
-    "title": "Type annotations",
+    "id": "19",
+    "title": "Rest and Spread",
     "description": [
       "<h2>Header</h2>",
       "<code>//code example</code>",
@@ -344,10 +717,136 @@
       "d) d option"
     ],
     "answer": "a) A option",
+    "theme": "Function typing"
+  },
+  {
+    "id": "20",
+    "title": "Function Overloads",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "Question: A is right",
+    "options": [
+      "a) A option",
+      "b) B option",
+      "c) c option",
+      "d) d option"
+    ],
+    "answer": "a) A option",
+    "theme": "Function typing"
+  },
+  {
+    "id": "21",
+    "title": "Narrowing",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "Question: A is right",
+    "options": [
+      "a) A option",
+      "b) B option",
+      "c) c option",
+      "d) d option"
+    ],
+    "answer": "a) A option",
+    "theme": "Function typing"
+  },
+  {
+    "id": "22",
+    "title": "Type annotations",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
     "theme": "Array typing"
   },
   {
-    "id": "15",
+    "id": "23",
+    "title": "Multidimensional arrays",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "theme": "Array typing"
+  },
+  {
+    "id": "24",
+    "title": "Read-Only Arrays",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "theme": "Array typing"
+  },
+  {
+    "id": "25",
+    "title": "Tuples",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "theme": "Array typing"
+  },
+  {
+    "id": "26",
     "title": "Types as sets",
     "description": [
       "<h2>Header</h2>",
@@ -359,16 +858,184 @@
     ],
         "question": "Question: A is right",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "A",
+      "B",
+      "C",
+      "D"
     ],
-    "answer": "a) A option",
+    "answer": "A",
     "theme": "More about types"
   },
   {
-    "id": "15",
+    "id": "27",
+    "title": "Unions (Union Types)",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "Question: A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "theme": "More about types"
+  },
+  {
+    "id": "28",
+    "title": "Null and Undefined",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "Question: A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "theme": "More about types"
+  },
+  {
+    "id": "29",
+    "title": "Literals",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "Question: A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "theme": "More about types"
+  },
+  {
+    "id": "30",
+    "title": "Intersection (Intersections Types)",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "Question: A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "theme": "More about types"
+  },
+  {
+    "id": "31",
+    "title": "Assigning a value",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "Question: A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "theme": "More about types"
+  },
+  {
+    "id": "32",
+    "title": "Hierarchy of types",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "Question: A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "theme": "More about types"
+  },
+  {
+    "id": "33",
+    "title": "Structural typing",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "Question: A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "theme": "More about types"
+  },
+  {
+    "id": "34",
+    "title": "Covariance and Contravariance",
+    "description": [
+      "<h2>Header</h2>",
+      "<code>//code example</code>",
+      "Description"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "Question: A is right",
+    "options": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "answer": "A",
+    "theme": "More about types"
+  },
+  {
+    "id": "35",
     "title": "Classes",
     "description": [
       "<h2>Header</h2>",
@@ -380,16 +1047,16 @@
     ],
         "question": "Question: A is right",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "A",
+      "B",
+      "C",
+      "D"
     ],
-    "answer": "a) A option",
+    "answer": "A",
     "theme": "Classes"
   },
   {
-    "id": "16",
+    "id": "36",
     "title": "About interfaces",
     "description": [
       "<h2>Header</h2>",
@@ -410,7 +1077,7 @@
     "theme": "Interfaces"
   },
   {
-    "id": "16",
+    "id": "37",
     "title": "Introduction to Generics",
     "description": [
       "<h2>Header</h2>",
@@ -431,7 +1098,7 @@
     "theme": "Generics"
   },
   {
-    "id": "17",
+    "id": "38",
     "title": "Dynamic Keys (Index Signature)",
     "description": [
       "<h2>Header</h2>",
@@ -452,7 +1119,7 @@
     "theme": "Object typing"
   },
   {
-    "id": "18",
+    "id": "39",
     "title": "Keyof type operator",
     "description": [
       "<h2>Header</h2>",
