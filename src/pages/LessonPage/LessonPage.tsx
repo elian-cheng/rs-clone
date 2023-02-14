@@ -13,6 +13,21 @@ export default function LessonPage() {
     getLesson(lessonId).then((res: React.SetStateAction<undefined>) => setLesson(res));
   }, [lessonId]);
 
+  const upScroll = (event: MouseEvent) => {
+    const navBtn = (event.target as HTMLElement).closest('.lesson__controls-btn');
+    const optionBtn = (event.target as HTMLElement).closest('.lesson__question-window-list-item');
+    if (navBtn || optionBtn) {
+      window.scrollTo(0,0)
+    }
+  };
+
+  useEffect(() => {
+    addEventListener('click', upScroll);
+    return () => {
+      removeEventListener('click', upScroll);
+    };
+  }, []);
+
   return (
     <div className="main__container">
       <div className="lessons__wrapper">
