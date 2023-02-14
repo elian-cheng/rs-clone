@@ -51,9 +51,9 @@
       "You can use TypeScript with two tools: <code>tsc</code> and <code>ts-node</code>. The former compiles the code to JavaScript, while the latter executes the code directly.",
       "To install TypeScript, you need to install Node.js and npm.",
       "<code>tsc</code> installation:",
-      "<code>npm install -g typescript</code>",
+      "<code><pre>npm install -g typescript</pre></code>",
       "Installing <code>ts-node</code>:",
-      "<code>npm install -g ts-node</code>"
+      "<code><pre>npm install -g ts-node</pre></code>"
     ],
     "examples": [
       "example"
@@ -73,32 +73,19 @@
     "title": "Variables",
     "description": [
       "Variables and constants in TypeScript are defined in exactly the same way as in JavaScript:",
-      "<code>let age = 10;</code>",
-      "<code>let company = 'TS Academy';</code>",
-      "<code>let user = {</code>",
-      "<code>&nbsp;&nbsp;firstName: 'Miro',</code>",
-      "<code>};</code>",
-      "<code>let fruits = ['apple', 'banana'];</code>",
+      "<code><pre>let age = 10;\nlet company = 'TS Academy';\nlet user = {\n  firstName: 'Miro',\n};\nlet fruits = ['apple', 'banana'];</pre></code>",
       "Despite being identical on the outside, TypeScript does some extra work in the background. It automatically binds the variable (or constant) to the data type of the initial value. In programming, this process is called type inference.",
       "Variable type cannot be changed:",
-      "<code>let age = 10;</code>",
-      "<code>// Everything is fine, the type is the same (Number)</code>",
-      "<code>age = 11.1;</code>",
-      "<code>&nbsp; </code>",
-      "<code>// Type 'string' is not assignable to type 'number'.</code>",
-      "<code>age = 'some string'; // Error!</code>",
+      "<code><pre>let age = 10;\n// Everything is fine, the type is the same (Number)\nage = 11.1;\n\n// Type 'string' is not assignable to type 'number'.\nage = 'some string'; // Error!</pre></code>",
       "If we try to pass this variable to a method that expects a different type, this will also result in an error.",
       "Static typing imposes a restriction on arrays, only one type of data can be stored inside.",
       "With objects the situation is even stricter. In TypeScript, you can not only change the type of properties within an object, but also add new properties dynamically.",
       "<h2>Explicit type specification</h2>",
       "Technically, TypeScript allows you to explicitly specify the type of variables. But in practice, this rarely needs to be done manually, as type inference works automatically.",
-      "<code>let name: string = 'Alice';</code>",
-      "<code>const count: number = 100;</code>",
-      "<code>let canPlay: boolean = true;</code>",
+      "<code><pre>let name: string = 'Alice';\nconst count: number = 100;\nlet canPlay: boolean = true;</pre></code>",
       "<h2>Null</h2>",
       "By default in TypeScript, variables can only contain the specified type with no exceptions, for example we can't assign null:",
-      "<code>let age = 30;</code>",
-      "<code>age = null; // Error!</code>",
+      "<code><pre>let age = 30;\nage = null; // Error!</pre></code>",
       "This behavior protects us from a large number of errors related to the lack of checks for null."
     ],
     "examples": [
@@ -119,31 +106,19 @@
     "title": "Named Functions",
     "description": [
       "In the definition of variables, we usually do not specify the type of this variable, it is automatically inferred. With functions, this trick will not work, they require the mandatory specification of the types of all input parameters:",
-      "<code>function getGreetingPhrase(name: string) {</code>",
-      "<code>&nbsp;&nbsp;return `Hello, ${name.toUpperCase()}!`;</code>",
-      "<code>}</code>",
+      "<code><pre>function getGreetingPhrase(name: string) {\n  return `Hello, ${name.toUpperCase()}!`;\n}</pre></code>",
       "With this indication, the parameter will be required. Attempting to call a function without a parameter will result in a compilation error:",
-      "<code>// Expected 1 arguments, but got 0.</code>",
-      "<code>getGreetingPhrase();</code>",
+      "<code><pre>// Expected 1 arguments, but got 0.\ngetGreetingPhrase();</pre></code>",
       "<h2>Optional parameter</h2>",
       "To make a parameter optional, add a <code>?</code> after the variable name:",
-      "<code>function getGreetingPhrase(name?: string) {</code>",
-      "<code>&nbsp;&nbsp;return `Hello, ${name ? name.toUpperCase() : 'Guest'}!`;</code>",
-      "<code>}</code>",
-      "<code>getGreetingPhrase('Mike'); // Hello, Mike!</code>",
-      "<code>getGreetingPhrase(); // Hello, Guest!</code>",
+      "<code><pre>function getGreetingPhrase(name?: string) {\n  return `Hello, ${name ? name.toUpperCase() : 'Guest'}!`;\n}\n\ngetGreetingPhrase('Mike'); // Hello, Mike!\ngetGreetingPhrase(); // Hello, Guest!</pre></code>",
       "In this case, the type of the variable <code>name</code> becomes Union Type: <code>string | undefined</code>, which reads \"string or undefined\".",
       "<h2>Default value</h2>",
       "The situation is simpler with the default value. There is no need to specify anything else here, the value is set as in JavaScript. The variable itself is automatically made optional, and the type is inferred from the passed value",
-      "<code>function getGreetingPhrase(name = 'Guest') {</code>",
-      "<code>&nbsp;&nbsp;return `Hello, ${name.toUpperCase()}!`;</code>",
-      "<code>}</code>",
-      "<code>getGreetingPhrase() // Hello, GUEST!</code>",
+      "<code><pre>function getGreetingPhrase(name = 'Guest') {\n  return `Hello, ${name.toUpperCase()}!`;\n}\n\ngetGreetingPhrase() // Hello, GUEST!</pre></code>",
       "<h2>return type</h2>",
       "In many cases, TypeScript infers the return type itself, but you can specify it explicitly:",
-      "<code>function getGreetingPhrase(name: string): string {</code>",
-      "<code>&nbsp;&nbsp;return `Hello, ${name.toUpperCase()}!`;</code>",
-      "<code>}</code>",
+      "<code><pre>function getGreetingPhrase(name: string): string {\n  return `Hello, ${name.toUpperCase()}!`;\n}</pre></code>",
       "Although the return type can be inferred, we recommend that you always specify it. This simplifies documentation, protects the code from accidental changes."
     ],
     "examples": [
@@ -162,13 +137,10 @@
     "title": "Anonymous functions",
     "description": [
       "Unlike named functions, anonymous and arrow functions are almost always used in the same place where they are defined. This allows TypeScript to infer the types of their parameters. To define such functions, the type specification is omitted:",
-      "<code>const fruits = ['banana', 'mango', 'apple'];</code>",
-      "<code>const upperFruits = fruits.map((name) => name.toUpperCase());</code>",
-      "<code>// ['BANANA', 'MANGO', 'APPLE']</code>",
+      "<code><pre>const fruits = ['banana', 'mango', 'apple'];\nconst upperFruits = fruits.map((name) => name.toUpperCase());\n// ['BANANA', 'MANGO', 'APPLE']</pre></code>",
       "This process is called contextual typing because the context of a function definition allows you to infer the types of the input parameters. As a result, the code looks absolutely identical to the JavaScript code",
       "If a function is defined out of context, then the same rules apply to it as to named functions, that is, the parameter types must be specified at the time of definition.",
-      "<code>const toUpper = (name: string): string => name.toUpperCase();</code>",
-      "<code>const upperFruits = fruits.map(toUpper);</code>"
+      "<code><pre>const toUpper = (name: string): string => name.toUpperCase();\nconst upperFruits = fruits.map(toUpper);</pre></code>"
     ],
     "examples": [
       "examples"
@@ -187,19 +159,11 @@
     "title": "Arrays",
     "description": [
       "As with primitive data types, TypeScript can infer the type of an array.",
-      "<code>const fruits = ['banana', 'mango', 'apple'];</code>",
-      "<code>// Everything is working</code>",
-      "<code>const upperFruits = fruits.map((name) => name.toUpperCase());</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>// And it's no longere</code>",
-      "<code>// Property 'key' does not exist on type 'string'.</code>",
-      "<code>const upperFruits = fruits.map((name) => name.key);</code>",
+      "<code><pre>const fruits = ['banana', 'mango', 'apple'];\n// Everything is working\nconst upperFruits = fruits.map((name) => name.toUpperCase());\n\n// And it's no longere\n// Property 'key' does not exist on type 'string'.\nconst upperFruits = fruits.map((name) => name.key);</pre></code>",
       "However, an array is a composite data type that is a container for some other type. For example, an array of numbers is not the same as an array of strings. This type is denoted differently - using square brackets: <code>number[], string[]</code>. The array definition above could be written like this:",
-      "<code>const fruits: string[] = ['banana', 'mango', 'apple'];</code>",
+      "<code><pre>const fruits: string[] = ['banana', 'mango', 'apple'];</pre></code>",
       "Similarly, types are declared in function definitions:",
-      "<code>function toUpperArray(items: string[]): string[] {</code>",
-      "<code>&nbsp;&nbsp;return items.map((s) => s.toUpperCase());</code>",
-      "<code>}</code>"
+      "<code><pre>function toUpperArray(items: string[]): string[] {\n  return items.map((s) => s.toUpperCase());\n}</pre></code>"
     ],
     "examples": [
       "examples"
@@ -681,9 +645,14 @@
     "id": "18",
     "title": "Destructuring",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Destructuring in function definitions is the mechanism by which an object passed as an argument is unpacked and parts of it are assigned to the function's local variables. In JavaScript it looks like this:",
+      "<pre><code>// Usual definition\nconst f = (user) => {\n  console.log(user.firstName, user.age);\n};\n\n// Destructured object\nconst f = ({ firstName, age }) => {\n  console.log(firstName, age);\n};\n\nconst user = { firstName: 'Smith', age: 30 };\nf(user);</code></pre>",
+      "Despite the visual similarity to function parameters, a destructured object is still an object, so in TypeScript its type declaration comes after the closing curly brace:",
+      "<pre><code>// Usual definition\nfunction f(user: { firstName: string, age: number }) {\n  console.log(user.firstName, user.age);\n}\n\n// Destructured object\nfunction f({ firstName, age }: { firstName: string, age: number }) {\n  console.log(firstName, age);\n}</code></pre>",
+      "You can make the code less verbose by moving the type definition to an alias:",
+      "<pre><code>type User = {\n  firstName: string;\n  age: number;\n}\n\nfunction foo({ firstName, age }: User) {\n  console.log(firstName, age);\n}</code></pre>",
+      "The same applies to arrays:",
+      "<pre><code>// Usual definition\nfunction foo(point: number[]) {\n  console.log(point);\n}\n\n// Destructured array\nfunction foo([x, y]: number[]) {\n  console.log(x, y);\n}\n\ntype Point = number[];\n\n// With an alias\nfunction foo([x, y]: Point) {\n  console.log(x, y);\n}</code></pre>"
     ],
     "examples": [
       "examples"
