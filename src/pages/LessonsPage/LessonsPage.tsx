@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllLessons } from '../../API/lessons';
+import { ReactComponent as Arrow } from '../../assets/icons/sidebar/arrowleft.svg';
 
 export default function LessonsPage() {
   const [state, setState] = useState('');
@@ -27,6 +28,7 @@ export default function LessonsPage() {
     const themeBtn = (event.target as HTMLElement).closest('.lessons__theme-block');
     if (themeBtn) {
       themeBtn.classList.toggle('lessons__theme-block_open');
+      themeBtn.firstElementChild?.firstElementChild?.classList.toggle('theme-block__arrow_open');
     }
   };
 
@@ -51,8 +53,7 @@ export default function LessonsPage() {
                   <div className="lessons__theme-block" key={i}>
                     <div
                       className="theme-block__title"
-                      dangerouslySetInnerHTML={{ __html: item }}
-                    ></div>
+                    >{item}<Arrow className='theme-block__arrow' /></div>
                     {allLessonsList.map((el, j) => {
                       if (el.theme !== item) return;
                       return (
