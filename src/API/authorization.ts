@@ -125,20 +125,3 @@ export async function checkUserAuthorization(): Promise<IUser | null> {
   }
   return user;
 }
-
-// export type SignInDTO = {
-//   message: string;
-//   token: string;
-//   refreshToken: string;
-//   userId: string;
-//   name: string;
-// };
-
-// export type SignInBody = {
-//   email: string;
-//   password: string;
-// };
-
-// export const signIn = (body: SignInBody) => {
-//   return axios.post<SignInDTO>(`${BASE_URL}/signin`, body);
-// };

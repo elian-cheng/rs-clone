@@ -1,4 +1,4 @@
-import { API_URL, BASE_URL } from './URL';
+import { BASE_URL } from './URL';
 import { getNewToken, getToken, getTokenConfig, getUserId, IGetUSer, USER } from './authorization';
 import React, { Dispatch } from 'react';
 import axios from 'axios';
@@ -32,10 +32,10 @@ axios.interceptors.response.use(
 );
 
 export const getUserStatistics = (id: string) => {
-  return axios.get<UserStatistics>(`${API_URL}/users/${id}/statistics`);
+  return axios.get<UserStatistics>(`${BASE_URL}users/${id}/statistics`);
 };
 export const setUserStatistics = (id: string, body: UserStatistics) => {
-  return axios.put<UserStatistics>(`${API_URL}/users/${id}/statistics`, body);
+  return axios.put<UserStatistics>(`${BASE_URL}users/${id}/statistics`, body);
 };
 
 export const getStatPromise = async () => axios.get<UserStatistics>(USER_STAT, getTokenConfig());
