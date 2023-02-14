@@ -41,17 +41,17 @@ JWT_REFRESH_SECRET_KEY=<your secret key for JWT refresh sign>
 
 ## Server requests:
 
-GET /lessons - get lessons list;
-GET /lessons/${id} - get lesson by it's ID;
-GET /lessons?theme=${theme} - get lessons by themes ${theme};
-GET /quiz - get quiz tests list;
-GET /quiz/${id} - get quiz test by it's ID;
-GET /quiz?difficulty=${difficulty} - get quiz tests by difficulty ${difficulty};
-GET /missing-type - get tasks list for the Missing Type game;
-GET /missing-type/${id} - get the task for the Missing Type game by it's ID;
-GET /users/${id}/tokens - get user's (ID) access token;
-POST /users - create(register) a user;
-POST /signin - login user;
-GET users/${userID}/statistics - get user's (ID) statistics;
-PUT users/${userID}/statistics - send (save) user's (ID) statistics to the server;
+- GET /lessons - get lessons list;
+- GET /lessons/${id} - get lesson by it's ID;
+- GET /lessons?theme=${theme} - get lessons by themes ${theme};
+- GET /quiz - get quiz tests list;
+- GET /quiz/${id} - get quiz test by it's ID;
+- GET /quiz?difficulty=${difficulty} - get quiz tests by difficulty ${difficulty};
+- GET /missing-type - get tasks list for the Missing Type game;
+- GET /missing-type/${id} - get the task for the Missing Type game by it's ID;
+- GET /users/${id}/tokens - get user's (ID) access token;
+- POST /users - create(register) a user;
+- POST /signin - login user;
+- GET users/${userID}/statistics - get user's (ID) statistics;
+- PUT users/${userID}/statistics - send (save) user's (ID) statistics to the server;
 
