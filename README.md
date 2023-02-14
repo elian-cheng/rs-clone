@@ -4,23 +4,23 @@ Final group project at RS School (EPAM) for 3 people. Development time limit - 3
 
 This app is a TypeScript educational platform, where users can read lessons, pass the tests and play games, practice with algorithmical tasks and track their progress with statistics. [Task description](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/rsclone/rsclone.md)
 
-### Deploy
+## Deploy
 
 https://elian-team-rsclone.netlify.app/
 
-### Back-End server
+## Back-End server
 
 https://github.com/elian-cheng/rs-clone/tree/server
 
-### Developers:
+## Developers:
 
 - [Olga Chernega](https://github.com/elian-cheng)
 - [Eugene Burkovskiy](https://github.com/eugeneburkovskiy)
 - [Oleksandr Mazghin](https://github.com/ordinaraviro)
 
-### Install instructions:
+## Install instructions:
 
-####Front-End:
+###Front-End:
 
 ```bash
 1. git clone https://github.com/elian-cheng/rs-clone.git
@@ -30,7 +30,7 @@ https://github.com/elian-cheng/rs-clone/tree/server
 5. npm run start
 ```
 
-####Back-End:
+###Back-End:
 
 ```bash
 1. git clone https://github.com/elian-cheng/rs-clone.git
