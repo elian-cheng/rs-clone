@@ -20,7 +20,7 @@ https://github.com/elian-cheng/rs-clone/tree/server
 
 ## Install instructions:
 
-###Front-End:
+### Front-End:
 
 ```bash
 1. git clone https://github.com/elian-cheng/rs-clone.git
@@ -30,7 +30,7 @@ https://github.com/elian-cheng/rs-clone/tree/server
 5. npm run start
 ```
 
-###Back-End:
+### Back-End:
 
 ```bash
 1. git clone https://github.com/elian-cheng/rs-clone.git
