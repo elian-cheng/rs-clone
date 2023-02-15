@@ -8,21 +8,24 @@ export const teamMembers: ITeam[] = [
     id: 1,
     src: `${Oleksandr}`,
     title: 'Oleksandr Mazghin',
-    description: 'Compiled a database, created a lessons section, sidebar.',
+    description:
+      'Compiled databases for lessons and part of the Quiz, created the lessons page, footer, sidebar menu and navigation.',
     git: 'https://github.com/ordinaraviro',
   },
   {
     id: 2,
     src: `${Olga}`,
     title: 'Olga Chernega',
-    description: 'App design, backend server, user authorization, games section.',
+    description:
+      "App design, backend server, home page's features and team sections, user authorization and forms, Quiz game, statistics game section.",
     git: 'https://github.com/elian-cheng',
   },
   {
     id: 3,
     src: `${Eugene}`,
     title: 'Eugene Burkovskiy',
-    description: 'Implemented a code editor, practice section, Codewars tasks.',
+    description:
+      "Implemented a code editor, practice page, Codewars API and tasks, home page's full-screen block, Missing Type game, statistics charts.",
     git: 'https://github.com/eugeneburkovskiy',
   },
 ];
