@@ -59,6 +59,10 @@
         color: $colorBlueDark;
       }
     }
+    &-count {
+      color: $colorBlueMiddle;
+      margin-bottom: 20px;
+    }
   }
   &__point {
     display: flex;

@@ -1,34 +1,35 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import { DropResult } from 'react-beautiful-dnd';
 import MissingTypeCheckBtn from './MissingTypeCheckBtn/MissingTypeCheckBtn';
+import { IMissingTypeTasks } from '../MissingTypePage';
 
-const answersOptions = ['number', 'string', 'boolean'];
-
-const task = `function printCoord(pt: { x: _____?; y: number }) {
-  console.log("The coordinate's x value is " + pt.x);
-  console.log("The coordinate's y value is " + pt.y);
-}`;
-
-const trueAnswer = 'number';
-
-export default function MissingTypeTask() {
-  const [options, updateOptions] = useState(answersOptions);
+export default function MissingTypeTask({ tasks }: { tasks: IMissingTypeTasks[] }) {
+  const [taskIndex, updateTaskIndex] = useState(0);
+  const [task, updateTask] = useState(tasks[taskIndex]);
   const [answer, updateAnswer] = useState('_____?');
+
+  useEffect(() => {
+    if (taskIndex < tasks.length) {
+      updateTask(tasks[taskIndex]);
+      updateAnswer('_____?');
+    } else {
+      console.log('end');
+    }
+  }, [taskIndex]);
 
   function handleOnDragEnd(result: DropResult) {
     if (!result.destination) return;
     if (result.source.droppableId !== result.destination.droppableId) {
       updateAnswer(result.draggableId);
-    } else {
-      const items = Array.from(options);
-      const [reorderedItem] = items.splice(result.source.index, 1);
-      items.splice(result.destination.index, 0, reorderedItem);
-      updateOptions(items);
     }
   }
+
   return (
     <>
+      <h2 className="missing-type__question-count">
+        Question {`${taskIndex < tasks.length ? taskIndex + 1 : taskIndex} / ${tasks.length}`}
+      </h2>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId={'options'} key={'options'} direction="horizontal">
           {(provided) => {
@@ -38,7 +39,7 @@ export default function MissingTypeTask() {
                 ref={provided.innerRef}
                 className="missing-type__answers-options-list"
               >
-                {options.map((item, index) => {
+                {task.options.map((item, index) => {
                   return (
                     <Draggable key={item} draggableId={item} index={index}>
                       {(provided, snapshot) => {
@@ -79,7 +80,10 @@ export default function MissingTypeTask() {
                 <code
                   className="missing-type__question-code"
                   dangerouslySetInnerHTML={{
-                    __html: task.replace(new RegExp('_____\\?', 'ig'), `<span>${answer}</span>`),
+                    __html: task.question.replace(
+                      new RegExp('_{1,}\\?', 'ig'),
+                      `<span>${answer}</span>`
+                    ),
                   }}
                 />
               </div>
@@ -87,7 +91,13 @@ export default function MissingTypeTask() {
           }}
         </Droppable>
       </DragDropContext>
-      <MissingTypeCheckBtn answer={answer} trueAnswer={trueAnswer} />
+      <MissingTypeCheckBtn
+        answer={answer}
+        task={task}
+        updateTaskIndex={updateTaskIndex}
+        taskIndex={taskIndex}
+        maxTasks={tasks.length}
+      />
     </>
   );
 }
