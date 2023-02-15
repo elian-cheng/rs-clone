@@ -32,7 +32,7 @@
   {
     "id": 6,
     "question": "(a: _____?,b: string) => a + b",
-    "options": ["string[]", "boolean", "number"],
+    "options": ["string", "boolean", "number"],
     "answer": "string"
   },
   {
