@@ -1,11 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useState } from 'react';
 import { ReactComponent as UserIcon } from '../../assets/icons/sidebar/profile.svg';
 import { ReactComponent as InfoIcon } from '../../assets/icons/sidebar/info.svg';
 import { ReactComponent as LoginIcon } from '../../assets/icons/sidebar/login-arrow.svg';
 import { ReactComponent as Arrow } from '../../assets/icons/sidebar/arrowleft.svg';
-import { UserContext } from '../../context/UserContext';
 import SidebarItem from './SidebarItem';
 import { sidebarItems } from '../../utils/sidebarItems';
+import storage from '../../utils/storage';
+import { IGetUSer } from '../../API/authorization';
 
 export interface ISidebarItem {
   id: number;
@@ -33,7 +34,8 @@ const x: Itest = {
 export default function Sidebar(props: ISidebar) {
   const { items } = x;
   const { onSignInOpen } = props;
-  const { user, setUser } = useContext(UserContext);
+  const userData = storage.getItem<IGetUSer>('userData');
+  const [user, setUser] = useState(userData);
 
   const logOut = () => {
     localStorage.removeItem('userData');

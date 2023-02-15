@@ -26,14 +26,14 @@ export const Popup: React.FC<IPopup> = ({ active, setActive, popup, setPopup }) 
   return (
     <div
       className={!active ? 'popup__wrapper' : 'popup__wrapper popup__wrapper_active'}
-      onClick={() => setActive(false)}
+      onMouseDown={() => setActive(false)}
       onKeyDown={() => handleKeyDown}
       role="textbox"
       tabIndex={0}
     >
       <div
         className={!active ? 'popup__content' : 'popup__content popup__content_active'}
-        onClick={(e) => e.stopPropagation()}
+        onMouseDown={(e) => e.stopPropagation()}
         onKeyDown={() => handleKeyDown}
         role="textbox"
         tabIndex={0}

@@ -17,7 +17,7 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
     return () => clearTimeout(timer);
   }, [alert]);
 
-  const togglePasswordVisiblity = () => {
+  const togglePasswordVisibility = () => {
     setPasswordShown(passwordShown ? false : true);
   };
 
@@ -56,7 +56,7 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
         >
           Signup
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="">
+        <form onSubmit={handleSubmit(onSubmit)}>
           <input
             {...register('name', {
               required: 'Name is a required field',
@@ -69,13 +69,12 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
                 message: 'Please type from 3 to 10 symbols',
               },
             })}
-            className=""
             type="text"
             autoComplete="username"
             placeholder="Name"
           />
           <div className="popup__error popup__error_white">
-            {errors.name && <p className="">{errors.name.message}</p>}
+            {errors.name && <p>{errors.name.message}</p>}
           </div>
           <input
             {...register('email', {
@@ -90,14 +89,13 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
                 message: 'The value is too long',
               },
             })}
-            className=""
             type="email"
             autoComplete="username"
             placeholder="Email"
           />
           <div className="popup__error popup__error_white">
-            {errors.email && <p className="">{errors.email.message}</p>}
-            {!emailIsCorrect && <p className="">This email is already taken</p>}
+            {errors.email && <p>{errors.email.message}</p>}
+            {!emailIsCorrect && <p>This email is already taken</p>}
           </div>
           <input
             {...register('password', {
@@ -107,20 +105,19 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
                 message: 'Please type minimum 8 symbols',
               },
             })}
-            className=""
             type={passwordShown ? 'text' : 'password'}
             autoComplete="current-password"
             placeholder="Password"
           />
           <div className="popup__error popup__error_white">
-            {errors.password && <p className="">{errors.password.message}</p>}
+            {errors.password && <p>{errors.password.message}</p>}
           </div>
           <div className="checkbox">
             <input
               type="checkbox"
               name="showPassword"
               id="showPassword"
-              onChange={togglePasswordVisiblity}
+              onChange={togglePasswordVisibility}
             />
             <label htmlFor="showPassword">Show Password</label>
           </div>
@@ -128,19 +125,7 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
         </form>
       </div>
       {alert && (
-        <div
-          style={{
-            position: 'fixed',
-            top: '250px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: '100%',
-            background: '#4caf50',
-            color: '#fff',
-            padding: '15px',
-            borderRadius: '4px',
-          }}
-        >
+        <div className="popup__alert">
           Your account was successfully created. You can login now.
         </div>
       )}

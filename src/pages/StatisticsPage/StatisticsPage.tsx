@@ -7,16 +7,20 @@ import AuthNotification from './components/AuthNotification/AuthNotification';
 import ChartsBlock from './components/ChartsBlock/ChartsBlock';
 import { getLessons } from '../../API/tasks';
 
+interface ILessons {
+  learnedLessons?: number;
+  lessonsId?: string;
+}
+
+interface IKatas {
+  finishedKatas?: number;
+  katasId?: string;
+}
+
 export type UserStatistics = {
   id?: string;
-  lessons?: {
-    learnedLessons?: number;
-    lessonsId?: string;
-  };
-  katas?: {
-    finishedKatas?: number;
-    katasId?: string;
-  };
+  lessons?: ILessons;
+  katas?: IKatas;
   games?: {
     quiz?: IGameStats;
     missingType?: IGameStats;
@@ -43,7 +47,7 @@ const gamesInit = {
 };
 
 export default function Statistics() {
-  const user = storage.getItem<IGetUSer>('userData');
+  const user = storage.getItem('userData');
   if (!user) return <AuthNotification />;
 
   const [stats, setStats] = useState<UserStatistics>({
