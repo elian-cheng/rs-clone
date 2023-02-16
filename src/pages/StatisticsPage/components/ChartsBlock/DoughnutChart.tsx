@@ -29,6 +29,7 @@ export default function DoughnutChart({ done, total }: { done: number; total: nu
       },
     },
   };
+
   return (
     <div>
       <p className="statistic__charts-inner">{Math.floor((done * 100) / total)}%</p>

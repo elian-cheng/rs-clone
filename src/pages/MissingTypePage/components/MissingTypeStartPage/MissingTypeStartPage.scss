@@ -1,0 +1,36 @@
+.missing-type__start {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 10px;
+  &-title {
+    color: $colorBlueDark;
+    font-size: 3rem;
+  }
+  &-subtitle {
+    color: $colorFont;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  &-descr {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-bottom: 20px;
+    width: 70%;
+    &-item {
+      color: $colorFont;
+      list-style: circle;
+      font-size: 1.2rem;
+    }
+  }
+  &-btn {
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: $colorBlueMiddle;
+    @include btnHover;
+  }
+}

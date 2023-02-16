@@ -14,3 +14,8 @@ export async function getQuiz() {
   const res = await fetch(`${BASE_URL}quiz`).then((data) => data.json());
   return res;
 }
+
+export async function getMissingType() {
+  const res = await fetch(`${BASE_URL}missing-type`).then((data) => data.json());
+  return res;
+}
