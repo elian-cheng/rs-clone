@@ -1,4 +1,4 @@
-import { codeWarsTasks } from '../../../PracticePage/api/codeWarsTasks';
+import { codeWarsTasks } from '../../../../utils/codeWarsTasks';
 import { UserStatistics } from '../../StatisticsPage';
 import DoughnutChart from './DoughnutChart';
 import ProgressBar from './ProgressBar';

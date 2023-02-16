@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { CodeWarsAPI, ITask } from '../../api/codeWarsApi';
-import { codeWarsTasks } from '../../api/codeWarsTasks';
+import { CodeWarsAPI, ITask } from '../../../../API/codeWarsApi';
+import { codeWarsTasks } from '../../../../utils/codeWarsTasks';
 import CodeWarsForm from './CodeWarsForm';
 import CodeWarsTaskList from './CodeWarsTaskList';
 

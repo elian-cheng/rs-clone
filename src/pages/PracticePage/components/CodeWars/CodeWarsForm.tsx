@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useRef } from 'react';
 import { getUserStatistics, setUserStatistics } from '../../../../API/statistics';
-import { CodeWarsAPI, ICompletedTask } from '../../api/codeWarsApi';
-import { codeWarsTasks } from '../../api/codeWarsTasks';
+import { CodeWarsAPI, ICompletedTask } from '../../../../API/codeWarsApi';
+import { codeWarsTasks } from '../../../../utils/codeWarsTasks';
 
 export default function CodeWarsForm(props: {
   setLogin: Dispatch<SetStateAction<string>>;

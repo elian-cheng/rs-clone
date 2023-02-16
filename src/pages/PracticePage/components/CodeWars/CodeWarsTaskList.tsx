@@ -1,4 +1,4 @@
-import { ITask } from '../../api/codeWarsApi';
+import { ITask } from '../../../../API/codeWarsApi';
 
 export default function CodeWarsTaskList({ data }: { data: ITask[] }) {
   return (
