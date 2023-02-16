@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { updateGameStatistics } from '../../../../API/statistics';
 import storage from '../../../../utils/storage';
 import { GameStatus, IAnswers } from '../../../QuizPage/QuizPage';
