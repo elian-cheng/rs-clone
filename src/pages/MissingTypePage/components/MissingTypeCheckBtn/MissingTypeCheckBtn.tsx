@@ -62,14 +62,18 @@ export default function MissingTypeCheckBtn({
 
   return taskIndex === maxTasks - 1 ? (
     <button
-      className={`missing-type__btn ${answer != '_____?' ? 'missing-type__btn_active' : ''}`}
+      className={`missing-type__btn ${
+        answer != '_____?' ? 'missing-type__btn_active' : 'missing-type__btn_disable'
+      }`}
       onClick={finishTask}
     >
       Finish
     </button>
   ) : (
     <button
-      className={`missing-type__btn ${answer != '_____?' ? 'missing-type__btn_active' : ''}`}
+      className={`missing-type__btn ${
+        answer != '_____?' ? 'missing-type__btn_active' : 'missing-type__btn_disable'
+      }`}
       onClick={nextTask}
     >
       Next
