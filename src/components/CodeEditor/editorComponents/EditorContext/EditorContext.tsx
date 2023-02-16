@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 import React from 'react';
 import { ITask } from '../../CodeEditor';
-interface IEditor {
+export interface IEditor {
   html: string;
   css: string;
   ts: string;

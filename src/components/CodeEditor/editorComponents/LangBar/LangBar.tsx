@@ -1,7 +1,5 @@
 import { useState } from 'react';
-import TsEditor from '../TsEditor';
-import CssEditor from '../CssEditor';
-import HtmlEditor from '../HtmlEditor';
+import EditorComponent from '../EditorComponent/EditorComponent';
 
 export function LangBar() {
   const [activeTab, setActiveTab] = useState('ts');
@@ -28,9 +26,9 @@ export function LangBar() {
         </button>
       </nav>
       <div className="code-editor__area">
-        {activeTab === 'html' && <HtmlEditor />}
-        {activeTab === 'css' && <CssEditor />}
-        {activeTab === 'ts' && <TsEditor />}
+        {activeTab === 'html' && <EditorComponent lang={'html'} />}
+        {activeTab === 'css' && <EditorComponent lang={'css'} />}
+        {activeTab === 'ts' && <EditorComponent lang={'ts'} />}
       </div>
     </div>
   );
