@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0px 10px;
   &-title {
     color: $colorBlueDark;
     font-size: 3rem;
@@ -30,5 +31,6 @@
     height: 50px;
     border-radius: 10px;
     background-color: $colorBlueMiddle;
+    @include btnHover;
   }
 }

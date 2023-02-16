@@ -1,9 +1,10 @@
 import { Dispatch, SetStateAction } from 'react';
+import { GameStatus } from '../../../QuizPage/QuizPage';
 
 export default function MissingTypeStartPage({
-  setStartStatus,
+  setStatus,
 }: {
-  setStartStatus: Dispatch<SetStateAction<boolean>>;
+  setStatus: Dispatch<SetStateAction<number>>;
 }) {
   return (
     <section className="missing-type__start">
@@ -24,7 +25,7 @@ export default function MissingTypeStartPage({
           next task
         </li>
       </ul>
-      <button className="missing-type__start-btn" onClick={() => setStartStatus(true)}>
+      <button className="missing-type__start-btn" onClick={() => setStatus(GameStatus.GAME)}>
         Start
       </button>
     </section>

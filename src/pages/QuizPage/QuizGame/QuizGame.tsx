@@ -1,13 +1,6 @@
-import React, {
-  Dispatch,
-  SetStateAction,
-  useCallback,
-  useContext,
-  useEffect,
-  useState,
-} from 'react';
+import React, { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react';
 import { updateGameStatistics } from '../../../API/statistics';
-import { UserContext } from '../../../context/UserContext';
+import storage from '../../../utils/storage';
 import { GameStatus, IAnswers, IQuiz } from '../QuizPage';
 
 export interface IGameRunProps {
@@ -20,18 +13,13 @@ export interface IGameRunProps {
 const NUM_KEYS = ['1', '2', '3', '4'];
 
 export default function QuizGame({ quiz, answers, setStatus, setAnswers }: IGameRunProps) {
+  const user = storage.getItem('userData');
   const [current, setCurrent] = useState(0);
-  // eslint-disable-next-line
-  const [variables, setVariables] = useState<string[]>([]);
   const [isAnswered, setIsAnswered] = useState(false);
-  // eslint-disable-next-line
-  const [isRight, setIsRight] = useState(false);
-  const { user } = useContext(UserContext);
 
   const checkAnswer = useCallback(
     (option: string) => {
       const currentIsRight = option === quiz[current].answer;
-      setIsRight(currentIsRight);
       if (currentIsRight)
         setAnswers((prev) => ({
           ...prev,
@@ -72,7 +60,7 @@ export default function QuizGame({ quiz, answers, setStatus, setAnswers }: IGame
         else checkAnswer('');
       }
       if (NUM_KEYS.includes(e.key) && !isAnswered) {
-        checkAnswer(variables[+e.key - 1]);
+        checkAnswer(quiz[current].options[+e.key - 1]);
       }
     };
 

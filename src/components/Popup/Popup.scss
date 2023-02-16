@@ -161,3 +161,15 @@
 .form .checkbox label.form__checkbox-label_black {
   color: $colorGrayDark;
 }
+
+.popup__alert {
+  position: fixed;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background: $colorGreen;
+  color: $colorWhite;
+  padding: 15px;
+  border-radius: 4px;
+}

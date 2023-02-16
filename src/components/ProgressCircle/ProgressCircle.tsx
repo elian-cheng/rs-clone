@@ -4,16 +4,18 @@ interface ProgressCircleProps {
   percent: number;
 }
 
+const circleDiameter = '120';
+
 const ProgressCircle: React.FC<ProgressCircleProps> = ({ percent }) => {
   return (
     <div className="progress-bar__content" style={{ margin: '2em' }}>
       <div className="progress-bar__wrapper">
         <svg>
-          <circle cx="120" cy="120" r="120" />
+          <circle cx={circleDiameter} cy={circleDiameter} r={circleDiameter} />
           <circle
-            cx="120"
-            cy="120"
-            r="120"
+            cx={circleDiameter}
+            cy={circleDiameter}
+            r={circleDiameter}
             style={{
               strokeDashoffset: `calc(750 - (750 * ${percent})/100)`,
               stroke: '#3a57a8',

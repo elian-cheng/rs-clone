@@ -9,3 +9,7 @@
 .missing-type__btn_active {
   background-color: $colorGreen;
 }
+
+.missing-type__btn_disable {
+  pointer-events: none;
+}

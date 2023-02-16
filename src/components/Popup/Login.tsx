@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import {
   checkUserAuthorization,
@@ -7,18 +7,19 @@ import {
   userLoginAPI,
 } from '../../API/authorization';
 import { getInitialStatistics } from '../../API/statistics';
-import { UserContext } from '../../context/UserContext';
+import storage from '../../utils/storage';
 export interface ILogin {
   setWhatPopup: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
+  const userData = storage.getItem('userData') || null;
+  const [user, setUser] = useState(userData);
   const [loginIsCorrect, setLoginIsCorrect] = useState(true);
   const [signInIsDisabled, setSignInIsDisabled] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
-  const { user, setUser } = useContext(UserContext);
 
-  const togglePasswordVisiblity = () => {
+  const togglePasswordVisibility = () => {
     setPasswordShown(passwordShown ? false : true);
   };
 
@@ -72,7 +73,7 @@ const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
       >
         Login
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className="">
+      <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register('email', {
             required: 'Email is a required field',
@@ -82,12 +83,11 @@ const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
               message: 'Invalid email address',
             },
           })}
-          className=""
           type="email"
           autoComplete="username"
           placeholder="Email"
         />
-        <div className="">{errors.email && <p className="">{errors.email.message}</p>}</div>
+        <div>{errors.email && <p>{errors.email.message}</p>}</div>
         <input
           {...register('password', {
             required: 'Password is a required field',
@@ -96,25 +96,24 @@ const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
               message: 'Please type minimum 8 symbols',
             },
           })}
-          className=""
           type={passwordShown ? 'text' : 'password'}
           autoComplete="current-password"
           placeholder="Password"
         />
-        <div className="">{errors.password && <p className="">{errors.password.message}</p>}</div>
+        <div>{errors.password && <p>{errors.password.message}</p>}</div>
         <div className="checkbox">
           <input
             type="checkbox"
             name="showPassword"
             id="showPassword_black"
-            onChange={togglePasswordVisiblity}
+            onChange={togglePasswordVisibility}
           />
           <label className="form__checkbox-label_black" htmlFor="showPassword_black">
             Show Password
           </label>
         </div>
         <input type="submit" value="Login" disabled={signInIsDisabled} />
-        <div className="">{!loginIsCorrect && <p className="">Wrong email or password</p>}</div>
+        <div>{!loginIsCorrect && <p>Wrong email or password</p>}</div>
       </form>
     </div>
   );

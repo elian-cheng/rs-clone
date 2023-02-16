@@ -1,34 +1,53 @@
-import { useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { DragDropContext, Droppable, Draggable } from '@hello-pangea/dnd';
 import { DropResult } from 'react-beautiful-dnd';
 import MissingTypeCheckBtn from './MissingTypeCheckBtn/MissingTypeCheckBtn';
-import { IMissingTypeTasks } from '../MissingTypePage';
+import { IMissingTypeTask } from '../MissingTypePage';
+import { getMissingType } from '../../../API/tasks';
+import { IAnswers } from '../../QuizPage/QuizPage';
 
-export default function MissingTypeTask({ tasks }: { tasks: IMissingTypeTasks[] }) {
-  const [taskIndex, updateTaskIndex] = useState(0);
-  const [task, updateTask] = useState(tasks[taskIndex]);
-  const [answer, updateAnswer] = useState('_____?');
+export default function MissingTypeTask({
+  answers,
+  tasks,
+  setTasks,
+  setAnswers,
+  setStatus,
+}: {
+  answers: IAnswers;
+  tasks: IMissingTypeTask[];
+  status: number;
+  setTasks: Dispatch<SetStateAction<IMissingTypeTask[]>>;
+  setAnswers: Dispatch<SetStateAction<IAnswers>>;
+  setStatus: Dispatch<SetStateAction<number>>;
+}) {
+  const [taskIndex, setTaskIndex] = useState(0);
+  const [task, setTask] = useState(tasks[taskIndex]);
+  const [answer, setAnswer] = useState('_____?');
 
   useEffect(() => {
-    if (taskIndex < tasks.length) {
-      updateTask(tasks[taskIndex]);
-      updateAnswer('_____?');
-    } else {
-      console.log('end');
-    }
-  }, [taskIndex]);
+    getMissingType().then((res: IMissingTypeTask[]) => {
+      setTasks(res);
+    });
+  }, []);
+
+  useEffect(() => {
+    setTask(tasks[taskIndex]);
+    setAnswer('_____?');
+  }, [tasks, taskIndex]);
+
+  let currentPage = taskIndex;
 
   function handleOnDragEnd(result: DropResult) {
     if (!result.destination) return;
     if (result.source.droppableId !== result.destination.droppableId) {
-      updateAnswer(result.draggableId);
+      setAnswer(result.draggableId);
     }
   }
-
-  return (
+  return task ? (
     <>
       <h2 className="missing-type__question-count">
-        Question {`${taskIndex < tasks.length ? taskIndex + 1 : taskIndex} / ${tasks.length}`}
+        Question{' '}
+        {`${currentPage === tasks.length ? currentPage : currentPage + 1} / ${tasks.length}`}
       </h2>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId={'options'} key={'options'} direction="horizontal">
@@ -92,12 +111,17 @@ export default function MissingTypeTask({ tasks }: { tasks: IMissingTypeTasks[] 
         </Droppable>
       </DragDropContext>
       <MissingTypeCheckBtn
+        answers={answers}
         answer={answer}
         task={task}
-        updateTaskIndex={updateTaskIndex}
         taskIndex={taskIndex}
         maxTasks={tasks.length}
+        setAnswers={setAnswers}
+        setTaskIndex={setTaskIndex}
+        setStatus={setStatus}
       />
     </>
+  ) : (
+    <div>loading</div>
   );
 }
