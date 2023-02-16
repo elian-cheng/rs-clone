@@ -1,18 +1,18 @@
-import { Dispatch, SetStateAction, useContext, useEffect } from 'react';
+import { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import { updateGameStatistics } from '../../../../API/statistics';
-import { UserContext } from '../../../../context/UserContext';
+import storage from '../../../../utils/storage';
 import { GameStatus, IAnswers } from '../../../QuizPage/QuizPage';
 import { IMissingTypeTask } from '../../MissingTypePage';
 
 export default function MissingTypeCheckBtn({
   answers,
-  setAnswers,
   answer,
   task,
   taskIndex,
-  setStatus,
-  setTaskIndex,
   maxTasks,
+  setStatus,
+  setAnswers,
+  setTaskIndex,
 }: {
   answer: string | undefined;
   task: IMissingTypeTask;
@@ -23,8 +23,8 @@ export default function MissingTypeCheckBtn({
   setAnswers: Dispatch<SetStateAction<IAnswers>>;
   setTaskIndex: Dispatch<SetStateAction<number>>;
 }) {
-  const { user } = useContext(UserContext);
-
+  const user = storage.getItem('userData');
+  const [finish, setFinish] = useState(false);
   function nextTask() {
     if (taskIndex < maxTasks - 1) {
       setTaskIndex((taskIndex) => taskIndex + 1);
@@ -52,12 +52,13 @@ export default function MissingTypeCheckBtn({
   }
   function finishTask() {
     nextTask();
-    setStatus(GameStatus.RESULT);
+    setFinish(true);
   }
 
-  // useEffect(() => {
-  //   finishStatus && user ? updateGameStatistics({ answers, gameType: 'missingType' }) : null;
-  // }, [finishStatus]);
+  useEffect(() => {
+    finish && user ? updateGameStatistics({ answers, gameType: 'missingType' }) : null;
+    finish ? setStatus(GameStatus.RESULT) : null;
+  }, [finish]);
 
   return taskIndex === maxTasks - 1 ? (
     <button

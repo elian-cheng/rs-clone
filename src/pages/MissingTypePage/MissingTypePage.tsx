@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import MissingTypeStartPage from './components/MissingTypeStartPage/MissingTypeStartPage';
 import MissingTypeTask from './components/MissingTypeTask';
 import { GameStatus, IAnswers } from '../QuizPage/QuizPage';
-import QuizResult from '../QuizPage/QuizGame/QuizResult';
+import GameResults, { IGameResultProps } from '../../components/GameResults/GameResults';
 export interface IMissingTypeTask {
   id: number;
   question: string;
@@ -18,7 +18,12 @@ export default function MissingTypePage() {
     strike: 0,
     max: 0,
   });
-
+  const gameResultsObj: IGameResultProps = {
+    answers: answers,
+    setAnswers: setAnswers,
+    setGameTasks: setTasks,
+    setStatus: setStatus,
+  };
   function switchPage() {
     if (status === GameStatus.SELECT) {
       return <MissingTypeStartPage setStatus={setStatus} />;
@@ -30,14 +35,12 @@ export default function MissingTypePage() {
           setAnswers={setAnswers}
           tasks={tasks}
           setTasks={setTasks}
-          status={status}
           setStatus={setStatus}
         />
       );
     }
     if (status === GameStatus.RESULT) {
-      // return <QuizResult answers={answers} setAnswers={setAnswers} setQuiz={updateTasks} />;
-      return <div>results</div>;
+      return <GameResults gameResultsObj={gameResultsObj} />;
     }
   }
   return <article className="missing-type">{switchPage()}</article>;

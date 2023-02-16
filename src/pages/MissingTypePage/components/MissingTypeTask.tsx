@@ -15,7 +15,6 @@ export default function MissingTypeTask({
 }: {
   answers: IAnswers;
   tasks: IMissingTypeTask[];
-  status: number;
   setTasks: Dispatch<SetStateAction<IMissingTypeTask[]>>;
   setAnswers: Dispatch<SetStateAction<IAnswers>>;
   setStatus: Dispatch<SetStateAction<number>>;
