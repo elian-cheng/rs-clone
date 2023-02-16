@@ -5,12 +5,16 @@ import {
   getUserId,
   ILoginUser,
   userLoginAPI,
-} from '../../API/authorization';
-import { getInitialStatistics } from '../../API/statistics';
-import storage from '../../utils/storage';
+} from '../../../API/authorization';
+import { getInitialStatistics } from '../../../API/statistics';
+import storage from '../../../utils/storage';
+import FormInput from './FormInput';
 export interface ILogin {
   setWhatPopup: React.Dispatch<React.SetStateAction<string>>;
 }
+
+export const CHECK_EMAIL_SCHEMA =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
   const userData = storage.getItem('userData') || null;
@@ -30,7 +34,8 @@ const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
     reset,
     clearErrors,
   } = useForm<ILoginUser>({
-    mode: 'onChange',
+    shouldUseNativeValidation: false,
+    mode: 'onBlur',
   });
 
   const updateUser = useCallback(() => {
@@ -74,33 +79,36 @@ const Login: React.FC<ILogin> = ({ setWhatPopup }) => {
         Login
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          {...register('email', {
-            required: 'Email is a required field',
-            pattern: {
-              value:
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-              message: 'Invalid email address',
-            },
-          })}
+        <FormInput
+          placeholder="Email"
+          name="email"
           type="email"
           autoComplete="username"
-          placeholder="Email"
+          validationRules={{
+            required: 'Email is a required field',
+            pattern: {
+              value: CHECK_EMAIL_SCHEMA,
+              message: 'Invalid email address',
+            },
+          }}
+          register={register}
+          error={errors.email}
         />
-        <div>{errors.email && <p>{errors.email.message}</p>}</div>
-        <input
-          {...register('password', {
+        <FormInput
+          placeholder="Password"
+          name="password"
+          type={passwordShown ? 'text' : 'password'}
+          autoComplete="current-password"
+          validationRules={{
             required: 'Password is a required field',
             minLength: {
               value: 8,
               message: 'Please type minimum 8 symbols',
             },
-          })}
-          type={passwordShown ? 'text' : 'password'}
-          autoComplete="current-password"
-          placeholder="Password"
+          }}
+          register={register}
+          error={errors.password}
         />
-        <div>{errors.password && <p>{errors.password.message}</p>}</div>
         <div className="checkbox">
           <input
             type="checkbox"

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { ISignUpUser, userSignUpAPI } from '../../API/authorization';
-import { ILogin } from './Login';
+import { ISignUpUser, userSignUpAPI } from '../../../API/authorization';
+import FormInput from './FormInput';
+import { CHECK_EMAIL_SCHEMA, ILogin } from './Login';
 
 const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
   const [emailIsCorrect, setEmailIsCorrect] = useState(true);
@@ -28,7 +29,8 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
     reset,
     clearErrors,
   } = useForm<ISignUpUser>({
-    mode: 'onChange',
+    shouldUseNativeValidation: false,
+    mode: 'onBlur',
   });
 
   const onSubmit: SubmitHandler<ISignUpUser> = async (data) => {
@@ -40,6 +42,7 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
       reset();
     } else {
       setEmailIsCorrect(false);
+      setAlert(true);
     }
     setSignUpIsDisabled(false);
   };
@@ -57,8 +60,12 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
           Signup
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            {...register('name', {
+          <FormInput
+            placeholder="Name"
+            name="name"
+            type="text"
+            autoComplete="username"
+            validationRules={{
               required: 'Name is a required field',
               minLength: {
                 value: 3,
@@ -68,50 +75,44 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
                 value: 10,
                 message: 'Please type from 3 to 10 symbols',
               },
-            })}
-            type="text"
-            autoComplete="username"
-            placeholder="Name"
+            }}
+            register={register}
+            error={errors.name}
           />
-          <div className="popup__error popup__error_white">
-            {errors.name && <p>{errors.name.message}</p>}
-          </div>
-          <input
-            {...register('email', {
+          <FormInput
+            placeholder="Email"
+            name="email"
+            type="email"
+            autoComplete="username"
+            validationRules={{
               required: 'Email is a required field',
               pattern: {
-                value:
-                  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                value: CHECK_EMAIL_SCHEMA,
                 message: 'Invalid email address',
               },
               maxLength: {
                 value: 25,
                 message: 'The value is too long',
               },
-            })}
-            type="email"
-            autoComplete="username"
-            placeholder="Email"
+            }}
+            register={register}
+            error={errors.email}
           />
-          <div className="popup__error popup__error_white">
-            {errors.email && <p>{errors.email.message}</p>}
-            {!emailIsCorrect && <p>This email is already taken</p>}
-          </div>
-          <input
-            {...register('password', {
+          <FormInput
+            placeholder="Password"
+            name="password"
+            type={passwordShown ? 'text' : 'password'}
+            autoComplete="current-password"
+            validationRules={{
               required: 'Password is a required field',
               minLength: {
                 value: 8,
                 message: 'Please type minimum 8 symbols',
               },
-            })}
-            type={passwordShown ? 'text' : 'password'}
-            autoComplete="current-password"
-            placeholder="Password"
+            }}
+            register={register}
+            error={errors.password}
           />
-          <div className="popup__error popup__error_white">
-            {errors.password && <p>{errors.password.message}</p>}
-          </div>
           <div className="checkbox">
             <input
               type="checkbox"
@@ -124,13 +125,18 @@ const SignUp: React.FC<ILogin> = ({ setWhatPopup }) => {
           <input type="submit" value="Signup" disabled={signUpIsDisabled} />
         </form>
       </div>
-      {alert && (
-        <div className="popup__alert">
-          Your account was successfully created. You can login now.
-        </div>
-      )}
+      {alert && showAlert(emailIsCorrect)}
     </>
   );
 };
 
 export default SignUp;
+
+function PopUpAlert(message: string) {
+  return <div className="popup__alert">{message}</div>;
+}
+
+function showAlert(emailIsCorrect: boolean) {
+  if (!emailIsCorrect) return PopUpAlert('This email is already taken.');
+  else return PopUpAlert('Your account was successfully created. You can login now.');
+}

@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { IGetUSer } from '../../API/authorization';
 import storage from '../../utils/storage';
 import { GameSection } from './components/GameSection/GameSection';
 import { getStats } from '../../API/statistics';
