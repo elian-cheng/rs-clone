@@ -43,5 +43,9 @@ export default function MissingTypePage() {
       return <GameResults gameResultsObj={gameResultsObj} />;
     }
   }
-  return <article className="missing-type">{switchPage()}</article>;
+  return status === GameStatus.RESULT ? (
+    <article>{switchPage()}</article>
+  ) : (
+    <article className="missing-type">{switchPage()}</article>
+  );
 }

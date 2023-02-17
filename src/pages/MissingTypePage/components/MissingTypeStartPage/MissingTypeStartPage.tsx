@@ -8,8 +8,10 @@ export default function MissingTypeStartPage({
 }) {
   return (
     <section className="missing-type__start">
-      <h2 className="missing-type__start-title">Missing-Type</h2>
-      <p className="missing-type__start-subtitle">Test for the correct use of data types</p>
+      <h2 className="missing-type__start-title title">Missing-Type</h2>
+      <p className="missing-type__start-subtitle subtitle">
+        Test for the correct use of data types
+      </p>
       <ul className="missing-type__start-descr">
         <li className="missing-type__start-descr-item">
           You are given a code example with one missing data type
@@ -25,7 +27,7 @@ export default function MissingTypeStartPage({
           next task
         </li>
       </ul>
-      <button className="missing-type__start-btn" onClick={() => setStatus(GameStatus.GAME)}>
+      <button className="button" onClick={() => setStatus(GameStatus.GAME)}>
         Start
       </button>
     </section>
