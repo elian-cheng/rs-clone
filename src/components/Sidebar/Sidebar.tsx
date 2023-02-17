@@ -23,16 +23,7 @@ interface ISidebar {
   onSignInOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-interface Itest {
-  items: ISidebarItem[];
-}
-
-const x: Itest = {
-  items: sidebarItems,
-};
-
 export default function Sidebar(props: ISidebar) {
-  const { items } = x;
   const { onSignInOpen } = props;
   const userData = storage.getItem<IGetUSer>('userData');
   const [user, setUser] = useState(userData);
@@ -91,8 +82,8 @@ export default function Sidebar(props: ISidebar) {
           )}
         </div>
         <nav className="sidebar__nav">
-          {items.map((item) => {
-            return <SidebarItem key={item.id} {...item} />;
+          {sidebarItems.map((item, i) => {
+            return <SidebarItem key={i} {...item} />;
           })}
         </nav>
         <div className="sidebar__login">

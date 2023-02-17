@@ -1,7 +1,7 @@
 .footer {
   user-select: none;
   padding: 2rem 0;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 10px rgba($colorBlack, 0.15);
   &__container {
     display: flex;
     flex-direction: column;
