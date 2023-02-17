@@ -41,6 +41,12 @@
     width: 300px;
     background-color: $colorOrangeDark;
     margin-bottom: 40px;
+    &-true {
+      color: $colorGreen;
+    }
+    &-false {
+      color: $colorRed;
+    }
   }
   &__question {
     position: relative;
@@ -54,11 +60,6 @@
     border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
-    &-code {
-      span {
-        color: $colorBlueDark;
-      }
-    }
     &-count {
       color: $colorBlueMiddle;
       margin-bottom: 20px;

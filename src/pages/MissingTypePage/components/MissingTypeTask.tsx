@@ -64,6 +64,8 @@ export default function MissingTypeTask({
                         return (
                           <li
                             className={`missing-type__answers-options-list-item ${
+                              answer !== '_____?' ? 'missing-type__btn_disable' : ''
+                            }${
                               snapshot.isDragging
                                 ? 'missing-type__answers-options-list-item_dragging'
                                 : ''
@@ -100,7 +102,11 @@ export default function MissingTypeTask({
                   dangerouslySetInnerHTML={{
                     __html: task.question.replace(
                       new RegExp('_{1,}\\?', 'ig'),
-                      `<span>${answer}</span>`
+                      `<span class=${
+                        answer === task.answer
+                          ? 'missing-type__answer-true'
+                          : 'missing-type__answer-false'
+                      }>${answer}</span>`
                     ),
                   }}
                 />
