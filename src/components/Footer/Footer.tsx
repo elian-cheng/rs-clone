@@ -1,6 +1,7 @@
 import React from 'react';
 import { ReactComponent as RssIcon } from '../../assets/images/footer/rss.svg';
-import { ReactComponent as GhIcon } from '../../assets/images/footer/github.svg';
+import { teamMembers } from '../../utils/teamMembers';
+import GithubItem from './FooterGithub';
 
 export default function Footer() {
   return (
@@ -15,33 +16,9 @@ export default function Footer() {
           <RssIcon className="footer__rss-icon" />
         </a>
         <div className="footer__gh-links">
-          <a
-            href="https://github.com/elian-cheng"
-            target="_blank"
-            rel="noreferrer"
-            className="footer__gh-link"
-          >
-            <GhIcon className="footer__gh-icon" />
-            <span className="footer__gh-desc">Olga Chernega</span>
-          </a>
-          <a
-            href="https://github.com/eugeneburkovskiy"
-            target="_blank"
-            rel="noreferrer"
-            className="footer__gh-link"
-          >
-            <GhIcon className="footer__gh-icon" />
-            <span className="footer__gh-desc">Eugene Burkovskiy</span>
-          </a>
-          <a
-            href="https://github.com/ordinaraviro"
-            target="_blank"
-            rel="noreferrer"
-            className="footer__gh-link"
-          >
-            <GhIcon className="footer__gh-icon" />
-            <span className="footer__gh-desc">Oleksandr Mazghin</span>
-          </a>
+          {teamMembers.map((member, i) => {
+            return <GithubItem key={i} git={member.git} title={member.title}/>
+          })}
         </div>
         <div className="footer__copy-year">© 2023</div>
       </div>
