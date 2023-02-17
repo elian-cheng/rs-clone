@@ -7,6 +7,7 @@ import 'ace-builds/src-noconflict/theme-monokai';
 import 'ace-builds/src-noconflict/ext-language_tools';
 import { Dispatch, SetStateAction, useContext } from 'react';
 import { EditorContext } from '../EditorContext/EditorContext';
+import debounce from 'lodash.debounce';
 
 export default function EditorComponent({ lang }: { lang: string }) {
   const langObj = useContext(EditorContext);
@@ -30,6 +31,8 @@ export default function EditorComponent({ lang }: { lang: string }) {
       setLangFunc = langObj.setHtml;
       langText = langObj.html;
   }
+  const changeInput = (value: SetStateAction<string>) => setLangFunc(value);
+  const debounceChange = debounce(changeInput, 1000);
   return (
     <AceEditor
       placeholder="Write your CSS here"
@@ -38,7 +41,7 @@ export default function EditorComponent({ lang }: { lang: string }) {
       name={`Editor ${lang}`}
       defaultValue={langText}
       value={langText}
-      onChange={(value) => setLangFunc(value)}
+      onChange={debounceChange}
       fontSize={16}
       height="100%"
       width="100%"
