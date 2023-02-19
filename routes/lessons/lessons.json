@@ -514,14 +514,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is the difference between rest and spread operators in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "Rest and spread operators are identical in TypeScript.",
+      "The rest operator is used for object literals, while the spread operator is used for arrays.",
+      "The spread operator is used for object literals, while the rest operator is used for arrays.",
+      "The rest operator is used to gather remaining arguments into an array, while the spread operator is used to spread an array into individual elements."
     ],
-    "answer": "a) A option",
+    "answer": "The rest operator is used to gather remaining arguments into an array, while the spread operator is used to spread an array into individual elements.",
     "theme": "Function typing"
   },
   {
@@ -545,14 +545,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are function overloads in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "Multiple functions with the same name but different parameters",
+      "Functions that return different types based on the input parameters",
+      "Functions that can be called with any number of arguments",
+      "Functions that can be called with any type of argument"
     ],
-    "answer": "a) A option",
+    "answer": "Multiple functions with the same name but different parameters",
     "theme": "Function typing"
   },
   {
@@ -574,14 +574,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is narrowing in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "A way to make the type of a variable or expression more specific",
+      "A way to make the type of a variable or expression more generic",
+      "A way to convert one type to another type",
+      "A way to define multiple function signatures for a single function"
     ],
-    "answer": "a) A option",
+    "answer": "A way to make the type of a variable or expression more specific",
     "theme": "Function typing"
   },
   {
@@ -599,14 +599,14 @@
     "examples": [
       "examples"
     ],
-        "question": "A is right",
+        "question": "What are type annotations in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Comments in the code that describe the expected types of variables and functions",
+      "Declarations of types that can be used to define the expected shape of data",
+      "Functions that are used to transform data from one type to another",
+      "Keywords that can be used to indicate the type of a variable or function parameter"
     ],
-    "answer": "A",
+    "answer": "Keywords that can be used to indicate the type of a variable or function parameter",
     "theme": "Array typing"
   },
   {
@@ -627,14 +627,14 @@
     "examples": [
       "examples"
     ],
-        "question": "A is right",
+        "question": "How do you define a multidimensional array in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Use a single array with nested objects to simulate a multidimensional array",
+      "Use the Array keyword followed by the number of dimensions in the array declaration",
+      "Use nested arrays, where each inner array represents a row or column of the multidimensional array",
+      "Use a single array and add an extra dimension parameter to each array method call"
     ],
-    "answer": "A",
+    "answer": "Use nested arrays, where each inner array represents a row or column of the multidimensional array",
     "theme": "Array typing"
   },
   {
@@ -652,14 +652,14 @@
     "examples": [
       "examples"
     ],
-        "question": "A is right",
+        "question": "What are read-only arrays in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Arrays that can only be accessed in read-only mode",
+      "Arrays that can only be accessed by a single function",
+      "Arrays that cannot be modified once they are created",
+      "Arrays that can only be modified by certain users or roles"
     ],
-    "answer": "A",
+    "answer": "Arrays that cannot be modified once they are created",
     "theme": "Array typing"
   },
   {
@@ -683,14 +683,14 @@
     "examples": [
       "examples"
     ],
-        "question": "A is right",
+    "question": "What are Tuples in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Tuples are arrays with a fixed number of elements and known data types.",
+      "Tuples are arrays with a variable number of elements and unknown data types.",
+      "Tuples are objects with a fixed number of properties and known data types.",
+      "Tuples are objects with a variable number of properties and unknown data types."
     ],
-    "answer": "A",
+    "answer": "Tuples are arrays with a fixed number of elements and known data types.",
     "theme": "Array typing"
   },
   {
@@ -712,14 +712,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+    "question": "What is meant by \"Types as sets\" in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Types that define the allowed values for a variable or parameter.",
+      "Types that define a group of related properties and methods.",
+      "Types that define the structure of an object or class.",
+      "Types that define a set of allowed operations or functions."
     ],
-    "answer": "A",
+    "answer": "Types that define the allowed values for a variable or parameter.",
     "theme": "More about types"
   },
   {
@@ -740,14 +740,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are Union Types in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Types that combine multiple types into a single type.",
+      "Types that define a group of related properties and methods.",
+      "Types that define the structure of an object or class.",
+      "Types that define a set of allowed operations or functions."
     ],
-    "answer": "A",
+    "answer": "Types that combine multiple types into a single type.",
     "theme": "More about types"
   },
   {
@@ -768,14 +768,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are null and undefined in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Types that represent non-existent or unknown values.",
+      "Types that represent optional function parameters.",
+      "Types that define a set of allowed values for a variable or parameter.",
+      "Types that define the structure of an object or class."
     ],
-    "answer": "A",
+    "answer": "Types that represent non-existent or unknown values.",
     "theme": "More about types"
   },
   {
@@ -819,14 +819,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are literals in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Keywords used to define the types of variables and parameters.",
+      "Special functions used to manipulate strings.",
+      "Values that represent themselves and have a specific type.",
+      "Properties used to define the structure of an object or class."
     ],
-    "answer": "A",
+    "answer": "Values that represent themselves and have a specific type.",
     "theme": "More about types"
   },
   {
@@ -843,14 +843,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are intersection types in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Types that combine multiple types into a single type.",
+      "Types that allow for nullable values.",
+      "Types that define the shape of an object.",
+      "Types that are compatible with multiple JavaScript engines."
     ],
-    "answer": "A",
+    "answer": "Types that combine multiple types into a single type.",
     "theme": "More about types"
   },
   {
@@ -867,14 +867,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "How do you assign a value in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Using the = operator.",
+      "Using the == operator.",
+      "Using the === operator.",
+      "Using the => operator."
     ],
-    "answer": "A",
+    "answer": "Using the = operator.",
     "theme": "More about types"
   },
   {
@@ -905,14 +905,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is the hierarchy of types in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "any, unknown, never, primitives, object types",
+      "primitives, object, unknown, any, never",
+      "never, unknown, primitives, object types, any",
+      "object types, primitives, unknown, any, never"
     ],
-    "answer": "A",
+    "answer": "never, unknown, primitives, object types, any",
     "theme": "More about types"
   },
   {
@@ -936,14 +936,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is structural typing in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "A type checking system that determines compatibility between types based on their explicit type or class.",
+      "A type checking system that determines compatibility between types based on their structure or shape.",
+      "A type checking system that determines compatibility between types based on their name.",
+      "A type checking system that determines compatibility between types based on their size."
     ],
-    "answer": "A",
+    "answer": "A type checking system that determines compatibility between types based on their structure or shape.",
     "theme": "More about types"
   },
   {
@@ -963,14 +963,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is covariance in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "The ability of a type to be assigned to another type that is more specific",
+      "The ability of a type to be assigned to another type that is less specific",
+      "The ability of a function or method to accept arguments of a wider type than specified in its type signature",
+      "The ability of a function or method to return a value of a narrower type than specified in its type signature"
     ],
-    "answer": "A",
+    "answer": "The ability of a type to be assigned to another type that is more specific",
     "theme": "More about types"
   },
   {
@@ -990,14 +990,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is a constructor in a TypeScript class?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "A method that is used to initialize a class instance with default values",
+      "A method that is used to define the class properties",
+      "A method that is used to create a new instance of a class",
+      "A method that is used to perform type checking on the class properties"
     ],
-    "answer": "A",
+    "answer": "A method that is used to initialize a class instance with default values",
     "theme": "Classes"
   },
   {
@@ -1015,14 +1015,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "In TypeScript, how can a class be used as a type?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "By using the typeof keyword to reference the class object itself",
+      "By creating an instance of the class and using it as a type",
+      "By defining a separate interface that describes the class properties",
+      "By creating a new class that extends the original class and using it as a type"
     ],
-    "answer": "A",
+    "answer": "By using the typeof keyword to reference the class object itself",
     "theme": "Classes"
   },
   {
@@ -1040,14 +1040,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is the access modifier that restricts a property or method to only be accessed within the class it is defined in?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "public",
+      "private",
+      "protected",
+      "readonly"
     ],
-    "answer": "A",
+    "answer": "private",
     "theme": "Classes"
   },
   {
@@ -1063,14 +1063,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "How can you make a parameter property in TypeScript read-only?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "By adding the readonly modifier to the constructor parameter.",
+      "By adding the readonly modifier to the class property.",
+      "By adding the readonly modifier to both the constructor parameter and the class property.",
+      "It is not possible to make a parameter property read-only."
     ],
-    "answer": "A",
+    "answer": "By adding the readonly modifier to both the constructor parameter and the class property.",
     "theme": "Classes"
   },
   {
@@ -1091,14 +1091,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "Which keyword is used to extend a class in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "extends",
+      "implements",
+      "inherits",
+      "derives"
     ],
-    "answer": "A",
+    "answer": "extends",
     "theme": "Classes"
   },
   {
@@ -1116,14 +1116,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "Which keyword is used to declare a static property or method in a TypeScript class?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "static",
+      "const",
+      "readonly",
+      "let"
     ],
-    "answer": "A",
+    "answer": "static",
     "theme": "Classes"
   },
   {
@@ -1142,14 +1142,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is an interface in TypeScript?t",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "A class that can be extended by other classes",
+      "A way to define the shape of an object",
+      "A data type that represents a single value",
+      "A function that can be called with different arguments"
     ],
-    "answer": "a) A option",
+    "answer": "A way to define the shape of an object",
     "theme": "Interfaces"
   },
   {
@@ -1172,14 +1172,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "How can you use an interface in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "To define the shape of an object",
+      "To create a new instance of a class",
+      "To declare a variable's data type",
+      "To define a function's return type"
     ],
-    "answer": "a) A option",
+    "answer": "To define the shape of an object",
     "theme": "Interfaces"
   },
   {
@@ -1194,14 +1194,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "How can you implement an interface in TypeScript using a class?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "By using the \"implements\" keyword and providing a list of required properties and methods",
+      "By extending the interface using the \"extends\" keyword",
+      "By using the \"interface\" keyword within the class definition",
+      "By manually defining each property and method in the class definition"
     ],
-    "answer": "a) A option",
+    "answer": "By using the \"implements\" keyword and providing a list of required properties and methods",
     "theme": "Interfaces"
   },
   {
@@ -1234,14 +1234,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are generics in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "A way to define a type for a specific value or variable",
+      "A way to write functions that can work with multiple types of data",
+      "A way to create classes that can be extended by other classes",
+      "A way to define properties on objects with dynamic types"
     ],
-    "answer": "a) A option",
+    "answer": "A way to write functions that can work with multiple types of data",
     "theme": "Generics"
   },
   {
@@ -1267,14 +1267,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is the purpose of using generics in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "To specify the type of an object's properties and methods.",
+      "To create a new instance of a class.",
+      "To allow functions and classes to work with a variety of data types.",
+      "To specify the size and shape of a multidimensional array."
     ],
-    "answer": "a) A option",
+    "answer": "To allow functions and classes to work with a variety of data types.",
     "theme": "Generics"
   },
   {
@@ -1299,14 +1299,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is the purpose of using generics in functions in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "To specify the return type of the function",
+      "To ensure that the function can only be called with a specific number of arguments",
+      "To allow the function to work with a variety of data types",
+      "To prevent the function from being overwritten by other functions"
     ],
-    "answer": "a) A option",
+    "answer": "To allow the function to work with a variety of data types",
     "theme": "Generics"
   },
   {
@@ -1323,14 +1323,14 @@
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are generic classes in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "Classes that can accept any type of parameter",
+      "Classes that can only accept number type parameter",
+      "Classes that can accept any type of parameter, but restrict the methods and properties to a specific set of types",
+      "Classes that can only accept string type parameter"
     ],
-    "answer": "a) A option",
+    "answer": "Classes that can accept any type of parameter",
     "theme": "Generics"
   }
 ]
