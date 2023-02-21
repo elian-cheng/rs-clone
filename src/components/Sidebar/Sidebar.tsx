@@ -43,10 +43,7 @@ export default function Sidebar(props: ISidebar) {
 
   const sidebarAction = (event: MouseEvent) => {
     if (window.innerWidth < 1001) {
-      if ((event.target as HTMLElement).classList.contains('sidebar-wrapper')) {
-        barToggle();
-      }
-      if ((event.target as HTMLElement).closest('.nav-item')) {
+      if ((event.target as HTMLElement).classList.contains('sidebar-wrapper') || (event.target as HTMLElement).closest('.nav-item')) {
         barToggle();
       }
     }
@@ -57,7 +54,7 @@ export default function Sidebar(props: ISidebar) {
     return () => {
       removeEventListener('click', sidebarAction);
     };
-  }, []);
+  });
 
   return (
     <div className="sidebar-section">
