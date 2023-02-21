@@ -1,10 +1,16 @@
+.sidebar-section {
+  flex-shrink: 0;
+  transition: 0.4s;
+}
+
 .sidebar-wrapper {
   position: relative;
   width: 80px;
   background: rgba($color: $colorBlack, $alpha: 1);
   flex-shrink: 0;
-  transition: 0.4s;
+  height: 100%;
   overflow: hidden;
+  transition: 0.4s;
 }
 
 .sidebar {
