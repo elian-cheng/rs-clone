@@ -29,10 +29,11 @@ export default function DoughnutChart({ done, total }: { done: number; total: nu
       },
     },
   };
-
+  const totalPercentCalculation = Math.floor((done * 100) / total);
+  const totalPercent = isNaN(totalPercentCalculation) ? 0 : totalPercentCalculation;
   return (
     <div>
-      <p className="statistic__charts-inner">{Math.floor((done * 100) / total)}%</p>
+      <p className="statistic__charts-inner">{totalPercent}%</p>
       <Doughnut data={data} options={options} />
     </div>
   );

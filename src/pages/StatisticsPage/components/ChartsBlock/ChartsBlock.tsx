@@ -36,7 +36,7 @@ export default function chartsBlock({
           <h2 className="statistic__charts-title">Practice</h2>
           <DoughnutChart
             done={stats?.katas?.finishedKatas ? stats.katas.finishedKatas : 0}
-            total={totalKatas}
+            total={totalKatas ? totalKatas : 1}
           />
         </li>
         <li className="statistic__charts-list-item">
