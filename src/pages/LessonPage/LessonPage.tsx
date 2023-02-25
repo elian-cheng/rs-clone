@@ -32,7 +32,7 @@ export default function LessonPage() {
     <div className="main__container">
       <div className="lessons__wrapper">
         <div className="lesson">
-          {lesson ? <LessonBlock lesson={lesson} setLessonId={setLessonId} /> : <ErrorPage />}
+          {lesson ? <LessonBlock lesson={lesson} setLessonId={setLessonId} /> : <h2>Loading...</h2>}
         </div>
       </div>
     </div>
