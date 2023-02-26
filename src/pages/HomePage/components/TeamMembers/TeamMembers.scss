@@ -56,14 +56,19 @@
     content: '';
     position: absolute;
     right: 0;
-    bottom: -40px;
-    height: 40px;
-    width: 40px;
+  }
+  &__overlay::before {
     background-color: $colorBlueMiddle;
+    height: 41px;
+    width: 40px;
+    bottom: -40px;
   }
   &__overlay::after {
     border-radius: 0 25px 0 0;
     background-color: $colorWhite;
+    height: 42px;
+    width: 42px;
+    bottom: -42px;
   }
 
   &__photo {
