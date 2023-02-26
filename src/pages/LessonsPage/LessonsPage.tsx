@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getUserId } from '../../API/authorization';
 import { getAllLessons } from '../../API/lessons';
+import { getUserStatistics } from '../../API/statistics';
 import { ReactComponent as Arrow } from '../../assets/icons/sidebar/arrowleft.svg';
 
 export default function LessonsPage() {
@@ -11,8 +13,16 @@ export default function LessonsPage() {
   const [themesList, setThemesList] = useState(['']);
   let themesSet: string[] = [];
 
+  const [lessonsStat, setStat] = useState(['']);
+
   useEffect(() => {
     setState('loading');
+
+    if (getUserId()) {
+      getUserStatistics(getUserId())
+      .then(({ data }) => setStat(JSON.parse(data.lessons?.lessonsId as string)))
+    }
+
     getAllLessons().then((res) => {
       res.forEach((item) => {
         themesSet.push(item.theme);
@@ -58,7 +68,7 @@ export default function LessonsPage() {
                       if (el.theme !== item) return;
                       return (
                         <Link to={`/lessons/${el.id}`} className="theme-block__lesson" key={j}>
-                          {el.id}. {el.title}
+                          {el.id}. {lessonsStat.includes(`${j + 1}`) ? (`${el.title} ✓`):(el.title)}
                         </Link>
                       );
                     })}
