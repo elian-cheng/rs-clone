@@ -1,0 +1,93 @@
+.team {
+  margin-bottom: 4rem;
+  &__title {
+    color: $colorOrangeDark;
+    margin-bottom: 3rem;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    @media (max-width: $pc) {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.member {
+  border-radius: 25px;
+  background-color: $colorWhite;
+  min-width: 300px;
+  flex: 0 1 33.33%;
+  &__image,
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+  }
+  &__image {
+    position: relative;
+    row-gap: 5px;
+    padding: 25px 0;
+  }
+
+  &__title {
+    margin-bottom: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  &__description {
+    margin-bottom: 0.5rem;
+  }
+
+  &__overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $colorBlueMiddle;
+    border-radius: 25px 25px 0 25px;
+  }
+  &__overlay::before,
+  &__overlay::after {
+    content: '';
+    position: absolute;
+    right: 0;
+  }
+  &__overlay::before {
+    background-color: $colorBlueMiddle;
+    height: 41px;
+    width: 40px;
+    bottom: -40px;
+  }
+  &__overlay::after {
+    border-radius: 0 25px 0 0;
+    background-color: $colorWhite;
+    height: 42px;
+    width: 42px;
+    bottom: -42px;
+  }
+
+  &__photo {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: $colorWhite;
+    padding: 3px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid $colorBlueMiddle;
+    }
+  }
+
+  &__button {
+    margin: 1rem;
+  }
+}

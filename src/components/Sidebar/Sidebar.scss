@@ -1,0 +1,228 @@
+.sidebar-section {
+  flex-shrink: 0;
+  transition: 0.4s;
+}
+
+.sidebar-wrapper {
+  position: relative;
+  width: 80px;
+  background: rgba($color: $colorBlack, $alpha: 1);
+  flex-shrink: 0;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.sidebar {
+  position: fixed;
+  z-index: 100;
+  right: 0;
+  top: 0;
+  padding: 10px;
+  background: rgba($color: $colorBlueDark, $alpha: 0.6);
+  height: 100vh;
+  width: 80px;
+  box-shadow: 0 8px 32px rgb(2, 4, 24);
+  border-left: 2px solid rgba($color: $colorWhite, $alpha: 0.09);
+  transition: 0.4s;
+
+  &__toggle {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    fill: $colorWhite;
+    cursor: pointer;
+    top: 75px;
+    left: -20px;
+    border-radius: 50%;
+    padding: 7px;
+    background: rgba($color: $colorBlueMiddle, $alpha: 0.8);
+    backdrop-filter: blur(6px);
+    transition: 0.3s;
+  }
+  &__toggle:hover {
+    background: rgba($color: $colorWhite, $alpha: 0.8);
+    fill: $colorBlueDark;
+  }
+  &__logo {
+    width: 100%;
+    padding: 10px 0;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  &__user-icon {
+    width: 46px;
+    height: 46px;
+    fill: $colorWhite;
+    margin-bottom: 0.5rem;
+  }
+  &__user-name {
+    color: $colorWhite;
+    text-align: center;
+    display: none;
+  }
+  &__info-icon {
+    display: none;
+    margin-left: 5px;
+    &:hover {
+      .tooltip-text {
+        opacity: 1;
+      }
+    }
+    svg {
+      width: 25px;
+      height: 25px;
+      cursor: pointer;
+    }
+  }
+
+  &__login {
+    margin-top: 50px;
+    min-height: 48px;
+  }
+
+  &__login-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__nav {
+    padding-top: 10px;
+  }
+
+  &__nav,
+  &__login,
+  &__login-wrapper {
+    .nav-item {
+      border-radius: 4px;
+      display: flex;
+      cursor: pointer;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: 56px;
+      padding: 0 16px;
+      margin: 8px 0;
+      transition: 0.3s;
+      .nav-icon {
+        width: 26px;
+        height: 26px;
+        fill: $colorWhite;
+      }
+      .login-icon {
+        width: 32px;
+        height: 32px;
+      }
+      .nav-title,
+      .login-title {
+        color: $colorWhite;
+        margin-left: 8px;
+        display: none;
+      }
+    }
+    .nav-item_active {
+      background: $colorBlueMiddle;
+    }
+    .nav-item:hover {
+      background: rgba($color: $colorWhite, $alpha: 0.1);
+    }
+  }
+
+  &__login-btn {
+    font-weight: $fontBold;
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+}
+
+.sidebar-wrapper_open {
+  width: 230px;
+  .sidebar {
+    width: 230px;
+    height: 100vh;
+    background: rgba($color: $colorBlueDark, $alpha: 0.9);
+    .sidebar__toggle {
+      @media (max-width: 345px) {
+        left: 0;
+        right: auto;
+        background: rgba($color: $colorWhite, $alpha: 0.2);
+      }
+      transform: translateY(45px);
+      transform: rotateY(180deg);
+    }
+    .sidebar__toggle:hover {
+      background: rgba($color: $colorWhite, $alpha: 0.8);
+    }
+    .sidebar__logo {
+      padding: 40px 0;
+      margin-bottom: 0;
+    }
+    .sidebar__user-icon {
+      width: 76px;
+      height: 76px;
+    }
+    .sidebar__user-name {
+      display: inline;
+    }
+    .sidebar__info-icon {
+      display: block;
+    }
+    .sidebar__nav,
+    .sidebar__login {
+      .nav-item {
+        display: flex;
+        .nav-title {
+          margin-left: 10px;
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .sidebar-wrapper {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    background: rgba($color: $colorBlack, $alpha: 0.7);
+    .sidebar {
+      position: fixed;
+      right: -100%;
+      z-index: 100;
+      width: 320px;
+    }
+    .sidebar__toggle {
+      display: none;
+    }
+  }
+  .sidebar-wrapper_open {
+    right: 0;
+    z-index: 1;
+    opacity: 1;
+    .sidebar {
+      right: 0;
+      min-height: 100vh;
+      overflow: scroll;
+    }
+  }
+}
+
+.sidebar__info-icon .tooltip-text {
+  position: absolute;
+  top: 2rem;
+  right: -65px;
+  color: $colorGray;
+  width: 210px;
+  opacity: 0;
+  transition: 0.3s ease-in;
+  pointer-events: none;
+  z-index: 10;
+  font-size: 0.9rem;
+}

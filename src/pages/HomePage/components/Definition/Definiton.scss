@@ -1,0 +1,23 @@
+.definition {
+  background-color: $colorBlue;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  &__question {
+    color: $colorWhite;
+    background-color: $colorBlueDark;
+    padding: 20px;
+    border-radius: 30px;
+    margin-bottom: 30px;
+    font-size: 20px;
+    position: relative;
+  }
+  &__descr {
+    font-size: 18px;
+    padding: 30px;
+    background-color: $colorBg;
+    border-radius: 30px;
+    text-align: justify;
+    text-indent: 35px;
+    line-height: 35px;
+  }
+}

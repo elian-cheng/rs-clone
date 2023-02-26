@@ -1,0 +1,180 @@
+.popup__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease-in-out;
+  z-index: 15;
+}
+
+.popup__wrapper_active {
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.popup__content {
+  width: 30rem;
+  padding: 0.5rem;
+  transform: scale(0);
+  transition: 0.3s ease-in-out;
+}
+
+.popup__content_active {
+  transform: scale(1);
+}
+
+.wrapper {
+  position: relative;
+  max-width: 470px;
+  width: 100%;
+  border-radius: 12px;
+  margin: 0.5rem 0;
+  padding: 20px 30px 120px;
+  background: $colorBlueMiddle;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.popup__close-btn {
+  color: $colorWhite;
+  position: absolute;
+  font-size: 3rem;
+  top: 0;
+  left: 1rem;
+}
+
+.form.login {
+  position: absolute;
+  left: 50%;
+  bottom: -86%;
+  transform: translateX(-50%);
+  width: calc(100% + 220px);
+  padding: 20px 140px;
+  border-radius: 50%;
+  height: 100%;
+  background: $colorWhite;
+  transition: all 0.6s ease;
+}
+.wrapper.active .form.login {
+  bottom: -12%;
+  border-radius: 35%;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+}
+.form__header {
+  font-size: 30px;
+  text-align: center;
+  color: $colorWhite;
+  font-weight: 600;
+  cursor: pointer;
+}
+.form.login .form__header {
+  color: $colorGrayDark;
+  opacity: 0.6;
+}
+.wrapper.active .form.login .form__header {
+  opacity: 1;
+}
+.wrapper.active .signup .form__header {
+  opacity: 0.6;
+}
+.wrapper form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 40px;
+  @media (max-width: $mobileSmall) {
+    gap: 10px;
+  }
+}
+.form input {
+  width: 100%;
+  height: 60px;
+  outline: none;
+  border: none;
+  padding: 0 15px;
+  font-size: 18px;
+  font-weight: $fontSemibold;
+  color: $colorGrayDark;
+  border-radius: 8px;
+  background: $colorWhite;
+}
+.form.login input {
+  border: 1px solid $colorGray;
+}
+.form.login input:focus {
+  box-shadow: 0 1px 0 $colorGrayLight;
+}
+.form .checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.checkbox input[type='checkbox'] {
+  height: 16px;
+  width: 16px;
+  accent-color: $colorWhite;
+  cursor: pointer;
+}
+.form .checkbox label {
+  cursor: pointer;
+  color: $colorWhite;
+}
+.form a {
+  color: $colorGrayDark;
+  text-decoration: none;
+}
+.form a:hover {
+  text-decoration: underline;
+}
+.form input[type='submit'] {
+  margin-top: 15px;
+  padding: 0;
+  font-size: 1.5rem;
+  font-weight: $fontBold;
+  cursor: pointer;
+  &:hover {
+    background: $colorBlueLight;
+  }
+}
+
+.form.login input[type='submit'] {
+  background: $colorBlueMiddle;
+  color: $colorWhite;
+  border: none;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    background: $colorBlueDark;
+  }
+}
+
+.popup__error {
+  color: $colorOrange;
+}
+
+.popup__error.popup__error_white {
+  color: $colorWhite;
+}
+
+.form .checkbox label.form__checkbox-label_black {
+  color: $colorGrayDark;
+}
+
+.popup__alert {
+  position: fixed;
+  top: 250px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background: $colorGreen;
+  color: $colorWhite;
+  padding: 15px;
+  border-radius: 4px;
+}

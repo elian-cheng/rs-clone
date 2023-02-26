@@ -1,0 +1,14 @@
+.header {
+  user-select: none;
+  width: 100%;
+  padding: 1rem 0;
+  position: absolute;
+}
+
+.header__logo {
+  display: block;
+  background: url(../../assets/images/logo-tsacademy.png) no-repeat center;
+  background-size: contain;
+  height: 3rem;
+  width: 10rem;
+}

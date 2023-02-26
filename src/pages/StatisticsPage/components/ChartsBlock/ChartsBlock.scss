@@ -1,0 +1,34 @@
+.progress-bar {
+  &__header {
+    margin-bottom: 10px;
+  }
+  &__total {
+    height: 50px;
+    background-color: $colorBlueMiddle;
+    border-radius: 10px;
+  }
+  &__current {
+    height: 50px;
+    background-color: $colorYellow;
+    border-radius: 10px;
+  }
+  margin-bottom: 40px;
+}
+.statistic__charts {
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 20px;
+    &-item {
+      position: relative;
+    }
+  }
+  &-inner {
+    font-size: 2rem;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

@@ -1,0 +1,263 @@
+.quiz {
+  &__wrapper {
+    margin-top: 100px;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+  }
+
+  &__subtitle {
+    margin-bottom: 2rem;
+  }
+
+  &__description {
+    margin: 1rem auto 2rem;
+    width: 55%;
+    @media (max-width: $mobile) {
+      width: 80%;
+    }
+    @media (max-width: 550px) {
+      width: 100%;
+    }
+  }
+
+  &__description-item {
+    margin: 1rem;
+    text-align: left;
+    list-style: circle;
+    font-size: 1.2rem;
+  }
+
+  &__difficulty {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  &__difficulty-select {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  &__difficulty-button {
+    padding: 0.5rem 1.2rem;
+    width: max-content;
+    font-size: 1.3rem;
+    background-color: $colorYellow;
+    border: 1px solid $colorYellow;
+    border-radius: 20rem;
+    cursor: pointer;
+    transition: 300ms;
+    &:hover {
+      border-color: $colorOrange;
+      color: $colorBlueMiddle;
+    }
+  }
+
+  &__error {
+    margin-top: 30vh;
+    margin-bottom: 4rem;
+    @media (max-width: $mobile) {
+      margin-top: 7rem;
+    }
+  }
+
+  &__error-title {
+    margin-bottom: 1rem;
+  }
+
+  &__error-description {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__error-ations {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  &__error-button {
+    margin-right: 1rem;
+  }
+
+  &__game-top {
+    margin-bottom: 2rem;
+  }
+
+  &__game-subtitle {
+    margin-bottom: 2rem;
+  }
+
+  &__game-question {
+    width: 95%;
+    text-align: center;
+    font-size: 2.5rem;
+    color: $colorBlueDark;
+    @media (max-width: $mobile) {
+      width: 100%;
+      font-size: 1.8rem;
+    }
+    @media (max-width: $mobileSmall) {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__game-content {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+
+  &__game-answers {
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+    @media (max-width: $mobile) {
+      width: 100%;
+      order: 1;
+    }
+  }
+
+  &__game-answer {
+    padding: 0.5rem;
+    font-weight: $fontSemibold;
+    font-size: 1.3rem;
+    text-align: center;
+    width: 100%;
+    min-height: 60px;
+    border-radius: 10px;
+    background-color: $colorYellow;
+    border: 1px solid $colorYellow;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    &:hover {
+      border-color: $colorOrange;
+      color: $colorBlueMiddle;
+    }
+  }
+
+  &__game-explanation {
+    color: $colorWhite;
+    text-align: center;
+    width: 40%;
+    min-height: 285px;
+    background-color: #9b4821;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    @media (max-width: $mobile) {
+      width: 100%;
+      min-height: 120px;
+      order: 3;
+    }
+  }
+
+  &__game-info {
+    margin: auto 0;
+  }
+
+  &__game-action {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: $mobile) {
+      order: 2;
+    }
+  }
+
+  &__next-button {
+    text-align: center;
+    width: 50%;
+    @media (max-width: $mobile) {
+      width: 80%;
+    }
+  }
+}
+
+.progress-bar {
+  &__content {
+    margin: 2em;
+    display: flex;
+    justify-content: center;
+    transition: 500ms;
+    cursor: context-menu;
+    svg {
+      position: relative;
+      width: 250px;
+      height: 250px;
+    }
+    svg circle {
+      width: 100%;
+      height: 100%;
+      fill: none;
+      stroke: $colorBlue;
+      stroke-width: 11;
+      stroke-linecap: round;
+      transform: translate(5px, 5px);
+    }
+    svg circle:nth-child(2) {
+      stroke-dasharray: 750;
+      stroke-dashoffset: 750;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 50px $colorBlack;
+    background: $colorBlueDark;
+    color: $colorBlueLight;
+    z-index: 100;
+    &:hover {
+      color: $colorBg;
+      div {
+        font-size: 100px;
+        transform: translateY(-10px);
+      }
+    }
+  }
+
+  &__number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: 500ms;
+  }
+
+  &__title {
+    color: inherit;
+    font-weight: 700;
+    font-size: 80px;
+    transition: 0.5s;
+    span {
+      color: inherit;
+      font-size: 0.5em;
+    }
+  }
+}
