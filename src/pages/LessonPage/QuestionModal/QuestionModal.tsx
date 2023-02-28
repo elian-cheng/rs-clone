@@ -1,6 +1,8 @@
 import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getUserId } from '../../../API/authorization';
 import { getUserStatistics, setUserStatistics } from '../../../API/statistics';
+import storage from '../../../utils/storage';
 import { ILesson } from '../Theory/Theory';
 
 export default function QuestionModal({
@@ -18,8 +20,9 @@ export default function QuestionModal({
   const [answerStatus, setAnswerStatus] = useState(false);
 
   async function updateLessonStatistic() {
-    const userId = JSON.parse(localStorage.getItem('userData') as string).userId;
-    const statisticObj = await getUserStatistics(userId);
+    const user = storage.getItem('userData');
+    if (!user) return;
+    const statisticObj = await getUserStatistics(getUserId());
     const lessonsCompletedArr: string[] = statisticObj.data.lessons?.lessonsId
       ? JSON.parse(statisticObj.data.lessons?.lessonsId)
       : [];
@@ -34,7 +37,7 @@ export default function QuestionModal({
       statisticObj.data.lessons.learnedLessons = lessonsCompletedArr.length;
     }
     delete statisticObj.data.id;
-    setUserStatistics(userId, statisticObj.data);
+    setUserStatistics(getUserId(), statisticObj.data);
   }
 
   useEffect(() => {
