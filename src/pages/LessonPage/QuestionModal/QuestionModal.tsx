@@ -56,6 +56,9 @@ export default function QuestionModal({
   let nextLesson: ILesson | undefined;
   if (allLessons) {
     nextLesson = allLessons.find((item) => +item.id === urlId + 1);
+    if (!nextLesson) {
+      updateLessonStatistic();
+    }
   }
 
   return (
