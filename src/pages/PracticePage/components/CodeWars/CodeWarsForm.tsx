@@ -2,6 +2,8 @@ import { Dispatch, SetStateAction, useRef } from 'react';
 import { getUserStatistics, setUserStatistics } from '../../../../API/statistics';
 import { CodeWarsAPI, ICompletedTask } from '../../../../API/codeWarsApi';
 import { codeWarsTasks } from '../../../../utils/codeWarsTasks';
+import storage from '../../../../utils/storage';
+import { getUserId } from '../../../../API/authorization';
 
 export default function CodeWarsForm(props: {
   setLogin: Dispatch<SetStateAction<string>>;
@@ -12,8 +14,9 @@ export default function CodeWarsForm(props: {
   const loginInputRef = useRef<HTMLInputElement>(null);
 
   async function updatePracticeStatistic() {
-    const userId = JSON.parse(localStorage.getItem('userData') as string).userId;
-    const statisticObj = await getUserStatistics(userId);
+    const user = storage.getItem('userData');
+    if (!user) return;
+    const statisticObj = await getUserStatistics(getUserId());
     const userCompletedTasks = await new CodeWarsAPI().getUserCompletedTasks(
       localStorage.getItem('CodeWarsLogin') as string
     );
@@ -28,7 +31,7 @@ export default function CodeWarsForm(props: {
       statisticObj.data.katas.katasId = JSON.stringify(matchKatas);
       statisticObj.data.katas ? (statisticObj.data.katas.finishedKatas = matchKatas.length) : null;
       delete statisticObj.data.id;
-      setUserStatistics(userId, statisticObj.data);
+      setUserStatistics(getUserId(), statisticObj.data);
     }
   }
 
