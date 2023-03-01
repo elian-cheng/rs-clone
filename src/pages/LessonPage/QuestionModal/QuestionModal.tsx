@@ -2,6 +2,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getUserId } from '../../../API/authorization';
 import { getUserStatistics, setUserStatistics } from '../../../API/statistics';
+import { getLessons } from '../../../API/tasks';
 import storage from '../../../utils/storage';
 import { ILesson } from '../Theory/Theory';
 
@@ -18,6 +19,7 @@ export default function QuestionModal({
 }) {
   const [answer, setAnswer] = useState('');
   const [answerStatus, setAnswerStatus] = useState(false);
+  const [allLessons, setAllLessons] = useState<ILesson[] | undefined>(undefined);
 
   async function updateLessonStatistic() {
     const user = storage.getItem('userData');
@@ -46,6 +48,18 @@ export default function QuestionModal({
       updateLessonStatistic();
     }
   }, [answer]);
+
+  useEffect(() => {
+    getLessons().then((res: ILesson[]) => setAllLessons(res));
+  }, []);
+
+  let nextLesson: ILesson | undefined;
+  if (allLessons) {
+    nextLesson = allLessons.find((item) => +item.id === urlId + 1);
+    if (!nextLesson) {
+      updateLessonStatistic();
+    }
+  }
 
   return (
     <div className="lesson__question">
@@ -77,7 +91,7 @@ export default function QuestionModal({
                   onClick={() => setAnswer(item)}
                 >
                   <Link
-                    to={`/lessons/${urlId + 1}`}
+                    to={nextLesson ? `/lessons/${urlId + 1}` : `/practice`}
                     onClick={() => setLessonId(`${+lesson.id + 1}`)}
                   >
                     {item}
