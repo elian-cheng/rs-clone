@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://rs-clone-api.up.railway.app/';
+export const BASE_URL = 'https://ts-academy.up.railway.app/';
