@@ -57,3 +57,5 @@ export const Popup: React.FC<IPopup> = ({ active, setActive, popup, setPopup }) 
 };
 
 export default Popup;
+
+

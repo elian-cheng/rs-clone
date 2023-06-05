@@ -2,7 +2,7 @@
 
 Final group project at RS School (EPAM) for 3 people. Development time limit - 3 weeks.
 
-This app is a TypeScript educational platform, where users can read lessons, pass the tests and play games, practice with algorithmical tasks and track their progress with statistics. [Task description](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/rsclone/rsclone.md)
+This app is a TypeScript educational platform, where users can read lessons, pass the tests and play games, practice with algorithmic tasks and track their progress with statistics. [Task description](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/rsclone/rsclone.md)
 
 ## Deploy
 
@@ -36,8 +36,18 @@ https://github.com/elian-cheng/rs-clone/tree/server
 1. git clone https://github.com/elian-cheng/rs-clone.git
 2. cd rs-clone
 3. git checkout server
-4. npm i
-5. npm run start
+4. add all necessary variables to .env file
+5. npm i
+6. npm run start
+```
+
+### .env:
+
+```bash
+PORT=5000
+MONGO_CONNECTION_STRING=
+JWT_SECRET_KEY=
+JWT_REFRESH_SECRET_KEY=
 ```
 
 ### Server requests:
@@ -66,6 +76,6 @@ https://github.com/elian-cheng/rs-clone/tree/server
 - @hello-pangea/dnd (Drag and Drop)
 - SCSS
 - Node Express
-- Mongoose
+- MongoDB, Mongoose
 - JWT Authentication
 - Debounce
