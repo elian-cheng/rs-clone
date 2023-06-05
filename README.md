@@ -14,13 +14,11 @@ A backend part of [TS Academy RS-clone](https://github.com/elian-cheng/rs-clone)
 
 ### Initial setup:
 
-(For the testing purpose `.env` file is already in the folder)
-
 4. Create a file `.env` in the downloaded app folder
 5. Write the necessary variables in this file:
 
 ```
-PORT=<port to open app>
+PORT=<port to open the app>(5000)
 MONGO_CONNECTION_STRING=<your local or cloud mongodb address>
 JWT_SECRET_KEY=<your secret key for JWT sign>
 JWT_REFRESH_SECRET_KEY=<your secret key for JWT refresh sign>
@@ -54,4 +52,3 @@ JWT_REFRESH_SECRET_KEY=<your secret key for JWT refresh sign>
 - POST /signin - login user;
 - GET users/${userID}/statistics - get user's (ID) statistics;
 - PUT users/${userID}/statistics - send (save) user's (ID) statistics to the server;
-
