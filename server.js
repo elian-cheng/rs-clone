@@ -27,6 +27,8 @@ db.on("error", () => logger.error("MongoDB connection error:")).once("open", () 
   logger.info("GET /quiz - получить список тестов");
   logger.info("GET /quiz/${id} - получить тест по его ID");
   logger.info("GET /quiz?difficulty=${difficulty} - получить тесты по сложности ${difficulty}");
+  logger.info("GET /missing-type - получить список вопросов для игры Missing Type");
+  logger.info("GET /missing-type/${id} - получить вопрос для Missing Type по его ID");
   logger.info("GET /users/${id}/tokens - получить токен доступа пользователя");
   logger.info("POST /users - создать(зарегистрировать) пользователя");
   logger.info("POST /signin - залогинить пользователя");

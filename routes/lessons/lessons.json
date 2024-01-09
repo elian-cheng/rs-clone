@@ -51,9 +51,9 @@
       "You can use TypeScript with two tools: <code>tsc</code> and <code>ts-node</code>. The former compiles the code to JavaScript, while the latter executes the code directly.",
       "To install TypeScript, you need to install Node.js and npm.",
       "<code>tsc</code> installation:",
-      "<code>npm install -g typescript</code>",
+      "<code><pre>npm install -g typescript</pre></code>",
       "Installing <code>ts-node</code>:",
-      "<code>npm install -g ts-node</code>"
+      "<code><pre>npm install -g ts-node</pre></code>"
     ],
     "examples": [
       "example"
@@ -73,32 +73,19 @@
     "title": "Variables",
     "description": [
       "Variables and constants in TypeScript are defined in exactly the same way as in JavaScript:",
-      "<code>let age = 10;</code>",
-      "<code>let company = 'TS Academy';</code>",
-      "<code>let user = {</code>",
-      "<code>&nbsp;&nbsp;firstName: 'Miro',</code>",
-      "<code>};</code>",
-      "<code>let fruits = ['apple', 'banana'];</code>",
+      "<code><pre>let age = 10;\nlet company = 'TS Academy';\nlet user = {\n  firstName: 'Miro',\n};\nlet fruits = ['apple', 'banana'];</pre></code>",
       "Despite being identical on the outside, TypeScript does some extra work in the background. It automatically binds the variable (or constant) to the data type of the initial value. In programming, this process is called type inference.",
       "Variable type cannot be changed:",
-      "<code>let age = 10;</code>",
-      "<code>// Everything is fine, the type is the same (Number)</code>",
-      "<code>age = 11.1;</code>",
-      "<code>&nbsp; </code>",
-      "<code>// Type 'string' is not assignable to type 'number'.</code>",
-      "<code>age = 'some string'; // Error!</code>",
+      "<code><pre>let age = 10;\n// Everything is fine, the type is the same (Number)\nage = 11.1;\n\n// Type 'string' is not assignable to type 'number'.\nage = 'some string'; // Error!</pre></code>",
       "If we try to pass this variable to a method that expects a different type, this will also result in an error.",
       "Static typing imposes a restriction on arrays, only one type of data can be stored inside.",
       "With objects the situation is even stricter. In TypeScript, you can not only change the type of properties within an object, but also add new properties dynamically.",
       "<h2>Explicit type specification</h2>",
       "Technically, TypeScript allows you to explicitly specify the type of variables. But in practice, this rarely needs to be done manually, as type inference works automatically.",
-      "<code>let name: string = 'Alice';</code>",
-      "<code>const count: number = 100;</code>",
-      "<code>let canPlay: boolean = true;</code>",
+      "<code><pre>let name: string = 'Alice';\nconst count: number = 100;\nlet canPlay: boolean = true;</pre></code>",
       "<h2>Null</h2>",
       "By default in TypeScript, variables can only contain the specified type with no exceptions, for example we can't assign null:",
-      "<code>let age = 30;</code>",
-      "<code>age = null; // Error!</code>",
+      "<code><pre>let age = 30;\nage = null; // Error!</pre></code>",
       "This behavior protects us from a large number of errors related to the lack of checks for null."
     ],
     "examples": [
@@ -119,31 +106,19 @@
     "title": "Named Functions",
     "description": [
       "In the definition of variables, we usually do not specify the type of this variable, it is automatically inferred. With functions, this trick will not work, they require the mandatory specification of the types of all input parameters:",
-      "<code>function getGreetingPhrase(name: string) {</code>",
-      "<code>&nbsp;&nbsp;return `Hello, ${name.toUpperCase()}!`;</code>",
-      "<code>}</code>",
+      "<code><pre>function getGreetingPhrase(name: string) {\n  return `Hello, ${name.toUpperCase()}!`;\n}</pre></code>",
       "With this indication, the parameter will be required. Attempting to call a function without a parameter will result in a compilation error:",
-      "<code>// Expected 1 arguments, but got 0.</code>",
-      "<code>getGreetingPhrase();</code>",
+      "<code><pre>// Expected 1 arguments, but got 0.\ngetGreetingPhrase();</pre></code>",
       "<h2>Optional parameter</h2>",
       "To make a parameter optional, add a <code>?</code> after the variable name:",
-      "<code>function getGreetingPhrase(name?: string) {</code>",
-      "<code>&nbsp;&nbsp;return `Hello, ${name ? name.toUpperCase() : 'Guest'}!`;</code>",
-      "<code>}</code>",
-      "<code>getGreetingPhrase('Mike'); // Hello, Mike!</code>",
-      "<code>getGreetingPhrase(); // Hello, Guest!</code>",
+      "<code><pre>function getGreetingPhrase(name?: string) {\n  return `Hello, ${name ? name.toUpperCase() : 'Guest'}!`;\n}\n\ngetGreetingPhrase('Mike'); // Hello, Mike!\ngetGreetingPhrase(); // Hello, Guest!</pre></code>",
       "In this case, the type of the variable <code>name</code> becomes Union Type: <code>string | undefined</code>, which reads \"string or undefined\".",
       "<h2>Default value</h2>",
       "The situation is simpler with the default value. There is no need to specify anything else here, the value is set as in JavaScript. The variable itself is automatically made optional, and the type is inferred from the passed value",
-      "<code>function getGreetingPhrase(name = 'Guest') {</code>",
-      "<code>&nbsp;&nbsp;return `Hello, ${name.toUpperCase()}!`;</code>",
-      "<code>}</code>",
-      "<code>getGreetingPhrase() // Hello, GUEST!</code>",
+      "<code><pre>function getGreetingPhrase(name = 'Guest') {\n  return `Hello, ${name.toUpperCase()}!`;\n}\n\ngetGreetingPhrase() // Hello, GUEST!</pre></code>",
       "<h2>return type</h2>",
       "In many cases, TypeScript infers the return type itself, but you can specify it explicitly:",
-      "<code>function getGreetingPhrase(name: string): string {</code>",
-      "<code>&nbsp;&nbsp;return `Hello, ${name.toUpperCase()}!`;</code>",
-      "<code>}</code>",
+      "<code><pre>function getGreetingPhrase(name: string): string {\n  return `Hello, ${name.toUpperCase()}!`;\n}</pre></code>",
       "Although the return type can be inferred, we recommend that you always specify it. This simplifies documentation, protects the code from accidental changes."
     ],
     "examples": [
@@ -162,13 +137,10 @@
     "title": "Anonymous functions",
     "description": [
       "Unlike named functions, anonymous and arrow functions are almost always used in the same place where they are defined. This allows TypeScript to infer the types of their parameters. To define such functions, the type specification is omitted:",
-      "<code>const fruits = ['banana', 'mango', 'apple'];</code>",
-      "<code>const upperFruits = fruits.map((name) => name.toUpperCase());</code>",
-      "<code>// ['BANANA', 'MANGO', 'APPLE']</code>",
+      "<code><pre>const fruits = ['banana', 'mango', 'apple'];\nconst upperFruits = fruits.map((name) => name.toUpperCase());\n// ['BANANA', 'MANGO', 'APPLE']</pre></code>",
       "This process is called contextual typing because the context of a function definition allows you to infer the types of the input parameters. As a result, the code looks absolutely identical to the JavaScript code",
       "If a function is defined out of context, then the same rules apply to it as to named functions, that is, the parameter types must be specified at the time of definition.",
-      "<code>const toUpper = (name: string): string => name.toUpperCase();</code>",
-      "<code>const upperFruits = fruits.map(toUpper);</code>"
+      "<code><pre>const toUpper = (name: string): string => name.toUpperCase();\nconst upperFruits = fruits.map(toUpper);</pre></code>"
     ],
     "examples": [
       "examples"
@@ -187,19 +159,11 @@
     "title": "Arrays",
     "description": [
       "As with primitive data types, TypeScript can infer the type of an array.",
-      "<code>const fruits = ['banana', 'mango', 'apple'];</code>",
-      "<code>// Everything is working</code>",
-      "<code>const upperFruits = fruits.map((name) => name.toUpperCase());</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>// And it's no longere</code>",
-      "<code>// Property 'key' does not exist on type 'string'.</code>",
-      "<code>const upperFruits = fruits.map((name) => name.key);</code>",
+      "<code><pre>const fruits = ['banana', 'mango', 'apple'];\n// Everything is working\nconst upperFruits = fruits.map((name) => name.toUpperCase());\n\n// And it's no longere\n// Property 'key' does not exist on type 'string'.\nconst upperFruits = fruits.map((name) => name.key);</pre></code>",
       "However, an array is a composite data type that is a container for some other type. For example, an array of numbers is not the same as an array of strings. This type is denoted differently - using square brackets: <code>number[], string[]</code>. The array definition above could be written like this:",
-      "<code>const fruits: string[] = ['banana', 'mango', 'apple'];</code>",
+      "<code><pre>const fruits: string[] = ['banana', 'mango', 'apple'];</pre></code>",
       "Similarly, types are declared in function definitions:",
-      "<code>function toUpperArray(items: string[]): string[] {</code>",
-      "<code>&nbsp;&nbsp;return items.map((s) => s.toUpperCase());</code>",
-      "<code>}</code>"
+      "<code><pre>function toUpperArray(items: string[]): string[] {\n  return items.map((s) => s.toUpperCase());\n}</pre></code>"
     ],
     "examples": [
       "examples"
@@ -217,37 +181,15 @@
     "title": "Object Types",
     "description": [
       "The type of an object consists of the types of all its constituent properties. It is output automatically:",
-      "<code>// Type: { firstName: string; pointsCount: number; }</code>",
-      "<code>const user = {</code>",
-      "<code>&nbsp;&nbsp;firstName: 'Mike',</code>",
-      "<code>&nbsp;&nbsp;pointsCount: 1000,</code>",
-      "<code>};</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>// Property type cannot be changed.</code>",
-      "<code>// Type 'number' is not assignable to type 'string'.</code>",
-      "<code>user.firstName = 7;</code>",
+      "<code><pre>// Type: { firstName: string; pointsCount: number; }\nconst user = {\n  firstName: 'Mike',\n  pointsCount: 1000,\n};\n\n// Property type cannot be changed.\n// Type 'number' is not assignable to type 'string'.\nuser.firstName = 7;</pre></code>",
       "Unlike JavaScript, TypeScript does not allow you to access non-existent properties. This means that the structure of any object must be set when it is initialized.",
-      "<code>// Property 'age' does not exist on type '{ firstName: string; pointsCount: number; }'.</code>",
-      "<code>user.age = 100;</code>",
+      "<code><pre>// Property 'age' does not exist on type '{ firstName: string; pointsCount: number; }'.\nuser.age = 100;</pre></code>",
       "To accept such an object into a function as a parameter, you need to specify its structure in the function description:",
-      "<code>// Properties in the type declaration are separated by a semicolon (;)</code>",
-      "<code>function doSomething(user: { firstName: string; pointsCount: number; }) {</code>",
-      "<code>&nbsp;&nbsp;// ...</code>",
-      "<code>}</code>",
+      "<code><pre>// Properties in the type declaration are separated by a semicolon (;)\nfunction doSomething(user: { firstName: string; pointsCount: number; }) {\n  // ...\n}</pre></code>",
       "Now you can pass inside any object that matches in properties:",
-      "<code>doSomething({ firstName: 'Alice', pointsCount: 2000 });</code>",
-      "<code>doSomething({ firstName: 'Bob', pointsCount: 1800 });</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>// You can not do it this way</code>",
-      "<code>doSomething({ firstName: 'Bob' });</code>",
-      "<code>// And so too</code>",
-      "<code>doSomething({ firstName: 'Bob', pointsCount: 1800, key: 'another' });</code>",
+      "<code><pre>doSomething({ firstName: 'Alice', pointsCount: 2000 });\ndoSomething({ firstName: 'Bob', pointsCount: 1800 });\n\n// You can not do it this way\ndoSomething({ firstName: 'Bob' });\n// And so too\ndoSomething({ firstName: 'Bob', pointsCount: 1800, key: 'another' });</pre></code>",
       "As with primitive data types, neither null nor undefined are allowed by default. To change this behavior, you need to add an optional:",
-      "<code>// firstName can be undefined</code>",
-      "<code>// pointsCount can be null</code>",
-      "<code>function doSomething(user: { firstName?: string; pointsCount: number | null; }) {</code>",
-      "<code>&nbsp;&nbsp;// ...</code>",
-      "<code>}</code>"
+      "<code><pre>// firstName can be undefined\n// pointsCount can be null\nfunction doSomething(user: { firstName?: string; pointsCount: number | null; }) {\n  // ...\n}</pre></code>"
     ],
     "examples": [
       "examples"
@@ -266,32 +208,15 @@
     "description": [
       "TypeScript provides both numeric and string-based enums.",
       "An enumeration is a language construct that allows you to create a set of names, combined according to some convenient feature, and then refer to them. Enums replace using strings for constant values:",
-      "<code>enum OrderStatus {</code>",
-      "<code>&nbsp;&nbsp;Created,</code>",
-      "<code>&nbsp;&nbsp;Paid,</code>",
-      "<code>&nbsp;&nbsp;Shipped,</code>",
-      "<code>&nbsp;&nbsp;Delivered,</code>",
-      "<code>}</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>const order = {</code>",
-      "<code>&nbsp;&nbsp;items: 3,</code>",
-      "<code>&nbsp;&nbsp;status: OrderStatus.Created,</code>",
-      "<code>};</code>",
+      "<code><pre>enum OrderStatus {\n  Created,\n  Paid,\n  Shipped,\n  Delivered,\n}\n  \nconst order = {\n  items: 3,\n  status: OrderStatus.Created,\n};</pre></code>",
       "Storing different statuses is perhaps one of the most common use cases for enums, but there are others. With their help, it is easy and convenient to store and access various reference data:",
       "- Driving directions",
       "- cardinal directions",
       "- Days of the week",
       "- Months",
-      "<code>enum CardinalDirection {</code>",
-      "<code>&nbsp;&nbsp;North,</code>",
-      "<code>&nbsp;&nbsp;South,</code>",
-      "<code>&nbsp;&nbsp;East,</code>",
-      "<code>&nbsp;&nbsp;West,</code>",
-      "<code>}</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>const direction = CardinalDirection.North;</code>",
+      "<code><pre>enum CardinalDirection {\n  North,\n  South,\n  East,\n  West,\n}\n  \nconst direction = CardinalDirection.North;</pre></code>",
       "An enumeration itself is both a value and a type. It can be specified as a type in function parameters:",
-      "<code>setStatus(status: OrderStatus)</code>"
+      "<code><pre>setStatus(status: OrderStatus)</pre></code>"
     ],
     "examples": [
       "examples"
@@ -312,48 +237,23 @@
     "description": [
       "Imagine a program that has a user object that is used all over the place. In such a situation, the description of the type of this object will be repeated from time to time in each function definition. First, there is a lot of duplication here. Secondly, changing the structure is much more complicated, since you have to manually edit all the places where this definition occurs.",
       "To avoid situations like this, TypeScript allows you to specify a name (alias or alias) for such composite types to avoid repetition:",
-      "<code>type User = {</code>",
-      "<code>&nbsp;&nbsp;firstName: string;</code>",
-      "<code>&nbsp;&nbsp;pointsCount: number;</code>",
-      "<code>}</code>",
+      "<code><pre>type User = {\n  firstName: string;\n  pointsCount: number;\n}</pre></code>",
       "Now you can make a replacement in all functions:",
-      "<code>function doSomething(user: User) {</code>",
-      "<code>&nbsp;&nbsp;// ...</code>",
-      "<code>}</code>",
+      "<code><pre>function doSomething(user: User) {\n  // ...\n}</pre></code>",
       "An alias is not a creation of a new data type, but just a shorthand way to write a type definition. Therefore, the following examples will work without problems:",
-      "<code>const user = {</code>",
-      "<code>&nbsp;&nbsp;firstName: 'Mike',</code>",
-      "<code>&nbsp;&nbsp;pointsCount: 1000,</code>",
-      "<code>}</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>// Both calls work</code>",
-      "<code>doSomething(user);</code>",
-      "<code>doSomething({ firstName: 'Bob', pointsCount: 1800 });</code>",
+      "<code><pre>const user = {\n  firstName: 'Mike',\n  pointsCount: 1000,\n}\n\n\n// Both calls work\ndoSomething(user);\ndoSomething({ firstName: 'Bob', pointsCount: 1800 });</pre></code>",
       "Notwithstanding the above, TypeScript developers say \"created a type\", not \"created a type alias\" or \"created a type alias\". Therefore, in this course we will adhere to the generally accepted format.",
       "Types can be set for any data types, from simple ones:",
-      "<code>type SomeType = string;</code>",
+      "<code><pre>type SomeType = string;</pre></code>",
       "to components:",
-      "<code>// union type of three possible values</code>",
-      "<code>type SomeType = string | number | null;</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>// Function</code>",
-      "<code>type Countable = (coll: number[]) => number</code>",
+      "<code><pre>// union type of three possible values\ntype SomeType = string | number | null;\n\n\n// Function\ntype Countable = (coll: number[]) => number</pre></code>",
       "<h2>Objects and functions</h2>",
       "The description of the function type outside the object and inside is different. When a function is written on its own, the arrow function format is used:",
-      "<code>type Countable = (coll: number[]) => number</code>",
+      "<code><pre>type Countable = (coll: number[]) => number</pre></code>",
       "Inside the type that describes the object, the format changes to the same one used for normal properties:",
-      "<code>type User = {</code>",
-      "<code>&nbsp;&nbsp;firstName: string;</code>",
-      "<code>&nbsp;&nbsp;pointsCount: number;</code>",
-      "<code>&nbsp;&nbsp;count(coll: number[]): number;</code>",
-      "<code>}</code>",
+      "<code><pre>type User = {\n  firstName: string;\n  pointsCount: number;\n  count(coll: number[]): number;\n}</pre></code>",
       "But this does not apply to callbacks that can be used internally:",
-      "<code>type User = {</code>",
-      "<code>&nbsp;&nbsp;firstName: string;</code>",
-      "<code>&nbsp;&nbsp;pointsCount: number;</code>",
-      "<code>&nbsp;&nbsp;// Types taken as an example</code>",
-      "<code>&nbsp;&nbsp;count(coll: (v: string) => string): number;</code>",
-      "<code>}</code>"
+      "<code><pre>type User = {\n  firstName: string;\n  pointsCount: number;\n  // Types taken as an example\n  count(coll: (v: string) => string): number;\n}</pre></code>"
     ],
     "examples": [
       "examples"
@@ -373,45 +273,18 @@
     "title": "Any type",
     "description": [
       "A special type has been added to TypeScript any, which is used where type checking is not needed, or when TypeScript cannot infer the data type automatically.",
-      "<code>// In this case, the type will be any[]</code>",
-      "<code>// since TypeScript can't infer the content type</code>",
-      "<code>// because it doesn't exist yet</code>",
-      "<code>const items = [];</code>",
-      "<code>// You can add anything</code>",
-      "<code>items.push(1);</code>",
-      "<code>items.push('TS Academy');</code>",
+      "<code><pre>// In this case, the type will be any[]\n// since TypeScript can't infer the content type\n// because it doesn't exist yet\nconst items = [];\n// You can add anything\nitems.push(1);\nitems.push('TS Academy');</pre></code>",
       "Using it <code>any</code> turns TypeScript into JavaScript, as data with this type is no longer validated.",
-      "<code>// The error occurs while the code is running</code>",
-      "<code>const value: any = 5;</code>",
-      "<code>value.toString(); // ok</code>",
-      "<code>value(); // ok</code>",
-      "<code>value.trim(); // ok</code>",
-      "<code>value = 'wow'; // ok</code>",
+      "<code><pre>// The error occurs while the code is running\nconst value: any = 5;\nvalue.toString(); // ok\nvalue(); // ok\nvalue.trim(); // ok\nvalue = 'wow'; // ok</pre></code>",
       "<code>any</code> useful, for example, when translating a project from JavaScript to TypeScript, when all types are first declared as <code>any</code>, and then gradually rewritten to the required ones.",
       "In addition, it is needed to work with JavaScript libraries (which do not have declared types) from TypeScript code. In other cases <code>any</code>, it should be avoided, as the whole point of using the TypeScript language is lost.",
       "<h2>From JavaScript to TypeScript</h2>",
       "Take for example the code that counts the number of words in a sentence:",
-      "<code>const sentence = 'table cat table dog dog apple table';</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>const words = sentence.split(' ');</code>",
-      "<code>const initial = {};</code>",
-      "<code>const result = words.reduce((acc, word) => {</code>",
-      "<code>&nbsp;&nbsp;acc[word] = Object.hasOwn(acc, word) ? acc[word] + 1 : 1;</code>",
-      "<code>&nbsp;&nbsp;return acc;</code>",
-      "<code>}, initial);</code>",
-      "<code>// { table: 3, cat: 1, dog: 2, apple: 1 }</code>",
+      "<code><pre>const sentence = 'table cat table dog dog apple table';\n\nconst words = sentence.split(' ');\nconst initial = {};\nconst result = words.reduce((acc, word) => {\n  acc[word] = Object.hasOwn(acc, word) ? acc[word] + 1 : 1;\n  return acc;\n}, initial);\n// { table: 3, cat: 1, dog: 2, apple: 1 }</pre></code>",
       "The TypeScript compiler will not pass such code, it will indicate that the object in the constant <code>initial</code> does not contain keys with a string type.",
-      "<code>No index signature with a parameter of type 'string' was found on type '{}'.</code>",
-      "<code>4 acc[word] = Object.hasOwn(acc, word) ? acc[word] + 1 : 1;</code>",
+      "<code><pre>No index signature with a parameter of type 'string' was found on type '{}'.\n4 acc[word] = Object.hasOwn(acc, word) ? acc[word] + 1 : 1;</pre></code>",
       "Why is this happening? The structure of an object determines its type at the time of definition, and the structure cannot be changed during operation. In the code above, initially the object is generally empty, and as it works, it is dynamically filled with keys. We will learn how to set the correct type in a situation with dynamic keys later, but for now we will make the code work using <code>any</code>. To do this, we need to define an object with an explicit type specification:",
-      "<code>const sentence = 'table cat table dog dog apple table';</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>const words = sentence.split(' ');</code>",
-      "<code>const initial: any = {}; // Specified type as any</code>",
-      "<code>const result = words.reduce((acc, word) => {</code>",
-      "<code>&nbsp;&nbsp;acc[word] = Object.hasOwn(acc, word) ? acc[word] + 1 : 1;</code>",
-      "<code>&nbsp;&nbsp;return acc;</code>",
-      "<code>}, initial);</code>",
+      "<code><pre>const sentence = 'table cat table dog dog apple table';\n\nconst words = sentence.split(' ');\nconst initial: any = {}; // Specified type as any\nconst result = words.reduce((acc, word) => {\n  acc[word] = Object.hasOwn(acc, word) ? acc[word] + 1 : 1;\n  return acc;\n}, initial);</pre></code>",
       "TypeScript no longer shows a compilation error, which, on the one hand, is good, on the other hand, the validation of actions on this object itself is disabled. If you later access a non-existent property on that object, TypeScript will not indicate an error."
     ],
     "examples": [
@@ -432,28 +305,12 @@
     "title": "System of modules",
     "description": [
       "The TypeScript module system was created before the standardization of ESM modules. By default, it is compatible with Node.js modules, uses the same algorithm for defining imports and exports, while syntactically very similar to ESM, where we use the <code>import</code> / <code>export</code> keywords to import to and export from the current module, while still using CommonJS modules.",
-      "<code>// @file helloWorld.ts</code>",
-      "<code>export default function helloWorld() {</code>",
-      "<code>&nbsp;&nbsp;console.log(\"Hello, world!\");</code>",
-      "<code>}</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>// @file main.ts</code>",
-      "<code>import helloWorld from './helloWorld';</code>",
+      "<code><pre>// @file helloWorld.ts\nexport default function helloWorld() {\n  console.log(\"Hello, world!\");\n}\n\n// @file main.ts\nimport helloWorld from './helloWorld';</pre></code>",
       "As in the ESM standard, named export/import and import of everything exported via <code>import * as smth from './somewhere</code>.",
       "Some packages provide only types, for such cases there is a special syntax that will allow you to import and export types separately:",
-      "<code>// @file user.types.ts</code>",
-      "<code>export type User = { name: string };</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>// @file main.ts</code>",
-      "<code>import type { User } from './user.types';</code>",
+      "<code><pre>// @file user.types.ts\nexport type User = { name: string };\n\n// @file main.ts\nimport type { User } from './user.types';</pre></code>",
       "If modules solve the problem of heterogeneous entities and collisions by spreading the code across several files, then the mechanism <code>namespace</code> allows you to stay within the same file:",
-      "<code>namespace Hello {</code>",
-      "<code>&nbsp;&nbsp;export function helloWorld() {</code>",
-      "<code>&nbsp;&nbsp;&nbsp;&nbsp;console.log(\"Hello, world!\");</code>",
-      "<code>&nbsp;&nbsp;}</code>",
-      "<code>}</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>const helloWorld = Hello.helloWorld();</code>",
+      "<code><pre>namespace Hello {\n  export function helloWorld() {\n    console.log(\"Hello, world!\");\n  }\n}\n\nconst helloWorld = Hello.helloWorld();</pre></code>",
       "This mechanism is most useful to authors of libraries and wrappers with types, they wrap all interfaces into one <code>namespace</code>, which makes it easier for users to merge interfaces (the topic of one of the following lessons in the course), and also ensures that there are no name collisions."
     ],
     "examples": [
@@ -474,40 +331,17 @@
     "title": "Functions as parameters",
     "description": [
       "TypeScript uses several ways to type functions that are passed as parameters. The simplest is to use the <code>Function</code>. It describes a JavaScript function with all its features including the <code>bind</code>, <code>call</code> and <code>apply</code>.",
-      "<code>function process(callback: Function) {</code>",
-      "<code>&nbsp;&nbsp;const value = callback();</code>",
-      "<code>&nbsp;&nbsp;// ...</code>",
-      "<code>}</code>",
+      "<code><pre>function process(callback: Function) {\n  const value = callback();\n  // ...\n}</pre></code>",
       "Although simple and convenient, <code>Function</code> it disables type checking for the called function. The number and type of input arguments are not checked in any way, and the result of such a function will be <code>any</code>. In general, <code>Function</code> it should be avoided.",
-      "<code>// It will work even though it shouldn't.</code>",
-      "<code>// Inside Math.round will be called without arguments</code>",
-      "<code>process(Math.round);</code>",
+      "<code><pre>// It will work even though it shouldn't.\n// Inside Math.round will be called without arguments\nprocess(Math.round);</pre></code>",
       "Another way to describe functions is to use an arrow function with input and output types.",
-      "<code>function process(callback: () => string) {</code>",
-      "<code>&nbsp;&nbsp;// value is of type string</code>",
-      "<code>&nbsp;&nbsp;const value = callback();</code>",
-      "<code>&nbsp;&nbsp;// ...</code>",
-      "<code>}</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>process(Math.round);</code>",
-      "<code>// Argument of type '(x: number) => number' is not</code>",
-      "<code>// assignable to parameter of type '() => string'.</code>",
+      "<code><pre>function process(callback: () => string) {\n  // value is of type string\n  const value = callback();\n  // ...\n}\n\nprocess(Math.round);\n// Argument of type '(x: number) => number' is not\n// assignable to parameter of type '() => string'.</pre></code>",
       "The definition of an arrow function is similar to the real one, but here it is important not to confuse. Here we see exactly the description of the type, and not the definition of the function. A few more examples to reinforce:",
-      "<code>function process(callback: () => number)</code>",
-      "<code>function process(callback: () => string[])</code>",
-      "<code>function process(callback: () => { firstName: string; })</code>",
+      "<code><pre>function process(callback: () => number)\nfunction process(callback: () => string[])\nfunction process(callback: () => { firstName: string; })</pre></code>",
       "Example with parameters:",
-      "<code>function process(callback: (n: number) => string) {</code>",
-      "<code>&nbsp;&nbsp;const value = callback(10);</code>",
-      "<code>&nbsp;&nbsp;// ...</code>",
-      "<code>}</code>",
+      "<code><pre>function process(callback: (n: number) => string) {\n  const value = callback(10);\n  // ...\n}</pre></code>",
       "If a function definition occurs frequently, then you can create an alias for it:",
-      "<code>type myFunction = (n: number) => string;</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>function process(callback: myFunction) {</code>",
-      "<code>&nbsp;&nbsp;const value = callback(10);</code>",
-      "<code>&nbsp;&nbsp;// ...</code>",
-      "<code>}</code>"
+      "<code><pre>type myFunction = (n: number) => string;\n\nfunction process(callback: myFunction) {\n  const value = callback(10);\n  // ...\n}</pre></code>"
     ],
     "examples": [
       "examples"
@@ -525,19 +359,10 @@
     "title": "Optional parameters in functions",
     "description": [
       "Optional parameters in functions are specified with a question mark after the variable name, before a colon:",
-      "<code>function split(str: string, separator?: string)</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>split('TS Academy');</code>",
-      "<code>split('TS Academy,TS Academy North', ',');</code>",
+      "<code><pre>function split(str: string, separator?: string)\n\nsplit('TS Academy');\nsplit('TS Academy,TS Academy North', ',');</pre></code>",
       "In this case, the real type of the variable <code>separator</code> will be <code>string | undefined</code> ( <code>string</code> or <code>undefined</code>).",
       "Another option to set an optional parameter is to assign a default value:",
-      "<code>// There is no longer a question mark as there is a default value</code>",
-      "<code>function split(str: string, separator: string = ',') {</code>",
-      "<code>&nbsp;&nbsp;// ...</code>",
-      "<code>}</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>split('TS Academy');</code>",
-      "<code>split('TS Academy,TS Academy North', ',');</code>"
+      "<code><pre>// There is no longer a question mark as there is a default value\nfunction split(str: string, separator: string = ',') {\n  // ...\n}\n\nsplit('TS Academy');\nsplit('TS Academy,TS Academy North', ',');</pre></code>"
     ],
     "examples": [
       "examples"
@@ -557,36 +382,18 @@
     "title": "Void type",
     "description": [
       "<code>void</code> specified as a return for functions that return nothing. It is automatically displayed when there is no instruction inside the function <code>return</code> or it is empty:",
-      "<code>function noop() {</code>",
-      "<code>&nbsp;&nbsp;// empty inside</code>",
-      "<code>}</code>",
+      "<code><pre>function noop() {\n  // empty inside\n}</pre></code>",
       "In JavaScript, similar functions return <code>undefined</code>, but in TypeScript <code>void</code> they <code>undefined</code> are two different things. The difference is manifested in contextual typing and appeared based on the features of the work of JavaScript itself. The most striking example is the <code>forEach()</code>.",
       "The principle of the method <code>forEach()</code> implies that it does not use the data returned by the passed callback, which is called internally. It seems like it would be logical to define the return as <code>undefined</code>, but look at the example:",
-      "<code>const numbers = [1, 2, 3];</code>",
-      "<code>const result = [];</code>",
-      "<code>numbers.forEach((n) => result.push(n));</code>",
+      "<code><pre>const numbers = [1, 2, 3];\nconst result = [];\nnumbers.forEach((n) => result.push(n));</pre></code>",
       "The method <code>push()</code> returns the index of the added element. If we were to <code>forEach()</code> require the callback to return <code>undefined</code>, then such code would lead to a compilation error. It would have to be rewritten, for example, like this:",
-      "<code>// Now the callback doesn't return anything.</code>",
-      "<code>// respectively, the result of the call is undefined</code>",
-      "<code>numbers.forEach((n) => {</code>",
-      "<code>&nbsp;&nbsp;result.push(n);</code>",
-      "<code>});</code>",
+      "<code><pre>// Now the callback doesn't return anything.\n// respectively, the result of the call is undefined\nnumbers.forEach((n) => {\n  result.push(n);\n});</pre></code>",
       "In order not to create such a code <code>void</code>, <code>void</code> allows you to return any data, but makes it so that their use is meaningless.",
-      "<code>type VoidFunc = () => void;</code>",
-      "<code>// The type of a function is determined through the context</code>",
-      "<code>// assigning it to a variable of type VoidFunc</code>",
-      "<code>const f: VoidFunc = () => true;</code>",
-      "<code>const v = f();</code>",
+      "<code><pre>type VoidFunc = () => void;\n// The type of a function is determined through the context\n// assigning it to a variable of type VoidFunc\nconst f: VoidFunc = () => true;\nconst v = f();</pre></code>",
       "The only situation where a declaration <code>void</code> explicitly forbids returning from a function is when defining a function outside the context of use, when its type is explicitly specified:",
-      "<code>function foo(): void {</code>",
-      "<code>&nbsp;&nbsp;return true; // Error!</code>",
-      "<code>}</code>",
-      "<code>const bar = function(): void {</code>",
-      "<code>&nbsp;&nbsp;return true; // Error!</code>",
-      "<code>};</code>",
+      "<code><pre>function foo(): void {\n  return true; // Error!\n}\nconst bar = function(): void {\n  return true; // Error!\n};</pre></code>",
       "It's also worth keeping in mind that it's <code>void</code> also a JavaScript operator and don't get confused with it. It evaluates the expression that follows it and returns <code>undefined</code>:",
-      "<code>typescript</code>",
-      "<code>void 10 === undefined // true</code>"
+      "<code><pre>typescript\nvoid 10 === undefined // true</pre></code>"
     ],
     "examples": [
       "examples"
@@ -606,26 +413,16 @@
     "title": "Type never (return from function)",
     "description": [
       "The type <code>never</code> is used when the function is guaranteed to return nothing. For example, if there is an infinite loop inside the function:",
-      "<code>function infiniteLoop(): never {</code>",
-      "<code>&nbsp;&nbsp;while (true) {</code>",
-      "<code>&nbsp;&nbsp;&nbsp;&nbsp;// Some logic</code>",
-      "<code>&nbsp;&nbsp;}</code>",
-      "<code>}</code>",
+      "<code><pre>function infiniteLoop(): never {\n  while (true) {\n    // Some logic\n  }\n}</pre></code>",
       "Or if the function throws an exception:",
-      "<code>function stop(message: string): never {</code>",
-      "<code>&nbsp;&nbsp;</code>",
-      "<code>}</code>",
+      "<code><pre>function stop(message: string): never {\n  throw new Error(message);\n}</pre></code>",
       "Or, when the function terminates the program:",
-      "<code>// A function returning 'never' cannot have a reachable end point.</code>",
-      "<code>function printSomething(): never {</code>",
-      "<code>&nbsp;&nbsp;console.log('TS Academy');</code>",
-      "<code>}</code>",
+      "<code><pre>function exit(code: number = 0): never {\n  process.exit(code);\n}</pre></code>",
+      "An important condition for <code>never</code> is the absence of normal termination of the function. For example, in the example below, the compiler will generate an error:",
+      "<code><pre>// A function returning 'never' cannot have a reachable end point.\nfunction printSomething(): never {\n  console.log('TS Academy');\n}</pre></code>",
       "The function <code>printSomething()</code> doesn't explicitly return anything, but because it completes in principle, JavaScript substitutes an implicit return <code>undefined</code>.",
       "<code>never</code> is automatically output even where an explicit return is written, but the compiler \"sees\" that this return is impossible:",
-      "<code>function fail() { // Automatically displayed never</code>",
-      "<code>&nbsp;&nbsp;// the exit function defined above has a return type of never</code>",
-      "<code>&nbsp;&nbsp;return exit(1);</code>",
-      "<code>}</code>"
+      "<code><pre>function fail() { // Automatically displayed never\n  // the exit function defined above has a return type of never\n  return exit(1);\n}</pre></code>"
     ],
     "examples": [
       "examples"
@@ -646,23 +443,16 @@
     "description": [
       "Using a type <code>any</code> in TypeScript is not desirable. In the most strict mode (it is configurable), use <code>any</code> is not possible, which significantly increases the type safety of the code. On the other hand, there are quite a few situations where the type is unknown, but it must be type-safe to work with. To do this, TypeScript has an addition to <code>any</code> it called <code>unknown</code>.",
       "The main difference <code>unknown</code> from <code>any</code> has to do with type checking. <code>unknown</code> prohibits any operations:",
-      "<code>let value: unknown = 'ts-academy';</code>",
-      "<code>value.toUpperCase(); // Error!</code>",
-      "<code>value.trim(); // Error!</code>",
+      "<code><pre>let value: unknown = 'ts-academy';\nvalue.toUpperCase(); // Error!\nvalue.trim(); // Error!</pre></code>",
       "<i>It may seem strange that we have a string in front of us, but string operations cannot be performed on it. You have to get used to it. The type in statically typed languages ​​is determined not by what we see with our own eyes, but by how the type is inferred (automatically or through an explicit indication)</i>",
       "The example above does not make sense in practice, but everything changes when we have to create a function that can work with any input type. In JavaScript, this practice is quite common:",
-      "<code>// Example from lodash</code>",
-      "<code>_.isError(new Error); // true</code>",
-      "<code>_.isError(Error); // false</code>",
-      "<code>_.isError('code-basics'); // false</code>",
+      "<code><pre>// Example from lodash\n_.isError(new Error); // true\n_.isError(Error); // false\n_.isError('code-basics'); // false</pre></code>",
       "A similar function can be implemented using <code>any</code>, but then you have to be very careful inside and rely only on yourself.",
-      "<code>function isError(value: any)</code>",
+      "<code><pre>function isError(value: any)</pre></code>",
       "It's better to use <code>unknown</code>, then TypeScript will protect against potential type errors:",
-      "<code>function isError(value: unknown)</code>",
+      "<code><pre>function isError(value: unknown)</pre></code>",
       "Then, already inside the body, you can perform the necessary check to find out what we are dealing with:",
-      "<code>function isError(value: unknown): boolean {</code>",
-      "<code>&nbsp;&nbsp;return value instanceof Error;</code>",
-      "<code>}</code>"
+      "<code><pre>function isError(value: unknown): boolean {\n  return value instanceof Error;\n}</pre></code>"
     ],
     "examples": [
       "examples"
@@ -681,462 +471,866 @@
     "id": "18",
     "title": "Destructuring",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Destructuring in function definitions is the mechanism by which an object passed as an argument is unpacked and parts of it are assigned to the function's local variables. In JavaScript it looks like this:",
+      "<pre><code>// Usual definition\nconst f = (user) => {\n  console.log(user.firstName, user.age);\n};\n\n// Destructured object\nconst f = ({ firstName, age }) => {\n  console.log(firstName, age);\n};\n\nconst user = { firstName: 'Smith', age: 30 };\nf(user);</code></pre>",
+      "Despite the visual similarity to function parameters, a destructured object is still an object, so in TypeScript its type declaration comes after the closing curly brace:",
+      "<pre><code>// Usual definition\nfunction f(user: { firstName: string, age: number }) {\n  console.log(user.firstName, user.age);\n}\n\n// Destructured object\nfunction f({ firstName, age }: { firstName: string, age: number }) {\n  console.log(firstName, age);\n}</code></pre>",
+      "You can make the code less verbose by moving the type definition to an alias:",
+      "<pre><code>type User = {\n  firstName: string;\n  age: number;\n}\n\nfunction foo({ firstName, age }: User) {\n  console.log(firstName, age);\n}</code></pre>",
+      "The same applies to arrays:",
+      "<pre><code>// Usual definition\nfunction foo(point: number[]) {\n  console.log(point);\n}\n\n// Destructured array\nfunction foo([x, y]: number[]) {\n  console.log(x, y);\n}\n\ntype Point = number[];\n\n// With an alias\nfunction foo([x, y]: Point) {\n  console.log(x, y);\n}</code></pre>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is destructuring in function definitions?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "A mechanism by which an object passed as an argument is unpacked and parts of it are assigned to the function's local variables.",
+      "A mechanism for turning an object into an array without additional manipulations inside the function.",
+      "A mechanism for casting iterable data types to an array.",
+      "A mechanism that allows you to decompose a string parameter into a set of character parameters."
     ],
-    "answer": "a) A option",
+    "answer": "A mechanism by which an object passed as an argument is unpacked and parts of it are assigned to the function's local variables.",
     "theme": "Function typing"
   },
   {
     "id": "19",
     "title": "Rest and Spread",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "The rest operator allows you to create functions with a variable number of parameters by folding them into an array.",
+      "<code><pre>function max(...numbers: number[]): number {\n  return Math.max(...numbers);\n}</pre></code>",
+      "This array is a normal function parameter, so it is typed according to what values ​​are expected inside this array. Example with two parameters:",
+      "<code><pre>function do(operation: string, ...numbers: number[]) {\n  // perform the operation operation for all numbers\n}</pre></code>",
+      "In this sense, a rest statement in TypeScript is no different from a rest statement in JavaScript. But with the spread operator there is one feature.",
+      "The spread operator in functions is like a rest operator in reverse. It allows you to decompose an array into separate parameters:",
+      "<code><pre>const numbers = [1, 2, 3];\nMath.max(...numbers);</pre></code>",
+      "If the function takes any number of arguments as input, as in the example above, then such code works without problems, but if the function takes a certain number of arguments as input, then TypeScript will generate a compilation error:",
+      "<code><pre>function sum(a: number, b: number): number {\n  return a + b;\n}\n\n// Inferred type number[] - \"ноль или больше чисел\"\n// not \"an array of two numbers\"\nconst args = [1, 2];\nsum(...args);\n// A spread argument must either have a tuple type\n// or be passed to a rest parameter.</pre></code>",
+      "Arrays in JavaScript are mutable, so TypeScript can't rely on the number of elements at any given time, even though from a human point of view, everything is obvious in the code above.",
+      "There are various ways to get around this limitation, but in this case, the easiest way is to use Type Assertion. This is an indication to the compiler of what we know for sure about the code.",
+      "<code><pre>const args = [1, 2] as const;</pre></code>",
+      "So we explicitly indicate that this array of two specific values that will not change. Learn more about Type Assertion in the Types module."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is the difference between rest and spread operators in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "Rest and spread operators are identical in TypeScript.",
+      "The rest operator is used for object literals, while the spread operator is used for arrays.",
+      "The spread operator is used for object literals, while the rest operator is used for arrays.",
+      "The rest operator is used to gather remaining arguments into an array, while the spread operator is used to spread an array into individual elements."
     ],
-    "answer": "a) A option",
+    "answer": "The rest operator is used to gather remaining arguments into an array, while the spread operator is used to spread an array into individual elements.",
     "theme": "Function typing"
   },
   {
     "id": "20",
     "title": "Function Overloads",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Function overloading is the ability to define multiple versions of a single function, each taking its own set of parameters. Let's look at an example:",
+      "<code><pre>function concat(a: number, b: number): string;\nfunction concat(a: string, b: string): string;\n\nfunction concat(a: unknown, b: unknown): string {\n  if (typeof a === 'number' && typeof b === 'number') {\n    return `${a.toFixed()}${b.toFixed()}`;\n  }\n\n  return `${a}${b}`;\n}\n\nconcat('one', 'two'); // onetwo\nconcat(3, 5.34); // 35\nconcat(1.33, 10); // 110</pre></code>",
+      "One function is defined here concat(), which has two versions, one takes two numbers as input, the other two strings. Both versions perform concatenation, but they do it differently. Strings are concatenated immediately, but for numbers, the fractional part is discarded first.",
+      "The implementation of the behavior for both versions is done in a third function with the same name, but with a parameter description that fits each version of the function. In the example above, the parameter types are defined as unknown, which makes it possible to call the function with both strings and numbers.",
+      "All logic for all versions of functions is described in this last definition. Which branch to go on is done using type checking. In the example above, it is enough to check the type of only the first parameter, since the second one in this case will definitely be a string. This is provided by the type system and the compiler.",
+      "It is not necessary to use a function declaration to reload, the same can be done using an arrow function:",
+      "<code><pre>const concat: {\n  (a: number, b: number): string;\n  (a: string, b: string): string;\n} = (a: unknown, b: unknown) => {\n  if (typeof a === 'number' && typeof b === 'number') {\n    return `${a.toFixed()}${b.toFixed()}`;\n  }\n\n  return `${a}${b}`;\n}\n\n// using aliases\ntype Overloaded = {\n  (a: number, b: number): string;\n  (a: string, b: string): string;\n}\n\nconst concat: Overloaded = (a: unknown, b: unknown) {...}</pre></code>",
+      "Function overloading is not limited to two versions. There can be any number of versions, the main thing is that at the end a function is always described, which is common in terms of parameters for all options and inside which all the logic for each option is described.",
+      "<code><pre>function add(a: number, b: number, c: number): number;\nfunction add(a: number, b: number): number;\nfunction add(a: string, b: string): string;\n\n// The signature matches all the examples above\nfunction add(a: unknown, b: unknown, c?: number): unknown {\n  // that's all the logic\n  if (c === undefined) {\n    // ...\n  }\n}</pre></code>",
+      "In static languages, function overloading is used quite often, but it is not arranged there like in TypeScript. In these languages, in reality, several different functions are created, which from the programmer's point of view have the same name. So there is no need for a generic function. The logic of each option is described inside, which saves the code from having to implement conditional logic.",
+      "The question arises, why does TypeScript have such an implementation and what problems does it solve? This, like a lot of things in TypeScript, is an attempt to take into account all the possible ways of writing JavaScript code and cover them with types to write type-safe code. In JavaScript, it is not uncommon to create functions that accept completely different types of data in different variations as input. Function overloading allows you to describe similar functions in TypeScript, otherwise you would have to use anyand maintain types yourself.",
+      "<i>Technically, after translation in JavaScript, exactly one function remains, just the one that contains the body</i>",
+      "Function overloading in TypeScript is a mechanism that should only be used when there is no other choice. In most cases, unions or generics are used instead of overloading, which we'll talk about later. Overloading is needed when there is a dependency between the parameters, for example, if both parameters are strings, or both parameters are numbers."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are function overloads in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "Multiple functions with the same name but different parameters",
+      "Functions that return different types based on the input parameters",
+      "Functions that can be called with any number of arguments",
+      "Functions that can be called with any type of argument"
     ],
-    "answer": "a) A option",
+    "answer": "Multiple functions with the same name but different parameters",
     "theme": "Function typing"
   },
   {
     "id": "21",
     "title": "Narrowing",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "In JavaScript, it is common to see code in which the same variables, including function variables, can contain values of different types. Their processing is based on logical checks using <code>typeof</code>other similar mechanisms. Below is an example implementation of a function that converts any passed value to a boolean, taking into account web specifics, where empty strings, objects and arrays are considered <code>false</code>:",
+      "<code><pre>function isPresence(value: unknown): boolean {\n  if (value === null || value === undefined) {\n    return false;\n  }\n  // empty line\n  if (typeof value === 'string') {\n    if (value === '') {\n      return false;\n    }\n  }\n  // empty array\n  if (Array.isArray(value)) {\n    if (value.length === 0) {\n      return false;\n    }\n  }\n  // empty object\n  if (value instanceof Object) {\n    if (Object.keys(value).length === 0) {\n      return false;\n    }\n  }\n\n  return true;\n}\n\nisPresence(''); // false\nisPresence({}); // false\nisPresence([]); // false\nisPresence([1, 3]); // true\nisPresence(10); // true</pre></code>",
+      "There is something unusual in this code. The parameter is of type <code>unknown</code>, but internally TypeScript allows you to perform different actions with this parameter, depending on the specified conditions. The unusual thing is that type checking is performed statically, before the code is run, and the conditions inside the function are part of the code that is executed at runtime, that is, during program startup. That is, such code should have ended with an error, but this does not happen.",
+      "The secret here is that the TypeScript system does a lot more than meets the eye. Since such code is very common in JavaScript, the TypeScript type system had to be modified so that it was possible to write such code. In this case, it turns out that TypeScript is able to execute part of the conditional constructs statically, like a type compatibility check, without running the code. Then, already inside the block with the condition, the compiler considers that the value type matches what was in the check itself. This process is called Type Narrowing in TypeScript.",
+      "Narrowing works for more than just <code>unknown</code>. This is a generic mechanism that works with all possible types, such as Union Types:",
+      "<code><pre>function foo(value: number | string) {\n  if (typeof value === 'number') {\n    // Working like numbers\n  }\n  if (typeof value === 'string') {\n    // Working like a string\n  }\n}</pre></code>",
+      "Narrowing supports <code>switch</code>:",
+      "<code><pre>function foo(value: number | string) {\n  switch (typeof value) {\n    case 'number':\n      // some kind of logic\n      break;\n    case 'string':\n      // some kind of logic\n      break;\n  }\n}</pre></code>",
+      "Function overloading in TypeScript is also an example of how Narrowing works:",
+      "<code><pre>function concat(a: number, b: number): string;\nfunction concat(a: string, b: string): string;\n\nfunction concat(a: any, b: any): string {\n  if (typeof a === 'string') {\n    return `${a}${b}`; // (parameter) a: string\n  } else {\n    return `${a.toFixed()}${b.toFixed()}`;\n  }\n}</pre></code>",
+      "Narrowing is a big topic with many nuances. More details about the features of this mechanism can be found in the documentation. In any case, it will appear in TypeScript often enough that you will deal with it one way or another."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is narrowing in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "A way to make the type of a variable or expression more specific",
+      "A way to make the type of a variable or expression more generic",
+      "A way to convert one type to another type",
+      "A way to define multiple function signatures for a single function"
     ],
-    "answer": "a) A option",
+    "answer": "A way to make the type of a variable or expression more specific",
     "theme": "Function typing"
   },
   {
     "id": "22",
     "title": "Type annotations",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "In simple cases, an array type is defined as the type name followed by square brackets: <code>string[]</code>, <code>number[]</code>, and so on. This scheme also works with type aliases:",
+      "<code><pre>type User = {\n  name: string\n};\n\n// When defining constants and variables\nconst users: User[] = [];\n\n// In the definition of functions\nfunction foo(users: User[]) {\n  // ...\n}</pre></code>",
+      "But what to do, in the case of composite types, for example, if we want to use a union or an object description? In this case, parentheses are added: <code>(Type)[]</code>:",
+      "<code><pre>const users: ({ name: string })[] = [];\nconst users: (string | null)[] = [];</pre></code>",
+      "On the other hand, TypeScript provides another syntax which is described like this: <code>Array<Type></code>. It is universal and can be used to describe any array. The type description in such a notation occurs between less than and greater than signs:",
+      "<code><pre>const users: Array<string> = [];\nconst users: Array<number> = [];\nconst users: Array<User> = [];\n\nconst users: Array<{ name: string }> = [];\nconst users: Array<string | null> = [];</pre></code>",
+      "But usually they don't. Where a shorter version can be used, use it. The form <code>Array</code> is needed primarily for generics, which are discussed later."
     ],
     "examples": [
       "examples"
     ],
-        "question": "A is right",
+        "question": "What are type annotations in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Comments in the code that describe the expected types of variables and functions",
+      "Declarations of types that can be used to define the expected shape of data",
+      "Functions that are used to transform data from one type to another",
+      "Keywords that can be used to indicate the type of a variable or function parameter"
     ],
-    "answer": "A",
+    "answer": "Keywords that can be used to indicate the type of a variable or function parameter",
     "theme": "Array typing"
   },
   {
     "id": "23",
     "title": "Multidimensional arrays",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "The syntax for defining multidimensional arrays is <code>Type[][]</code>. Literally, this means that we have an array containing arrays with values of type <code>Type</code>. A few examples:",
+      "<code><pre>// Тип number[][] displayed automatically\nconst items1 = [[3, 8], [10, 4, 8]];\n\nconst items2: number[][] = []\n// or so Array<number[]>\n\n// Using an alias\ntype User = {\n  name: string;\n}\n\n// or so Array<User[]>\nconst users: User[][] = [\n  [{ name: 'Eva'}, { name: 'Adam' }],\n];</pre></code>",
+      "Adding non-arrays to such arrays will result in a type error:",
+      "<code><pre>items1.push(99); // Error: Type 'number' is not assignable</pre></code>",
+      "Parentheses must be used to define arrays of composite types.",
+      "<code><pre>const coll: (string | number)[][] = [];\ncoll.push(['hexlet', 5])</pre></code>",
+      "Or you can use the syntax <code>Array<Array<Type>></code>. Here we see an array, inside of which there are arrays containing values of type <code>Type</code>:",
+      "<code><pre>const coll: Array<Array<string | number>> = [];\ncoll.push(['hexlet', 5])</pre></code>",
+      "Arrays themselves can be part of an object. Technically, this allows you to create an infinite nesting of objects and arrays:",
+      "<code><pre>type Course = {\n  name: string;\n  lessons: Lesson[];\n}\n\ntype Lesson = {\n  name: string;\n  links: string[];\n}</pre></code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "A is right",
+        "question": "How do you define a multidimensional array in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Use a single array with nested objects to simulate a multidimensional array",
+      "Use the Array keyword followed by the number of dimensions in the array declaration",
+      "Use nested arrays, where each inner array represents a row or column of the multidimensional array",
+      "Use a single array and add an extra dimension parameter to each array method call"
     ],
-    "answer": "A",
+    "answer": "Use nested arrays, where each inner array represents a row or column of the multidimensional array",
     "theme": "Array typing"
   },
   {
     "id": "24",
     "title": "Read-Only Arrays",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "In JavaScript development with heavy use of higher-order functions (map/filter/reduce and others), arrays rarely change. As a rule, instead of changing existing arrays, new ones are created. Technically, JavaScript can't prevent existing arrays from being modified, so it's up to the programmers to enforce this rule.",
+      "In TypeScript, dealing with immutable arrays is built into the type system. To guarantee immutability, the array is marked with the modifier <code>readonly</code>:",
+      "<code><pre>function process(numbers: readonly number[]) {\n  numbers.push(1); // Error!\n}</pre></code>",
+      "<code>readonly</code> prohibits modification of the array, but does not prohibit modification of objects inside the array:",
+      "<code><pre>const items: readonly ({ key: string })[] = [{ key: 'value'}];\nitems[0].key = 'another value'; // ok!</pre></code>",
+      "The modifier <code>readonly</code>, is itself a syntactic sugar. Technically, in the case of an array , <code>readonly</code> it changes the <code>Array</code> type to <code>ReadonlyArray</code>. The code above could be written like this:",
+      "<code><pre>const items: ReadonlyArray<{ key: string }> = [{ key: 'value'}];</pre></code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "A is right",
+        "question": "What are read-only arrays in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Arrays that can only be accessed in read-only mode",
+      "Arrays that can only be accessed by a single function",
+      "Arrays that cannot be modified once they are created",
+      "Arrays that can only be modified by certain users or roles"
     ],
-    "answer": "A",
+    "answer": "Arrays that cannot be modified once they are created",
     "theme": "Array typing"
   },
   {
     "id": "25",
     "title": "Tuples",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Usually arrays can change their size and contain zero or more values, thus an empty array as a value <code>[]</code> is valid for arrays of any type. But sometimes arrays act as a simplified version of an object, where the number of values and their order is strictly defined. For example, using such an array, you can represent a point on the plane: <code>[x, y]</code>.",
+      "<i>Why is this even necessary? In order to save characters when you have to create a lot of the same data, for example, for testing</i>",
+      "In TypeScript, arrays like this are called tuples, and they have their own definition syntax. Point representation:",
+      "<code><pre>const point: [number, number] = [1, 3]\n// Can be changed\nconst point[0] = 4;\n\n// Accessing a non-existent index will result in an error\npoint[3]; // Error!\n\n// You cannot create a non-matching type\nconst point2: [number, number] = [1, 'x']; // Error!</pre></code>",
+      "It would make sense if the same behavior applied to <code>push()</code> or <code>pop()</code>. After all, if we have defined a tuple of two elements, then there should be exactly two elements. In practice, the code below will work:",
+      "<code><pre>point.push(10);\nconsole.log(point); // [4, 3, 10];</pre></code>",
+      "Why? In theory, this should not be, but historically it happened . It's too late now, too much code is tied to the current behavior and it can't be changed in TypeScript itself without breaking backwards compatibility. The general recommendation is to not try to resize a tuple.",
+      "Tuples can consist of elements of different types:",
+      "<code><pre>type HTTPResponse = [number, string];\n\n// The order of definition is important\nconst response: HTTPResponse = [404, 'Page is not found'];\n// That won't work ['Page is not found', 404]</pre></code>",
+      "Some of them may be optional:",
+      "<code><pre>type HTTPResponse = [number, string?];\n\nconst response1: HTTPResponse = [500];\nconst response2: HTTPResponse = [201, 'Created'];</pre></code>",
+      "Pay attention to the creation of variables for tuples. If an alias is used, then it must be specified explicitly, otherwise, from the point of view of TypeScript, a regular array will be created:",
+      "<code><pre>// Will be of type (string | number)[]\nconst response = [201, 'Created'];</pre></code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "A is right",
+    "question": "What are Tuples in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Tuples are arrays with a fixed number of elements and known data types.",
+      "Tuples are arrays with a variable number of elements and unknown data types.",
+      "Tuples are objects with a fixed number of properties and known data types.",
+      "Tuples are objects with a variable number of properties and unknown data types."
     ],
-    "answer": "A",
+    "answer": "Tuples are arrays with a fixed number of elements and known data types.",
     "theme": "Array typing"
   },
   {
     "id": "26",
     "title": "Types as sets",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "What is a data type anyway? To answer this question, it's best to start by answering the question, what came before data types? A family of languages that does not have data types is called assembler. These languages ​​work directly with the processor and operate on its registers. Registers store values that, from the point of view of the language, are numbers. And what is encoded behind this number, the programmer himself must determine, whether it is a string or part of a picture.",
+      "The main problem with this approach is the lack of any security. The program will never throw an error if we accidentally do something with a \"string\" that cannot be done with it. From the point of view of the processor and the programming language, there is no string - there is a number, and we perform some operations on it. As a result, the program always works, but the result is incorrect. Imagine the level of care it takes to program in this mode.",
+      "The situation was corrected by the appearance of data types in high-level languages. Types allowed us to perform two tasks:",
+      "- Describe and restrict the set of all values ​​of a particular type",
+      "- Determine the operations that can be performed on this type",
+      "It's all in the definition: A data type is the set of all values ​​and the set of allowed operations on them. What does this give us? Type safety. Even in a dynamic language such as JavaScript, we get significantly stronger security than in assembly language. In a static one, like TypeScript, the level of type compatibility checking goes to another level.",
+      "<h2>Sets</h2>",
+      "Usually, when people talk about type definitions, they first of all pay attention to the second part: \"the set of allowed operations\". But the first part seems more blurry: \"a set of valid values\". On the one hand, it can be a number limit on the upper and lower bounds, as in JavaScript. We have <code>Number</code> for one range of numbers and <code>BigInt</code> for another when we need to work with huge numbers. On the other hand, we are talking about sets.",
+      "And this view of types as sets has a huge role in our case. This is due to the fact that the type system of the TypeScript language can combine types in the same way as it is done in ordinary sets. For example, we can combine two sets of types, getting a new type, which includes all the elements of the first set (type) and the second set (type). This is how the Union Type appears:",
+      "<code><pre>type SomeType = number | string;\nconst v1: SomeType = 1;\nconst v2: SomeType = 'ts-academy';</pre></code>",
+      "In much the same way, we can build type intersection, extension, and do other interesting things with types. We will consider something further along the course, but some things will remain outside. But no matter what happens next, it's important to shift your thinking around type operations: this will make it much easier to understand how TypeScript works and you will be able to better remember, and sometimes even guess for yourself, certain behavior."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+    "question": "What is meant by \"Types as sets\" in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Types that define the allowed values for a variable or parameter.",
+      "Types that define a group of related properties and methods.",
+      "Types that define the structure of an object or class.",
+      "Types that define a set of allowed operations or functions."
     ],
-    "answer": "A",
+    "answer": "Types that define the allowed values for a variable or parameter.",
     "theme": "More about types"
   },
   {
     "id": "27",
     "title": "Unions (Union Types)",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Type unions play a big role in TypeScript, they allow you to express the usual situation for JavaScript, when the return value or function argument can be of different types. For example, a method <code>String.prototype.at()</code> can return a value of type <code>string</code>, or <code>undefined</code>.",
+      "The union is specified using the forward bar operator |, which is flanked by types. Let's define our type for the function <code>at</code>:",
+      "<code><pre>type at = (str: string, position: number) => string | undefined;</pre></code>",
+      "From the point of view of set theory, the operation union means union. When we merge several sets, we get a new set, which includes all the elements of the original sets.",
+      "In relation to TypeScript, this means that as a result we get a type that promises to contain a variable of one of the union types. So we can get our own type, under which all strings <b>OR</b> numbers fall:",
+      "<code><pre>type NumberOrString = number | string;\n\nlet val: NumberOrString = 10; // OK\nval = 'My string'; // OK\nval = true; // Type 'boolean' is not assignable to type 'NumberOrString'.</pre></code>",
+      "In practice, there are often cases when we need to support the operation of a function with a large number of types. In JavaScript, we can join a string not only with a string, but also with a number, boolean values, and more. To solve a similar problem in previous lessons, we got acquainted with function overloading. Let's describe the type of such a function using union:",
+      "<code><pre>type AllowedToConcatenation = number | string | null | undefined | boolean;\n\nconst concat = (base: AllowedToConcatenation, suffix: AllowedToConcatenation): string => `${base}${suffix}`;</pre></code>",
+      "To describe function types, <code>concat()</code> we would need to write code for each case separately.",
+      "Union Types are used everywhere where the programmer wants to say that a variable can contain values of different, but predefined types. To specify absolutely arbitrary types, <code>unknown</code> either generics can be used, which we will discuss later in the course."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are Union Types in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Types that combine multiple types into a single type.",
+      "Types that define a group of related properties and methods.",
+      "Types that define the structure of an object or class.",
+      "Types that define a set of allowed operations or functions."
     ],
-    "answer": "A",
+    "answer": "Types that combine multiple types into a single type.",
     "theme": "More about types"
   },
   {
     "id": "28",
     "title": "Null and Undefined",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "In TypeScript <code>null</code>, <code>undefined</code> not just values, but two types, consisting of one value. Why is this done? Imagine if TypeScript worked in a similar way to JavaScript, that is, these values ​​could be passed anywhere, no matter what is expected there: a string, an array, and the like. What would such behavior lead to?",
+      "There are two options here. Or occurrence of an error \"the nonexistent method is called\". Such a problem, for example, exists in JavaScript:",
+      "<code><pre>function foo(value) {\n  const upperValue = value.toUpperCase();\n  // the rest of the logic\n}\n\nfoo(null); // Uncaught TypeError: Cannot read properties of null (reading 'toUpperCase')</pre></code>",
+      "In statically typed languages, where <code>null</code> it is used as a general type for everything, type checking will not tell you anything and an exception is thrown <code>NullPointerException</code> - one of the most memorable for all users. Therefore, the code begins to grow with checks for null:",
+      "<code><pre>public void doSomething(SomeObject obj) {\n  if(obj != null) {\n    obj.myMethod();\n  }\n}\n\ndoSomething(null);</pre></code>",
+      "In TypeScript with the correct (<code>strict</code>) configuration, such a check is built in and the static analyzer will tell you about a possible problem:",
+      "<code><pre>function foo(value?: string | null) {\n  const upperValue = value.toUpperCase(); // Object is possibly 'null' or 'undefined'.\n  // the rest of the logic\n}</pre></code>",
+      "To solve it, you also need to write the corresponding condition or use the operator ?., which allows you to avoid errors during code execution:",
+      "<code><pre>function foo(value?: string | null) {\n  if (value !== null && value !== undefined) {\n    const upperValue = value.toUpperCase(); // (parameter) value: string\n  }\n  // the rest of the logic\n}</pre></code>",
+      "This became possible precisely due to the allocation of values <code>null</code> into <code>undefined</code> separate types, and together with Narrowing and Union Types, it was not necessary to invent an additional mechanism. And the whole solution fits into the concept of \"types as sets\". Thanks to each check, we cut off the set of values that is not suitable for us and get a safe method call. These checks are also called Differentiating Types and Type Guards."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are null and undefined in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Types that represent non-existent or unknown values.",
+      "Types that represent optional function parameters.",
+      "Types that define a set of allowed values for a variable or parameter.",
+      "Types that define the structure of an object or class."
     ],
-    "answer": "A",
+    "answer": "Types that represent non-existent or unknown values.",
     "theme": "More about types"
   },
   {
     "id": "29",
     "title": "Literals",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "In programming, there are situations when we work with a limited set of values ​​of some type, for example, with certain strings: this may include reference data, statuses, and so on. What the order status might look like:",
+      "<code><pre>Created\nPaid\nShipped\nDelivered</pre></code>",
+      "The code that works with this data will save it to the database, send and receive it over the network, perform checks on the status of the order, and so on.",
+      "What type will be the variables containing such data? If you use a generic type, for example <code>string</code>, then there are many problems:",
+      "- The compiler will not see typos",
+      "- The compiler will not see the use of invalid statuses",
+      "- We won't be able to see what statuses we have at all",
+      "- Autocomplete not working in editor",
+      "To accomplish this task, TypeScript supports a literal type. They are only available for the following types: <code>string</code>, <code>boolean</code>, <code>number</code> and <code>BigInt</code>.",
+      "<code><pre>type Academy = 'ts-academy';\ntype One = 1;\ntype False = false;\ntype BigN = 100n;</pre></code>",
+      "From the point of view of set theory, such a type is a set consisting of one element, and for a type system it is a restriction that a variable cannot be assigned anything other than the specified value:",
+      "<code><pre>type TestValue = 'test';\nlet test: TestValue = 'test';\n\ntest = 'string'; // Error: Type '\"string\"' is not assignable to type '\"test\"'.</pre></code>",
+      "<h2>Union of literal types</h2>",
+      "Using type union, we can get a type that takes only the values ​​we need:",
+      "<code><pre>type OrderStatus = 'Created' | 'Paid' | 'Shipped' | 'Delivered';</pre></code>",
+      "Also, literal types can be combined with any other types, so we can get a restriction that all numbers and fall under <code>false</code>:",
+      "<code><pre>type NumberFalse = number | false;</pre></code>",
+      "<h2>String enums</h2>",
+      "The problem described in this tutorial is implemented in most languages ​​through enums, which are also added to TypeScript:",
+      "<code><pre>enum OrderStatus {\n  Created = 'Created',\n  Paid = 'Paid',\n  Shipped = 'Shipped',\n  Delivered = 'Delivered',\n}</pre></code>",
+      "But in TypeScript, enums are not so rosy. TypeScript, as we remember, is an add-on to JavaScript that adds types, but does not change the language itself. This is not the case with Enum. Enums are a language construct that remains in code after the code has been translated into JavaScript.",
+      "For this reason, some developers prefer to use Union Types instead, which allow you to do much the same thing with string literals.",
+      "Despite this, it is recommended to use Enum in application code, as it provides additional guarantees of reliability. And the library code should use Union Types, as it is more flexible and provides additional features.",
+      "<h2>Literal Objects</h2>",
+      "When configuring libraries, we encounter cases when one of the strings is expected from us. For example, given a choice of several databases:",
+      "<code><pre>const dataSourceConfig = {\ntype: 'postgre', // could also be mysql\nhost: 'localhost',\nport: 5432,\n};\n\nconst AppDataSource = new DataSource(dataSourceConfig)</pre></code>",
+      "To describe such objects, the type of object literals is used, where the fields are initialized with one literal type or their intersection:",
+      "<code><pre>type DataSourceOption = {\n  type: 'postgre' | 'mysql';\n  host: string;\n  port: number;\n}</pre></code>",
+      "This gives library authors an additional documentation tool, and developers a cool autocomplete and saves them from errors in passed arguments.",
+      "<h2>Casting to a literal type</h2>",
+      "In the case of configuration objects, we often do not want them to be changed from the outside, and expect specific values ​​inside, here casting to a literal type through Type Assertion comes to our aid <code>as const</code>:",
+      "<code><pre>const ormConfig = {\n  type: 'mysql',\n  host: 'localhost',\n  port: 5432,\n} as const;</pre></code>",
+      "At the output, we get a type with immutable (<code>readonly</code>) fields and literal types in the value. This technique can also be applied to arrays, turning them into tuples - arrays of fixed length, also protected from modification."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are literals in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Keywords used to define the types of variables and parameters.",
+      "Special functions used to manipulate strings.",
+      "Values that represent themselves and have a specific type.",
+      "Properties used to define the structure of an object or class."
     ],
-    "answer": "A",
+    "answer": "Values that represent themselves and have a specific type.",
     "theme": "More about types"
   },
   {
     "id": "30",
     "title": "Intersection (Intersections Types)",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Along with union, an important operation in set theory is intersection. For developers accustomed to the dynamics of JavaScript, this operation may seem less significant, but it is indispensable, for example, when describing the type of object merging.",
+      "An intersection is indicated by a symbol <code>&</code>, flanked by types. Let's define an object type with an order status, and then a more restrictive type with an exact price:",
+      "<code><pre>type Order = {\n  status: 'Created',\n}\n\ntype OneHundredOrder = Order & {\n  cost: 100\n}\n\nconst myOrder: OneHundredOrder = {\n  status: 'Created',\n  cost: 100\n}</pre></code>",
+      "<code>status</code> <b>From the intersection of object types with AND</b> fields <code>cost</code>, we get a type <code>OneHundredOrder</code> that contains both of these fields.",
+      "A type is a set of values. When we define an intersection of types, we get a new type that contains values ​​that fit the constraints of both types.",
+      "If we declare a variable <code>const StringAndNumber: string & number</code>, then it will need to be assigned a value that simultaneously belongs to the sets <code>string</code> and <code>number</code>, that is, it is both a string and a number. Such a value does not exist, so <code>StringAndNumber</code> it will be of type <code>never</code>. <code>never</code> corresponds to the empty set, that is, the type has no value."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What are intersection types in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Types that combine multiple types into a single type.",
+      "Types that allow for nullable values.",
+      "Types that define the shape of an object.",
+      "Types that are compatible with multiple JavaScript engines."
     ],
-    "answer": "A",
+    "answer": "Types that combine multiple types into a single type.",
     "theme": "More about types"
   },
   {
     "id": "31",
     "title": "Assigning a value",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Assigning one value to another is the most basic operation on variables in most languages. But when it comes to statically typed languages, we run into the bug <code>Error: Type X is not assignable to type Y..</code> This code fails to compile and needs to figure out how to fix it.",
+      "In English literature, the ability to assign one value to another and pass it as an argument to a function is called Assignability:",
+      "<code><pre>let x: number;\nconst y: number = 10;\nx = y;\n\nfunction len(str: string): number {\n  return str.length;\n}\nlen(false); // Error!</pre></code>",
+      "When assigning <code>x = y</code>;, as well as when passing an argument, <code>f(false);</code> first of all it is checked whether the variable can contain the transferred type, in other words, whether the type is compatible <code>x</code> with the type <code>y</code>.",
+      "When you see an error, <code>Type X is not assignable to type Y.</code> do not rush to bring everything to the most general type <code>any</code>, which is dangerous because it is compatible with all, even the most strict, types, like <code>never</code>. First, you need to figure out what is expected as input and what the function returns, and only with the awareness of what is happening, modify your own types: expand the valid ones or use the hack with <code>any</code>.",
+      "Understanding what can be assigned to what in TypeScript comes from understanding the type hierarchy and structural typing, which is what the following lessons are about."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "How do you assign a value in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "Using the = operator.",
+      "Using the == operator.",
+      "Using the === operator.",
+      "Using the => operator."
     ],
-    "answer": "A",
+    "answer": "Using the = operator.",
     "theme": "More about types"
   },
   {
     "id": "32",
     "title": "Hierarchy of types",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Let's look at an example of an error <code>Type X is not assignable to type Y</code> in a function for sorting elements. We will assume that we have already written a function somewhere <code>sort</code>. And to describe only its types, we use the keyword <code>declare</code>:",
+      "<code><pre>type ComparatorCallback = (item1: number, item2: number, index: number) => -1 | 0 | 1\ndeclare function sort(arr: Array<number>, callback: ComparatorCallback): Array<number>\n\nconst arr = [1, 2, 3];\nconst comparator = (item1: number, item2: number) => Math.sign(item1 - item2);\n\nsort(arr, comparator) // Error: Type 'number' is not assignable to type '0 | 1 | -1'.</pre></code>",
+      "The typechecker returned an error that union of literal types <code>0 | 1 | -1</code> is incompatible with type <code>number</code>. And at first glance it seems that the type system is wrong and it's time to use <code>any</code>, but if we think of literal numeric types as subsets of <code>number</code>, everything becomes logical.",
+      "Here, the connection between types and set theory is more clearly visible. A set <code>A</code> is a subset <code>B</code> if any element that belongs to <code>A</code> also belongs to <code>B</code>. Thus, we get relationships between types that line up in a type hierarchy. And it helps us to understand whether it is possible to assign a variable of one type to a variable of another type.",
+      "In the lesson about literal types, we said that they exist for four data types: <code>boolean</code>, <code>string</code>, <code>number</code>, <code>BigInt</code>. Thus, we can assign any literal type to a variable of the corresponding type:",
+      "<code><pre>let num: number = 1;\nconst two: 2 = 2;\nconst notTrue: false = false;\n\nnum = two;\nnum = notTrue; // Type 'boolean' is not assignable to type 'number'.</pre></code>",
+      "Here <code>2</code> it is used as a literal type, which is a set of one element - units.",
+      "The analyzer successfully skipped assigning the literal type of a number to <code>number</code>, but <code>boolean</code> we were no longer able to assign the literal type. In order to solve this problem, we could use type union <code>number | boolean</code>, but if we are not sure what can be assigned, then we would have to do union with a potentially huge number of types.",
+      "Here the type comes to the rescue <code>unknown</code>, which is a superset of all available types, which allows you to assign a value of an arbitrary type to a variable:",
+      "<code><pre>let unknownValue: unknown = 1;\nconst two: 2 = 2;\nconst notTrue: false = false;\n\nunknownValue = two;\nunknownValue = notTrue; // OK</pre></code>",
+      "A much rarer case in practice, when we need to be sure that no value will be assigned to a variable, allows us to implement the type <code>never</code>:",
+      "<code><pre>let neverValue: never;\nconst two: 2 = 2;\n\nneverValue = two; // Type 'number' is not assignable to type 'never'</pre></code>",
+      "The set <code>number</code> also includes all unions of literal number types, and the set includes all unions <code>string</code> of literal strings:",
+      "<code><pre>type NumberUnion = -2 | -1 | 1 | 2\n\nconst one: NumberUnion = 1;\nconst num: number = one;\n\ntype StringUnion = 'a' | 'b' | 'c' | 'd'\n\nconst aChar: StringUnion = 'a';\nconst str: string = aChar;</pre></code>",
+      "Such a subset of types is called a subtype, and the set itself is called a supertype.",
+      "The relationships of subtypes and supertypes (base) are a key concept in any statically typed language and form a hierarchy of types. This becomes especially important when we want to cast one type to another.",
+      "Let's take a look at the different options for type casting:",
+      "<code><pre>let num = 1; // Implicit upcast\nconst one: number = 1; // Explicit upcast\n\nconst two = num as 2; // Explicit downcast\n\nconst three = 3 as const; // Casting to a literal type - downward</pre></code>",
+      "Every time we assign a value to a variable or pass arguments to a function, TypeScript tries to do an upcast - from the subtype to the base. We can also explicitly specify an up cast. We have often used this feature to test whether it is possible to cast one type to another, or to explicitly specify what type of variable we are expecting.>",
+      "In contrast, casting from a base type to a subtype is done explicitly with as. With this behavior, TypeScript accepts our decision to cast as true, and in some cases this can lead to errors. Therefore, a downcast is considered unsafe and a marker that this code needs to be looked at closely."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is the hierarchy of types in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "any, unknown, never, primitives, object types",
+      "primitives, object, unknown, any, never",
+      "never, unknown, primitives, object types, any",
+      "object types, primitives, unknown, any, never"
     ],
-    "answer": "A",
+    "answer": "never, unknown, primitives, object types, any",
     "theme": "More about types"
   },
   {
     "id": "33",
     "title": "Structural typing",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "In JavaScript, it's possible to work with objects and classes in the same way, and you don't have to rely on inheritance or interfaces, just the expected fields and methods. This approach is called duck typing. What walks like a duck and quacks like a duck is a duck.",
+      "<code><pre>const user = {\n  firstName: 'Vassiliy',\n  lastName: 'Zabubenskiy',\n  type: 'user'\n}\n\nconst admin = {\n  firstName: 'Kirill',\n  lastName: 'Mokevnin',\n  type: 'admin'\n}\n\nconst formatUser = (user) => [user.type, ':', user.firstName, user.lastName].join(' ');\n\nformatUser(user); // ok\nformatUser(admin); // ok</pre></code>",
+      "In languages ​​like Java, we would need to define an interface, then separately implement it for classes <code>User</code> and <code>Admin</code>. And in the parameters of the formatting method, the type of the argument would be this interface. Another option is to write a method with an overload for these two cases. Languages ​​with this behavior use nominative typing.",
+      "As a result, to implement the duck typing approach in Java, you will need to write a lot of additional code.",
+      "In order to simplify the transition from JavaScript to TypeScript, while using pre-execution checks, a structural typing approach was chosen. This way we can easily rewrite our example in TypeScript:",
+      "<code><pre>const user = {\n  firstName: 'Vassiliy',\n  lastName: 'Zabubenskiy',\n  type: 'user'\n}\n\nconst admin = {\n  firstName: 'Kirill',\n  lastName: 'Kojzemyaka',\n  type: 'admin'\n}\n\nconst formatUser = (user: { type: string, firstName: string, lastName: string }): string =>\n  [user.type, ':', user.firstName, user.lastName].join(' ');\n\nformatUser(user); // ok\nformatUser(admin); // ok</pre></code>",
+      "At the same time, structural typing does not protect us from the presence of additional fields in the object:",
+      "<code><pre>const moderator = {\n  firstName: 'Danil',\n  lastName: 'Bodrov',\n  type: 'moderator',\n  email: 'danil@bodrov.com'\n}\n\nconst formatUser = (user: { type: string, firstName: string, lastName: string }): string =>\n  [user.type, ':', user.firstName, user.lastName].join(' ');\n\nformatUser(moderator); // ok</pre></code>",
+      "In structural typing, an object type can be thought of as a description of a structure that imposes restrictions on the values ​​that can be assigned. Or how about the set of objects that can be assigned to a variable of that type.",
+      "The fewer fields in an object type, the less specific restrictions are placed on the value being assigned. On sets, this means that an object type with extra fields will be a subset of an object type without those fields. And if we talk about narrowing and expanding the type in object types, then additional fields narrow the type.",
+      "By analogy with set operations for object types, one can form an understanding of intersection and union in structural typing.",
+      "So when we combine, <code>|</code> we extend the type. We increase the number of valid values ​​for the type. And at the intersection <code>&</code>, on the contrary, we narrow. Thus, we reduce the number of valid values:",
+      "<code><pre>type IntersectionUser = {\n  username: string;\n  password: string;\n} & {\n    type: string;\n}\n\nconst admin: IntersectionUser = { username: 'test', password: 'test', type: 'admin' } // requires an object type match on both the left and right of the & operator\n\ntype UnionUser = {\n    username: string;\n    password: string;\n} | {\n    type: string;\n}\n\nconst user: UnionUser = { username: 'test', type: 'user' } // a match with one of the object types is sufficient</pre></code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is structural typing in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "A type checking system that determines compatibility between types based on their explicit type or class.",
+      "A type checking system that determines compatibility between types based on their structure or shape.",
+      "A type checking system that determines compatibility between types based on their name.",
+      "A type checking system that determines compatibility between types based on their size."
     ],
-    "answer": "A",
+    "answer": "A type checking system that determines compatibility between types based on their structure or shape.",
     "theme": "More about types"
   },
   {
     "id": "34",
     "title": "Covariance and Contravariance",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Every time we assign a value or pass arguments to a function call, TypeScript type checking checks for compatibility between the types. When we pass an argument to a function, the check is performed not only on the parameter types, but also on the return types. For example, for a sort function callback that expects to return <code>-1 | 0 | 1</code>, if we pass a return function <code>number</code> we will get an error <code>Type 'number' is not assignable to type '0 | 1 | -1'.</code>:",
+      "<code><pre>type ComparatorCallback = (item1: number, item2: number, index: number) => -1 | 0 | 1\ndeclare function sort(arr: Array<number>, callback: ComparatorCallback): Array<number>\n\nconst arr = [1, 2, 3];\nconst comparator = (item1: number, item2: number) => Math.sign(item1 - item2);\n// (item1: number, item2: number) => number;\n\nsort(arr, comparator); // Error: Type 'number' is not assignable to type '0 | 1 | -1'.</pre></code>",
+      "The union set of three literal types <code>-1 | 0 | 1</code> is a subset of <code>number</code>, but we can understand from the error that the return type must be either the same or narrower. This type checking behavior is called covariance.",
+      "To solve the problem with <code>ComparatorCallback</code> we need to narrow the return type of the function <code>comparator</code> to <code>-1 | 0 | 1</code> or narrower. We will rewrite the code without <code>Math.sign</code> to return the correct type:",
+      "<code><pre>type ComparatorCallback = (item1: number, item2: number, index: number) => -1 | 0 | 1\ndeclare function sort(arr: Array<number>, callback: ComparatorCallback): Array<number>\n\nconst arr = [1, 2, 3];\nconst comparator = (item1: number, item2: number) => {\n// (item1: number, item2: number) => -1 | 0 | 1;\n    if (item1 === item2) {\n        return 0;\n    }\n\n    return item1 > item2 ? 1 : -1;\n};\n\nsort(arr, comparator);</pre></code>",
+      "Try to explain the behavior of type checking through covariance on your own in the following example:",
+      "<code><pre>type Formatter = (val: string) => string;\n\nconst formatToConcrete: Formatter = (_val: string): 'test' => 'test';\nconst formatToNumber: Formatter = (val: string | number): string | number => String(val); // Error!</pre></code>",
+      "Duck typing in JavaScript has brought its own characteristics to the passed arguments of functions. In order for the code to be executed, it is enough to check for the presence of certain fields or methods in the object. Any objects with additional fields and methods will also pass this type checking. When a check requires a wider type, this is called contravariance.",
+      "Thus, in TypeScript, all composite types are covariant in their members: objects, classes, arrays, and function return types. And only the types of function parameters are contravariant."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is covariance in TypeScript?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "The ability of a type to be assigned to another type that is more specific",
+      "The ability of a type to be assigned to another type that is less specific",
+      "The ability of a function or method to accept arguments of a wider type than specified in its type signature",
+      "The ability of a function or method to return a value of a narrower type than specified in its type signature"
     ],
-    "answer": "A",
+    "answer": "The ability of a type to be assigned to another type that is more specific",
     "theme": "More about types"
   },
   {
     "id": "35",
     "title": "Classes",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Class typing in TypeScript adds a new class definition syntax that is not found in JavaScript. This syntax only exists at the type checking level. In the resulting code, it is cut or replaced.",
+      "Let's start with an example, look at this class:",
+      "<code><pre>class Point {\n  x: number;\n  y: number;\n\n  constructor(x: number, y: number) {\n    this.x = x;\n    this.y = y;\n  }\n}\n\nconst p = new Point(10, 20);\nconsole.log(p); // { x: 10, y: 20 }</pre></code>",
+      "Here we see a new syntax describing class fields: xand y. Their description is mandatory, since classes are functions (constructor functions), and functions in TypeScript are objects.",
+      "Before moving on, let's understand the concept of <i>a class field</i> . Usually in JavaScript everything is called properties, and the word field is used as a synonym, those who came from other languages. Actually it's not the same thing. Inside the class, we define fields, this is just the data of the class itself. But the property is what we use to interact with the object. Often properties are mapped directly to fields, but this is not always the case. For example, a property can be a getter that takes information from different fields. Or the property could be a setter that sets data to a field that doesn't match the field name.",
+      "<code><pre>class Point {\n  x: number;\n  y: number;\n\n  // The return type is not specified because it is a constructor\n  constructor(x: number, y: number) {\n    this.x = x;\n    this.y = y;\n  }\n\n  get inspect(): string {\n    return `(${this.x}, ${this.y})`\n  }\n}\n\nconst p = new Point(2, 5);\n// There is a property, but there is no such field\nconsole.log(p.inspect); // (2, 5)</pre></code>",
+      "Fields can be initialized immediately when the class is defined. This is convenient when the constructor is not needed or the data does not depend on its call, that is, it is set statically inside.",
+      "<code><pre>class Point {\n  x = 0;\n  y = 0;\n}\n\nconst p = new Point();\nconsole.log(p); // (0, 0)</pre></code>",
+      "As with ordinary variables, the type of fields is automatically inferred during their initialization, so it is not necessary to specify an explicit type."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is a constructor in a TypeScript class?",
     "options": [
-      "A",
-      "B",
-      "C",
-      "D"
+      "A method that is used to initialize a class instance with default values",
+      "A method that is used to define the class properties",
+      "A method that is used to create a new instance of a class",
+      "A method that is used to perform type checking on the class properties"
     ],
-    "answer": "A",
+    "answer": "A method that is used to initialize a class instance with default values",
     "theme": "Classes"
   },
   {
     "id": "36",
-    "title": "About interfaces",
+    "title": "Classes as types",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Classes in TypeScript are both a value and a data type. The second is especially important for us in the context of typing functions and methods:",
+      "<code><pre>class Point {\n  x: number;\n  y: number;\n\n  constructor(x: number, y: number) {\n    this.x = x;\n    this.y = y;\n  }\n}\n\nfunction isEqual(p1: Point, p2: Point): boolean {\n  return p1.x === p2.x && p1.y === p2.y;\n}</pre></code>",
+      "In this example, the function <code>isEqual()</code> takes two arguments of type <code>Point</code>. And although we use the class as a type <code>Point</code>, we can pass any objects with fields <code>x</code> and to functions <code>y</code>:",
+      "<code><pre>isEqual({ x: 1, y: 2 }, { x: 1, y: 2 }); // OK</pre></code>",
+      "This behavior is due to structural typing. When comparing types, TypeScript compares their structure, not their names, which in practice makes it easier to work with external libraries and stubs for testing.",
+      "When TypeScript will explicitly require an instance of a class if it has private fields:",
+      "<code><pre>class Point {\n  private x: number;\n  private y: number;\n\n  constructor(x: number, y: number) {\n    this.x = x;\n    this.y = y;\n  }\n\n  isEqual(p2: Point): boolean {\n    return this.x === p2.x && this.y === p2.y;\n  }\n}\n\nconst point = new Point(1, 2);\npoint.isEqual(new Point(10, 1)); // OK\npoint.isEqual({ x: 1, y: 2}); // Error: Argument of type '{ x: number; y: number; }' is not assignable to parameter of type 'Point'.</pre></code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "In TypeScript, how can a class be used as a type?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "By using the typeof keyword to reference the class object itself",
+      "By creating an instance of the class and using it as a type",
+      "By defining a separate interface that describes the class properties",
+      "By creating a new class that extends the original class and using it as a type"
     ],
-    "answer": "a) A option",
-    "theme": "Interfaces"
+    "answer": "By using the typeof keyword to reference the class object itself",
+    "theme": "Classes"
   },
   {
     "id": "37",
-    "title": "Introduction to Generics",
+    "title": "Protection of properties and methods",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "In some cases, properties and methods in a class are created for internal use only. The developers don't want to allow them to be called from outside, otherwise they might accidentally start being used, which was not planned. In languages ​​with classes, it is customary to separate properties into public and private and protected. The first ones are available to everyone, the second ones can only be used inside the class, and the third ones inside and in the heirs.",
+      "By default, all properties in TypeScript are public. This can be indicated explicitly with the keyword <code>public</code>:",
+      "<code><pre>class Point {\n  public x: number;\n  public y: number;\n\n  constructor(x: number, y: number) {\n    this.x = x;\n    this.y = y;\n  }\n\n  public someMethod() {\n    // some logic\n  }\n}</pre></code>",
+      "You can also make properties private. Then you will no longer be able to access them directly from the outside:",
+      "<code><pre>class Point {\n  private x: number;\n  private y: number;\n\n  constructor(x: number, y: number) {\n    this.x = x;\n    this.y = y;\n  }\n}\n\nconst p = new Point(10, 8);\np.x; // Error!\np.y; // Error!</pre></code>",
+      "Finally, you can make properties protected. This means that they are available inside the class and in the heirs:",
+      "<code><pre>class Point {\n  protected x: number;\n  protected y: number;\n\n  constructor(x: number, y: number) {\n    this.x = x;\n    this.y = y;\n  }\n}\n\nclass Point3D extends Point {\n  protected z: number;\n\n  constructor(x: number, y: number, z: number) {\n    super(x, y);\n    this.z = z;\n  }\n\n  public getCoordinates() {\n    return [this.x, this.y, this.z]; // OK\n  }\n}\n\nconst p = new Point3D(10, 8, 5);\np.x; // Error!\np.y; // Error!\np.z; // Error!</pre></code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "What is the access modifier that restricts a property or method to only be accessed within the class it is defined in?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "public",
+      "private",
+      "protected",
+      "readonly"
     ],
-    "answer": "a) A option",
-    "theme": "Generics"
+    "answer": "private",
+    "theme": "Classes"
   },
   {
     "id": "38",
-    "title": "Dynamic Keys (Index Signature)",
+    "title": "Parameter Properties",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "Populating properties from constructor parameters is such a common task when working with classes that TypeScript has added a special syntax to do it automatically:",
+      "<code><pre>class SomeClass {\n  constructor(public one: number, private two: string) {}\n\n    get three(): string {\n      return `${this.one} ${this.two}`;\n  }\n}</pre></code>",
+      "This code does the same as this one:",
+      "<code><pre>  class SomeClass {\n  public one: number;\n  private two: string;\n  constructor(one: number, two: string) {\n    this.one = one;\n    this.two = two;\n  }\n\n  get three(): string {\n      return `${this.one} ${this.two}`;\n  }\n}</pre></code>",
+      "The new syntax avoids duplicating the property filling code from parameters and makes it more concise. At the same time, if there is some logic in the constructor, then the properties still need to be filled in manually."
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "How can you make a parameter property in TypeScript read-only?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "By adding the readonly modifier to the constructor parameter.",
+      "By adding the readonly modifier to the class property.",
+      "By adding the readonly modifier to both the constructor parameter and the class property.",
+      "It is not possible to make a parameter property read-only."
     ],
-    "answer": "a) A option",
-    "theme": "Object typing"
+    "answer": "By adding the readonly modifier to both the constructor parameter and the class property.",
+    "theme": "Classes"
   },
   {
     "id": "39",
-    "title": "Keyof type operator",
+    "title": "Inheritance",
     "description": [
-      "<h2>Header</h2>",
-      "<code>//code example</code>",
-      "Description"
+      "In TypeScript, we can use common object-oriented patterns. One of the most fundamental patterns in class-based programming is being able to extend existing classes to create new ones using inheritance.",
+      "Let’s take a look at an example:",
+      "<code><pre>class Animal {\n  move(distanceInMeters: number = 0) {\n    console.log(`Animal moved ${distanceInMeters}m.`);\n  }\n}\n \nclass Dog extends Animal {\n  bark() {\n    console.log(\"Woof! Woof!\");\n  }\n}\n \nconst dog = new Dog();\ndog.bark();\ndog.move(10);\ndog.bark();</pre></code>",
+      "This example shows the most basic inheritance feature: classes inherit properties and methods from base classes. Here, <code>Dog</code> is a <i>derived</i> class that derives from the <code>Animal</code> <i>base</i> class using the <code>extends</code> keyword. Derived classes are often called <i>subclasses</i>, and base classes are often called <i>superclasses</i>.",
+      "Because <code>Dog</code> extends the functionality from <code>Animal</code>, we were able to create an instance of <code>Dog</code> that could both <code>bark()</code> and <code>move()</code>.",
+      "<code><pre>class Animal {\n  name: string;\n  constructor(theName: string) {\n    this.name = theName;\n  }\n  move(distanceInMeters: number = 0) {\n    console.log(`${this.name} moved ${distanceInMeters}m.`);\n  }\n}\n \nclass Snake extends Animal {\n  constructor(name: string) {\n    super(name);\n  }\n  move(distanceInMeters = 5) {\n    console.log(\"Slithering...\");\n    super.move(distanceInMeters);\n  }\n}\n \nclass Horse extends Animal {\n  constructor(name: string) {\n    super(name);\n  }\n  move(distanceInMeters = 45) {\n    console.log(\"Galloping...\");\n    super.move(distanceInMeters);\n  }\n}\n \nlet sam = new Snake(\"Sammy the Python\");\nlet tom: Animal = new Horse(\"Tommy the Palomino\");\n \nsam.move();\ntom.move(34);</pre></code>",
+      "This example covers a few other features we didn’t previously mention. Again, we see the <code>extends</code> keywords used to create two new subclasses of <code>Animal</code>: <code>Horse</code> and <code>Snake</code>.",
+      "One difference from the prior example is that each derived class that contains a constructor function <i>must</i> call <code>super()</code> which will execute the constructor of the base class. What’s more, before we <i>ever</i> access a property on <code>this</code> in a constructor body, we <i>have</i> to call <code>super()</code>. This is an important rule that TypeScript will enforce.",
+      "The example also shows how to override methods in the base class with methods that are specialized for the subclass. Here both <code>Snake</code> and <code>Horse</code> create a <code>move</code> method that overrides the <code>move</code> from <code>Animal</code>, giving it functionality specific to each class. Note that even though <code>tom</code> is declared as an <code>Animal</code>, since its value is a <code>Horse</code>, calling <code>tom.move(34)</code> will call the overriding method in <code>Horse</code>:",
+      "<code><pre>Slithering...\nSammy the Python moved 5m.\nGalloping...\nTommy the Palomino moved 34m.</pre></code>"
     ],
     "examples": [
       "examples"
     ],
-        "question": "Question: A is right",
+        "question": "Which keyword is used to extend a class in TypeScript?",
     "options": [
-      "a) A option",
-      "b) B option",
-      "c) c option",
-      "d) d option"
+      "extends",
+      "implements",
+      "inherits",
+      "derives"
     ],
-    "answer": "a) A option",
-    "theme": "Working with types"
+    "answer": "extends",
+    "theme": "Classes"
+  },
+  {
+    "id": "40",
+    "title": "Static properties and methods",
+    "description": [
+      "We can also create static members of a class, those that are visible on the class itself rather than on the instances. In this example, we use <code>static</code> on the origin, as it’s a general value for all grids. Each instance accesses this value through prepending the name of the class. Similarly to prepending <code>this</code>. in front of instance accesses, here we prepend <code>Grid</code>. in front of static accesses.",
+      "<code><pre>class Grid {\n  static origin = { x: 0, y: 0 };\n \n  calculateDistanceFromOrigin(point: { x: number; y: number }) {\n    let xDist = point.x - Grid.origin.x;\n    let yDist = point.y - Grid.origin.y;\n    return Math.sqrt(xDist * xDist + yDist * yDist) / this.scale;\n  }\n \n  constructor(public scale: number) {}\n}\n \nlet grid1 = new Grid(1.0); // 1x scale\nlet grid2 = new Grid(5.0); // 5x scale\n \nconsole.log(grid1.calculateDistanceFromOrigin({ x: 10, y: 10 }));\nconsole.log(grid2.calculateDistanceFromOrigin({ x: 10, y: 10 }));</pre></code>",
+      "<h2>Abstract Classes</h2>",
+      "Abstract classes are base classes from which other classes may be derived. They may not be instantiated directly. Unlike an interface, an abstract class may contain implementation details for its members. The <code>abstract</code> keyword is used to define abstract classes as well as abstract methods within an abstract class.",
+      "<code><pre>abstract class Animal {\n  abstract makeSound(): void;\n \n  move(): void {\n    console.log(\"roaming the earth...\");\n  }\n}</pre></code>",
+      "Methods within an abstract class that are marked as abstract do not contain an implementation and must be implemented in derived classes. Abstract methods share a similar syntax to interface methods. Both define the signature of a method without including a method body. However, abstract methods must include the <code>abstract</code> keyword and may optionally include access modifiers.",
+      "<code><pre>abstract class Department {\n  constructor(public name: string) {}\n \n  printName(): void {\n    console.log(\"Department name: \" + this.name);\n  }\n \n  abstract printMeeting(): void; // must be implemented in derived classes\n}\n \nclass AccountingDepartment extends Department {\n  constructor() {\n    super(\"Accounting and Auditing\"); // constructors in derived classes must call super()\n  }\n \n  printMeeting(): void {\n    console.log(\"The Accounting Department meets each Monday at 10am.\");\n  }\n \n  generateReports(): void {\n    console.log(\"Generating accounting reports...\");\n  }\n}\n \nlet department: Department; // ok to create a reference to an abstract type\ndepartment = new Department(); // error: cannot create an instance of an abstract class\nCannot create an instance of an abstract class.\ndepartment = new AccountingDepartment(); // ok to create and assign a non-abstract subclass\ndepartment.printName();\ndepartment.printMeeting();\ndepartment.generateReports(); // error: department is not of type AccountingDepartment, cannot access generateReports\nProperty 'generateReports' does not exist on type 'Department'.</pre></code>"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "Which keyword is used to declare a static property or method in a TypeScript class?",
+    "options": [
+      "static",
+      "const",
+      "readonly",
+      "let"
+    ],
+    "answer": "static",
+    "theme": "Classes"
+  },
+  {
+    "id": "41",
+    "title": "About interfaces",
+    "description": [
+      "An interface is a TypeScript language construct that is used to describe objects and functions (since they are also objects):",
+      "<code><pre>interface User {\n  firstName: string;\n  pointsCount: number;\n}\n\nconst user: User = {\n  firstName: 'Mark',\n  pointsCount: 100,\n};</pre></code>",
+      "Visually, the interface looks like a type alias definition. Moreover, type alias and interfaces are interchangeable in almost all situations. The TypeScript documentation says that we can easily choose what to use depending on the situation. In this case, the question arises, why do we need a new design when there is already one?",
+      "From a practical point of view, the main feature of interfaces has to do with classes. Classes that implement interfaces contain within themselves the properties and methods specified in the implemented interface:",
+      "<code><pre>interface Countable {\n  count(): number;\n}\n\nclass SchoolClass implements Countable {\n  // There's some logic here\n  count(): number {\n    // It is mandatory to create this method as it is specified in the interface\n  }\n}\n\nconst sc = new SchoolClass();\n// Returns the number of students in the class\nsc.count();</pre></code>",
+      "Now in all functions where objects are used only to count the amount of something inside them, you can specify <code>Countable</code> instead of <code>SchoolClass</code>:",
+      "<code><pre>// Not a function doSomething(obj: Countable)\nfunction doSomething(obj: Countable) {\n  // Somewhere inside is called\n  obj.count();\n}</pre></code>",
+      "Why is it important? This makes the function more versatile. We can pass in any objects that match <code>Countable</code>, not just <code>SchoolClass</code>. In programming, this feature is called subtyping polymorphism ( Subtyping )."
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "What is an interface in TypeScript?t",
+    "options": [
+      "A class that can be extended by other classes",
+      "A way to define the shape of an object",
+      "A data type that represents a single value",
+      "A function that can be called with different arguments"
+    ],
+    "answer": "A way to define the shape of an object",
+    "theme": "Interfaces"
+  },
+  {
+    "id": "42",
+    "title": "Using Interfaces",
+    "description": [
+      "TypeScript interface is also used to define a type of a function. This ensures the function signature.",
+      "<code><pre>interface KeyValueProcessor\n{\n    (key: number, value: string): void;\n};\n\nfunction addKeyValue(key:number, value:string):void { \n    console.log('addKeyValue: key = ' + key + ', value = ' + value)\n}\n\nfunction updateKeyValue(key: number, value:string):void { \n    console.log('updateKeyValue: key = '+ key + ', value = ' + value)\n}\n    \nlet kvp: KeyValueProcessor = addKeyValue;\nkvp(1, 'Bill'); //Output: addKeyValue: key = 1, value = Bill \n\nkvp = updateKeyValue;\nkvp(2, 'Steve'); //Output: updateKeyValue: key = 2, value = Steve </pre></code>",
+      "Trying to assign a function with a different signature will cause an error.",
+      "<code><pre>function delete(key:number):void {\n  console.log('Key deleted.')\n}\nlet kvp: KeyValueProcessor = delete; //Compiler Error</pre></code>",
+      "An interface can also define the type of an array where you can define the type of index as well as values.",
+      "<code><pre>interface NumList {\n    [index:number]:number\n}\n\nlet numArr: NumList = [1, 2, 3];\nnumArr[0];\nnumArr[1];\n\ninterface IStringList {\n    [index:string]:string\n}\n\nlet strArr : IStringList = {};\nstrArr[\"TS\"] = \"TypeScript\";\nstrArr[\"JS\"] = \"JavaScript\";</pre></code>",
+      "Sometimes, we may declare an interface with excess properties but may not expect all objects to define all the given interface properties. We can have optional properties, marked with a \"?\". In such cases, objects of the interface may or may not define these properties.",
+      "<code><pre>interface IEmployee {\n    empCode: number;\n    empName: string;\n    empDept?:string;\n}\n\nlet empObj1:IEmployee = {   // OK\n    empCode:1,\n    empName:\"Steve\"\n}\n\nlet empObj2:IEmployee = {    // OK\n    empCode:1,\n    empName:\"Bill\",\n    empDept:\"IT\"\n}</pre></code>",
+      "TypeScript provides a way to mark a property as read only. This means that once a property is assigned a value, it cannot be changed!",
+      "<code><pre>interface Citizen {\n    name: string;\n    readonly SSN: number;\n}\n\nlet personObj: Citizen  = { SSN: 110555444, name: 'James Bond' }\n\npersonObj.name = 'Steve Smith'; // OK\npersonObj.SSN = '333666888'; // Compiler Error</pre></code>",
+      "Interfaces can extend one or more interfaces. This makes writing interfaces flexible and reusable.",
+      "<code><pre>interface IPerson {\n    name: string;\n    gender: string;\n}\n\ninterface IEmployee extends IPerson {\n    empCode: number;\n}\n\nlet empObj:IEmployee = {\n    empCode:1,\n    name:\"Bill\",\n    gender:\"Male\"\n}</pre></code>"
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "How can you use an interface in TypeScript?",
+    "options": [
+      "To define the shape of an object",
+      "To create a new instance of a class",
+      "To declare a variable's data type",
+      "To define a function's return type"
+    ],
+    "answer": "To define the shape of an object",
+    "theme": "Interfaces"
+  },
+  {
+    "id": "43",
+    "title": "Implementing Interfaces by Classes",
+    "description": [
+      "Similar to languages like Java and C#, interfaces in TypeScript can be implemented with a Class. The Class implementing the interface needs to strictly conform to the structure of the interface.",
+      "<code><pre>interface IEmployee {\n    empCode: number;\n    name: string;\n    getSalary:(empCode: number) => number;\n}\n\nclass Employee implements IEmployee { \n    empCode: number;\n    name: string;\n\n    constructor(code: number, name: string) { \n        this.empCode = code;\n        this.name = name;\n    }\n\n    getSalary(empCode:number):number { \n        return 20000;\n    }\n}\n\nlet emp = new Employee(1, \"Steve\");</pre></code>",
+      "In the above example, the <code>IEmployee</code> interface is implemented in the Employee class using the the implement keyword. The implementing class should strictly define the properties and the function with the same name and data type. If the implementing class does not follow the structure, then the compiler will show an error.",
+      "Of course, the implementing class can define extra properties and methods, but at least it must define all the members of an interface."
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "How can you implement an interface in TypeScript using a class?",
+    "options": [
+      "By using the \"implements\" keyword and providing a list of required properties and methods",
+      "By extending the interface using the \"extends\" keyword",
+      "By using the \"interface\" keyword within the class definition",
+      "By manually defining each property and method in the class definition"
+    ],
+    "answer": "By using the \"implements\" keyword and providing a list of required properties and methods",
+    "theme": "Interfaces"
+  },
+  {
+    "id": "44",
+    "title": "Introduction to Generics",
+    "description": [
+      "Static typing protects code from a large class of type misuse bugs, but everything comes with a price. In some situations, it is enough to add a description of the types, in others, it is necessary to introduce new and not always simple concepts. These concepts include generics.",
+      "Imagine a function to merge two arrays. In JavaScript, this code is written quite simply:",
+      "<code><pre>const merge = (coll1, coll2) => {\n  const result = [];\n  result.push(...coll1);\n  result.push(...coll2);\n  return result;\n};\n\nmerge([1, 2], [3, 4]); // [1, 2, 3, 4]\nmerge(['one', 'two'], ['three']); // ['one', 'two', 'three']</pre></code>",
+      "The convenience of dynamic typing here is manifested in the fact that this function automatically works for any arrays, whatever they store. In statically typed languages, this trick will not work. The type will have to be specified:",
+      "<code><pre>function merge(coll1: number[], coll2: number[]): number[] {\n  const result = [];\n  result.push(...coll1);\n  result.push(...coll2);\n  return result;\n}\n\nmerge([1, 2], [3, 4]); // [1, 2, 3, 4]</pre></code>",
+      "And if you need to merge arrays consisting of strings? Then you have to use function overloading, but internally there will be a problem with the return type, which will be different depending on the input parameters.",
+      "<code><pre>function merge(coll1: number[], coll2: number[]): number[];\nfunction merge(coll1: string[], coll2: string[]): string[];</pre></code>",
+      "<i>In languages ​​with true function overloading, the problem will be that there will be many functions that have exactly the same body. That is, in fact, duplication of logic for all possible input types.</i>",
+      "This situation is so common and not simple that a whole subsystem in the type system called generics has been created for it. Generics, when applied to functions, are functions that have the same processing logic for different data types. Sometimes such functions are called generalized functions. Below is an example of the implementation of the function <code>merge()</code> in a generalized form:",
+      "<code><pre>// or so\n// function merge<T>(coll1: T[], coll2: T[]): T[]\nfunction merge<T>(coll1: Array<T>, coll2: Array<T>): Array<T> {\n  // The body of the function has not changed!\n  const result = [];\n  result.push(...coll1);\n  result.push(...coll2);\n  return result;\n}\n\n// Works with arrays of any type\n// Arrays themselves must have the same type\nmerge([1, 2], [3, 4]); // [1, 2, 3, 4]\nmerge(['one', 'two'], ['three']); // ['one', 'two', 'three']</pre></code>",
+      "Here we see a completely new syntax that will need to get used to. Without going into details, the entry <code><T></code> after the function name indicates that we have a generic, which is parameterized by type T. T is just a designation, we could use any other capital letter, for example, X. Most often you will see exactly T, as it is common practice.",
+      "What exactly is hidden under the type, from the point of view of the generic code, it does not matter whether it is some kind of object, number, string or boolean value. In the example calls above, this is a string for the first call and a number for the second. Similarly, one could make a call with boolean values:",
+      "<code><pre>merge([true], [false, false]); // [true, false, false]</pre></code>",
+      "Further, already inside the function, we see that the logic of work is the same for all types and, most importantly, does not depend on the type. We simply shift the elements of the arrays to another array. At this point, the code looks familiar.",
+      "It remains to deal with the parameters and the return value, what do they mean? The entry <code>Array<T></code> describes a generalized array, that is, also a generic, but for a type. This parameter can be replaced by any array <code>number[]</code>, even though <code>boolean[]</code>. Accordingly, in the function code, we say that we expect two arrays of the same type as input, and the same type is the output.",
+      "The type parameter name T plays an important role here. If we used a different letter, then it would need to be changed for all parts inside:",
+      "<code><pre>function merge<X>(coll1: Array<X>, coll2: Array<X>): Array<X></pre></code>",
+      "Thus, TypeScript understands that the types of the input arrays and the resulting arrays are the same. That is, it will not work to call this function by passing an array of numbers and strings there at the same time.",
+      "<code><pre>const result = merge([1, 2], ['wow']); // Error!</pre></code>",
+      "But the types may not match. Below is an example of a generic that returns the first element of any array and null if it is empty:",
+      "<code><pre>function first<T>(coll: Array<T>): T | null {\n  return coll.length > 0 ? coll[0] : null;\n}\n\nfirst([]); // null\nfirst([3, 2]); // 3\nfirst(['ts', 'academy']); // ts</pre></code>",
+      "Generics is a big topic, which is covered in the next module. Now, our task is to get acquainted with the general concept and gradually start using it."
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "What are generics in TypeScript?",
+    "options": [
+      "A way to define a type for a specific value or variable",
+      "A way to write functions that can work with multiple types of data",
+      "A way to create classes that can be extended by other classes",
+      "A way to define properties on objects with dynamic types"
+    ],
+    "answer": "A way to write functions that can work with multiple types of data",
+    "theme": "Generics"
+  },
+  {
+    "id": "45",
+    "title": "Generics (Types)",
+    "description": [
+      "Let's talk more about Generic Types. Let's take an array as an example. An array is a container type that stores within itself values ​​of any specified type. The logic of the array does not depend on the type of data stored inside. Such a definition automatically says that we are dealing with a generic type.",
+      "To work with such a type, we need to instantiate the internal type at the moment when we want to start working with data of this type:",
+      "<code><pre>const numbers: Array<number> = [];\nnumbers.push(1);\n\nconst strings: Array<string> = [];\nnumbers.push('academy');</pre></code>",
+      "The type that is specified inside the angle brackets is called the type parameter. This name was not chosen by chance - specifying a parameter looks like a function call. Below we will see that such a look at generics helps to better understand how they work.",
+      "Let's imagine that we want to define our own collection, which works like an array, but with additional features. Such collections are often made in the ORM to work with data loaded from the database. Let's first describe a specific version of this type that works only with numbers and a couple of standard methods:",
+      "<code><pre>type MyColl = {\n  data: Array<number>;\n  forEach(callback: (value: number, index: number, array: Array<number>) => void): void;\n  at(index: number): number | undefined;\n}</pre></code>",
+      "Here we can see that the collection data is stored in a numeric array. At the same time, two methods are defined in the type, one of which (<code>forEach</code>) passes the elements of the collection to the callback, and the other (<code>at</code>) returns the elements of the collection at the specified index. One possible implementation of this type might look like this:",
+      "<code><pre>// The arrays themselves must have the same type. Types can be omitted, since they are specified in `MyColl`\nconst coll: MyColl = {\n  data: [1, 3, 8],\n  forEach(callback) {\n    this.data.forEach(callback);\n  },\n  at(index) {\n    return this.data.at(index);\n  },\n}\n\ncoll.at(-1); // 8</pre></code>",
+      "Now let's try to generalize this type, that is, to make a generic out of it. To do this, you need to do one simple thing: for the elements of the collection, <code>number</code> write instead <code>T</code> (or any other name that starts with a capital letter) and add it <code>T</code> as a type parameter to the definition:",
+      "<code><pre>type MyColl<T> = {\n  data: Array<T>;\n  forEach(callback: (value: T, index: number, array: Array<T>) => void): void;\n  at(index: number): T | undefined;\n}</pre></code>",
+      "You can look at such a type definition as a kind of function definition. When a specific type is specified, for example: <code>MyColl<string></code>, Tin this situation is replaced with <code>string</code> within the type definition. Moreover, if other generics are used inside the type, then they \"call\" the type further. That is, it all works like nested function calls.",
+      "<h2>Multiple Options</h2>",
+      "Generics, like regular functions, can have multiple type parameters. The principle of operation of generics does not change from their number. The only thing to keep an eye on is the names.",
+      "<code><pre>type Double<T, U> = {\n  first: T;\n  second: U;\n}\n\nconst value: Double<string, number> = {\n  first: 'ts-academy',\n  second: 1,\n}</pre></code>",
+      "In the following lessons, we'll take a look at TypeScript's built-in generics, which have two parameters. In real programming, such generics are often found in application code, for example, in React."
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "What is the purpose of using generics in TypeScript?",
+    "options": [
+      "To specify the type of an object's properties and methods.",
+      "To create a new instance of a class.",
+      "To allow functions and classes to work with a variety of data types.",
+      "To specify the size and shape of a multidimensional array."
+    ],
+    "answer": "To allow functions and classes to work with a variety of data types.",
+    "theme": "Generics"
+  },
+  {
+    "id": "46",
+    "title": "Generics (Functions)",
+    "description": [
+      "Why are generics needed at all? To properly answer this question, one must imagine that generics have disappeared from the language. Where it leads? The correct answer is code duplication. You will have to describe the same algorithm for different data types many times. Take for example a function <code>last()</code> that returns the last element of an array. Below is a summarized version of it:",
+      "<code><pre>function last<T>(coll: T[]): T {\n  return coll.at(-1);\n}</pre></code>",
+      "And now let's try to implement the same behavior on ordinary functions. To do this, we will have to create one function for each type. Moreover, the function name must be unique.",
+      "<code><pre>function lastForNumberType(coll: number[]): number {\n  return coll.at(-1);\n}\n\nfunction lastForStringType(coll: string[]): string {\n  return coll.at(-1);\n}\n\n// Here are definitions for all other types</pre></code>",
+      "If there are several types, then the number of functions to be defined will be determined as the product of the number of all possible types and the number of type parameters.",
+      "Implementing a generic with an overloaded function simplifies the task. Then you don't have to create new names:",
+      "<code><pre>function last(coll: number[]): number;\nfunction last(coll: string[]): string;\n// Here are definitions for all other types\n\nfunction last(coll: any[]): any {\n  return coll.at(-1);\n}</pre></code>",
+      "<i>In the case of TypeScript, the logic will not even be duplicated, but this is a feature of TypeScript, in other statically typed languages, the logic will also have to be duplicated</i>",
+      "Whichever implementation option we choose, two things are observed:",
+      "- Values ​​passed inside are not used in any way. They are only transferred from one place to another.",
+      "- The logic of work always remains the same. There are no conditional constructs by data type.",
+      "In Computer Science, the property of a function that allows values ​​of different types to be treated in the same way (using the same algorithm) is called parametric polymorphism. That is, generics are an implementation of parametric polymorphism in TypeScript.",
+      "Parametric polymorphism plays an important role in statically typed languages, where you have to explicitly specify the types of functions. One way or another, it is in almost all high-level statically typed languages. In Java and C#, this is also called generics. C++ uses the name templates, but that doesn't change the meaning (although C++ templates are more than parametric polymorphism).",
+      "Unlike statically typed languages, dynamically typed languages ​​such as JavaScript, Python, Ruby, PHP do not need generics. In such languages, any generalized algorithm automatically works for all data types."
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "What is the purpose of using generics in functions in TypeScript?",
+    "options": [
+      "To specify the return type of the function",
+      "To ensure that the function can only be called with a specific number of arguments",
+      "To allow the function to work with a variety of data types",
+      "To prevent the function from being overwritten by other functions"
+    ],
+    "answer": "To allow the function to work with a variety of data types",
+    "theme": "Generics"
+  },
+  {
+    "id": "47",
+    "title": "Generic Classes",
+    "description": [
+      "TypeScript supports generic classes. The generic type parameter is specified in angle brackets after the name of the class. A generic class can have generic fields (member variables) or methods.",
+      "<code><pre>class KeyValuePair<T,U>\n{ \n    private key: T;\n    private val: U;\n\n    setKeyValue(key: T, val: U): void { \n        this.key = key;\n        this.val = val;\n    }\n\n    display():void { \n        console.log(`Key = ${this.key}, val = ${this.val}`);\n    }\n}\n\nlet kvp1 = new KeyValuePair<number, string>();\nkvp1.setKeyValue(1, \"Steve\");\nkvp1.display(); //Output: Key = 1, Val = Steve \n\nlet kvp2 = new KayValuePair<string, string>();\nkvp2.SetKeyValue(\"CEO\", \"Bill\"); \nkvp2.display(); //Output: Key = CEO, Val = Bill</pre></code>",
+      "In the above example, we created a generic class named KeyValuePair with a type variable in the angle brackets <code><T, U></code>. The KeyValuePair class includes two private generic member variables and a generic function setKeyValue that takes two input arguments of type T and U. This allows us to create an object of <code>KeyValuePair</code> with any type of key and value.",
+      "The generic class can also implement a generic interface. Consider the following example.",
+      "<code><pre>interface IKeyValueProcessor<T, U>\n{\n    process(key: T, val: U): void;\n};\n\nclass kvProcessor<T, U> implements IKeyValueProcessor<T, U>\n{ \n    process(key:T, val:U):void { \n        console.log(`Key = ${key}, val = ${val}`);\n    }\n}\n\nlet proc: IKeyValueProcessor<number, string> = new kvProcessor();\nproc.process(1, 'Bill'); //Output: key = 1, value = Bill </pre></code>",
+      "In the above example, the generic class <code>kvProcessor</code> implements the generic interface <code>IKeyValueProcessor</code>. It does not specify the type parameters T and U, instead it allows users to set them themselves. Thus, <code>kvProcessor</code> class can be used with any type of key and value. A variable is defined as generic interface type with underlying types for T and U. So, you don't need to set the generic types for <code>kvProcessor</code>."
+    ],
+    "examples": [
+      "examples"
+    ],
+        "question": "What are generic classes in TypeScript?",
+    "options": [
+      "Classes that can accept any type of parameter",
+      "Classes that can only accept number type parameter",
+      "Classes that can accept any type of parameter, but restrict the methods and properties to a specific set of types",
+      "Classes that can only accept string type parameter"
+    ],
+    "answer": "Classes that can accept any type of parameter",
+    "theme": "Generics"
   }
 ]

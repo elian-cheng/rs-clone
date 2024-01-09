@@ -9,6 +9,7 @@ const ALLOWED_PATHS = [
   "/practice",
   "/lessons",
   "/quiz",
+  "/missing-type",
   "/games",
   "/games/quiz",
   "/games/missing-type"
@@ -16,9 +17,15 @@ const ALLOWED_PATHS = [
 const USERS_PATH = "/users";
 const LESSONS_PATH = /^\/lessons.*$/;
 const QUIZ_PATH = /^\/quiz.*$/;
+const MISSING_TYPE_PATH = /^\/missing-type.*$/;
 
 function isOpenPath(path) {
-  return ALLOWED_PATHS.includes(path) || LESSONS_PATH.test(path) || QUIZ_PATH.test(path);
+  return (
+    ALLOWED_PATHS.includes(path) ||
+    LESSONS_PATH.test(path) ||
+    QUIZ_PATH.test(path) ||
+    MISSING_TYPE_PATH.test(path)
+  );
 }
 
 const checkAuthentication = (req, res, next) => {
